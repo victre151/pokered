@@ -10,15 +10,15 @@
 	INCBIN "gfx/pokemon/front/mankey.pic", 0, 1 ; sprite dimensions
 	dw MankeyPicFront, MankeyPicBack
 
-	db SCRATCH, LEER, NO_MOVE, NO_MOVE ; level 1 learnset
+	db FOCUS_ENERGY, LEER, LOW_KICK, SCRATCH ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
 	tmhm MEGA_PUNCH,   MEGA_KICK,    TOXIC,        BODY_SLAM,    TAKE_DOWN,    \
 	     DOUBLE_EDGE,  PAY_DAY,      SUBMISSION,   COUNTER,      SEISMIC_TOSS, \
 	     RAGE,         THUNDERBOLT,  THUNDER,      DIG,          MIMIC,        \
-	     DOUBLE_TEAM,  BIDE,         METRONOME,    SWIFT,        SKULL_BASH,   \
-	     REST,         ROCK_SLIDE,   SUBSTITUTE,   STRENGTH
+	     DOUBLE_TEAM,  BIDE,         STRENGTH,     SWIFT,        SKULL_BASH,   \
+	     REST,         ROCK_SLIDE,   SUBSTITUTE
 	; end
 
 	db 0 ; padding

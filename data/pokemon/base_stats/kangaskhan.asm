@@ -3,14 +3,14 @@
 	db 105,  95,  80,  90,  40
 	;   hp  atk  def  spd  spc
 
-	db NORMAL, NORMAL ; type
+	db FIGHTING, GROUND ; type
 	db 45 ; catch rate
 	db 175 ; base exp
 
 	INCBIN "gfx/pokemon/front/kangaskhan.pic", 0, 1 ; sprite dimensions
 	dw KangaskhanPicFront, KangaskhanPicBack
 
-	db COMET_PUNCH, RAGE, NO_MOVE, NO_MOVE ; level 1 learnset
+	db COMET_PUNCH, LEER, NO_MOVE, NO_MOVE ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

@@ -5,8 +5,8 @@ IF DEF(_RED)
 	db  3, NIDORAN_M
 	db  4, RATTATA
 	db  4, NIDORAN_M
-	db  2, RATTATA
-	db  2, NIDORAN_M
+	db  7, RATTATA
+	db  7, NIDORAN_M
 	db  3, SPEAROW
 	db  5, SPEAROW
 	db  3, NIDORAN_F
@@ -16,8 +16,8 @@ IF DEF(_BLUE)
 	db  3, NIDORAN_F
 	db  4, RATTATA
 	db  4, NIDORAN_F
-	db  2, RATTATA
-	db  2, NIDORAN_F
+	db  7, RATTATA
+	db  7, NIDORAN_F
 	db  3, SPEAROW
 	db  5, SPEAROW
 	db  3, NIDORAN_M
