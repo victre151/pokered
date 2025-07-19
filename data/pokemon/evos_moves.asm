@@ -348,7 +348,7 @@ SlowbroEvosMoves:
 	db 14, CONFUSION
 	db 17, DOUBLE_TEAM
 	db 19, DISABLE
-	db 20, BUBBLE_BEAM
+	db 20, BUBBLEBEAM
 	db 23, HEADBUTT
 	db 28, TAKE_DOWN
 	db 34, BODY_SLAM
@@ -528,7 +528,7 @@ CuboneEvosMoves:
 ; Learnset
 	db 3, TAIL_WHIP
 	db 5, LICK
-	db 7, BONE_ClUB
+	db 7, BONE_CLUB
 	db 9, DOUBLE_KICK
 	db 11, HEADBUTT
 	db 13, LEER
@@ -580,7 +580,7 @@ LaprasEvosMoves:
 	db 12, HEADBUTT
 	db 18, DRAGON_RAGE
 	db 20, BODY_SLAM
-	db 22, BUBBLE_BEAM
+	db 22, BUBBLEBEAM
 	db 30, AURORA_BEAM
 	db 32, ICE_BEAM
 	db 37, TAKE_DOWN
@@ -637,7 +637,7 @@ GyaradosEvosMoves:
 	db 9, WATER_GUN
 	db 11, BITE
 	db 13, HEADBUTT
-	db 20, BUBBLE_BEAM
+	db 20, BUBBLEBEAM
 	db 29, TAKE_DOWN
 	db 31, BODY_SLAM
 	db 36, DRAGON_RAGE
@@ -662,7 +662,7 @@ ShellderEvosMoves:
 	db 21, TAKE_DOWN
 	db 23, REST
 	db 25, CLAMP
-	db 27, BUBBLE_BEAM
+	db 27, BUBBLEBEAM
 	db 31, BODY_SLAM
 	db 35, SCREECH
 	db 37, AURORA_BEAM
@@ -687,7 +687,7 @@ TentacoolEvosMoves:
 	db 19, WRAP
 	db 21, MEGA_DRAIN
 	db 23, TAKE_DOWN
-	db 25, BUBBLE_BEAM
+	db 25, BUBBLEBEAM
 	db 28, BARRIER
 	db 31, BODY_SLAM
 	db 33, LEECH_LIFE
@@ -750,7 +750,7 @@ StaryuEvosMoves:
 	db 6, BUBBLE
 	db 10, RECOVER
 	db 16, SWIFT
-	db 18, BUBBLE_BEAM
+	db 18, BUBBLEBEAM
 	db 23, TAKE_DOWN
 	db 31, MINIMIZE
 	db 33, AURORA_BEAM
@@ -767,7 +767,7 @@ BlastoiseEvosMoves:
 ; Learnset
 	db 12, HEADBUTT
 	db 14, BUBBLE
-	db 16, BUBBLE_BEAM
+	db 16, BUBBLEBEAM
 	db 18, BITE
 	db 28, TAKE_DOWN
 	db 30, BODY_SLAM
@@ -928,7 +928,7 @@ SlowpokeEvosMoves:
 	db 14, CONFUSION
 	db 17, DOUBLE_TEAM
 	db 19, DISABLE
-	db 20, BUBBLE_BEAM
+	db 20, BUBBLEBEAM
 	db 23, HEADBUTT
 	db 28, TAKE_DOWN
 	db 34, BODY_SLAM
@@ -981,7 +981,7 @@ ChanseyEvosMoves:
 ; Learnset
 	db 5, TAIL_WHIP
 	db 12, DOUBLESLAP
-	db 16, SOFT_BOILED
+	db 16, SOFTBOILED
 	db 23, MINIMIZE
 	db 27, TAKE_DOWN
 	db 31, SING
@@ -1117,7 +1117,7 @@ PsyduckEvosMoves:
 	db 14, FURY_SWIPES
 	db 16, SWIFT
 	db 18, DISABLE
-	db 20, BUBBLE_BEAM
+	db 20, BUBBLEBEAM
 	db 22, SCREECH
 	db 24, PSYBEAM
 	db 26, TAKE_DOWN
@@ -1309,7 +1309,7 @@ SeelEvosMoves:
 	db 5, BUBBLE
 	db 7, WATER_GUN
 	db 9, LICK
-	db 19, BUBBLE_BEAM
+	db 19, BUBBLEBEAM
 	db 21, REST
 	db 27, AURORA_BEAM
 	db 29, BODY_SLAM
@@ -1432,7 +1432,7 @@ DragoniteEvosMoves:
 	db 15, DRAGON_RAGE
 	db 17, RAGE
 	db 21, SLAM
-	db 23, BUBBLE_BEAM
+	db 23, BUBBLEBEAM
 	db 25, TAKE_DOWN
 	db 27, AGILITY
 	db 30, BODY_SLAM
@@ -1497,7 +1497,7 @@ PoliwagEvosMoves:
 	db 15, DOUBLESLAP
 	db 21, BODY_SLAM
 	db 23, TAKE_DOWN
-	db 25, BUBBLE_BEAM
+	db 25, BUBBLEBEAM
 	db 29, AMNESIA
 	db 32, DOUBLE_EDGE
 	db 38, HYDRO_PUMP
@@ -1629,7 +1629,7 @@ KrabbyEvosMoves:
 	db 9, LEER
 	db 11, HARDEN
 	db 13, RAGE
-	db 15, BUBBLE_BEAM
+	db 15, BUBBLEBEAM
 	db 19, AGILITY
 	db 21, DOUBLE_TEAM
 	db 23, TAKE_DOWN
@@ -1641,7 +1641,6 @@ KrabbyEvosMoves:
 	db 35, SLAM
 	db 37, ROCK_SLIDE
 	db 41, CRABHAMMER
-	db 45, FLAIL
 	db 47, HYDRO_PUMP
 	db 0
 
@@ -1782,7 +1781,7 @@ DratiniEvosMoves:
 	db 15, DRAGON_RAGE
 	db 17, RAGE
 	db 21, SLAM
-	db 23, BUBBLE_BEAM
+	db 23, BUBBLEBEAM
 	db 25, TAKE_DOWN
 	db 27, AGILITY
 	db 30, BODY_SLAM
@@ -1805,7 +1804,7 @@ DragonairEvosMoves:
 	db 15, DRAGON_RAGE
 	db 17, RAGE
 	db 21, SLAM
-	db 23, BUBBLE_BEAM
+	db 23, BUBBLEBEAM
 	db 25, TAKE_DOWN
 	db 27, AGILITY
 	db 30, BODY_SLAM
@@ -1828,7 +1827,7 @@ KabutoEvosMoves:
 	db 13, LEER
 	db 15, RAGE
 	db 21, SAND_ATTACK
-	db 23, BUBBLE_BEAM
+	db 23, BUBBLEBEAM
 	db 25, TAKE_DOWN
 	db 30, BODY_SLAM
 	db 32, LEECH_LIFE
@@ -1851,7 +1850,7 @@ KabutopsEvosMoves:
 	db 13, LEER
 	db 15, RAGE
 	db 21, SAND_ATTACK
-	db 23, BUBBLE_BEAM
+	db 23, BUBBLEBEAM
 	db 25, TAKE_DOWN
 	db 30, BODY_SLAM
 	db 32, LEECH_LIFE
@@ -1874,7 +1873,7 @@ HorseaEvosMoves:
 	db 13, WATER_GUN
 	db 17, DRAGON_RAGE
 	db 19, DOUBLE_TEAM
-	db 21, BUBBLE_BEAM
+	db 21, BUBBLEBEAM
 	db 26, FOCUS_ENERGY
 	db 36, AGILITY
 	db 42, DOUBLE_EDGE
@@ -1888,7 +1887,7 @@ SeadraEvosMoves:
 ; Learnset
 	db 17, DRAGON_RAGE
 	db 19, DOUBLE_TEAM
-	db 21, BUBBLE_BEAM
+	db 21, BUBBLEBEAM
 	db 26, FOCUS_ENERGY
 	db 36, AGILITY
 	db 42, DOUBLE_EDGE
@@ -1963,7 +1962,7 @@ OmanyteEvosMoves:
 	db 15, SPIKE_CANNON
 	db 17, RAGE
 	db 19, LEER
-	db 21, BUBBLE_BEAM
+	db 21, BUBBLEBEAM
 	db 25, TAKE_DOWN
 	db 30, BODY_SLAM
 	db 34, ROCK_SLIDE
@@ -1985,7 +1984,7 @@ OmastarEvosMoves:
 	db 15, SPIKE_CANNON
 	db 17, RAGE
 	db 19, LEER
-	db 21, BUBBLE_BEAM
+	db 21, BUBBLEBEAM
 	db 25, TAKE_DOWN
 	db 30, BODY_SLAM
 	db 34, ROCK_SLIDE
@@ -2107,7 +2106,7 @@ VaporeonEvosMoves:
 	db 13, QUICK_ATTACK
 	db 17, BITE
 	db 17, SWIFT
-	db 21, BUBBLE_BEAM
+	db 21, BUBBLEBEAM
 	db 23, ACID
 	db 25, AURORA_BEAM
 	db 27, SLUDGE
@@ -2376,7 +2375,7 @@ DewgongEvosMoves:
 	db 5, BUBBLE
 	db 7, WATER_GUN
 	db 9, LICK
-	db 19, BUBBLE_BEAM
+	db 19, BUBBLEBEAM
 	db 21, REST
 	db 27, AURORA_BEAM
 	db 29, BODY_SLAM
@@ -2476,7 +2475,7 @@ GolduckEvosMoves:
 	db 14, FURY_SWIPES
 	db 16, SWIFT
 	db 18, DISABLE
-	db 20, BUBBLE_BEAM
+	db 20, BUBBLEBEAM
 	db 22, SCREECH
 	db 24, PSYBEAM
 	db 26, TAKE_DOWN
@@ -2588,7 +2587,7 @@ MagikarpEvosMoves:
 	db 11, BITE
 	db 13, HEADBUTT
 	db 18, DRAGON_RAGE
-	db 20, BUBBLE_BEAM
+	db 20, BUBBLEBEAM
 	db 29, TAKE_DOWN
 	db 31, BODY_SLAM
 	db 38, SCREECH
@@ -2644,7 +2643,7 @@ KinglerEvosMoves:
 	db 9, LEER
 	db 11, HARDEN
 	db 13, RAGE
-	db 15, BUBBLE_BEAM
+	db 15, BUBBLEBEAM
 	db 19, AGILITY
 	db 21, DOUBLE_TEAM
 	db 23, TAKE_DOWN
@@ -2656,7 +2655,6 @@ KinglerEvosMoves:
 	db 35, SLAM
 	db 37, ROCK_SLIDE
 	db 41, CRABHAMMER
-	db 45, FLAIL
 	db 47, HYDRO_PUMP
 	db 0
 CloysterEvosMoves:
@@ -2668,7 +2666,7 @@ CloysterEvosMoves:
 	db 21, TAKE_DOWN
 	db 23, REST
 	db 25, CLAMP
-	db 27, BUBBLE_BEAM
+	db 27, BUBBLEBEAM
 	db 31, BODY_SLAM
 	db 35, SCREECH
 	db 37, AURORA_BEAM
@@ -2880,7 +2878,7 @@ StarmieEvosMoves:
 	db 6, BUBBLE
 	db 10, RECOVER
 	db 16, SWIFT
-	db 18, BUBBLE_BEAM
+	db 18, BUBBLEBEAM
 	db 23, TAKE_DOWN
 	db 31, MINIMIZE
 	db 33, AURORA_BEAM
@@ -2940,7 +2938,7 @@ TentacruelEvosMoves:
 	db 19, WRAP
 	db 21, MEGA_DRAIN
 	db 23, TAKE_DOWN
-	db 25, BUBBLE_BEAM
+	db 25, BUBBLEBEAM
 	db 28, BARRIER
 	db 31, BODY_SLAM
 	db 33, LEECH_LIFE
@@ -2964,8 +2962,7 @@ GoldeenEvosMoves:
 	db 5, SUPERSONIC
 	db 7, BUBBLE
 	db 8, HORN_ATTACK
-	db 13, FLAIL
-	db 20, BUBBLE_BEAM
+	db 20, BUBBLEBEAM
 	db 22, TAKE_DOWN
 	db 24, FURY_ATTACK
 	db 29, AGILITY
@@ -2983,8 +2980,7 @@ SeakingEvosMoves:
 	db 5, SUPERSONIC
 	db 7, BUBBLE
 	db 9, HORN_ATTACK
-	db 13, FLAIL
-	db 20, BUBBLE_BEAM
+	db 20, BUBBLEBEAM
 	db 22, TAKE_DOWN
 	db 24, FURY_ATTACK
 	db 29, AGILITY
@@ -3278,7 +3274,7 @@ SquirtleEvosMoves:
 	db 12, HEADBUTT
 	db 14, BUBBLE
 	db 16, BITE
-	db 20, BUBBLE_BEAM
+	db 20, BUBBLEBEAM
 	db 27, TAKE_DOWN
 	db 30, BODY_SLAM
 	db 31, SKULL_BASH
@@ -3315,7 +3311,7 @@ WartortleEvosMoves:
 	db 12, HEADBUTT
 	db 14, BUBBLE
 	db 18, BITE
-	db 22, BUBBLE_BEAM
+	db 22, BUBBLEBEAM
 	db 27, TAKE_DOWN
 	db 30, BODY_SLAM
 	db 37, SKULL_BASH
