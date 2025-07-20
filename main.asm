@@ -191,6 +191,7 @@ INCLUDE "engine/battle/trainer_ai.asm"
 INCLUDE "engine/battle/draw_hud_pokeball_gfx.asm"
 INCLUDE "gfx/trade.asm"
 INCLUDE "data/pokemon/base_stats.asm"
+INCLUDE "data/pokemon/copy_base_stats.asm"
 
 SECTION "Evo Moves", ROMX
 

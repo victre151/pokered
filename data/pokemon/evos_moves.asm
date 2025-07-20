@@ -3314,10 +3314,13 @@ WartortleEvosMoves:
 	db 22, BUBBLEBEAM
 	db 27, TAKE_DOWN
 	db 30, BODY_SLAM
+	db 33, AURORA_BEAM
 	db 37, SKULL_BASH
-	db 37, DOUBLE_EDGE
+	db 39, DOUBLE_EDGE
+	db 43, ICE_BEAM
 	db 47, EARTHQUAKE
 	db 49, HYDRO_PUMP
+	db 60, BLIZZARD
 	db 0
 
 CharizardEvosMoves:
