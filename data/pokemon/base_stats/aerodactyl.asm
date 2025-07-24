@@ -1,6 +1,6 @@
 	db DEX_AERODACTYL ; pokedex id
 
-	db  80, 105,  65, 130,  60
+	db  80, 105,  65, 130,  75
 	;   hp  atk  def  spd  spc
 
 	db ROCK, DRAGON ; type
@@ -14,10 +14,10 @@
 	db GROWTH_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm RAZOR_WIND,   WHIRLWIND,    TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  \
+	tmhm RAZOR_WIND,   FLY,          TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  \
 	     HYPER_BEAM,   RAGE,         DRAGON_RAGE,  MIMIC,        DOUBLE_TEAM,  \
 	     REFLECT,      BIDE,         FIRE_BLAST,   SWIFT,        SKY_ATTACK,   \
-	     REST,         SUBSTITUTE,   FLY
+	     REST,         SUBSTITUTE
 	; end
 
 	db 0 ; padding

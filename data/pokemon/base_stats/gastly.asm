@@ -15,8 +15,8 @@
 
 	; tm/hm learnset
 	tmhm TOXIC,        RAGE,         MEGA_DRAIN,   THUNDERBOLT,  THUNDER,      \
-	     PSYCHIC_M,    MIMIC,        DOUBLE_TEAM,  BIDE,         SELFDESTRUCT, \
-	     DREAM_EATER,  REST,         EXPLOSION,    SUBSTITUTE
+	     PSYCHIC_M,    MIMIC,        DOUBLE_TEAM,  BIDE,         SUBSTITUTE,   \
+	     DREAM_EATER,  REST    
 	; end
 
 	db 0 ; padding

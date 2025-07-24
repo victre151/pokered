@@ -10,15 +10,15 @@
 	INCBIN "gfx/pokemon/front/alakazam.pic", 0, 1 ; sprite dimensions
 	dw AlakazamPicFront, AlakazamPicBack
 
-	db CONFUSION, KINESIS, TELEPORT, NO_MOVE ; level 1 learnset
+	db CONFUSION, KINESIS, NO_MOVE, NO_MOVE ; level 1 learnset
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset
 	tmhm MEGA_PUNCH,   MEGA_KICK,    TOXIC,        BODY_SLAM,    TAKE_DOWN,    \
 	     DOUBLE_EDGE,  HYPER_BEAM,   SUBMISSION,   COUNTER,      SEISMIC_TOSS, \
-	     RAGE,         DIG,          PSYCHIC_M,    TELEPORT,     MIMIC,        \
+	     RAGE,         DIG,          PSYCHIC_M,    SUBSTITUTE,   MIMIC,        \
 	     DOUBLE_TEAM,  REFLECT,      BIDE,         FLASH,        SKULL_BASH,   \
-	     REST,         THUNDER_WAVE, TRI_ATTACK,   SUBSTITUTE
+	     REST,         THUNDER_WAVE, TRI_ATTACK
 	; end
 
 	db 0 ; padding

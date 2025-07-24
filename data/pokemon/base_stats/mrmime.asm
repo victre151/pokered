@@ -1,6 +1,6 @@
 	db DEX_MR_MIME ; pokedex id
 
-	db  40,  45,  65,  90, 100
+	db  40,  45,  65,  90, 120
 	;   hp  atk  def  spd  spc
 
 	db PSYCHIC_TYPE, PSYCHIC_TYPE ; type
@@ -17,8 +17,8 @@
 	tmhm MEGA_PUNCH,   MEGA_KICK,    TOXIC,        BODY_SLAM,    TAKE_DOWN,    \
 	     DOUBLE_EDGE,  HYPER_BEAM,   SUBMISSION,   COUNTER,      SEISMIC_TOSS, \
 	     RAGE,         SOLARBEAM,    THUNDERBOLT,  THUNDER,      PSYCHIC_M,    \
-	     TELEPORT,     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
-	     FLASH,        SKULL_BASH,   REST,         THUNDER_WAVE, SUBSTITUTE
+	     SUBSTITUTE,   MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
+	     FLASH,        SKULL_BASH,   REST,         THUNDER_WAVE
 	; end
 
 	db 0 ; padding

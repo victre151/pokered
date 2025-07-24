@@ -18,9 +18,9 @@
 	     DOUBLE_EDGE,  BUBBLEBEAM,   WATER_GUN,    ICE_BEAM,     BLIZZARD,     \
 	     HYPER_BEAM,   PAY_DAY,      SUBMISSION,   COUNTER,      SEISMIC_TOSS, \
 	     RAGE,         SOLARBEAM,    THUNDERBOLT,  THUNDER,      PSYCHIC_M,    \
-	     TELEPORT,     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
-	     FLASH,        SELFDESTRUCT, FIRE_BLAST,   SKULL_BASH,   REST,         \
-	     THUNDER_WAVE, TRI_ATTACK,   SUBSTITUTE,   STRENGTH
+	     SUBSTITUTE,   MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
+	     FLASH,        STRENGTH,     FIRE_BLAST,   SKULL_BASH,   REST,         \
+	     THUNDER_WAVE, TRI_ATTACK     
 	; end
 
 	db 0 ; padding

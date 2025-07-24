@@ -10,15 +10,15 @@
 	INCBIN "gfx/pokemon/front/abra.pic", 0, 1 ; sprite dimensions
 	dw AbraPicFront, AbraPicBack
 
-	db TELEPORT, NO_MOVE, NO_MOVE, NO_MOVE ; level 1 learnset
+	db TACKLE, NO_MOVE, NO_MOVE, NO_MOVE ; level 1 learnset
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset
 	tmhm MEGA_PUNCH,   MEGA_KICK,    TOXIC,        BODY_SLAM,    TAKE_DOWN,    \
 	     DOUBLE_EDGE,  SUBMISSION,   COUNTER,      SEISMIC_TOSS, RAGE,         \
-	     PSYCHIC_M,    TELEPORT,     MIMIC,        DOUBLE_TEAM,  REFLECT,      \
+	     PSYCHIC_M,    SUBSTITUTE,   MIMIC,        DOUBLE_TEAM,  REFLECT,      \
 	     BIDE,         FLASH,        SKULL_BASH,   REST,         THUNDER_WAVE, \
-	     TRI_ATTACK,   SUBSTITUTE
+	     TRI_ATTACK
 	; end
 
 	db 0 ; padding

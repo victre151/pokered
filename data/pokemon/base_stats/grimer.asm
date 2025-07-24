@@ -1,6 +1,6 @@
 	db DEX_GRIMER ; pokedex id
 
-	db  80,  80,  50,  25,  40
+	db  80,  80,  50,  25,  50
 	;   hp  atk  def  spd  spc
 
 	db POISON, POISON ; type
@@ -15,8 +15,8 @@
 
 	; tm/hm learnset
 	tmhm TOXIC,        BODY_SLAM,    RAGE,         MEGA_DRAIN,   THUNDERBOLT,  \
-	     THUNDER,      MIMIC,        DOUBLE_TEAM,  BIDE,         SELFDESTRUCT, \
-	     FIRE_BLAST,   REST,         EXPLOSION,    SUBSTITUTE
+	     THUNDER,      MIMIC,        DOUBLE_TEAM,  BIDE,         SUBSTITUTE,   \
+	     FIRE_BLAST,   REST    
 	; end
 
 	db 0 ; padding

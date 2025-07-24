@@ -1,6 +1,6 @@
 	db DEX_PORYGON ; pokedex id
 
-	db  65,  60,  70,  40,  75
+	db  75,  70,  70,  40,  95
 	;   hp  atk  def  spd  spc
 
 	db ELECTRIC, PSYCHIC_TYPE ; type
@@ -16,9 +16,9 @@
 	; tm/hm learnset
 	tmhm TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  ICE_BEAM,     BLIZZARD,     \
 	     HYPER_BEAM,   RAGE,         THUNDERBOLT,  THUNDER,      PSYCHIC_M,    \
-	     TELEPORT,     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
+	     FLASH,        MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
 	     SWIFT,        SKULL_BASH,   REST,         THUNDER_WAVE, TRI_ATTACK,   \
-	     SUBSTITUTE,   FLASH
+	     SUBSTITUTE
 	; end
 
 	db 0 ; padding

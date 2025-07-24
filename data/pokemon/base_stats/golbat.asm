@@ -1,6 +1,6 @@
 	db DEX_GOLBAT ; pokedex id
 
-	db  75,  80,  70,  90,  75
+	db  75,  80,  70,  100,  75
 	;   hp  atk  def  spd  spc
 
 	db POISON, FLYING ; type
@@ -14,9 +14,9 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm RAZOR_WIND,   WHIRLWIND,    TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  \
+	tmhm RAZOR_WIND,   SUBSTITUTE,   TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  \
 	     HYPER_BEAM,   RAGE,         MEGA_DRAIN,   MIMIC,        DOUBLE_TEAM,  \
-	     BIDE,         SWIFT,        REST,         SUBSTITUTE
+	     BIDE,         SWIFT,        REST
 	; end
 
 	db 0 ; padding

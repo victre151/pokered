@@ -1,6 +1,6 @@
 	db DEX_SNORLAX ; pokedex id
 
-	db 160, 110,  65,  30,  65
+	db 160, 110,  65,  30,  110
 	;   hp  atk  def  spd  spc
 
 	db NORMAL, NORMAL ; type
@@ -19,8 +19,8 @@
 	     HYPER_BEAM,   PAY_DAY,      SUBMISSION,   COUNTER,      SEISMIC_TOSS, \
 	     RAGE,         SOLARBEAM,    THUNDERBOLT,  THUNDER,      EARTHQUAKE,   \
 	     FISSURE,      PSYCHIC_M,    MIMIC,        DOUBLE_TEAM,  REFLECT,      \
-	     BIDE,         REST,         SELFDESTRUCT, FIRE_BLAST,   SKULL_BASH,   \
-	     STRENGTH,     ROCK_SLIDE,   SUBSTITUTE,   SURF
+	     BIDE,         REST,         SURF,         FIRE_BLAST,   SKULL_BASH,   \
+	     STRENGTH,     ROCK_SLIDE,   SUBSTITUTE,   
 	; end
 
 	db 0 ; padding

@@ -15,9 +15,9 @@
 
 	; tm/hm learnset
 	tmhm TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  HYPER_BEAM,   RAGE,         \
-	     MEGA_DRAIN,   SOLARBEAM,    PSYCHIC_M,    TELEPORT,     MIMIC,        \
-	     DOUBLE_TEAM,  REFLECT,      BIDE,         SELFDESTRUCT, EGG_BOMB,     \
-	     REST,         EXPLOSION,    SUBSTITUTE,   STRENGTH
+	     MEGA_DRAIN,   SOLARBEAM,    PSYCHIC_M,    REST,         MIMIC,        \
+	     DOUBLE_TEAM,  REFLECT,      BIDE,         STRENGTH,     EGG_BOMB,     \
+	     SUBSTITUTE       
 	; end
 
 	db 0 ; padding

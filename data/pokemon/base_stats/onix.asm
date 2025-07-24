@@ -1,6 +1,6 @@
 	db DEX_ONIX ; pokedex id
 
-	db  35,  45, 160,  70,  30
+	db  75,  80, 160,  70,  85
 	;   hp  atk  def  spd  spc
 
 	db ROCK, DRAGON ; type
@@ -16,8 +16,8 @@
 	; tm/hm learnset
 	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  RAGE,         \
 	     EARTHQUAKE,   FISSURE,      DIG,          MIMIC,        DOUBLE_TEAM,  \
-	     BIDE,         SELFDESTRUCT, SKULL_BASH,   REST,         EXPLOSION,    \
-	     ROCK_SLIDE,   SUBSTITUTE,   STRENGTH
+	     BIDE,         SKULL_BASH,   REST,         ROCK_SLIDE,   SUBSTITUTE,   \
+	     STRENGTH
 	; end
 
 	db 0 ; padding
