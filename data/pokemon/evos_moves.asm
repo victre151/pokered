@@ -1705,7 +1705,8 @@ PikachuEvosMoves:
 	db 0
 ; Learnset
 	db 5, GROWL
-	db 8, DOUBLE_KICK
+	db 7, KARATE_CHOP
+	db 9, DOUBLE_KICK
 	db 10, QUICK_ATTACK
 	db 13, SEISMIC_TOSS
 	db 16, SWIFT
@@ -1729,7 +1730,8 @@ RaichuEvosMoves:
 	db 0
 ; Learnset
 	db 5, GROWL
-	db 8, DOUBLE_KICK
+	db 7, KARATE_CHOP
+	db 9, DOUBLE_KICK
 	db 10, QUICK_ATTACK
 	db 13, SEISMIC_TOSS
 	db 16, SWIFT

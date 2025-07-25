@@ -12,7 +12,7 @@ CeladonMansionRoofHouseHikerText:
 
 CeladonMansionRoofHouseEeveePokeballText:
 	text_asm
-	lb bc, EEVEE, 25
+	lb bc, PORYGON, 25
 	call GivePokemon
 	jr nc, .party_full
 	ld a, HS_CELADON_MANSION_EEVEE_GIFT

@@ -274,7 +274,7 @@ TitleScreenPickNewMon:
 .loop
 ; Keep looping until a mon different from the current one is picked.
 	call Random
-	and $f
+	and $3
 	ld c, a
 	ld b, 0
 	ld hl, TitleMons
@@ -402,7 +402,7 @@ IF DEF (_RED)
 	jp PlaceString
 ENDC
 IF DEF (_BLUE)
-	hlcoord -3, 8
+	hlcoord -1, 8
 	ld de, VersionOnTitleScreenText
 	jp PlaceString
 ENDC
@@ -413,7 +413,7 @@ IF DEF(_RED)
 	db $60,$61,$62,$63,$64,$7F,$65,$66,$67,$68,$69,"@" ; "Rainbow Version"
 ENDC
 IF DEF(_BLUE)
-	db $60,$61,$62,$63,$64,$65,$66,$67,$68,$69,$6A,"@" ; "Monochrome Version"
+	db $60,$61,$62,$63,$64,$65,$66,$67,$68,$69,$6A,$6B,$6C,$6D,$6E,$6F,$70,$71,"@" ; "Monochrome Version"
 ENDC
 
 DebugNewGamePlayerName:
