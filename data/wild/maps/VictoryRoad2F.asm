@@ -1,15 +1,15 @@
 VictoryRoad2FWildMons:
 	def_grass_wildmons 10 ; encounter rate
-	db 45, MACHAMP
-	db 48, GOLEM
-	db 46, GOLBAT
-	db 45, ONIX
-	db 48, ONIX
-	db 46, ONIX
-	db 49, MACHAMP
-	db 48, GOLBAT
-	db 48, MAROWAK
-	db 51, GOLEM
+	db 51, GOLBAT
+	db 52, MACHAMP
+	db 52, GOLEM
+	db 52, SANDSLASH
+	db 51, PARASECT
+	db 51, VENOMOTH
+	db 53, ONIX
+	db 53, RHYDON
+	db 53, KANGASKHAN
+	db 53, GENGAR
 	end_grass_wildmons
 
 	def_water_wildmons 0 ; encounter rate

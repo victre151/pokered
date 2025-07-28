@@ -1,26 +1,15 @@
 Route10WildMons:
 	def_grass_wildmons 15 ; encounter rate
-	db 16, VOLTORB
-	db 16, SPEAROW
-	db 14, VOLTORB
-IF DEF(_RED)
-	db 11, EKANS
-	db 13, SPEAROW
-	db 15, EKANS
-	db 17, VOLTORB
-	db 17, SPEAROW
-	db 13, EKANS
-	db 17, EKANS
-ENDC
-IF DEF(_BLUE)
-	db 11, SANDSHREW
-	db 13, SPEAROW
-	db 15, SANDSHREW
-	db 17, VOLTORB
-	db 17, SPEAROW
-	db 13, SANDSHREW
-	db 17, SANDSHREW
-ENDC
+	db 24, RATICATE
+	db 24, PIDGEOTTO
+	db 24, FEAROW
+	db 23, MAGNEMITE
+	db 23, VOLTORB
+	db 25, ARBOK 
+	db 25, SANDSLASH
+	db 23, KRABBY
+	db 25, MACHOKE
+	db 23, CHANSEY
 	end_grass_wildmons
 
 	def_water_wildmons 0 ; encounter rate

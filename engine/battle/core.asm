@@ -4771,16 +4771,6 @@ ApplyAttackToEnemyPokemon:
 .specialDamage
 	ld hl, wBattleMonLevel
 	ld a, [hl]
-	ld b, a ; Seismic Toss deals damage equal to the user's level
-	ld a, [wPlayerMoveNum]
-	cp SEISMIC_TOSS
-	jr z, .storeDamage
-; Psywave
-	ld a, [hl]
-	ld b, a
-	srl a
-	add b
-	ld b, a ; b = level * 1.5
 ; loop until a random number in the range [1, b) is found
 .loop
 	call BattleRandom

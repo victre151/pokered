@@ -10,7 +10,7 @@ SuperRodData:
 	dbw CINNABAR_ISLAND,     .Group8
 	dbw ROUTE_4,             .Group3
 	dbw ROUTE_6,             .Group4
-	dbw ROUTE_10,            .Group5
+	dbw ROUTE_10,            .Group6
 	dbw ROUTE_11,            .Group4
 	dbw ROUTE_12,            .Group7
 	dbw ROUTE_13,            .Group7
@@ -25,8 +25,8 @@ SuperRodData:
 	dbw ROUTE_25,            .Group3
 	dbw CERULEAN_GYM,        .Group3
 	dbw VERMILION_DOCK,      .Group4
-	dbw SEAFOAM_ISLANDS_B3F, .Group8
-	dbw SEAFOAM_ISLANDS_B4F, .Group8
+	dbw SEAFOAM_ISLANDS_B3F, .Group6
+	dbw SEAFOAM_ISLANDS_B4F, .Group6
 	dbw SAFARI_ZONE_EAST,    .Group6
 	dbw SAFARI_ZONE_NORTH,   .Group6
 	dbw SAFARI_ZONE_WEST,    .Group6

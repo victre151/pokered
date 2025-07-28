@@ -79,7 +79,7 @@ Moves:
 	move SUBMISSION,   RECOIL_EFFECT,               80, FIGHTING,     100, 25
 	move LOW_KICK,     FLINCH_SIDE_EFFECT2,         50, FIGHTING,     100, 20
 	move COUNTER,      NO_ADDITIONAL_EFFECT,         1, FIGHTING,     100, 20
-	move SEISMIC_TOSS, SPECIAL_DAMAGE_EFFECT,        1, FIGHTING,     100, 20
+	move SEISMIC_TOSS, NO_ADDITIONAL_EFFECT,        80, FIGHTING,     100, 20
 	move STRENGTH,     NO_ADDITIONAL_EFFECT,        80, NORMAL,       100, 15
 	move ABSORB,       DRAIN_HP_EFFECT,             30, GRASS,        100, 25
 	move MEGA_DRAIN,   DRAIN_HP_EFFECT,             65, GRASS,        100, 15
@@ -159,7 +159,7 @@ Moves:
 	move DIZZY_PUNCH,  NO_ADDITIONAL_EFFECT,        70, FIGHTING,     100, 10
 	move SPORE,        SLEEP_EFFECT,                 0, NORMAL,       100, 15
 	move FLASH,        ACCURACY_DOWN1_EFFECT,        0, NORMAL,        70, 20
-	move PSYWAVE,      SPECIAL_DAMAGE_EFFECT,        1, PSYCHIC_TYPE,  80, 15
+	move PSYWAVE,      NO_ADDITIONAL_EFFECT,        40, PSYCHIC_TYPE,  80, 15
 	move SPLASH,       SPLASH_EFFECT,                0, NORMAL,       100, 40
 	move ACID_ARMOR,   DEFENSE_UP2_EFFECT,           0, NORMAL,       100, 40
 	move CRABHAMMER,   NO_ADDITIONAL_EFFECT,       100, WATER,         90, 10

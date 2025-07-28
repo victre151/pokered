@@ -1,15 +1,15 @@
 Route17WildMons:
 	def_grass_wildmons 25 ; encounter rate
-	db 20, SPEAROW
-	db 22, SPEAROW
-	db 25, RATICATE
-	db 24, DODUO
-	db 27, RATICATE
-	db 26, DODUO
-	db 28, DODUO
-	db 29, RATICATE
-	db 25, FEAROW
-	db 27, FEAROW
+	db 36, FEAROW
+	db 36, PIDGEOTTO
+	db 36, RATICATE
+	db 35, GOLDUCK
+	db 37, GOLDUCK
+	db 35, DODRIO
+	db 37, DODRIO
+	db 35, PONYTA
+	db 37, PONYTA
+	db 37, CHANSEY
 	end_grass_wildmons
 
 	def_water_wildmons 0 ; encounter rate
