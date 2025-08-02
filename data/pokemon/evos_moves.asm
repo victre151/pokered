@@ -258,7 +258,6 @@ NidoranMEvosMoves:
 	db 29, BODY_SLAM
 	db 36, SKULL_BASH
 	db 38, DOUBLE_EDGE
-	db 40, TOXIC
 	db 45, HORN_DRILL
 	db 0
 
@@ -334,7 +333,6 @@ NidokingEvosMoves:
 	db 35, THRASH
 	db 38, DOUBLE_EDGE
 	db 40, SKULL_BASH
-	db 50, TOXIC
 	db 58, HORN_DRILL
 	db 45, EARTHQUAKE
 	db 0
@@ -400,7 +398,6 @@ ExeggutorEvosMoves:
 	db 33, BODY_SLAM
 	db 35, PSYCHIC_M
 	db 39, DOUBLE_EDGE
-	db 41, TOXIC
 	db 43, SOLARBEAM
 	db 0
 LickitungEvosMoves:
@@ -439,7 +436,6 @@ ExeggcuteEvosMoves:
 	db 33, BODY_SLAM
 	db 35, PSYCHIC_M
 	db 39, DOUBLE_EDGE
-	db 41, TOXIC
 	db 43, SOLARBEAM
 	db 0
 
@@ -460,7 +456,6 @@ GrimerEvosMoves:
 	db 41, EARTHQUAKE
 	db 43, ACID_ARMOR
 	db 45, FISSURE
-	db 47, TOXIC
 	db 0
 
 GengarEvosMoves:
@@ -475,7 +470,6 @@ GengarEvosMoves:
 	db 30, SLUDGE
 	db 36, ACID_ARMOR
 	db 39, DREAM_EATER
-	db 41, TOXIC
 	db 43, ICE_BEAM
 	db 45, ICE_PUNCH
 	db 0
@@ -499,7 +493,6 @@ NidoranFEvosMoves:
 	db 28, BODY_SLAM
 	db 36, SKULL_BASH
 	db 38, DOUBLE_EDGE
-	db 40, TOXIC
 	db 0
 
 NidoqueenEvosMoves:
@@ -518,7 +511,6 @@ NidoqueenEvosMoves:
 	db 35, BODY_SLAM
 	db 40, DOUBLE_EDGE
 	db 45, EARTHQUAKE
-	db 50, TOXIC
 	db 56, SKULL_BASH
 	db 0
 
@@ -544,9 +536,9 @@ CuboneEvosMoves:
 	db 33, ROCK_SLIDE
 	db 35, MEGA_PUNCH
 	db 39, SWORDS_DANCE
-	db 41, EARTHQUAKE
+	db 41, DIG
 	db 43, DOUBLE_EDGE
-	db 45, DIG
+	db 45, EARTHQUAKE
 	db 47, FISSURE
 	db 49, SKULL_BASH
 	db 53, MEGA_KICK
@@ -579,10 +571,8 @@ LaprasEvosMoves:
 	db 5, BUBBLE
 	db 7, CONFUSE_RAY
 	db 12, HEADBUTT
-	db 18, DRAGON_RAGE
 	db 20, BODY_SLAM
 	db 22, BUBBLEBEAM
-	db 28, SLAM
 	db 30, AURORA_BEAM
 	db 32, ICE_BEAM
 	db 37, TAKE_DOWN
@@ -640,10 +630,11 @@ GyaradosEvosMoves:
 	db 9, WATER_GUN
 	db 11, BITE
 	db 13, HEADBUTT
+	db 18, DRAGON_RAGE
 	db 20, BUBBLEBEAM
+	db 27, SLAM
 	db 29, TAKE_DOWN
 	db 31, BODY_SLAM
-	db 36, DRAGON_RAGE
 	db 38, SCREECH
 	db 40, THRASH
 	db 42, HYDRO_PUMP
@@ -712,7 +703,6 @@ GastlyEvosMoves:
 	db 26, SLUDGE
 	db 33, DREAM_EATER
 	db 36, ACID_ARMOR
-	db 40, TOXIC
 	db 43, ICE_BEAM
 	db 45, ICE_PUNCH
 	db 0
@@ -884,8 +874,8 @@ OnixEvosMoves:
 	db 28, SLAM
 	db 31, SCREECH
 	db 34, ROCK_SLIDE
-	db 39, EARTHQUAKE
-	db 43, DIG
+	db 39, DIG
+	db 43, EARTHQUAKE
 	db 45, FISSURE
 	db 49, DOUBLE_EDGE
 	db 51, SKULL_BASH
@@ -1085,7 +1075,6 @@ ArbokEvosMoves:
 	db 24, TAKE_DOWN
 	db 26, SLUDGE
 	db 28, BODY_SLAM
-	db 40, TOXIC
 	db 45, EARTHQUAKE
 	db 50, SKULL_BASH
 	db 52, HAZE
@@ -1115,7 +1104,6 @@ ParasectEvosMoves:
 	db 39, LEECH_LIFE
 	db 41, LIGHT_SCREEN
 	db 43, GROWTH
-	db 50, TOXIC
 	db 0
 
 PsyduckEvosMoves:
@@ -1166,7 +1154,6 @@ DrowzeeEvosMoves:
 	db 33, DREAM_EATER
 	db 39, ICE_BEAM
 	db 49, PSYCHIC_M
-	db 51, TOXIC
 	db 0
 
 GolemEvosMoves:
@@ -1279,7 +1266,6 @@ KoffingEvosMoves:
 	db 31, BODY_SLAM
 	db 33, SLUDGE
 	db 39, FLAMETHROWER
-	db 40, TOXIC
 	db 46, FIRE_BLAST
 	db 0
 
@@ -1294,17 +1280,20 @@ MankeyEvosMoves:
 	db EVOLVE_LEVEL, 28, PRIMEAPE
 	db 0
 ; Learnset
+	db 3, LICK
 	db 5, FURY_SWIPES
-	db 8, KARATE_CHOP
-	db 12, HEADBUTT
-	db 15, SEISMIC_TOSS
-	db 24, ROCK_SLIDE
+	db 7, ROCK_THROW
+	db 9, KARATE_CHOP
+	db 11, HEADBUTT
+	db 13, SEISMIC_TOSS
+	db 15, NIGHT_SHADE
 	db 26, TAKE_DOWN
 	db 28, BODY_SLAM
-	db 31, SUBMISSION
-	db 33, THRASH
-	db 35, MEGA_PUNCH
-	db 37, DOUBLE_EDGE
+	db 30, SUBMISSION
+	db 32, THRASH
+	db 34, ROCK_SLIDE
+	db 36, MEGA_PUNCH
+	db 38, DOUBLE_EDGE
 	db 40, SCREECH
 	db 50, SKULL_BASH
 	db 53, MEGA_KICK
@@ -1936,10 +1925,9 @@ SandshrewEvosMoves:
 	db 28, BODY_SLAM
 	db 30, DIG
 	db 38, SWORDS_DANCE
-	db 40, TOXIC
-	db 42, DOUBLE_EDGE
-	db 46, EARTHQUAKE
-	db 50, SKULL_BASH
+	db 40, DOUBLE_EDGE
+	db 44, EARTHQUAKE
+	db 48, SKULL_BASH
 	db 0
 
 SandslashEvosMoves:
@@ -1956,9 +1944,8 @@ SandslashEvosMoves:
 	db 33, DIG
 	db 39, DOUBLE_EDGE
 	db 43, SWORDS_DANCE
-	db 48, TOXIC
-	db 53, EARTHQUAKE
-	db 56, SKULL_BASH
+	db 51, EARTHQUAKE
+	db 54, SKULL_BASH
 	db 0
 
 OmanyteEvosMoves:
@@ -2073,16 +2060,16 @@ FlareonEvosMoves:
 	db 19, SWIFT
 	db 23, DOUBLE_TEAM
 	db 27, TAKE_DOWN
-	db 32, BODY_SLAM
-	db 36, SKULL_BASH
-	db 38, DOUBLE_EDGE
-	db 40, SWORDS_DANCE
-	db 45, FLAMETHROWER
-	db 47, DIG
-	db 49, ROCK_THROW
-	db 51, EARTHQUAKE
-	db 53, ROCK_SLIDE
-	db 55, FIRE_BLAST
+	db 29, BODY_SLAM
+	db 31, SKULL_BASH
+	db 33, DOUBLE_EDGE
+	db 35, SWORDS_DANCE
+	db 37, FLAMETHROWER
+	db 39, DIG
+	db 41, ROCK_THROW
+	db 43, EARTHQUAKE
+	db 45, ROCK_SLIDE
+	db 50, FIRE_BLAST
 	db 0
 
 JolteonEvosMoves:
@@ -2096,16 +2083,16 @@ JolteonEvosMoves:
 	db 19, SWIFT
 	db 23, DOUBLE_TEAM
 	db 27, TAKE_DOWN
-	db 32, BODY_SLAM
-	db 36, SKULL_BASH
-	db 38, DOUBLE_EDGE
-	db 40, AGILITY
-	db 45, THUNDERBOLT
-	db 47, DOUBLE_KICK
-	db 49, TWINEEDLE
-	db 51, SEISMIC_TOSS
-	db 53, PIN_MISSILE
-	db 55, THUNDER
+	db 29, BODY_SLAM
+	db 31, SKULL_BASH
+	db 33, DOUBLE_EDGE
+	db 35, AGILITY
+	db 37, THUNDERBOLT
+	db 39, DOUBLE_KICK
+	db 41, TWINEEDLE
+	db 43, SEISMIC_TOSS
+	db 45, PIN_MISSILE
+	db 50, THUNDER
 	db 0
 
 VaporeonEvosMoves:
@@ -2119,16 +2106,16 @@ VaporeonEvosMoves:
 	db 19, SWIFT
 	db 23, DOUBLE_TEAM
 	db 27, TAKE_DOWN
-	db 32, BODY_SLAM
-	db 36, SKULL_BASH
-	db 38, DOUBLE_EDGE
-	db 40, ACID_ARMOR
-	db 45, BUBBLEBEAM
-	db 47, ACID
-	db 49, AURORA_BEAM
-	db 51, SLUDGE
-	db 53, ICE_BEAM
-	db 55, HYDRO_PUMP
+	db 29, BODY_SLAM
+	db 31, SKULL_BASH
+	db 33, DOUBLE_EDGE
+	db 35, ACID_ARMOR
+	db 37, BUBBLEBEAM
+	db 39, ACID
+	db 41, AURORA_BEAM
+	db 43, SLUDGE
+	db 45, ICE_BEAM
+	db 50, HYDRO_PUMP
 	db 0
 
 MachopEvosMoves:
@@ -2172,7 +2159,6 @@ ZubatEvosMoves:
 	db 33, DOUBLE_EDGE
 	db 35, RAZOR_WIND
 	db 37, HAZE
-	db 40, TOXIC
 	db 0
 
 EkansEvosMoves:
@@ -2193,7 +2179,6 @@ EkansEvosMoves:
 	db 33, SKULL_BASH
 	db 38, EARTHQUAKE
 	db 41, HAZE
-	db 50, TOXIC
 	db 0
 
 ParasEvosMoves:
@@ -2222,7 +2207,6 @@ ParasEvosMoves:
 	db 39, GROWTH
 	db 41, LEECH_LIFE
 	db 43, LIGHT_SCREEN
-	db 45, TOXIC
 	db 0
 
 PoliwhirlEvosMoves:
@@ -2262,9 +2246,10 @@ WeedleEvosMoves:
 	db 0
 ; Learnset
 	db 6, HORN_ATTACK
+	db 8, TWINEEDLE
 	db 24, TAKE_DOWN
-	db 40, TOXIC
-	db 45, HORN_DRILL
+	db 27, PIN_MISSILE
+	db 40, HORN_DRILL
 	db 0
 
 KakunaEvosMoves:
@@ -2293,7 +2278,6 @@ BeedrillEvosMoves:
 	db 33, RAZOR_WIND
 	db 38, AGILITY
 	db 45, HORN_DRILL
-	db 50, TOXIC
 	db 56, SKULL_BASH
 	db 0
 
@@ -2328,22 +2312,24 @@ PrimeapeEvosMoves:
 	db 0
 ; Learnset
 	db 5, FURY_SWIPES
-	db 8, KARATE_CHOP
+	db 7, ROCK_THROW
+	db 9, KARATE_CHOP
 	db 12, HEADBUTT
-	db 15, SEISMIC_TOSS
-	db 24, ROCK_SLIDE
+	db 14, NIGHT_SHADE
+	db 16, SEISMIC_TOSS
 	db 26, TAKE_DOWN
 	db 28, RAGE
 	db 30, BODY_SLAM
 	db 32, SUBMISSION
 	db 34, THRASH
-	db 36, MEGA_PUNCH
-	db 38, DOUBLE_EDGE
+	db 36, ROCK_SLIDE
+	db 38, MEGA_PUNCH
+	db 40, DOUBLE_EDGE
 	db 44, SCREECH
 	db 50, SKULL_BASH
 	db 53, MEGA_KICK
 	db 0
-
+	
 DugtrioEvosMoves:
 ; Evolutions
 	db 0
@@ -2518,7 +2504,6 @@ HypnoEvosMoves:
 	db 33, DREAM_EATER
 	db 39, ICE_BEAM
 	db 49, PSYCHIC_M
-	db 51, TOXIC
 	db 0
 GolbatEvosMoves:
 ; Evolutions
@@ -2539,7 +2524,6 @@ GolbatEvosMoves:
 	db 35, RAZOR_WIND
 	db 37, LEECH_LIFE
 	db 40, HAZE
-	db 50, TOXIC
 	db 0
 
 MewtwoEvosMoves:
@@ -2599,6 +2583,7 @@ MagikarpEvosMoves:
 	db 13, HEADBUTT
 	db 18, DRAGON_RAGE
 	db 20, BUBBLEBEAM
+	db 27, SLAM
 	db 29, TAKE_DOWN
 	db 31, BODY_SLAM
 	db 38, SCREECH
@@ -2636,7 +2621,6 @@ MukEvosMoves:
 	db 41, EARTHQUAKE
 	db 46, ACID_ARMOR
 	db 49, FISSURE
-	db 51, TOXIC
 	db 0
 
 MissingNo8AEvosMoves:
@@ -2739,7 +2723,6 @@ WeezingEvosMoves:
 	db 33, DOUBLE_EDGE
 	db 35, SLUDGE
 	db 39, FLAMETHROWER
-	db 40, TOXIC
 	db 46, FIRE_BLAST
 	db 0
 
@@ -2807,7 +2790,6 @@ HaunterEvosMoves:
 	db 26, SLUDGE
 	db 36, ACID_ARMOR
 	db 39, DREAM_EATER
-	db 41, TOXIC
 	db 43, ICE_BEAM
 	db 45, ICE_PUNCH
 	db 0
@@ -2937,7 +2919,6 @@ VenusaurEvosMoves:
 	db 28, GROWTH
 	db 30, BODY_SLAM
 	db 31, DOUBLE_EDGE
-	db 40, TOXIC
 	db 53, EARTHQUAKE
 	db 53, SOLARBEAM
 	db 56, SKULL_BASH
@@ -3136,7 +3117,6 @@ NidorinoEvosMoves:
 	db 31, BODY_SLAM
 	db 38, DOUBLE_EDGE
 	db 40, SKULL_BASH
-	db 50, TOXIC
 	db 58, HORN_DRILL
 	db 0
 
@@ -3159,7 +3139,6 @@ NidorinaEvosMoves:
 	db 30, BODY_SLAM
 	db 35, DOUBLE_EDGE
 	db 40, SKULL_BASH
-	db 50, TOXIC
 	db 0
 	
 GeodudeEvosMoves:
@@ -3403,7 +3382,6 @@ OddishEvosMoves:
 	db 27, BODY_SLAM
 	db 29, RAZOR_LEAF
 	db 31, SLUDGE
-	db 35, TOXIC
 	db 38, DOUBLE_EDGE
 	db 43, SOLARBEAM
 	db 51, PETAL_DANCE
@@ -3421,7 +3399,6 @@ GloomEvosMoves:
 	db 29, RAZOR_LEAF
 	db 31, SLUDGE
 	db 38, DOUBLE_EDGE
-	db 40, TOXIC
 	db 59, PETAL_DANCE
 	db 69, SOLARBEAM
 	db 0
@@ -3439,7 +3416,6 @@ VileplumeEvosMoves:
 	db 29, RAZOR_LEAF
 	db 31, SLUDGE
 	db 38, DOUBLE_EDGE
-	db 40, TOXIC
 	db 43, SOLARBEAM
 	db 59, PETAL_DANCE
 	db 0
