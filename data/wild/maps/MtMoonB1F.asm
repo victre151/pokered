@@ -6,7 +6,7 @@ MtMoonB1FWildMons:
 	db 13, ZUBAT
 	db 12, GEODUDE
 	db 11, PARAS
-	db 11, MACHOP
+	db 11, RHYHORN
 	db 13, ONIX
 IF DEF(_RED)
 	db 12, CLEFAIRY

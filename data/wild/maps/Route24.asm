@@ -4,11 +4,11 @@ Route24WildMons:
 	db 15, SPEAROW
 	db 16, BUTTERFREE
 	db 16, BEEDRILL
-	db 15, ODDISH
-	db 15, BELLSPROUT
+	db 15, KRABBY
 	db 17, PSYDUCK
 	db 17, MEOWTH
 	db 16, VENONAT
+	db 15, EXEGGCUTE
 	db 16, ABRA
 	end_grass_wildmons
 

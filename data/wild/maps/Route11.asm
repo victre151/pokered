@@ -7,7 +7,7 @@ Route11WildMons:
 	db 19, PIDGEOTTO
 	db 21, FEAROW
 	db 21, PIDGEOTTO
-	db 20, SANDSHREW
+	db 20, DROWZEE
 	db 19, MR_MIME
 	db 19, CHANSEY
 	end_grass_wildmons

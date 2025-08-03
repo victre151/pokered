@@ -6,7 +6,7 @@ Route12WildMons:
 	db 41, GLOOM
 	db 41, WEEPINBELL
 	db 39, KINGLER
-	db 40, KINGLER
+	db 40, SLOWBRO
 	db 39, FARFETCHD
 	db 40, FARFETCHD
 	db 40, CHANSEY

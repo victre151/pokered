@@ -2,11 +2,11 @@ Route6WildMons:
 	def_grass_wildmons 15 ; encounter rate
 	db 15, ODDISH
 	db 15, BELLSPROUT
-	db 17, PIDGEY
-	db 17, SPEAROW
+	db 17, KRABBY
+	db 17, PSYDUCK
 	db 16, GROWLITHE
 	db 16, VULPIX
-	db 16, PSYDUCK
+	db 16, DROWZEE
 	db 17, ABRA
 IF DEF(_RED)
 	db 15, EEVEE

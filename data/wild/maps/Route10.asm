@@ -5,10 +5,10 @@ Route10WildMons:
 	db 24, FEAROW
 	db 23, MAGNEMITE
 	db 23, VOLTORB
-	db 25, ARBOK 
-	db 25, SANDSLASH
+	db 25, KOFFING
+	db 25, GRIMER
+	db 25, SLOWPOKE 
 	db 23, KRABBY
-	db 25, MACHOKE
 	db 23, CHANSEY
 	end_grass_wildmons
 

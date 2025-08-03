@@ -9,7 +9,7 @@ VictoryRoad3FWildMons:
 	db 53, RHYDON
 	db 53, NIDOQUEEN
 	db 53, NIDOKING
-	db 45, AERODACTYL
+	db 45, LICKITUNG
 	end_grass_wildmons
 
 	def_water_wildmons 0 ; encounter rate

@@ -32,6 +32,33 @@ FightingDojoDefaultScript:
 	ret nz
 	xor a
 	ldh [hJoyHeld], a
+	jr .endbattle
+.KarateMasterRematch
+	ld hl, .KarateMasterRematchPreBattleText
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jr nz, .refused
+	ld hl, .KarateMasterRematchAcceptedText
+	call PrintText
+	call Delay3
+	ld hl, wStatusFlags3
+	set BIT_TALKED_TO_TRAINER, [hl]
+	set BIT_PRINT_END_BATTLE_TEXT, [hl]
+	ld hl, KarateMasterRematchDefeatedText
+	ld de, KarateMasterRematchDefeatedText
+	call SaveEndBattleTextPointers
+	ld a, OPP_KARATEMASTER
+	ld [wCurOpponent], a
+	ld a, 2
+	ld [wTrainerNo], a
+	jr .endbattle
+.refused
+	ld hl, .KarateMasterRematchPreBattleRefusedText
+	call PrintText
+	jr .done
+.endbattle
 	ld [wSavedCoordIndex], a
 	ld a, [wYCoord]
 	cp 3
@@ -79,6 +106,12 @@ FightingDojoKarateMasterPostBattleScript:
 	ld [wFightingDojoCurScript], a
 	ld [wCurMapScript], a
 	ret
+	CheckEvent EVENT_PLAYER_IS_CHAMPION
+	jr z, EVENT_BEAT_KARATE_MASTER
+	ld a, TEXT_REMATCH_KARATE_MASTER__POST_BATTLE
+	ldh [hTextID], a
+	call DisplayTextID
+	jp FightingDojoResetScripts
 
 FightingDojo_TextPointers:
 	def_text_pointers
@@ -90,6 +123,7 @@ FightingDojo_TextPointers:
 	dw_const FightingDojoHitmonleePokeBallText,                     TEXT_FIGHTINGDOJO_HITMONLEE_POKE_BALL
 	dw_const FightingDojoHitmonchanPokeBallText,                    TEXT_FIGHTINGDOJO_HITMONCHAN_POKE_BALL
 	dw_const FightingDojoKarateMasterText.IWillGiveYouAPokemonText, TEXT_FIGHTINGDOJO_KARATE_MASTER_I_WILL_GIVE_YOU_A_POKEMON
+	dw_const KarateMasterRematchPostBattleText,                     TEXT_KARATE_MASTER_REMATCH_POST_BATTLE
 
 FightingDojoTrainerHeaders:
 	def_trainers 2
@@ -126,6 +160,8 @@ FightingDojoKarateMasterText:
 	ld [wCurMapScript], a
 	jr .end
 .defeated_dojo
+	CheckEvent EVENT_PLAYER_IS_CHAMPION
+	jr nz, .KarateMasterRematch
 	ld hl, .StayAndTrainWithUsText
 	call PrintText
 	jr .end
@@ -293,4 +329,24 @@ FightingDojoHitmonchanPokeBallText:
 
 FightingDojoBetterNotGetGreedyText:
 	text_far _FightingDojoBetterNotGetGreedyText
+	text_end
+	
+.KarateMasterPreBattleRematchText:
+	text_far _KarateMasterRematchPreBattleText
+	text_end
+	
+.KarateMasterPreBattleRematchAcceptedText:
+	text_far _KarateMasterRematchAcceptedText
+	text_end
+
+.KarateMasterPreBattleRematchRefusedText:
+	text_far _KarateMasterRematchRefusedText
+	text_end
+
+.KarateMasterRematchDefeatedText:
+	text_far _KarateMasterRematchDefeatedText
+	text_end
+	
+.KarateMasterRematchPostBattleText:
+	text_far _KarateMasterRematchPostBattleText
 	text_end
