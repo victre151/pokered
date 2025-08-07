@@ -117,3 +117,30 @@ _FuchsiaCityFossilSignKabutoText::
 _FuchsiaCityFossilSignUndeterminedText::
 	text "..."
 	done
+
+_FossilGiftText::
+	text "We have too many"
+	line "@"
+	text_ram wNameBuffer
+	text " here!"
+
+	para "You're a trainer,"
+	line "right?"
+
+	para "Take one with you!"
+	done
+	
+_AlreadyGotGiftText::
+	text "Oh? You're back."
+	
+	para "Glad the"
+	line "@"
+	text_ram wNameBuffer
+	text " is doing"
+	cont "well!"
+	done
+	
+_NoFossilText::
+	text "You shouldn't"
+	cont "be here..."
+	done

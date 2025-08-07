@@ -87,3 +87,81 @@ _MrFujisHouseMrFujiPokedexText::
 	para "Gone! It's been"
 	line "clipped out!"
 	done
+
+_MrFujiBoxMonText::
+IF DEF(_BLUE)
+	text "Years ago, I was"
+	line "part of an"
+	cont "awful project..."
+
+	para "I helped"
+	line "TEAM ROCKET"
+	cont "create the"
+	cont "Legendary MEWTWO."
+
+	para "It broke out and"
+	line "found me years"
+	cont "later."
+	
+	para "So I hid it away."
+
+	para "Now you've defeated"
+	line "TEAM ROCKET and"
+	cont "the ELITE FOUR,"
+	cont "so I believe you"
+	cont "can give MEWTWO a"
+	cont "better future."
+	done
+ELSE
+	text "A long time ago,"
+	line "I was part of an"
+	cont "awful project..."
+
+	para "TEAM ROCKET was"
+	line "searching for the"
+	cont "mythical MEW."
+
+	para "I helped them"
+	line "find it."
+
+	para "But when I found"
+	line "out how they"
+	cont "planned to use"
+	cont "it's power, I"
+	cont "knew I couldn't" 
+	cont "let them."
+
+	para "So I took MEW and"
+	line "ran away to"
+	cont "protect it."
+
+	para "Now you've defeated"
+	line "TEAM ROCKET and"
+	line "TEAM ROCKET and"
+	cont "the ELITE FOUR,"
+	cont "so I believe you"
+	cont "can give MEW a"
+	cont "better future."
+	done
+ENDC
+
+_MrFujiHasBoxMonText::
+IF DEF(_BLUE)	
+	text "I see that you" 
+	line "and MEWTWO are"
+	cont "doing well."
+	
+	para "I'm glad MEWTWO"
+	line "has finally found"
+	cont "some peace."
+	done
+ELSE
+	text "I see that you" 
+	line "and MEW are doing"
+	cont "well."
+	
+	para "I'm glad MEW has"
+	line "finally found"
+	cont "some peace."
+	done
+ENDC

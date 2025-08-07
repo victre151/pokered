@@ -17,17 +17,17 @@ DebugNewGameParty: ; unreferenced except in _DEBUG
 	; "Tsunekazu Ishihara: Exeggutor is my favorite. That's because I was
 	; always using this character while I was debugging the program."
 	; From https://web.archive.org/web/20000607152840/http://pocket.ign.com/news/14973.html
-	db EXEGGUTOR, 90
+	db EXEGGUTOR, 80
 IF DEF(_DEBUG)
-	db MEW, 5
+	db MEW, 80
 ELSE
 	db MEW, 20
 ENDC
-	db JOLTEON, 56
-	db DUGTRIO, 56
-	db ARTICUNO, 57
+	db JOLTEON, 80
+	db DUGTRIO, 80
+	db ARTICUNO, 80
 IF DEF(_DEBUG)
-	db PIKACHU, 5
+	db CHARIZARD, 80
 ENDC
 	db -1 ; end
 
@@ -49,13 +49,13 @@ IF DEF(_DEBUG)
 
 	; Exeggutor gets four HM moves.
 	ld hl, wPartyMon1Moves
-	ld a, FLY
+	ld a, MEGA_DRAIN
 	ld [hli], a
 	ld a, CUT
 	ld [hli], a
-	ld a, SURF
+	ld a, RAZOR_LEAF
 	ld [hli], a
-	ld a, STRENGTH
+	ld a, PSYCHIC_M
 	ld [hl], a
 	ld hl, wPartyMon1PP
 	ld a, 15
@@ -141,7 +141,7 @@ DebugNewGameItemsList:
 	db FULL_HEAL, 99
 	db ESCAPE_ROPE, 99
 	db RARE_CANDY, 99
-	db MASTER_BALL, 99
+	db SILPH_SCOPE, 1
 	db TOWN_MAP, 1
 	db SECRET_KEY, 1
 	db CARD_KEY, 1

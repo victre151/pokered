@@ -13,6 +13,7 @@ FuchsiaCity_TextPointers:
 	dw_const FuchsiaCityPokemonText,         TEXT_FUCHSIACITY_SLOWPOKE
 	dw_const FuchsiaCityPokemonText,         TEXT_FUCHSIACITY_LAPRAS
 	dw_const FuchsiaCityPokemonText,         TEXT_FUCHSIACITY_FOSSIL
+	dw_const FuchsiaCityScientistText,		 TEXT_FUCHSIACITY_SCIENTIST
 	dw_const FuchsiaCitySignText,            TEXT_FUCHSIACITY_SIGN1
 	dw_const FuchsiaCitySignText,            TEXT_FUCHSIACITY_SIGN2
 	dw_const FuchsiaCitySafariGameSignText,  TEXT_FUCHSIACITY_SAFARI_GAME_SIGN
@@ -161,4 +162,46 @@ FuchsiaCityFossilSignText:
 
 .UndeterminedText:
 	text_far _FuchsiaCityFossilSignUndeterminedText
+	text_end
+	
+FuchsiaCityScientistText:
+    text_asm
+    lb bc, OMANYTE, 30
+    CheckEvent EVENT_GOT_DOME_FOSSIL
+    jr nz, .getFossil
+    ld b, KABUTO
+	CheckEvent EVENT_GOT_HELIX_FOSSIL
+	jr nz, .getFossil
+	ld hl, .NoFossilText
+	jp TextScriptEnd
+.getFossil
+    ld a, b
+    ld [wNamedObjectIndex], a
+    push bc
+    call GetMonName
+    ld hl, .FossilGiftText
+    CheckEvent EVENT_GOT_FOSSIL_GIFT
+    jr z, .dontHaveGift
+    ld hl, .AlreadyGotGiftText
+.dontHaveGift
+    push af
+    call PrintText
+    pop af
+    pop bc
+    jp nz, TextScriptEnd
+    call GivePokemon
+    jp nc, TextScriptEnd
+    SetEvent EVENT_GOT_FOSSIL_GIFT
+    jp TextScriptEnd
+
+.FossilGiftText:
+	text_far _FossilGiftText
+	text_end
+
+.AlreadyGotGiftText:
+	text_far _AlreadyGotGiftText
+	text_end
+	
+.NoFossilText:
+	text_far _NoFossilText
 	text_end

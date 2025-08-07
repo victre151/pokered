@@ -96,6 +96,7 @@
 	const EVENT_RESCUED_MR_FUJI_2
 	const_skip 16
 	const EVENT_GOT_POKE_FLUTE
+	const EVENT_GOT_BOX_MON
 
 ; Vermilion City events
 	const_next $150
@@ -159,6 +160,7 @@
 	const EVENT_BEAT_FUCHSIA_GYM_TRAINER_3
 	const EVENT_BEAT_FUCHSIA_GYM_TRAINER_4
 	const EVENT_BEAT_FUCHSIA_GYM_TRAINER_5
+	const EVENT_GOT_FOSSIL_GIFT
 
 ; Cinnabar Island events
 	const_next $278

@@ -129,7 +129,7 @@ _FightingDojoBetterNotGetGreedyText::
 	line "greedy..."
 	done
 	
-_KarateMasterRematchPreBattleText::
+_KarateMasterRematchIntroText::
 		text "Ah"
 		
 		para "So you have"
@@ -139,26 +139,26 @@ _KarateMasterRematchPreBattleText::
 		
 _KarateMasterRematchAcceptedText::
 		text "Let the battle"
-		line "commence"
+		line "commence!"
 		done
 	
 _KarateMasterRematchRefusedText::
 		text "Perhaps not,"
 		line "another time"
-		cont "maybe?"
+		cont "then?"
 		done
 
 _KarateMasterRematchDefeatedText::
-		text "The Student"
-		line "becomes the"
-		cont "Master"
+		text "The"
+		line "Student becomes"
+		cont "the Master!"
 		done
 
 _KarateMasterRematchPostBattleText::
 		text "Since you have"
-		line "defeated me"
-		cont "for a second time"
+		line "defeated me for a"
+		cont "second time"
 		
 		para "You may have"
-		line "my last prize"
+		line "my last prize."
 		done

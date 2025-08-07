@@ -69,6 +69,36 @@ MrFujisHouseNidorinoText:
 
 MrFujisHouseMrFujiText:
 	text_asm
+	CheckEvent EVENT_PLAYER_IS_CHAMPION
+	jr z, .pokeflute
+IF DEF(_RED)
+	lb bc, MEW, 75
+ELSE
+	lb bc, MEWTWO, 75
+ENDC
+	jr nz, .getBoxMon
+	jp TextScriptEnd
+.getBoxMon
+	ld a, b
+	ld [wNamedObjectIndex], a
+	push bc
+	call GetMonName
+	ld hl, MrFujiHasBoxMonText
+	CheckEvent EVENT_GOT_BOX_MON
+	jr nz, .dontHaveBoxMon
+	ld hl, MrFujiBoxMonText
+.dontHaveBoxMon
+	push af
+	call PrintText
+    call Delay3
+	pop af
+	pop bc
+	jp nz, TextScriptEnd
+	call GivePokemon
+	jp nc, TextScriptEnd
+	SetEvent EVENT_GOT_BOX_MON
+	jr .done
+.pokeflute
 	CheckEvent EVENT_GOT_POKE_FLUTE
 	jr nz, .got_item
 	ld hl, .IThinkThisMayHelpYourQuestText
@@ -89,7 +119,7 @@ MrFujisHouseMrFujiText:
 	call PrintText
 .done
 	jp TextScriptEnd
-
+	
 .IThinkThisMayHelpYourQuestText:
 	text_far _MrFujisHouseMrFujiIThinkThisMayHelpYourQuestText
 	text_end
@@ -110,4 +140,12 @@ MrFujisHouseMrFujiText:
 
 MrFujisHouseMrFujiPokedexText:
 	text_far _MrFujisHouseMrFujiPokedexText
+	text_end
+
+MrFujiBoxMonText:
+	text_far _MrFujiBoxMonText
+	text_end
+	
+MrFujiHasBoxMonText:
+	text_far _MrFujiHasBoxMonText
 	text_end
