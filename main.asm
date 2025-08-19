@@ -82,30 +82,18 @@ INCLUDE "gfx/font.asm"
 
 SECTION "Battle Engine 1", ROMX
 
-INCLUDE "engine/overworld/is_player_just_outside_map.asm"
-INCLUDE "engine/pokemon/status_screen.asm"
-INCLUDE "engine/menus/party_menu.asm"
-INCLUDE "gfx/player.asm"
-INCLUDE "engine/overworld/turn_sprite.asm"
 INCLUDE "engine/menus/start_sub_menus.asm"
-INCLUDE "engine/items/tms.asm"
-INCLUDE "engine/battle/end_of_battle.asm"
-INCLUDE "engine/battle/wild_encounters.asm"
-INCLUDE "engine/battle/move_effects/recoil.asm"
-INCLUDE "engine/battle/move_effects/conversion.asm"
-INCLUDE "engine/battle/move_effects/haze.asm"
-INCLUDE "engine/battle/get_trainer_name.asm"
-INCLUDE "engine/math/random.asm"
 
 
 SECTION "Battle Engine 2", ROMX
 
 INCLUDE "engine/gfx/load_pokedex_tiles.asm"
 INCLUDE "engine/overworld/map_sprites.asm"
-INCLUDE "engine/overworld/emotion_bubbles.asm"
-INCLUDE "engine/events/evolve_trade.asm"
-INCLUDE "engine/battle/move_effects/substitute.asm"
 INCLUDE "engine/menus/pc.asm"
+INCLUDE "engine/math/random.asm"
+INCLUDE "engine/battle/get_trainer_name.asm"
+INCLUDE "engine/overworld/turn_sprite.asm"
+INCLUDE "engine/overworld/is_player_just_outside_map.asm"
 
 
 SECTION "Play Time", ROMX
@@ -118,6 +106,7 @@ SECTION "Doors and Ledges", ROMX
 INCLUDE "engine/overworld/auto_movement.asm"
 INCLUDE "engine/overworld/doors.asm"
 INCLUDE "engine/overworld/ledges.asm"
+INCLUDE "engine/predefs.asm"
 
 
 SECTION "Pokémon Names", ROMX
@@ -150,11 +139,10 @@ INCLUDE "engine/battle/print_type.asm"
 INCLUDE "engine/battle/save_trainer_name.asm"
 INCLUDE "engine/battle/move_effects/focus_energy.asm"
 
-
 SECTION "Battle Engine 4", ROMX
 
 INCLUDE "engine/battle/move_effects/leech_seed.asm"
-
+INCLUDE "engine/battle/end_of_battle.asm"
 
 SECTION "Battle Engine 5", ROMX
 
@@ -170,13 +158,15 @@ SECTION "Battle Engine 6", ROMX
 
 INCLUDE "engine/battle/move_effects/mist.asm"
 INCLUDE "engine/battle/move_effects/one_hit_ko.asm"
+INCLUDE "engine/battle/move_effects/recoil.asm"
+INCLUDE "engine/battle/move_effects/conversion.asm"
+INCLUDE "engine/battle/move_effects/haze.asm"
 
 
 SECTION "Slot Machines", ROMX
 
 INCLUDE "engine/movie/title2.asm"
 INCLUDE "engine/battle/link_battle_versus_text.asm"
-INCLUDE "engine/slots/slot_machine.asm"
 INCLUDE "engine/events/pewter_guys.asm"
 INCLUDE "engine/math/multiply_divide.asm"
 INCLUDE "engine/slots/game_corner_slots.asm"
@@ -192,6 +182,7 @@ INCLUDE "engine/battle/draw_hud_pokeball_gfx.asm"
 INCLUDE "gfx/trade.asm"
 INCLUDE "data/pokemon/base_stats.asm"
 INCLUDE "data/pokemon/copy_base_stats.asm"
+INCLUDE "engine/pokemon/status_screen.asm"
 
 SECTION "Evo Moves", ROMX
 
@@ -203,12 +194,16 @@ INCLUDE "engine/battle/move_effects/heal.asm"
 INCLUDE "engine/battle/move_effects/transform.asm"
 INCLUDE "engine/battle/move_effects/reflect_light_screen.asm"
 INCLUDE "engine/battle/unused_stats_functions.asm"
+INCLUDE "engine/battle/wild_encounters.asm"
+INCLUDE "engine/menus/party_menu.asm"
+
 
 
 SECTION "Battle Core", ROMX
 
 INCLUDE "engine/battle/core.asm"
 INCLUDE "engine/battle/effects.asm"
+INCLUDE "engine/battle/move_effects/substitute.asm"
 
 
 SECTION "bank10", ROMX
@@ -217,6 +212,8 @@ INCLUDE "engine/menus/pokedex.asm"
 INCLUDE "engine/movie/trade.asm"
 INCLUDE "engine/movie/intro.asm"
 INCLUDE "engine/movie/trade2.asm"
+INCLUDE "engine/events/evolve_trade.asm"
+INCLUDE "engine/movie/evolution.asm"
 
 
 SECTION "Pokédex Rating", ROMX
@@ -237,13 +234,13 @@ INCLUDE "engine/gfx/screen_effects.asm"
 SECTION "Predefs", ROMX
 
 INCLUDE "engine/events/give_pokemon.asm"
-INCLUDE "engine/predefs.asm"
 
 
 SECTION "Battle Engine 8", ROMX
 
 INCLUDE "engine/battle/init_battle_variables.asm"
 INCLUDE "engine/battle/move_effects/paralyze.asm"
+INCLUDE "engine/overworld/emotion_bubbles.asm"
 
 
 SECTION "Hidden Objects 2", ROMX
@@ -258,6 +255,7 @@ INCLUDE "engine/events/hidden_objects/indigo_plateau_hq.asm"
 SECTION "Battle Engine 9", ROMX
 
 INCLUDE "engine/battle/experience.asm"
+INCLUDE "gfx/player.asm"
 
 
 SECTION "Diploma", ROMX
@@ -329,6 +327,8 @@ INCLUDE "engine/gfx/mon_icons.asm"
 INCLUDE "engine/events/in_game_trades.asm"
 INCLUDE "engine/gfx/palettes.asm"
 INCLUDE "engine/menus/save.asm"
+INCLUDE "engine/items/tm_prices.asm"
+INCLUDE "engine/items/tms.asm"
 
 
 SECTION "Itemfinder 1", ROMX
@@ -341,6 +341,7 @@ INCLUDE "engine/items/itemfinder.asm"
 SECTION "Vending Machine", ROMX
 
 INCLUDE "engine/events/vending_machine.asm"
+INCLUDE "engine/slots/slot_machine.asm"
 
 
 SECTION "Itemfinder 2", ROMX
@@ -358,6 +359,4 @@ INCLUDE "gfx/fishing.asm"
 INCLUDE "data/moves/animations.asm"
 INCLUDE "data/battle_anims/subanimations.asm"
 INCLUDE "data/battle_anims/frame_blocks.asm"
-INCLUDE "engine/movie/evolution.asm"
 INCLUDE "engine/overworld/elevator.asm"
-INCLUDE "engine/items/tm_prices.asm"

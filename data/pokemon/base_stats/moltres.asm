@@ -1,6 +1,6 @@
 	db DEX_MOLTRES ; pokedex id
 
-	db  90, 100,  90,  90, 125
+	db  95, 105,  95,  95, 130 ;  520BST
 	;   hp  atk  def  spd  spc
 
 	db FIRE, FLYING ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/moltres.pic", 0, 1 ; sprite dimensions
 	dw MoltresPicFront, MoltresPicBack
 
-	db TACKLE, PECK, GUST, NO_MOVE ; level 1 learnset
+	db TACKLE, PECK, FIRE_SPIN, NO_MOVE ; level 1 learnset
 	db GROWTH_SLOW ; growth rate
 
 	; tm/hm learnset

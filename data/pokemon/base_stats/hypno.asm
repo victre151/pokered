@@ -1,6 +1,6 @@
 	db DEX_HYPNO ; pokedex id
 
-	db  85,  73,  70,  67, 115
+	db  85,  73,  70,  67, 115 ;  410BST
 	;   hp  atk  def  spd  spc
 
 	db PSYCHIC_TYPE, GHOST ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/hypno.pic", 0, 1 ; sprite dimensions
 	dw HypnoPicFront, HypnoPicBack
 
-	db CONFUSION, DISABLE, HYPNOSIS, POUND ; level 1 learnset
+	db FURY_SWIPES, CONFUSE_RAY, PSYBEAM, ICE_PUNCH ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

@@ -1,6 +1,6 @@
 	db DEX_DODUO ; pokedex id
 
-	db  35,  85,  45,  75,  35
+	db  35,  85,  45,  75,  35 ;  275BST
 	;   hp  atk  def  spd  spc
 
 	db GROUND, FLYING ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/doduo.pic", 0, 1 ; sprite dimensions
 	dw DoduoPicFront, DoduoPicBack
 
-	db GROWL, PECK, NO_MOVE, NO_MOVE ; level 1 learnset
+	db SCRATCH, DOUBLE_KICK, PECK, SAND_ATTACK ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

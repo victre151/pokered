@@ -1,6 +1,6 @@
 	db DEX_PORYGON ; pokedex id
 
-	db  75,  70,  70,  40,  95
+	db  85,  80,  80,  50, 105 ;  400BST
 	;   hp  atk  def  spd  spc
 
 	db ELECTRIC, PSYCHIC_TYPE ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/porygon.pic", 0, 1 ; sprite dimensions
 	dw PorygonPicFront, PorygonPicBack
 
-	db TACKLE, NO_MOVE, NO_MOVE, NO_MOVE ; level 1 learnset
+	db TACKLE, PSYWAVE, THUNDER_WAVE, NO_MOVE ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

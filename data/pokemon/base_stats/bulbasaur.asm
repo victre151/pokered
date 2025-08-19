@@ -1,6 +1,6 @@
 	db DEX_BULBASAUR ; pokedex id
 
-	db  45,  49,  49,  45,  65
+	db  45,  65,  49,  45,  49 ;  253BST
 	;   hp  atk  def  spd  spc
 
 	db GRASS, GRASS ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/bulbasaur.pic", 0, 1 ; sprite dimensions
 	dw BulbasaurPicFront, BulbasaurPicBack
 
-	db TACKLE, ABSORB, NO_MOVE, NO_MOVE ; level 1 learnset
+	db TACKLE, VINE_WHIP, NO_MOVE, NO_MOVE ; level 1 learnset
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset

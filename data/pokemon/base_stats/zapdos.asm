@@ -1,6 +1,6 @@
 	db DEX_ZAPDOS ; pokedex id
 
-	db  90,  90,  85, 100, 125
+	db  96,  96,  91, 106, 131 ;  520BST
 	;   hp  atk  def  spd  spc
 
 	db ELECTRIC, FLYING ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/zapdos.pic", 0, 1 ; sprite dimensions
 	dw ZapdosPicFront, ZapdosPicBack
 
-	db THUNDERSHOCK, PECK, GUST, TACKLE ; level 1 learnset
+	db TACKLE, PECK, THUNDERSHOCK, NO_MOVE ; level 1 learnset
 	db GROWTH_SLOW ; growth rate
 
 	; tm/hm learnset

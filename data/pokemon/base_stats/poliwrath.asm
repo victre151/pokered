@@ -1,6 +1,6 @@
 	db DEX_POLIWRATH ; pokedex id
 
-	db  90,  95,  95,  70,  90
+	db  90,  95,  95,  70,  90 ;  440BST
 	;   hp  atk  def  spd  spc
 
 	db WATER, FIGHTING ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/poliwrath.pic", 0, 1 ; sprite dimensions
 	dw PoliwrathPicFront, PoliwrathPicBack
 
-	db HYPNOSIS, WATER_GUN, BUBBLEBEAM, BODY_SLAM ; level 1 learnset
+	db WATERFALL, SUBMISSION, PSYCHIC_M, BODY_SLAM ; level 1 learnset
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset

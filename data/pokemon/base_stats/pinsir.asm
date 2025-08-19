@@ -1,6 +1,6 @@
 	db DEX_PINSIR ; pokedex id
 
-	db  65, 125, 100,  85,  70
+	db  65, 125, 100,  85,  70 ;  445BST
 	;   hp  atk  def  spd  spc
 
 	db BUG, FIGHTING ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/pinsir.pic", 0, 1 ; sprite dimensions
 	dw PinsirPicFront, PinsirPicBack
 
-	db VICEGRIP, TACKLE, FOCUS_ENERGY, LOW_KICK ; level 1 learnset
+	db TACKLE, SCRATCH, DOUBLE_KICK, NO_MOVE ; level 1 learnset
 	db GROWTH_SLOW ; growth rate
 
 	; tm/hm learnset

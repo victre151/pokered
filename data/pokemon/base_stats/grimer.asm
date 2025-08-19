@@ -1,6 +1,6 @@
 	db DEX_GRIMER ; pokedex id
 
-	db  80,  80,  50,  25,  50
+	db  80,  60,  50,  25,  70 ;  285BST
 	;   hp  atk  def  spd  spc
 
 	db POISON, POISON ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/grimer.pic", 0, 1 ; sprite dimensions
 	dw GrimerPicFront, GrimerPicBack
 
-	db POISON_GAS, POUND, NO_MOVE, NO_MOVE ; level 1 learnset
+	db TACKLE, POISON_STING, SAND_ATTACK, NO_MOVE ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

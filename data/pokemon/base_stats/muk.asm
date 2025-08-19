@@ -1,6 +1,6 @@
 	db DEX_MUK ; pokedex id
 
-	db 105, 105,  75,  50,  100
+	db 105, 105,  75,  50,  100 ;  435BST
 	;   hp  atk  def  spd  spc
 
 	db POISON, GROUND ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/muk.pic", 0, 1 ; sprite dimensions
 	dw MukPicFront, MukPicBack
 
-	db HARDEN, POISON_GAS, POUND, NO_MOVE ; level 1 learnset
+	db SCREECH, SLUDGE, EARTHQUAKE, BODY_SLAM ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

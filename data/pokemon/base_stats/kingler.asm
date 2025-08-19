@@ -1,6 +1,6 @@
 	db DEX_KINGLER ; pokedex id
 
-	db  55, 130, 115,  75,  50
+	db  55,  50, 115,  75, 130 ;  425BST
 	;   hp  atk  def  spd  spc
 
 	db WATER, WATER ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/kingler.pic", 0, 1 ; sprite dimensions
 	dw KinglerPicFront, KinglerPicBack
 
-	db BUBBLE, NO_MOVE, NO_MOVE, NO_MOVE ; level 1 learnset
+	db BUBBLEBEAM, VICEGRIP, HEADBUTT, DOUBLE_TEAM ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

@@ -1,6 +1,6 @@
 	db DEX_RHYDON ; pokedex id
 
-	db 105, 130, 120,  40,  45
+	db 105, 130, 120,  40,  45 ;  440BST
 	;   hp  atk  def  spd  spc
 
 	db GROUND, ROCK ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/rhydon.pic", 0, 1 ; sprite dimensions
 	dw RhydonPicFront, RhydonPicBack
 
-	db HORN_ATTACK, FURY_ATTACK, TAIL_WHIP, NO_MOVE ; level 1 learnset
+	db SCREECH, ROCK_SLIDE, EARTHQUAKE, BODY_SLAM ; level 1 learnset
 	db GROWTH_SLOW ; growth rate
 
 	; tm/hm learnset

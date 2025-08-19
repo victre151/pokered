@@ -1,6 +1,6 @@
 	db DEX_GOLEM ; pokedex id
 
-	db  80, 120, 130,  45,  65
+	db  80, 120, 130,  45,  65 ;  440BST
 	;   hp  atk  def  spd  spc
 
 	db ROCK, GROUND ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/golem.pic", 0, 1 ; sprite dimensions
 	dw GolemPicFront, GolemPicBack
 
-	db DEFENSE_CURL, TACKLE, NO_MOVE, NO_MOVE ; level 1 learnset
+	db ROCK_SLIDE, EARTHQUAKE, DIZZY_PUNCH, BODY_SLAM ; level 1 learnset
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset

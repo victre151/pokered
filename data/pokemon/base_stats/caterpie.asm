@@ -1,6 +1,6 @@
 	db DEX_CATERPIE ; pokedex id
 
-	db  45,  30,  35,  45,  20
+	db  50,  35,  40,  50,  25 ;  200BST
 	;   hp  atk  def  spd  spc
 
 	db BUG, BUG ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/caterpie.pic", 0, 1 ; sprite dimensions
 	dw CaterpiePicFront, CaterpiePicBack
 
-	db STRING_SHOT, TACKLE, LEECH_LIFE, NO_MOVE ; level 1 learnset
+	db STRING_SHOT, TACKLE, NO_MOVE, NO_MOVE ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

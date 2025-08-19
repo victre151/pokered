@@ -1,6 +1,6 @@
 	db DEX_CHANSEY ; pokedex id
 
-	db 250,   5,   5,  50, 105
+	db 250,   5,   5,  50, 105 ;  415BST
 	;   hp  atk  def  spd  spc
 
 	db NORMAL, NORMAL ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/chansey.pic", 0, 1 ; sprite dimensions
 	dw ChanseyPicFront, ChanseyPicBack
 
-	db DEFENSE_CURL, GROWL, POUND, NO_MOVE ; level 1 learnset
+	db TACKLE, NO_MOVE, NO_MOVE, NO_MOVE ; level 1 learnset
 	db GROWTH_FAST ; growth rate
 
 	; tm/hm learnset

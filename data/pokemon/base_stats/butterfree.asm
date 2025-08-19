@@ -1,6 +1,6 @@
 	db DEX_BUTTERFREE ; pokedex id
 
-	db  60,  45,  50,  70,  90
+	db  79,  74,  69,  89,  99 ;  410BST
 	;   hp  atk  def  spd  spc
 
 	db BUG, PSYCHIC_TYPE ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/butterfree.pic", 0, 1 ; sprite dimensions
 	dw ButterfreePicFront, ButterfreePicBack
 
-	db STRING_SHOT, TACKLE, LEECH_LIFE, ABSORB ; level 1 learnset
+	db PIN_MISSILE, NO_MOVE, NO_MOVE, NO_MOVE ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

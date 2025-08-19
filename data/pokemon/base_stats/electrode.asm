@@ -1,6 +1,6 @@
 	db DEX_ELECTRODE ; pokedex id
 
-	db  60,  50,  70, 150,  80
+	db  60,  50,  70, 150,  80 ;  410BST
 	;   hp  atk  def  spd  spc
 
 	db ELECTRIC, ELECTRIC ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/electrode.pic", 0, 1 ; sprite dimensions
 	dw ElectrodePicFront, ElectrodePicBack
 
-	db SONICBOOM, TACKLE, SCREECH, NO_MOVE ; level 1 learnset
+	db SWIFT, REFLECT, BARRIER, TAKE_DOWN ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

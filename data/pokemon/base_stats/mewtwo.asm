@@ -1,6 +1,6 @@
 	db DEX_MEWTWO ; pokedex id
 
-	db 106, 110,  90, 130, 154
+	db 104, 118,  88, 128, 142 ;  580BST
 	;   hp  atk  def  spd  spc
 
 	db PSYCHIC_TYPE, FIGHTING ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/mewtwo.pic", 0, 1 ; sprite dimensions
 	dw MewtwoPicFront, MewtwoPicBack
 
-	db CONFUSION, DISABLE, DOUBLE_KICK, NO_MOVE ; level 1 learnset
+	db SCRATCH, TACKLE, PSYWAVE, DOUBLE_KICK ; level 1 learnset
 	db GROWTH_SLOW ; growth rate
 
 	; tm/hm learnset

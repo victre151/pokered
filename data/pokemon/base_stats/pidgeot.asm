@@ -1,6 +1,6 @@
 	db DEX_PIDGEOT ; pokedex id
 
-	db  83,  80,  75,  101,  70
+	db  87,  84,  79,  105,  74 ;  429BST
 	;   hp  atk  def  spd  spc
 
 	db FLYING, FLYING ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/pidgeot.pic", 0, 1 ; sprite dimensions
 	dw PidgeotPicFront, PidgeotPicBack
 
-	db GUST, QUICK_ATTACK, TACKLE, PECK ; level 1 learnset
+	db TAKE_DOWN, AGILITY, SCREECH, DRILL_PECK ; level 1 learnset
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset

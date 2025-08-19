@@ -1,16 +1,16 @@
 	db DEX_PONYTA ; pokedex id
 
-	db  50,  85,  55,  100,  65
+	db  50,  65,  55,  100,  85 ;  355BST
 	;   hp  atk  def  spd  spc
 
-	db FIRE, GROUND ; type
+	db FIRE, FIRE ; type
 	db 190 ; catch rate
 	db 152 ; base exp
 
 	INCBIN "gfx/pokemon/front/ponyta.pic", 0, 1 ; sprite dimensions
 	dw PonytaPicFront, PonytaPicBack
 
-	db GROWL, TACKLE, SAND_ATTACK, NO_MOVE ; level 1 learnset
+	db TACKLE, DOUBLE_KICK, SAND_ATTACK, FIRE_SPIN ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

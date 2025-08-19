@@ -1,6 +1,6 @@
 	db DEX_DRAGONAIR ; pokedex id
 
-	db  61,  84,  65,  70,  70
+	db  61,  84,  65,  70,  70 ;  350BST
 	;   hp  atk  def  spd  spc
 
 	db DRAGON, DRAGON ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/dragonair.pic", 0, 1 ; sprite dimensions
 	dw DragonairPicFront, DragonairPicBack
 
-	db LEER, WRAP, NO_MOVE, NO_MOVE ; level 1 learnset
+	db RAGE, BUBBLEBEAM, HEADBUTT, TAKE_DOWN ; level 1 learnset
 	db GROWTH_SLOW ; growth rate
 
 	; tm/hm learnset

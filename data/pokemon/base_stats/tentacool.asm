@@ -1,6 +1,6 @@
 	db DEX_TENTACOOL ; pokedex id
 
-	db  40,  40,  35,  70, 100
+	db  40,  40,  35,  70, 100 ;  285BST
 	;   hp  atk  def  spd  spc
 
 	db WATER, POISON ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/tentacool.pic", 0, 1 ; sprite dimensions
 	dw TentacoolPicFront, TentacoolPicBack
 
-	db POISON_STING, ABSORB, NO_MOVE, NO_MOVE ; level 1 learnset
+	db TACKLE, VINE_WHIP, BUBBLE, POISON_STING ; level 1 learnset
 	db GROWTH_SLOW ; growth rate
 
 	; tm/hm learnset

@@ -1,6 +1,6 @@
 	db DEX_NIDORAN_F ; pokedex id
 
-	db  55,  47,  52,  41,  40
+	db  59,  51,  56,  45,  44 ;  255BST
 	;   hp  atk  def  spd  spc
 
 	db POISON, POISON ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/nidoranf.pic", 0, 1 ; sprite dimensions
 	dw NidoranFPicFront, NidoranFPicBack
 
-	db GROWL, SCRATCH, TACKLE, NO_MOVE ; level 1 learnset
+	db PECK, DOUBLE_KICK, POISON_STING, SAND_ATTACK ; level 1 learnset
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset

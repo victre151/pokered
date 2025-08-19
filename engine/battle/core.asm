@@ -6313,12 +6313,39 @@ SwapPlayerAndEnemyLevels:
 LoadPlayerBackPic:
 	ld a, [wBattleType]
 	dec a ; is it the old man tutorial?
-	ld de, RedPicBack
-	jr nz, .next
-	ld de, OldManPicBack
-.next
+IF DEF(_RED)
+	ld de, OldManPicBack   ; Load the old man back sprite preemptively
+	ld a, BANK(RedPicBack) ; Default Red back sprite will be used as a means to load in the Old Man back sprite
+	jr z, .next
+	ld a, [wPlayerGender]
+	and a
+	jr z, .RedBack
+	ld de, GreenPicBack
+	ld a, BANK(GreenPicBack) ; Load female back sprite
+	jr .next
+.RedBack
+	ld de, RedPicBack ; Load default Red back sprite
 	ld a, BANK(RedPicBack)
-	ASSERT BANK(RedPicBack) == BANK(OldManPicBack)
+.next
+	ASSERT BANK(GreenPicBack) == BANK(OldManPicBack) ; These two ASSERTs make sure to cover
+	ASSERT BANK(RedPicBack) == BANK(OldManPicBack)   ; both sprite cases
+ELSE
+	ld de, OldManPicBack   ; Load the old man back sprite preemptively
+	ld a, BANK(YellowPicBack) ; Default Red back sprite will be used as a means to load in the Old Man back sprite
+	jr z, .next
+	ld a, [wPlayerGender]
+	and a
+	jr z, .YellowBack
+	ld de, PinkPicBack
+	ld a, BANK(PinkPicBack) ; Load female back sprite
+	jr .next
+.YellowBack
+	ld de, YellowPicBack ; Load default Red back sprite
+	ld a, BANK(YellowPicBack)
+.next
+	ASSERT BANK(PinkPicBack) == BANK(OldManPicBack) ; These two ASSERTs make sure to cover
+	ASSERT BANK(YellowPicBack) == BANK(OldManPicBack)   ; both sprite cases
+ENDC
 	call UncompressSpriteFromDE
 	predef ScaleSpriteByTwo
 	ld hl, wShadowOAM

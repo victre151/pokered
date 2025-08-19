@@ -1,6 +1,6 @@
 	db DEX_PRIMEAPE ; pokedex id
 
-	db  65, 105,  60,  95,  70
+	db  68, 98,  63,  98,  83 ;  410BST
 	;   hp  atk  def  spd  spc
 
 	db FIGHTING, GHOST ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/primeape.pic", 0, 1 ; sprite dimensions
 	dw PrimeapePicFront, PrimeapePicBack
 
-	db SCRATCH, LEER, LOW_KICK, FOCUS_ENERGY ; level 1 learnset
+	db FURY_SWIPES, LOW_KICK, ICE_PUNCH, TAKE_DOWN ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

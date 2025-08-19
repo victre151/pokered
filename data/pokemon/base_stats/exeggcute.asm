@@ -1,6 +1,6 @@
 	db DEX_EXEGGCUTE ; pokedex id
 
-	db  60,  40,  80,  40,  60
+	db  60,  40,  80,  40,  60 ;  280BST
 	;   hp  atk  def  spd  spc
 
 	db GRASS, GRASS ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/exeggcute.pic", 0, 1 ; sprite dimensions
 	dw ExeggcutePicFront, ExeggcutePicBack
 
-	db BARRAGE, HYPNOSIS, NO_MOVE, NO_MOVE ; level 1 learnset
+	db BARRAGE, VINE_WHIP, PSYWAVE, NO_MOVE ; level 1 learnset
 	db GROWTH_SLOW ; growth rate
 
 	; tm/hm learnset

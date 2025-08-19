@@ -1,6 +1,6 @@
 	db DEX_NIDOQUEEN ; pokedex id
 
-	db  90,  92,  87,  76,  85
+	db  90,  92,  87,  76,  85 ;  430BST
 	;   hp  atk  def  spd  spc
 
 	db POISON, GROUND ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/nidoqueen.pic", 0, 1 ; sprite dimensions
 	dw NidoqueenPicFront, NidoqueenPicBack
 
-	db DOUBLE_KICK, POISON_STING, SCRATCH, TACKLE ; level 1 learnset
+	db EARTHQUAKE, DRILL_PECK, ROCK_SLIDE, BODY_SLAM ; level 1 learnset
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset

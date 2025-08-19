@@ -1972,9 +1972,25 @@ RunMapScript::
 	ret
 
 LoadWalkingPlayerSpriteGraphics::
+IF DEF(_RED)
 	ld de, RedSprite
-	ld hl, vNPCSprites
+	ld a, [wPlayerGender]
+	and a
+	jr z, .AreGuy1
+	ld de, GreenSprite
+.AreGuy1
+	ld hl,vNPCSprites
 	jr LoadPlayerSpriteGraphicsCommon
+ELSE
+	ld de, YellowSprite
+	ld a, [wPlayerGender]
+	and a
+	jr z, .AreGuy1
+	ld de, PinkSprite
+.AreGuy1
+	ld hl,vNPCSprites
+	jr LoadPlayerSpriteGraphicsCommon
+ENDC
 
 LoadSurfingPlayerSpriteGraphics::
 	ld de, SeelSprite
@@ -1982,8 +1998,23 @@ LoadSurfingPlayerSpriteGraphics::
 	jr LoadPlayerSpriteGraphicsCommon
 
 LoadBikePlayerSpriteGraphics::
+IF DEF(_RED)
 	ld de, RedBikeSprite
+	ld a, [wPlayerGender]
+	and a
+	jr z, .AreGuy2
+	ld de, GreenBikeSprite
+.AreGuy2
 	ld hl, vNPCSprites
+ELSE
+	ld de, YellowBikeSprite
+	ld a, [wPlayerGender]
+	and a
+	jr z, .AreGuy2
+	ld de, PinkBikeSprite
+.AreGuy2
+	ld hl, vNPCSprites
+ENDC
 
 LoadPlayerSpriteGraphicsCommon::
 	push de

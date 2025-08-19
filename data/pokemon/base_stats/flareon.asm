@@ -1,6 +1,6 @@
 	db DEX_FLAREON ; pokedex id
 
-	db  65, 130,  60,  65, 110
+	db  65, 110,  60,  65, 130 ;  430BST
 	;   hp  atk  def  spd  spc
 
 	db FIRE, FIRE ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/flareon.pic", 0, 1 ; sprite dimensions
 	dw FlareonPicFront, FlareonPicBack
 
-	db GROWL, TACKLE, TAIL_WHIP, EMBER ; level 1 learnset
+	db TAKE_DOWN, SLASH, FLAMETHROWER, EARTHQUAKE ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

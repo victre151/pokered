@@ -183,8 +183,17 @@ HoFMonInfoText:
 	next "TYPE2/@"
 
 HoFLoadPlayerPics:
+IF DEF(_RED)
+	ld a, [wPlayerGender] ; New gender check
+	and a      ; New gender check
+	jr nz, .GirlStuff1
 	ld de, RedPicFront
 	ld a, BANK(RedPicFront)
+	jr .Routine ; skip the girl stuff and go to main routine
+.GirlStuff1
+	ld de, GreenPicFront
+	ld a, BANK(GreenPicFront)
+.Routine ; resume original routine
 	call UncompressSpriteFromDE
 	ld hl, sSpriteBuffer1
 	ld de, sSpriteBuffer0
@@ -192,8 +201,44 @@ HoFLoadPlayerPics:
 	call CopyData
 	ld de, vFrontPic
 	call InterlaceMergeSpriteBuffers
+	ld a, [wPlayerGender] ; new gender check
+	and a      ; new gender check
+	jr nz, .GirlStuff2
 	ld de, RedPicBack
 	ld a, BANK(RedPicBack)
+	jr .routine2 ; skip the girl stuff and continue original routine if guy
+.GirlStuff2
+	ld de, GreenPicBack
+	ld a, BANK(GreenPicBack)
+ELSE
+	ld a, [wPlayerGender] ; New gender check
+	and a      ; New gender check
+	jr nz, .GirlStuff1
+	ld de, YellowPicFront
+	ld a, BANK(YellowPicFront)
+	jr .Routine ; skip the girl stuff and go to main routine
+.GirlStuff1
+	ld de, PinkPicFront
+	ld a, BANK(PinkPicFront)
+.Routine ; resume original routine
+	call UncompressSpriteFromDE
+	ld hl, sSpriteBuffer1
+	ld de, sSpriteBuffer0
+	ld bc, $310
+	call CopyData
+	ld de, vFrontPic
+	call InterlaceMergeSpriteBuffers
+	ld a, [wPlayerGender] ; new gender check
+	and a      ; new gender check
+	jr nz, .GirlStuff2
+	ld de, YellowPicBack
+	ld a, BANK(YellowPicBack)
+	jr .routine2 ; skip the girl stuff and continue original routine if guy
+.GirlStuff2
+	ld de, PinkPicBack
+	ld a, BANK(PinkPicBack)
+ENDC
+.routine2 ; original routine
 	call UncompressSpriteFromDE
 	predef ScaleSpriteByTwo
 	ld de, vBackPic

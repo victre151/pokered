@@ -1,6 +1,6 @@
 	db DEX_DODRIO ; pokedex id
 
-	db  60, 110,  70, 110,  60
+	db  60, 110,  70, 110,  60 ;  410BST
 	;   hp  atk  def  spd  spc
 
 	db GROUND, FLYING ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/dodrio.pic", 0, 1 ; sprite dimensions
 	dw DodrioPicFront, DodrioPicBack
 
-	db PECK, SAND_ATTACK, QUICK_ATTACK, RAGE ; level 1 learnset
+	db HEADBUTT, STOMP, DOUBLE_TEAM, SLASH ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

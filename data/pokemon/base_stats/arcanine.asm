@@ -1,6 +1,6 @@
 	db DEX_ARCANINE ; pokedex id
 
-	db  90, 110,  80,  95,  100
+	db  86, 105,  75,  90,  95 ;  450BST
 	;   hp  atk  def  spd  spc
 
 	db FIRE, DRAGON ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/arcanine.pic", 0, 1 ; sprite dimensions
 	dw ArcaninePicFront, ArcaninePicBack
 
-	db BITE, NO_MOVE, NO_MOVE, NO_MOVE ; level 1 learnset
+	db TAKE_DOWN, SLASH, AGILITY, FLAMETHROWER ; level 1 learnset
 	db GROWTH_SLOW ; growth rate
 
 	; tm/hm learnset

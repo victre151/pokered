@@ -1,6 +1,6 @@
 	db DEX_CHARIZARD ; pokedex id
 
-	db  78,  84,  78, 100, 109
+	db  78,  84,  78, 100, 109 ;  449BST
 	;   hp  atk  def  spd  spc
 
 	db FIRE, DRAGON ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/charizard.pic", 0, 1 ; sprite dimensions
 	dw CharizardPicFront, CharizardPicBack
 
-	db EMBER, GROWL, SCRATCH, LEER ; level 1 learnset
+	db SLASH, SCREECH, FLAMETHROWER, SLAM ; level 1 learnset
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset

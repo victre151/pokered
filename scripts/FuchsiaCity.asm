@@ -186,6 +186,7 @@ FuchsiaCityScientistText:
 .dontHaveGift
     push af
     call PrintText
+    call Delay3
     pop af
     pop bc
     jp nz, TextScriptEnd

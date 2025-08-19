@@ -1,6 +1,6 @@
 	db DEX_NIDOKING ; pokedex id
 
-	db  81,  102,  77,  85,  85
+	db  81,  102,  77,  85,  85 ;  430BST
 	;   hp  atk  def  spd  spc
 
 	db POISON, GROUND ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/nidoking.pic", 0, 1 ; sprite dimensions
 	dw NidokingPicFront, NidokingPicBack
 
-	db DOUBLE_KICK, PECK, POISON_STING, TACKLE ; level 1 learnset
+	db EARTHQUAKE, DRILL_PECK, ROCK_SLIDE, BODY_SLAM ; level 1 learnset
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset

@@ -64,6 +64,12 @@ OakSpeech:
 	ld a, [wStatusFlags6]
 	bit BIT_DEBUG_MODE, a
 	jp nz, .skipSpeech
+	ld hl, BoyGirlText  ; added to the same file as the other oak text
+  	call PrintText     ; show this text
+  	call BoyGirlChoice ; added routine at the end of this file
+   	ld a, [wCurrentMenuItem]
+   	ld [wPlayerGender], a ; store player's gender. 00 for boy, 01 for girl
+   	call ClearScreen ; clear the screen before resuming normal intro
 	ld de, ProfOakPic
 	lb bc, BANK(ProfOakPic), $00
 	call IntroDisplayPicCenteredOrUpperRight
@@ -83,8 +89,15 @@ OakSpeech:
 	call PrintText
 	call GBFadeOutToWhite
 	call ClearScreen
+IF DEF(_RED)
 	ld de, RedPicFront
 	lb bc, BANK(RedPicFront), $00
+	ld a, [wPlayerGender] 	; check gender
+	and a      				; check gender
+	jr z, .NotGreen1
+	ld de, GreenPicFront
+	lb bc, BANK(GreenPicFront), $00
+.NotGreen1:
 	call IntroDisplayPicCenteredOrUpperRight
 	call MovePicLeft
 	ld hl, IntroducePlayerText
@@ -99,11 +112,42 @@ OakSpeech:
 	ld hl, IntroduceRivalText
 	call PrintText
 	call ChooseRivalName
+ELSE
+	ld de, YellowPicFront
+	lb bc, BANK(YellowPicFront), $00
+	ld a, [wPlayerGender] 	; check gender
+	and a      				; check gender
+	jr z, .NotPink1
+	ld de, PinkPicFront
+	lb bc, BANK(PinkPicFront), $00
+.NotPink1:
+	call IntroDisplayPicCenteredOrUpperRight
+	call MovePicLeft
+	ld hl, IntroducePlayerText
+	call PrintText
+	call ChoosePlayerName
+	call GBFadeOutToWhite
+	call ClearScreen
+	ld de, Rival1Pic
+	lb bc, BANK(Rival1Pic), $00
+	call IntroDisplayPicCenteredOrUpperRight
+	call FadeInIntroPic
+	ld hl, IntroduceRivalText
+	call PrintText
+	call ChooseRivalName
+ENDC
 .skipSpeech
+IF DEF(_RED)
 	call GBFadeOutToWhite
 	call ClearScreen
 	ld de, RedPicFront
-	lb bc, BANK(RedPicFront), $00
+	lb bc, BANK(RedPicFront), $00  	  	
+	ld a, [wPlayerGender] ; check gender
+	and a      ; check gender
+	jr z, .NotGreen2
+	ld de, GreenPicFront
+	lb bc, Bank(GreenPicFront), $00
+	.NotGreen2:
 	call IntroDisplayPicCenteredOrUpperRight
 	call GBFadeInFromWhite
 	ld a, [wStatusFlags3]
@@ -111,6 +155,25 @@ OakSpeech:
 	jr nz, .next
 	ld hl, OakSpeechText3
 	call PrintText
+ELSE
+	call GBFadeOutToWhite
+	call ClearScreen
+	ld de, YellowPicFront
+	lb bc, BANK(YellowPicFront), $00  	  	
+	ld a, [wPlayerGender] ; check gender
+	and a      ; check gender
+	jr z, .NotPink2
+	ld de, PinkPicFront
+	lb bc, Bank(PinkPicFront), $00
+.NotPink2:
+	call IntroDisplayPicCenteredOrUpperRight
+	call GBFadeInFromWhite
+	ld a, [wStatusFlags3]
+	and a ; ???
+	jr nz, .next
+	ld hl, OakSpeechText3
+	call PrintText
+ENDC
 .next
 	ldh a, [hLoadedROMBank]
 	push af
@@ -121,13 +184,37 @@ OakSpeech:
 	ld [rROMB], a
 	ld c, 4
 	call DelayFrames
+IF DEF(_RED)
 	ld de, RedSprite
 	ld hl, vSprites
 	lb bc, BANK(RedSprite), $0C
+	ld a, [wPlayerGender] ; check gender
+	and a      ; check gender
+	jr z, .NotGreen3
+	ld de,GreenSprite
+	lb bc, BANK(GreenSprite), $0C
+.NotGreen3:
+	ld hl, vSprites
 	call CopyVideoData
-	ld de, ShrinkPic1
+	ld de,ShrinkPic1
 	lb bc, BANK(ShrinkPic1), $00
 	call IntroDisplayPicCenteredOrUpperRight
+ELSE
+	ld de, YellowSprite
+	ld hl, vSprites
+	lb bc, BANK(YellowSprite), $0C
+	ld a, [wPlayerGender] ; check gender
+	and a      ; check gender
+	jr z, .NotPink3
+	ld de,PinkSprite
+	lb bc, BANK(PinkSprite), $0C
+.NotPink3:
+	ld hl, vSprites
+	call CopyVideoData
+	ld de,ShrinkPic1
+	lb bc, BANK(ShrinkPic1), $00
+	call IntroDisplayPicCenteredOrUpperRight
+ENDC
 	ld c, 4
 	call DelayFrames
 	ld de, ShrinkPic2
@@ -178,6 +265,9 @@ IntroduceRivalText:
 OakSpeechText3:
 	text_far _OakSpeechText3
 	text_end
+BoyGirlText: ; This is new so we had to add a reference to get it to compile
+	text_far _BoyGirlText
+    text_end
 
 FadeInIntroPic:
 	ld hl, IntroFadePalettes
@@ -240,3 +330,22 @@ IntroDisplayPicCenteredOrUpperRight:
 	xor a
 	ldh [hStartTileID], a
 	predef_jump CopyUncompressedPicToTilemap
+
+; displays boy/girl choice
+BoyGirlChoice::
+ 	call SaveScreenTilesToBuffer1
+ 	call InitBoyGirlTextBoxParameters
+ 	jr DisplayBoyGirlChoice
+    
+InitBoyGirlTextBoxParameters::
+	ld a, $1 ; loads the value for the unused North/West choice, that was changed to say Boy/Girl
+ 	ld [wTwoOptionMenuID], a
+ 	coord hl, 13, 7 
+ 	ld bc, $80e
+ 	ret
+ 
+DisplayBoyGirlChoice::
+   	ld a, $14
+   	ld [wTextBoxID], a
+   	call DisplayTextBoxID
+   	jp LoadScreenTilesFromBuffer1

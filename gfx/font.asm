@@ -29,3 +29,6 @@ WorldMapTileGraphicsEnd:
 
 PlayerCharacterTitleGraphics: INCBIN "gfx/title/player.2bpp"
 PlayerCharacterTitleGraphicsEnd:
+
+PlayerCharacterTitleGraphics2: INCBIN "gfx/title/player2.2bpp"
+PlayerCharacterTitleGraphics2End:

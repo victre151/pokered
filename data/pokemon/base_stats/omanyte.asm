@@ -1,6 +1,6 @@
 	db DEX_OMANYTE ; pokedex id
 
-	db  35,  40, 100,  35,  90
+	db  37,  52, 102,  37,  82 ;  310BST
 	;   hp  atk  def  spd  spc
 
 	db ROCK, WATER ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/omanyte.pic", 0, 1 ; sprite dimensions
 	dw OmanytePicFront, OmanytePicBack
 
-	db CONSTRICT, WITHDRAW, NO_MOVE, NO_MOVE ; level 1 learnset
+	db SAND_ATTACK, VINE_WHIP, PECK, BUBBLE ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

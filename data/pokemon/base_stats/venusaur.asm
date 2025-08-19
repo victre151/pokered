@@ -1,6 +1,6 @@
 	db DEX_VENUSAUR ; pokedex id
 
-	db  80,  82,  83,  80, 100
+	db  80, 100,  83,  80, 82 ;  425BST
 	;   hp  atk  def  spd  spc
 
 	db GRASS, POISON ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/venusaur.pic", 0, 1 ; sprite dimensions
 	dw VenusaurPicFront, VenusaurPicBack
 
-	db TACKLE, GROWL, MEGA_DRAIN, VINE_WHIP ; level 1 learnset
+	db HEADBUTT, TAKE_DOWN, SLASH, SCREECH ; level 1 learnset
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset

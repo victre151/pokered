@@ -1,6 +1,6 @@
 	db DEX_BLASTOISE ; pokedex id
 
-	db  79,  83, 100,  78,  105
+	db  79,  83, 100,  78,  105 ;  445BST
 	;   hp  atk  def  spd  spc
 
 	db WATER, ICE ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/blastoise.pic", 0, 1 ; sprite dimensions
 	dw BlastoisePicFront, BlastoisePicBack
 
-	db TACKLE, TAIL_WHIP, WATER_GUN, WITHDRAW ; level 1 learnset
+	db TAKE_DOWN, SLASH, SCREECH, WATERFALL ; level 1 learnset
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset

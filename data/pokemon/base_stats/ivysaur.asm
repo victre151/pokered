@@ -1,6 +1,6 @@
 	db DEX_IVYSAUR ; pokedex id
 
-	db  60,  62,  63,  60,  80
+	db  60,  80,  63,  60,  62 ;  325BST
 	;   hp  atk  def  spd  spc
 
 	db GRASS, POISON ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/ivysaur.pic", 0, 1 ; sprite dimensions
 	dw IvysaurPicFront, IvysaurPicBack
 
-	db GROWL, LEECH_SEED, TACKLE, ABSORB ; level 1 learnset
+	db ABSORB, SMOG, BITE, FOCUS_ENERGY ; level 1 learnset
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset

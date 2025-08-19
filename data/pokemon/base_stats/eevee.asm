@@ -1,6 +1,6 @@
 	db DEX_EEVEE ; pokedex id
 
-	db  70,  65,  65,  55,  70
+	db  70,  65,  65,  55,  70 ;  325BST
 	;   hp  atk  def  spd  spc
 
 	db NORMAL, NORMAL ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/eevee.pic", 0, 1 ; sprite dimensions
 	dw EeveePicFront, EeveePicBack
 
-	db GROWL, TACKLE, TAIL_WHIP, NO_MOVE ; level 1 learnset
+	db TACKLE, SCRATCH, SAND_ATTACK, NO_MOVE ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

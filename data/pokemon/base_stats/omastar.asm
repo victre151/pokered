@@ -1,6 +1,6 @@
 	db DEX_OMASTAR ; pokedex id
 
-	db  70,  60, 125,  55, 115
+	db  63,  86, 118,  48, 115 ;  430BST
 	;   hp  atk  def  spd  spc
 
 	db ROCK, WATER ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/omastar.pic", 0, 1 ; sprite dimensions
 	dw OmastarPicFront, OmastarPicBack
 
-	db CONSTRICT, WITHDRAW, HORN_ATTACK, NO_MOVE ; level 1 learnset
+	db SCREECH, ROCK_SLIDE, WATERFALL, BODY_SLAM ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

@@ -1,6 +1,6 @@
 	db DEX_SEADRA ; pokedex id
 
-	db  55,  65,  95,  85,  95
+	db  58,  78,  98,  88,  88 ;  410BST
 	;   hp  atk  def  spd  spc
 
 	db WATER, DRAGON ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/seadra.pic", 0, 1 ; sprite dimensions
 	dw SeadraPicFront, SeadraPicBack
 
-	db BUBBLE, SMOKESCREEN, HEADBUTT, WATER_GUN ; level 1 learnset
+	db HEADBUTT, DOUBLE_TEAM, TAKE_DOWN, SLASH ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

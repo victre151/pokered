@@ -1,6 +1,6 @@
 	db DEX_LICKITUNG ; pokedex id
 
-	db  95,  70,  85,  30,  75
+	db 104,  84,  94,  39,  79 ;  400BST
 	;   hp  atk  def  spd  spc
 
 	db NORMAL, NORMAL ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/lickitung.pic", 0, 1 ; sprite dimensions
 	dw LickitungPicFront, LickitungPicBack
 
-	db LICK, NO_MOVE, NO_MOVE, NO_MOVE ; level 1 learnset
+	db TACKLE, SAND_ATTACK, VINE_WHIP, NO_MOVE ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

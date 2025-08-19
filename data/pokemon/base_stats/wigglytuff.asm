@@ -1,6 +1,6 @@
 	db DEX_WIGGLYTUFF ; pokedex id
 
-	db 140,  70,  55,  45,  85
+	db 143,  88,  58,  48,  73 ;  410BST
 	;   hp  atk  def  spd  spc
 
 	db NORMAL, NORMAL ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/wigglytuff.pic", 0, 1 ; sprite dimensions
 	dw WigglytuffPicFront, WigglytuffPicBack
 
-	db SING, NO_MOVE, NO_MOVE, NO_MOVE ; level 1 learnset
+	db TAKE_DOWN, AGILITY, LIGHT_SCREEN, BODY_SLAM ; level 1 learnset
 	db GROWTH_FAST ; growth rate
 
 	; tm/hm learnset

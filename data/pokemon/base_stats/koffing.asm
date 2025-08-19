@@ -1,6 +1,6 @@
 	db DEX_KOFFING ; pokedex id
 
-	db  40,  65,  95,  35,  60
+	db  40,  45,  95,  35,  80 ;  295BST
 	;   hp  atk  def  spd  spc
 
 	db POISON, POISON ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/koffing.pic", 0, 1 ; sprite dimensions
 	dw KoffingPicFront, KoffingPicBack
 
-	db POISON_GAS, TACKLE, NO_MOVE, NO_MOVE ; level 1 learnset
+	db TACKLE, POISON_STING, NO_MOVE, NO_MOVE ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

@@ -1,6 +1,6 @@
 	db DEX_BEEDRILL ; pokedex id
 
-	db  65,  90,  40,  75,  80
+	db  77,  92,  52,  87, 102 ;  410BST
 	;   hp  atk  def  spd  spc
 
 	db BUG, POISON ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/beedrill.pic", 0, 1 ; sprite dimensions
 	dw BeedrillPicFront, BeedrillPicBack
 
-	db POISON_STING, STRING_SHOT, TACKLE, NO_MOVE ; level 1 learnset
+	db LEER, PIN_MISSILE, SMOG, NO_MOVE ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

@@ -1,6 +1,6 @@
 	db DEX_ODDISH ; pokedex id
 
-	db  50,  50,  55,  30,  75
+	db  50,  75,  55,  30,  50 ;  260BST
 	;   hp  atk  def  spd  spc
 
 	db GRASS, GRASS ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/oddish.pic", 0, 1 ; sprite dimensions
 	dw OddishPicFront, OddishPicBack
 
-	db ABSORB, GROWTH, NO_MOVE, NO_MOVE ; level 1 learnset
+	db TACKLE, VINE_WHIP, NO_MOVE, NO_MOVE ; level 1 learnset
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset

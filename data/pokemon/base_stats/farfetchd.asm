@@ -1,6 +1,6 @@
 	db DEX_FARFETCHD ; pokedex id
 
-	db  62,  90,  65,  70,  68
+	db  71,  99,  74,  79,  77 ;  400BST
 	;   hp  atk  def  spd  spc
 
 	db FLYING, FIGHTING ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/farfetchd.pic", 0, 1 ; sprite dimensions
 	dw FarfetchdPicFront, FarfetchdPicBack
 
-	db LEER, PECK, SAND_ATTACK, NO_MOVE ; level 1 learnset
+	db SAND_ATTACK, VINE_WHIP, PECK, DOUBLE_KICK ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

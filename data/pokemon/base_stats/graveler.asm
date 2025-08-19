@@ -1,6 +1,6 @@
 	db DEX_GRAVELER ; pokedex id
 
-	db  55,  95, 115,  35,  45
+	db  55,  95, 115,  35,  45 ;  345BST
 	;   hp  atk  def  spd  spc
 
 	db ROCK, GROUND ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/graveler.pic", 0, 1 ; sprite dimensions
 	dw GravelerPicFront, GravelerPicBack
 
-	db DEFENSE_CURL, TACKLE, NO_MOVE, NO_MOVE ; level 1 learnset
+	db DIG, SWIFT, HEADBUTT, LOW_KICK ; level 1 learnset
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset

@@ -1788,3 +1788,14 @@ _TextIDErrorText::
 _ContCharText::
 	text "<_CONT>@"
 	text_end
+
+_BoyGirlText::
+IF DEF(_RED)
+    text "Are you playing"
+    line "Red, or Green?"
+    done
+ELSE
+	text "Are you playing"
+	line "Yellow, or Pink?"
+	done
+ENDC

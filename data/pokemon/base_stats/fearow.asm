@@ -1,6 +1,6 @@
 	db DEX_FEAROW ; pokedex id
 
-	db  65,  90,  65, 100,  61
+	db  71,  96,  71, 106,  67 ;  411BST
 	;   hp  atk  def  spd  spc
 
 	db FLYING, FLYING ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/fearow.pic", 0, 1 ; sprite dimensions
 	dw FearowPicFront, FearowPicBack
 
-	db GROWL, LEER, PECK, NO_MOVE ; level 1 learnset
+	db SONICBOOM, RAGE, FURY_ATTACK, FURY_SWIPES ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

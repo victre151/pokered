@@ -9,7 +9,7 @@ Route10WildMons:
 	db 25, GRIMER
 	db 25, SLOWPOKE 
 	db 23, KRABBY
-	db 23, CHANSEY
+	db 23, DRATINI
 	end_grass_wildmons
 
 	def_water_wildmons 0 ; encounter rate

@@ -1,6 +1,6 @@
 	db DEX_CHARMELEON ; pokedex id
 
-	db  58,  64,  58,  80,  80
+	db  58,  64,  58,  80,  80 ;  340BST
 	;   hp  atk  def  spd  spc
 
 	db FIRE, DRAGON ; type
@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/charmeleon.pic", 0, 1 ; sprite dimensions
 	dw CharmeleonPicFront, CharmeleonPicBack
 
-	db EMBER, GROWL, SCRATCH, LEER ; level 1 learnset
+	db QUICK_ATTACK, SMOKESCREEN, BITE, FOCUS_ENERGY ; level 1 learnset
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset

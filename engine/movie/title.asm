@@ -318,6 +318,7 @@ ScrollTitleScreenGameVersion:
 	ret
 
 DrawPlayerCharacter:
+IF DEF(_RED)
 	ld hl, PlayerCharacterTitleGraphics
 	ld de, vSprites
 	ld bc, PlayerCharacterTitleGraphicsEnd - PlayerCharacterTitleGraphics
@@ -329,6 +330,19 @@ DrawPlayerCharacter:
 	ld hl, wShadowOAM
 	lb de, $60, $5a
 	ld b, 7
+ELSE
+	ld hl, PlayerCharacterTitleGraphics2
+	ld de, vSprites
+	ld bc, PlayerCharacterTitleGraphics2End - PlayerCharacterTitleGraphics2
+	ld a, BANK(PlayerCharacterTitleGraphics2)
+	call FarCopyData2
+	call ClearSprites
+	xor a
+	ld [wPlayerCharacterOAMTile], a
+	ld hl, wShadowOAM
+	lb de, $60, $5a
+	ld b, 7
+ENDC
 .loop
 	push de
 	ld c, 5
