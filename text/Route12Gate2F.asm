@@ -14,13 +14,18 @@ _Route12Gate2FBrunetteGirlReceivedTM39Text::
 	text_end
 
 _Route12Gate2FBrunetteGirlTM39ExplanationText::
-	text "TM39 is a move"
-	line "called SWIFT."
+	text "TM42 is a move"
+	line "called AMNESIA."
 
-	para "It's very accurate,"
-	line "so use it during"
-	cont "battles you can't"
-	cont "afford to lose."
+	para "It clears the"
+	line "mind and greatly"
+	cont "boosts a"
+	cont "#MON's Special!"
+	
+	para "It can give your"
+	line "#MON an edge"
+	cont "in difficult"
+	cont "battles."
 	done
 
 _Route12Gate2FBrunetteGirlTM39NoRoomText::

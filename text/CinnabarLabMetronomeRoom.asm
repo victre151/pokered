@@ -1,9 +1,11 @@
 _CinnabarLabMetronomeRoomScientist1Text::
-	text "Tch-tch-tch!"
-	line "I made a cool TM!"
+	text "Heh-heh-heh!"
+	line "I made a tricky"
+	cont "TM!"
 
-	para "It can cause all"
-	line "kinds of fun!"
+	para "It messes with"
+	line "the foe at the"
+	cont "worst time!"
 	prompt
 
 _CinnabarLabMetronomeRoomScientist1ReceivedTM35Text::
@@ -14,14 +16,15 @@ _CinnabarLabMetronomeRoomScientist1ReceivedTM35Text::
 	text_end
 
 _CinnabarLabMetronomeRoomScientist1TM35ExplanationText::
-	text "Tch-tch-tch!"
-	line "That's the sound"
-	cont "of a METRONOME!"
-
-	para "It tweaks your"
-	line "#MON's brain"
-	cont "into using moves"
-	cont "it doesn't know!"
+	text "This TM teaches"
+	line "DISABLE!"
+	
+	para "It locks the foe"
+	line "out of one move!"
+	
+	para "Used smartly, it"
+	line "can shut down an"
+	cont "opponent's plan."
 	done
 
 _CinnabarLabMetronomeRoomScientist1TM35NoRoomText::

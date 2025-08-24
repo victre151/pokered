@@ -15,10 +15,11 @@ _CeladonMart3FClerkReceivedTM18Text::
 	text_end
 
 _CeladonMart3FClerkTM18ExplanationText::
-	text "TM18 is COUNTER!"
-	line "Not like the one"
-	cont "I'm leaning on,"
-	cont "mind you!"
+	text "TM46 is ACID"
+	line "ARMOR! The user"
+	cont "transforms itself"
+	cont "to raise DEFENSE"
+	cont "with great effect!"
 	done
 
 _CeladonMart3FClerkTM18NoRoomText::

@@ -176,33 +176,33 @@ DEF TM01 EQU const_value
 	add_tm BLIZZARD   	 ; $D9
 	add_tm BUBBLEBEAM    ; $DA
 	add_tm HYPER_BEAM 	 ; $DB
-	add_tm COUNTER       ; $DC
-	add_tm SEISMIC_TOSS  ; $DD
-	add_tm MEGA_DRAIN    ; $DE
-	add_tm LEECH_SEED  	 ; $DF
-	add_tm SOLARBEAM  	 ; $E0
-	add_tm POISONPOWDER  ; $E1
-	add_tm STUN_SPORE    ; $E2
-	add_tm SLEEP_POWDER  ; $E3
-	add_tm PETAL_DANCE   ; $E4
-	add_tm THUNDERBOLT   ; $E5
-	add_tm THUNDER       ; $E6
-	add_tm ROCK_THROW    ; $E7
-	add_tm FISSURE  	 ; $E8
-	add_tm DIG      	 ; $E9
-	add_tm TOXIC         ; $EA
-	add_tm HYPNOSIS      ; $EB
-	add_tm RECOVER 		 ; $EC
-	add_tm LIGHT_SCREEN  ; $ED
-	add_tm HAZE   		 ; $EE
-	add_tm REFLECT       ; $EF
-	add_tm SLUDGE   	 ; $F0
-	add_tm FIRE_BLAST    ; $F1
-	add_tm SKULL_BASH    ; $F2
-	add_tm AMNESIA   	 ; $F3
-	add_tm GLARE         ; $F4
-	add_tm DREAM_EATER   ; $F5
-	add_tm POISON_GAS    ; $F6
+	add_tm SEISMIC_TOSS  ; $DC
+	add_tm MEGA_DRAIN    ; $DD
+	add_tm LEECH_SEED    ; $DE
+	add_tm SOLARBEAM  	 ; $DF
+	add_tm POISONPOWDER  ; $E0
+	add_tm STUN_SPORE    ; $E1
+	add_tm SLEEP_POWDER  ; $E2
+	add_tm PETAL_DANCE   ; $E3
+	add_tm THUNDERBOLT   ; $E4
+	add_tm THUNDER   	 ; $E5
+	add_tm ROCK_THROW    ; $E6
+	add_tm FISSURE       ; $E7
+	add_tm DIG  	 	 ; $E8
+	add_tm TOXIC      	 ; $E9
+	add_tm HYPNOSIS      ; $EA
+	add_tm RECOVER       ; $EB
+	add_tm LIGHT_SCREEN  ; $EC
+	add_tm HAZE  		 ; $ED
+	add_tm REFLECT   	 ; $EE
+	add_tm SLUDGE        ; $EF
+	add_tm FIRE_BLAST    ; $F0
+	add_tm SKULL_BASH    ; $F1
+	add_tm AMNESIA    	 ; $F2
+	add_tm GLARE   	 	 ; $F3
+	add_tm DREAM_EATER   ; $F4
+	add_tm POISON_GAS    ; $F5
+	add_tm ACID_ARMOR    ; $F6
 	add_tm REST    		 ; $F7
 	add_tm ROCK_SLIDE    ; $F8
 	add_tm TRI_ATTACK    ; $F9

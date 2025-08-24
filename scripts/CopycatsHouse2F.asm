@@ -3,7 +3,7 @@ CopycatsHouse2F_Script:
 
 CopycatsHouse2F_TextPointers:
 	def_text_pointers
-	dw_const CopycatsHouse2FCopycatText,      TEXT_COPYCATSHOUSE2F_COPYCAT
+	dw_const MoveRelearnerText1,              TEXT_COPYCATSHOUSE2F_COPYCAT
 	dw_const CopycatsHouse2FDoduoText,        TEXT_COPYCATSHOUSE2F_DODUO
 	dw_const CopycatsHouse2FRareDollText,     TEXT_COPYCATSHOUSE2F_MONSTER
 	dw_const CopycatsHouse2FRareDollText,     TEXT_COPYCATSHOUSE2F_BIRD
@@ -11,63 +11,112 @@ CopycatsHouse2F_TextPointers:
 	dw_const CopycatsHouse2FSNESText,         TEXT_COPYCATSHOUSE2F_SNES
 	dw_const CopycatsHouse2FPCText,           TEXT_COPYCATSHOUSE2F_PC
 
-CopycatsHouse2FCopycatText:
+MoveRelearnerText1:
 	text_asm
-	CheckEvent EVENT_GOT_TM31
-	jr nz, .got_item
-	ld a, TRUE
-	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
-	ld hl, .DoYouLikePokemonText
+; Display the list of moves to the player.
+	ld hl, MoveRelearnerGreetingText
 	call PrintText
-	ld b, POKE_DOLL
-	call IsItemInBag
-	jr z, .done
-	ld hl, .TM31PreReceiveText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jp nz, .exit
+	xor a
+	;charge 1000 money
+	ld [hMoney], a	
+	ld [hMoney + 2], a	
+	ld a, $0A
+	ld [hMoney + 1], a  
+	call HasEnoughMoney
+	jr nc, .enoughMoney
+	; not enough money
+	ld hl, MoveRelearnerNotEnoughMoneyText
 	call PrintText
-	lb bc, TM_MIMIC, 1
-	call GiveItem
-	jr nc, .bag_full
-	ld hl, .ReceivedTM31Text
-	call PrintText
-	ld a, POKE_DOLL
-	ldh [hItemToRemoveID], a
-	farcall RemoveItemByID
-	SetEvent EVENT_GOT_TM31
-	jr .done
-.bag_full
-	ld hl, .TM31NoRoomText
-	call PrintText
-	jr .done
-.got_item
-	ld hl, .TM31Explanation2Text
-	call PrintText
-.done
 	jp TextScriptEnd
-
-.DoYouLikePokemonText:
-	text_far _CopycatsHouse2FCopycatDoYouLikePokemonText
-	text_end
-
-.TM31PreReceiveText:
-	text_far _CopycatsHouse2FCopycatTM31PreReceiveText
-	text_end
-
-.ReceivedTM31Text:
-	text_far _CopycatsHouse2FCopycatReceivedTM31Text
-	sound_get_item_1
-.TM31Explanation1Text:
-	text_far _CopycatsHouse2FCopycatTM31Explanation1Text
-	text_waitbutton
-	text_end
-
-.TM31Explanation2Text:
-	text_far _CopycatsHouse2FCopycatTM31Explanation2Text
-	text_end
-
-.TM31NoRoomText:
-	text_far _CopycatsHouse2FCopycatTM31NoRoomText
-	text_waitbutton
-	text_end
+.enoughMoney
+	ld hl, MoveRelearnerSaidYesText
+	call PrintText
+	; Select pokemon from party.
+	call SaveScreenTilesToBuffer2
+	xor a
+	ld [wListScrollOffset], a
+	ld [wPartyMenuTypeOrMessageID], a
+	ld [wUpdateSpritesEnabled], a
+	ld [wMenuItemToSwap], a
+	call DisplayPartyMenu
+	push af
+	call GBPalWhiteOutWithDelay3
+	call RestoreScreenTilesAndReloadTilePatterns
+	call LoadGBPal
+	pop af
+	jp c, .exit
+	ld a, [wWhichPokemon]
+	ld b, a
+	push bc
+	ld hl, PrepareRelearnableMoveList
+	ld b, Bank(PrepareRelearnableMoveList)
+	call Bankswitch
+	ld a, [wMoveBuffer]
+	and a
+	jr nz, .chooseMove
+	pop bc
+	ld hl, MoveRelearnerNoMovesText
+	call PrintText
+	jp TextScriptEnd
+.chooseMove
+	ld hl, MoveRelearnerWhichMoveText
+	call PrintText
+	xor a
+	ld [wCurrentMenuItem], a
+	ld [wLastMenuItem], a
+	ld a, MOVESLISTMENU
+	ld [wListMenuID], a
+	ld de, wMoveBuffer
+	ld hl, wListPointer
+	ld [hl], e
+	inc hl
+	ld [hl], d
+	xor a
+	ld [wPrintItemPrices], a ; don't print prices
+	call DisplayListMenuID
+	pop bc
+	jr c, .exit  ; exit if player chose cancel
+	push bc
+	; Save the selected move id.
+	ld a, [wCurPartySpecies]
+	ld [wMoveNum], a
+	ld [wMoveGrammar],a
+	call GetMoveName
+	call CopyToStringBuffer ; copy name to wcf4b
+	pop bc
+	ld a, b
+	ld [wWhichPokemon], a
+	ld a, [wLetterPrintingDelayFlags]
+	push af
+	xor a
+	ld [wLetterPrintingDelayFlags], a
+	predef LearnMove
+	pop af
+	ld [wLetterPrintingDelayFlags], a
+	ld a, b
+	and a
+	jr z, .exit
+	; Charge 1000 money
+	xor a
+	ld [wPriceTemp], a
+	ld [wPriceTemp + 2], a	
+	ld a, $0A
+	ld [wPriceTemp + 1], a	
+	ld hl, wPriceTemp + 2
+	ld de, wPlayerMoney + 2
+	ld c, $3
+	predef SubBCDPredef
+	ld hl, MoveRelearnerByeText
+	call PrintText
+	jp TextScriptEnd
+.exit
+	ld hl, MoveRelearnerByeText
+	call PrintText
+	jp TextScriptEnd
 
 CopycatsHouse2FDoduoText:
 	text_far _CopycatsHouse2FDoduoText
@@ -98,4 +147,28 @@ CopycatsHouse2FPCText:
 
 .CantSeeText:
 	text_far _CopycatsHouse2FPCCantSeeText
+	text_end
+
+MoveRelearnerGreetingText:
+	text_far _MoveRelearnerGreetingText
+	text_end
+
+MoveRelearnerSaidYesText:
+	text_far _MoveRelearnerSaidYesText
+	text_end
+
+MoveRelearnerNotEnoughMoneyText:
+	text_far _MoveRelearnerNotEnoughMoneyText
+	text_end
+
+MoveRelearnerWhichMoveText:
+	text_far _MoveRelearnerWhichMoveText
+	text_end
+
+MoveRelearnerByeText:
+	text_far _MoveRelearnerByeText
+	text_end
+
+MoveRelearnerNoMovesText:
+	text_far _MoveRelearnerNoMovesText
 	text_end

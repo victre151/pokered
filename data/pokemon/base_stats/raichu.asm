@@ -14,11 +14,9 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm MEGA_PUNCH,   MEGA_KICK,    TOXIC,        BODY_SLAM,    TAKE_DOWN,    \
-	     DOUBLE_EDGE,  HYPER_BEAM,   PAY_DAY,      SUBMISSION,   SEISMIC_TOSS, \
-	     RAGE,         THUNDERBOLT,  THUNDER,      MIMIC,        DOUBLE_TEAM,  \
-	     REFLECT,      BIDE,         SWIFT,        SKULL_BASH,   REST,         \
-	     THUNDER_WAVE, SUBSTITUTE,   FLASH
+	tmhm FLASH,        MEGA_PUNCH,   THUNDERPUNCH, MEGA_KICK,    THRASH,       \
+	     DOUBLE_EDGE,  HYPER_BEAM,   SEISMIC_TOSS, THUNDERBOLT,  THUNDER,      \
+	     REFLECT,      SKULL_BASH,   REST,         SUBSTITUTE 
 	; end
 
 	db 0 ; padding

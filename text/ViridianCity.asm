@@ -66,30 +66,24 @@ _ViridianCityOldManSleepyPrivatePropertyText::
 	done
 
 ViridianCityFisherYouCanHaveThisText::
-	text "Yawn!"
-	line "I must have dozed"
-	cont "off in the sun."
+	text "Huh? Wha...?"
+	line "Oh, you're a"
+	cont "TRAINER! Sorry, I"
+	cont "must have dozed"
+	cont "off."
 
-	para "I had this dream"
-	line "about a DROWZEE"
-	cont "eating my dream."
-	cont "What's this?"
-	cont "Where did this TM"
-	cont "come from?"
-
-	para "This is spooky!"
-	line "Here, you can"
-	cont "have this TM."
+	para "Here, you can"
+	line "have this TM."
 	prompt
 
 _ViridianCityFisherReceivedTM42Text::
 	text "<PLAYER> received"
-	line "TM42!@"
+	line "TM47!@"
 	text_end
 
 _ViridianCityFisherTM42ExplanationText::
-	text "TM42 contains"
-	line "DREAM EATER..."
+	text "TM47 contains"
+	line "REST..."
 	cont "...Snore..."
 	done
 

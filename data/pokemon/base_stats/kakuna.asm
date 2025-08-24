@@ -14,7 +14,9 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm
+	tmhm CUT, 		   SWORDS_DANCE, HORN_DRILL,   THRASH,  	 DOUBLE_EDGE,  \
+	     MEGA_DRAIN,   TOXIC,   	 REFLECT,  	   SLUDGE,  	 SKULL_BASH,   \
+	     POISON_GAS,   REST,   	     SUBSTITUTE
 	; end
 
 	db 0 ; padding

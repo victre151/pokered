@@ -4,12 +4,13 @@ TypeNames:
 	dw .Normal
 	dw .Fighting
 	dw .Flying
-	dw .Poison
 	dw .Ground
 	dw .Rock
 	dw .Bird
 	dw .Bug
 	dw .Dragon
+	dw .Ice
+	dw .Grass
 
 REPT UNUSED_TYPES_END - UNUSED_TYPES
 	dw .Normal
@@ -17,11 +18,10 @@ ENDR
 
 	dw .Fire
 	dw .Water
-	dw .Grass
 	dw .Electric
 	dw .Psychic
-	dw .Ice
 	dw .Ghost
+	dw .Poison
 
 	assert_table_length NUM_TYPES
 

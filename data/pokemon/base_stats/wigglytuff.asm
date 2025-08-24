@@ -14,13 +14,9 @@
 	db GROWTH_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm MEGA_PUNCH,   MEGA_KICK,    TOXIC,        BODY_SLAM,    TAKE_DOWN,    \
-	     DOUBLE_EDGE,  BUBBLEBEAM,   WATER_GUN,    ICE_BEAM,     BLIZZARD,     \
-	     HYPER_BEAM,   SUBMISSION,   COUNTER,      SEISMIC_TOSS, RAGE,         \
-	     SOLARBEAM,    THUNDERBOLT,  THUNDER,      PSYCHIC_M,    FLASH,        \
-	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         FIRE_BLAST,   \
-	     SKULL_BASH,   REST,         THUNDER_WAVE, SUBSTITUTE,   TRI_ATTACK,   \
-	     STRENGTH     
+	tmhm STRENGTH,	   SWORDS_DANCE, THRASH,       DOUBLE_EDGE,  DISABLE,      \
+	     HYPER_BEAM,   HYPNOSIS,     RECOVER,      REFLECT,      SKULL_BASH,   \
+	     DREAM_EATER,  ACID_ARMOR,   REST,         SUBSTITUTE
 	; end
 
 	db 0 ; padding

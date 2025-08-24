@@ -11,14 +11,13 @@
 	INCBIN "gfx/pokemon/front/articuno.pic", 0, 1 ; sprite dimensions
 	dw ArticunoPicFront, ArticunoPicBack
 
-	db TACKLE, PECK, GUST, NO_MOVE ; level 1 learnset
+	db TACKLE, PECK, NO_MOVE, NO_MOVE ; level 1 learnset
 	db GROWTH_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm RAZOR_WIND,   FLY,          TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  \
-	     BUBBLEBEAM,   WATER_GUN,    ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   \
-	     RAGE,         MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
-	     SWIFT,        SKY_ATTACK,   REST,         SUBSTITUTE
+	tmhm FLY,   	   RAZOR_WIND,   DOUBLE_EDGE,  ROAR,    	 MIST, 		   \
+	     ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   HAZE,     	 REFLECT,      \
+	     SKULL_BASH,   REST,         TRI_ATTACK,   SUBSTITUTE
 	; end
 
 	db 0 ; padding

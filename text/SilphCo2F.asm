@@ -17,13 +17,13 @@ _SilphCo2FSilphWorkerFReceivedTM36Text::
 	text_end
 
 _SilphCo2FSilphWorkerFTM36ExplanationText::
-	text "TM36 is"
-	line "SELFDESTRUCT!"
+	text "TM12 is"
+	line "HYDRO PUMP!"
 
-	para "It's powerful, but"
-	line "the #MON that"
-	cont "uses it faints!"
-	cont "Be careful."
+	para "It's powerful,"
+	line "but It has low"
+	cont "accuracy! Use it"
+	cont "Wisely."
 	done
 
 _SilphCo2FSilphWorkerFTM36NoRoomText::

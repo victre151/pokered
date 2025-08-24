@@ -14,10 +14,10 @@
 	db GROWTH_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  HYPER_BEAM,   RAGE,         \
-	     MEGA_DRAIN,   SOLARBEAM,    PSYCHIC_M,    REST,         MIMIC,        \
-	     DOUBLE_TEAM,  REFLECT,      BIDE,         STRENGTH,     EGG_BOMB,     \
-	     SUBSTITUTE       
+	tmhm THRASH,       DOUBLE_EDGE,  DISABLE,      HYPER_BEAM,   MEGA_DRAIN,   \
+	     LEECH_SEED,   SOLARBEAM,    POISONPOWDER, STUN_SPORE,   SLEEP_POWDER, \
+	     PETAL_DANCE,  FISSURE,      DIG,		   HYPNOSIS,     REFLECT,      \
+		 SKULL_BASH,   REST,         SUBSTITUTE 
 	; end
 
 	db 0 ; padding

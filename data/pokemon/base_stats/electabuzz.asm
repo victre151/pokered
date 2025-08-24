@@ -1,6 +1,6 @@
 	db DEX_ELECTABUZZ ; pokedex id
 
-	db  65,  83,  57, 105,  85 ;  395BST
+	db  66,  84,  58, 106,  86 ;  400BST
 	;   hp  atk  def  spd  spc
 
 	db ELECTRIC, FIGHTING ; type
@@ -14,11 +14,9 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm MEGA_PUNCH,   MEGA_KICK,    TOXIC,        BODY_SLAM,    TAKE_DOWN,    \
-	     DOUBLE_EDGE,  HYPER_BEAM,   SUBMISSION,   COUNTER,      SEISMIC_TOSS, \
-	     RAGE,         THUNDERBOLT,  THUNDER,      PSYCHIC_M,    FLASH,        \
-	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         SWIFT,        \
-	     SKULL_BASH,   REST,         THUNDER_WAVE, SUBSTITUTE,   STRENGTH
+	tmhm FLASH,        STRENGTH,     MEGA_PUNCH,   THUNDERPUNCH, MEGA_KICK,    \
+	     THRASH,       DOUBLE_EDGE,  HYPER_BEAM,   SEISMIC_TOSS, THUNDERBOLT,  \
+	     THUNDER,      REFLECT,      SKULL_BASH,   REST,         SUBSTITUTE
 	; end
 
 	db 0 ; padding

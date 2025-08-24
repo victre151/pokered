@@ -10,16 +10,13 @@
 	INCBIN "gfx/pokemon/front/marowak.pic", 0, 1 ; sprite dimensions
 	dw MarowakPicFront, MarowakPicBack
 
-	db NIGHT_SHADE, TAKE_DOWN, BONEMERANG, BODY_SLAM ; level 1 learnset
+	db DIG, FURY_SWIPES, BONE_CLUB, HEADBUTT ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm MEGA_PUNCH,   MEGA_KICK,    TOXIC,        BODY_SLAM,    TAKE_DOWN,    \
-	     DOUBLE_EDGE,  BUBBLEBEAM,   WATER_GUN,    ICE_BEAM,     BLIZZARD,     \
-	     HYPER_BEAM,   SUBMISSION,   COUNTER,      SEISMIC_TOSS, RAGE,         \
-	     EARTHQUAKE,   FISSURE,      DIG,          MIMIC,        DOUBLE_TEAM,  \
-	     BIDE,         FIRE_BLAST,   SKULL_BASH,   REST,         SUBSTITUTE,   \
-	     STRENGTH
+	tmhm STRENGTH,     SWORDS_DANCE, THRASH,       DOUBLE_EDGE,  HYPER_BEAM,   \
+	     ROCK_THROW,   FISSURE,  	 DIG,   	   SKULL_BASH,   GLARE,    	   \
+	     REST,         ROCK_SLIDE,   SUBSTITUTE
 	; end
 
 	db 0 ; padding

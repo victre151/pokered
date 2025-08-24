@@ -1,6 +1,6 @@
 	db DEX_MAGMAR ; pokedex id
 
-	db  65,  95,  57,  95,  100 ;  255BST
+	db  63,  92,  55,  93,  97 ;  400BST
 	;   hp  atk  def  spd  spc
 
 	db FIRE, FIRE ; type
@@ -14,10 +14,9 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm MEGA_PUNCH,   MEGA_KICK,    TOXIC,        BODY_SLAM,    TAKE_DOWN,    \
-	     DOUBLE_EDGE,  HYPER_BEAM,   SUBMISSION,   COUNTER,      SEISMIC_TOSS, \
-	     RAGE,         SUBSTITUTE,   SKULL_BASH,   MIMIC,        DOUBLE_TEAM,  \
-	     BIDE,         STRENGTH,     FIRE_BLAST
+	tmhm STRENGTH,     MEGA_PUNCH,   FIRE_PUNCH,   THRASH,       MEGA_KICK,    \
+	     DOUBLE_EDGE,  HYPER_BEAM,   REFLECT,      FIRE_BLAST,   SKULL_BASH,   \
+	     REST,         SUBSTITUTE
 	; end
 
 	db 0 ; padding

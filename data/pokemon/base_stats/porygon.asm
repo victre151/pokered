@@ -14,10 +14,9 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        TAKE_DOWN,    DOUBLE_EDGE,  ICE_BEAM,     BLIZZARD,     \
-	     HYPER_BEAM,   RAGE,         THUNDERBOLT,  THUNDER,      PSYCHIC_M,    \
-	     FLASH,        MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
-	     SWIFT,        SKULL_BASH,   REST,         THUNDER_WAVE, TRI_ATTACK,   \
+	tmhm FLASH,        THRASH,       DOUBLE_EDGE,  DISABLE,      HYPER_BEAM,   \
+	     THUNDERBOLT,  THUNDER,      HYPNOSIS,     RECOVER,      REFLECT,      \
+	     SKULL_BASH,   AMNESIA,      DREAM_EATER,  REST,         TRI_ATTACK,   \
 	     SUBSTITUTE
 	; end
 

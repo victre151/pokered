@@ -14,11 +14,9 @@
 	db GROWTH_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm TOXIC,        BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  BUBBLEBEAM,   \
-	     WATER_GUN,    ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   RAGE,         \
-	     DRAGON_RAGE,  THUNDERBOLT,  THUNDER,      MIMIC,        DOUBLE_TEAM,  \
-	     REFLECT,      BIDE,         FIRE_BLAST,   SKULL_BASH,   REST,         \
-	     SUBSTITUTE,   SURF,         STRENGTH
+	tmhm SURF,         STRENGTH,     THRASH,       DOUBLE_EDGE,  ROAR,          \
+	     HYDRO_PUMP,   BUBBLEBEAM,   HYPER_BEAM,   REFLECT,      SKULL_BASH,   \
+	     GLARE,        REST,         SUBSTITUTE
 	; end
 
 	db 0 ; padding

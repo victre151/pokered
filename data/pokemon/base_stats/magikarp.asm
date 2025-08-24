@@ -14,7 +14,9 @@
 	db GROWTH_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm
+	tmhm SURF,         STRENGTH,     THRASH,       DOUBLE_EDGE,  ROAR,          \
+	     HYDRO_PUMP,   BUBBLEBEAM,   REFLECT,      SKULL_BASH,   GLARE,         \
+	     REST,         SUBSTITUTE
 	; end
 
 	db 0 ; padding

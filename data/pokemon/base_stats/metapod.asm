@@ -14,7 +14,8 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm
+	tmhm DOUBLE_EDGE,  MEGA_DRAIN,	 LEECH_SEED,   REFLECT,		 SKULL_BASH,   \
+		 REST,		   SUBSTITUTE
 	; end
 
 	db 0 ; padding

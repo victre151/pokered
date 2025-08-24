@@ -14,12 +14,10 @@
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm MEGA_PUNCH,   SWORDS_DANCE, MEGA_KICK,    TOXIC,        BODY_SLAM,    \
-	     TAKE_DOWN,    DOUBLE_EDGE,  HYPER_BEAM,   SUBMISSION,   COUNTER,      \
-	     SEISMIC_TOSS, RAGE,         DRAGON_RAGE,  EARTHQUAKE,   FISSURE,      \
-	     DIG,          MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         \
-	     FIRE_BLAST,   SWIFT,        SKULL_BASH,   REST,         SUBSTITUTE,   \
-	     CUT,          STRENGTH
+	tmhm CUT,          STRENGTH,     FLY,   	   MEGA_PUNCH,   FIRE_PUNCH,   \
+		 RAZOR_WIND,   SWORDS_DANCE, MEGA_KICK,    THRASH,       DOUBLE_EDGE,  \
+		 ROAR,	       REFLECT,	     HYPER_BEAM,   FIRE_BLAST,   SKULL_BASH,   \
+		 GLARE,        REST,         SUBSTITUTE
 	; end
 
 	db 0 ; padding

@@ -14,11 +14,9 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm RAZOR_WIND,   SWORDS_DANCE, MEGA_KICK,    TOXIC,        BODY_SLAM,    \
-	     TAKE_DOWN,    DOUBLE_EDGE,  BUBBLEBEAM,   WATER_GUN,    ICE_BEAM,     \
-	     BLIZZARD,     HYPER_BEAM,   SUBMISSION,   SEISMIC_TOSS, RAGE,         \
-	     MIMIC,        DOUBLE_TEAM,  REFLECT,      BIDE,         SKULL_BASH,   \
-	     REST,         SUBSTITUTE,   SURF
+	tmhm GUILLOTINE,   SWORDS_DANCE, THRASH,       DOUBLE_EDGE,  HYPER_BEAM,   \
+	     MEGA_DRAIN,   ROCK_THROW,   FISSURE,      DIG,          REFLECT,      \
+	     SKULL_BASH,   ROCK_SLIDE,   SUBSTITUTE
 	; end
 
 	db 0 ; padding

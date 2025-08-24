@@ -1,67 +1,3 @@
-_CopycatsHouse2FCopycatDoYouLikePokemonText::
-	text "<PLAYER>: Hi! Do"
-	line "you like #MON?"
-
-	para "<PLAYER>: Uh no, I"
-	line "just asked you."
-
-	para "<PLAYER>: Huh?"
-	line "You're strange!"
-
-	para "COPYCAT: Hmm?"
-	line "Quit mimicking?"
-
-	para "But, that's my"
-	line "favorite hobby!"
-	prompt
-
-_CopycatsHouse2FCopycatTM31PreReceiveText::
-	text "Oh wow!"
-	line "A # DOLL!"
-
-	para "For me?"
-	line "Thank you!"
-
-	para "You can have"
-	line "this, then!"
-	prompt
-
-_CopycatsHouse2FCopycatReceivedTM31Text::
-	text "<PLAYER> received"
-	line "@"
-	text_ram wStringBuffer
-	text "!@"
-	text_end
-
-_CopycatsHouse2FCopycatTM31Explanation1Text::
-	text_start
-
-	para "TM31 contains my"
-	line "favorite, MIMIC!"
-
-	para "Use it on a good"
-	line "#MON!@"
-	text_end
-
-_CopycatsHouse2FCopycatTM31Explanation2Text::
-	text "<PLAYER>: Hi!"
-	line "Thanks for TM31!"
-
-	para "<PLAYER>: Pardon?"
-
-	para "<PLAYER>: Is it"
-	line "that fun to mimic"
-	cont "my every move?"
-
-	para "COPYCAT: You bet!"
-	line "It's a scream!"
-	done
-
-_CopycatsHouse2FCopycatTM31NoRoomText::
-	text "Don't you want"
-	line "this?@"
-	text_end
-
 _CopycatsHouse2FDoduoText::
 	text "DODUO: Giiih!"
 
@@ -98,3 +34,51 @@ _CopycatsHouse2FPCMySecretsText::
 _CopycatsHouse2FPCCantSeeText::
 	text "Huh? Can't see!"
 	done
+
+_MoveRelearnerGreetingText::
+	text "I'm the MOVE TUTOR."
+    line "I know all the"
+    cont "moves that"
+    cont "#MON learn"
+    cont "-every one of"
+	cont "them-and I can"
+    cont "teach #MON"
+    cont "those moves! I"
+    cont "can teach a move"
+    cont "to a #MON of"
+    cont "yours if you'd"
+    cont "like. I'll do it"
+	cont "for ¥1000."
+    done
+
+_MoveRelearnerSaidYesText::
+	text "Which #MON"
+	line "needs tutoring?"
+	prompt
+
+_MoveRelearnerNotEnoughMoneyText::
+	text "Hmmm..."
+
+	para "You don't have"
+	line "enough money!"
+	done
+
+_MoveRelearnerWhichMoveText::
+	text "Which move should"
+	line "I teach?"
+	done
+
+_MoveRelearnerByeText::
+	text "If any of your"
+	line "#MON need to"
+	cont "learn a move,"
+	cont "come visit me!"
+	done
+
+_MoveRelearnerNoMovesText::
+	text "Sorry… It"
+    line "doesn't appear as"
+	cont "if I have any"
+    cont "move I can teach"
+	cont "that #MON."
+    done

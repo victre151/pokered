@@ -14,10 +14,9 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm MEGA_PUNCH,   MEGA_KICK,    TOXIC,        BODY_SLAM,    TAKE_DOWN,    \
-	     DOUBLE_EDGE,  SUBMISSION,   COUNTER,      SEISMIC_TOSS, RAGE,         \
-	     MIMIC,        DOUBLE_TEAM,  BIDE,         STRENGTH,     SWIFT,        \
-	     SKULL_BASH,   REST,         SUBSTITUTE
+	tmhm STRENGTH,     MEGA_KICK,    THRASH,       DOUBLE_EDGE,  SEISMIC_TOSS, \
+	     ROCK_THROW,   SKULL_BASH,   REST,         ROCK_SLIDE,   TRI_ATTACK,   \
+	     SUBSTITUTE
 	; end
 
 	db 0 ; padding

@@ -47,14 +47,15 @@ _CeladonCityGramps3ReceivedTM41Text::
 	text_end
 
 _CeladonCityGramps3TM41ExplanationText::
-	text "TM41 teaches"
-	line "SOFTBOILED!"
+	text "TM35 teaches"
+	line "RECOVER!"
 
-	para "Only one #MON"
-	line "can use it!"
-
-	para "That #MON is"
-	line "CHANSEY!"
+	para "A move that lets"
+	line "a #MON restore"
+	cont "its own health!"
+	
+	para "It's handy in a"
+	line "long battle!"
 	done
 
 _CeladonCityGramps3TM41NoRoomText::

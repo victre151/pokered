@@ -1,12 +1,13 @@
 _FuchsiaGymKogaPostBattleAdviceText::
-	text "When afflicted by"
-	line "TOXIC, #MON"
-	cont "suffer more and"
-	cont "more as battle"
-	cont "progresses!"
+	para "The foe hit by"
+	line "SLUDGE may find"
+	cont "their strength"
+	cont "slowly slipping"
+	cont "away to poison!"
 
-	para "It will surely"
-	line "terrorize foes!"
+	para "A silent attack,"
+	line "like a shadow in"
+	cont "the night!"
 	done
 
 _FuchsiaGymKogaSoulBadgeInfoText::
@@ -32,13 +33,13 @@ _FuchsiaGymKogaReceivedTM06Text::
 	text_end
 
 _FuchsiaGymKogaTM06ExplanationText::
-	text_start
-	para "TM06 contains"
-	line "TOXIC!"
+	para "TM39 contains"
+	line "SLUDGE!"
 
-	para "It is a secret"
-	line "technique over"
-	cont "400 years old!"
+	para "A noxious attack"
+	line "delivered with swift"
+	cont "precision. It may also"
+	cont "leave a lingering poison!"
 	done
 
 _FuchsiaGymKogaTM06NoRoomText::
