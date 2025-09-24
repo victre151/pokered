@@ -1,15 +1,29 @@
 CeruleanCaveB1FWildMons:
 	def_grass_wildmons 25 ; encounter rate
-	db 70, GOLBAT
-	db 69, GOLEM
-	db 69, RHYDON
-	db 69, MAROWAK
-	db 68, PARASECT
-	db 68, ARBOK
-	db 68, SANDSLASH
-	db 68, PARASECT
-	db 70, LICKITUNG
-	db 70, SNORLAX
+IF DEF(_RED)
+	db 57, GOLBAT
+	db 56, GOLEM
+	db 56, RHYDON
+	db 56, MAROWAK
+	db 55, PARASECT
+	db 55, ARBOK
+	db 55, SANDSLASH
+	db 55, PARASECT
+	db 57, LICKITUNG
+	db 57, SNORLAX
+ENDC
+IF DEF(_BLUE)
+	db 57, GOLBAT
+	db 56, GOLEM
+	db 56, RHYDON
+	db 56, MAROWAK
+	db 55, PARASECT
+	db 55, SANDSLASH
+	db 55, ARBOK
+	db 55, PARASECT
+	db 57, LICKITUNG
+	db 57, SNORLAX
+ENDC
 	end_grass_wildmons
 
 	def_water_wildmons 0 ; encounter rate

@@ -19,4 +19,5 @@
 	     POISON_GAS,   REST,   	     SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(WeedlePicFront)
+	assert BANK(WeedlePicFront) == BANK(WeedlePicBack)

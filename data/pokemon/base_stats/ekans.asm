@@ -19,4 +19,5 @@
 	     POISON_GAS,   ACID_ARMOR,	 REST,         ROCK_SLIDE,   SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(EkansPicFront)
+	assert BANK(EkansPicFront) == BANK(EkansPicBack)

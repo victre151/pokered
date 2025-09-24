@@ -21,4 +21,5 @@
 	     REST,   	   ROCK_SLIDE,   SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(SquirtlePicFront)
+	assert BANK(SquirtlePicFront) == BANK(SquirtlePicBack)

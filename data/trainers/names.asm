@@ -12,7 +12,11 @@ TrainerNames::
 	li "BIKER"
 	li "BURGLAR"
 	li "ENGINEER"
-	li "JUGGLER"
+IF DEF(_BLUE)
+	li "YELLOW"
+ELSE	
+	li "RED"
+ENDC
 	li "FISHERMAN"
 	li "SWIMMER"
 	li "CUE BALL"
@@ -42,7 +46,11 @@ TrainerNames::
 	li "SABRINA"
 	li "GENTLEMAN"
 	li "RIVAL2"
-	li "RIVAL3"
+IF DEF(_BLUE)
+	li "PINK"
+ELSE
+	li "GREEN"
+ENDC
 	li "LORELEI"
 	li "CHANNELER"
 	li "AGATHA"

@@ -18,7 +18,7 @@ _CeruleanGymMistyPreBattleText::
 	done
 
 _CeruleanGymMistyTM11ExplanationText::
-	text "TM11 teaches"
+	text "TM18 teaches"
 	line "BUBBLEBEAM!"
 
 	para "Use it on an"
@@ -47,7 +47,7 @@ _CeruleanGymMistyCascadeBadgeInfoText::
 
 _CeruleanGymMistyReceivedTM11Text::
 	text "<PLAYER> received"
-	line "TM11!@"
+	line "TM18!@"
 	text_end
 
 _CeruleanGymMistyTM11NoRoomText::

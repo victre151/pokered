@@ -1,15 +1,29 @@
 CeruleanCave1FWildMons:
 	def_grass_wildmons 10 ; encounter rate
-	db 70, GOLBAT
-	db 70, GOLEM
-	db 68, HYPNO
-	db 69, ARBOK
-	db 69, SANDSLASH
-	db 68, VENOMOTH
-	db 68, DODRIO
-	db 68, PARASECT
-	db 70, ALAKAZAM
-	db 70, SNORLAX
+IF DEF(_RED)
+	db 57, GOLBAT
+	db 57, GOLEM
+	db 55, HYPNO
+	db 56, ARBOK
+	db 56, SANDSLASH
+	db 55, VENOMOTH
+	db 55, DODRIO
+	db 55, PARASECT
+	db 57, ALAKAZAM
+	db 57, SNORLAX
+ENDC
+IF DEF(_BLUE)
+	db 57, GOLBAT
+	db 57, GOLEM
+	db 55, HYPNO
+	db 56, SANDSLASH
+	db 56, ARBOK
+	db 55, VENOMOTH
+	db 55, DODRIO
+	db 55, PARASECT
+	db 57, ALAKAZAM
+	db 57, SNORLAX
+ENDC
 	end_grass_wildmons
 
 	def_water_wildmons 0 ; encounter rate

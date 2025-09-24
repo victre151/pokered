@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/parasect.pic", 0, 1 ; sprite dimensions
 	dw ParasectPicFront, ParasectPicBack
 
-	db GROWTH, FURY_SWIPES, CONFUSE_RAY, SPORE ; level 1 learnset
+	db GROWTH, FURY_ATTACK, CONFUSE_RAY, SPORE ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
@@ -21,4 +21,5 @@
 		 SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(ParasectPicFront)
+	assert BANK(ParasectPicFront) == BANK(ParasectPicBack)

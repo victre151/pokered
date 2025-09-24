@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/venomoth.pic", 0, 1 ; sprite dimensions
 	dw VenomothPicFront, VenomothPicBack
 
-	db PSYBEAM, LEECH_LIFE, DOUBLE_TEAM, TAKE_DOWN ; level 1 learnset
+	db PSYBEAM, LEECH_LIFE, MEGA_DRAIN, TAKE_DOWN ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
@@ -20,4 +20,5 @@
 		 REST,         SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(VenomothPicFront)
+	assert BANK(VenomothPicFront) == BANK(VenomothPicBack)

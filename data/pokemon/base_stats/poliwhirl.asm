@@ -20,4 +20,5 @@
 		 SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(PoliwhirlPicFront)
+	assert BANK(PoliwhirlPicFront) == BANK(PoliwhirlPicBack)

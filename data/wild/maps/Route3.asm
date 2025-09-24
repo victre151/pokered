@@ -1,15 +1,29 @@
 Route3WildMons:
 	def_grass_wildmons 20 ; encounter rate
-	db  11, PIDGEY
-	db  11, SPEAROW
-	db  11, RATTATA
-	db  12, PIDGEY
-	db  12, SPEAROW
-	db  13, RATTATA
-	db  11, EKANS
-	db  11, SANDSHREW
-	db  13, MANKEY
-	db  13, JIGGLYPUFF
+IF DEF(_RED)
+	db 7, PIDGEY
+	db 7, SPEAROW
+	db 7, RATTATA
+	db 8, PIDGEY
+	db 8, SPEAROW
+	db 9, RATTATA
+	db 7, EKANS
+	db 9, MANKEY
+	db 7, SANDSHREW
+	db 9, JIGGLYPUFF
+ENDC
+IF DEF(_BLUE)
+	db 7, SPEAROW
+	db 7, PIDGEY
+	db 7, RATTATA
+	db 8, SPEAROW
+	db 8, PIDGEY
+	db 9, RATTATA
+	db 7, EKANS
+	db 9, SANDSHREW
+	db 7, MANKEY
+	db 9, JIGGLYPUFF
+ENDC
 	end_grass_wildmons
 
 	def_water_wildmons 0 ; encounter rate

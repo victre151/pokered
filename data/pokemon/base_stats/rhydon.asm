@@ -19,4 +19,5 @@
 	     DIG,          SKULL_BASH,   ROCK_SLIDE,   SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(RhydonPicFront)
+	assert BANK(RhydonPicFront) == BANK(RhydonPicBack)

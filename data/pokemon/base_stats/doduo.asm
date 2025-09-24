@@ -14,9 +14,10 @@
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm RAZOR_WIND,   MEGA_KICK,    THRASH,       DOUBLE_EDGE,  ROCK_THROW,   \
-	     FISSURE,      DIG,          REFLECT,      SKULL_BASH,   REST,         \
-	     ROCK_SLIDE,   TRI_ATTACK,   SUBSTITUTE
+	tmhm FLY, 		   RAZOR_WIND,   MEGA_KICK,    THRASH,       DOUBLE_EDGE,  \
+	     ROCK_THROW,   FISSURE,      DIG,          REFLECT,      SKULL_BASH,   \
+	     REST,         ROCK_SLIDE,   TRI_ATTACK,   SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(DoduoPicFront)
+	assert BANK(DoduoPicFront) == BANK(DoduoPicBack)

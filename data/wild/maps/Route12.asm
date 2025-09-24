@@ -1,5 +1,6 @@
 Route12WildMons:
 	def_grass_wildmons 15 ; encounter rate
+IF DEF(_RED)
 	db 41, PIDGEOT
 	db 41, FEAROW
 	db 39, VENOMOTH
@@ -10,6 +11,19 @@ Route12WildMons:
 	db 39, FARFETCHD
 	db 40, FARFETCHD
 	db 40, CHANSEY
+ENDC
+IF DEF(_BLUE)
+	db 41, FEAROW
+	db 41, PIDGEOT
+	db 39, VENOMOTH
+	db 41, WEEPINBELL
+	db 41, GLOOM
+	db 39, KINGLER
+	db 40, SLOWBRO
+	db 39, FARFETCHD
+	db 40, FARFETCHD
+	db 40, CHANSEY
+ENDC
 	end_grass_wildmons
 
 	def_water_wildmons 0 ; encounter rate

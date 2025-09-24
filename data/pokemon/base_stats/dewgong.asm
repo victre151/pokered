@@ -20,4 +20,5 @@
 	     SKULL_BASH,   GLARE,        REST,   	   SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(DewgongPicFront)
+	assert BANK(DewgongPicFront) == BANK(DewgongPicBack)

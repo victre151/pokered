@@ -14,10 +14,12 @@
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm MEGA_PUNCH,   MEGA_KICK,    HORN_DRILL,   THRASH,       DOUBLE_EDGE,  \
-	     ROAR,  	   HYPER_BEAM,   SEISMIC_TOSS, ROCK_THROW,   FISSURE,      \
-	     DIG,          TOXIC,        REFLECT,      SLUDGE,       SKULL_BASH,   \
-	     GLARE,        POISON_GAS,   REST,         ROCK_SLIDE,   SUBSTITUTE
+	tmhm STRENGTH, 	   MEGA_PUNCH,   MEGA_KICK,    HORN_DRILL,   THRASH,       \
+	     DOUBLE_EDGE,  ROAR,  	   HYPER_BEAM,   SEISMIC_TOSS, ROCK_THROW,     \
+	     FISSURE,      DIG,          TOXIC,        REFLECT,      SLUDGE,       \
+	     SKULL_BASH,   GLARE,        POISON_GAS,   REST,         ROCK_SLIDE,   \
+		 SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(NidoqueenPicFront)
+	assert BANK(NidoqueenPicFront) == BANK(NidoqueenPicBack)

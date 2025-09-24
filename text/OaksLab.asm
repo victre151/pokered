@@ -28,7 +28,7 @@ _OaksLabThoseArePokeBallsText::
 _OaksLabYouWantCharmanderText::
 	text "So! You want the"
 IF DEF(_RED)
-	line "lizard #MON,"
+	line "seed #MON,"
 ENDC
 IF DEF(_BLUE)
 	line "mouse #MON,"
@@ -41,7 +41,7 @@ ENDC
 _OaksLabYouWantSquirtleText::
 	text "So! You want the"
 IF DEF(_RED)
-	line "turtle #MON,"
+	line "lizard #MON,"
 ENDC
 IF DEF(_BLUE)
 	line "evolution #MON,"
@@ -54,7 +54,7 @@ ENDC
 _OaksLabYouWantBulbasaurText::
 	text "So! You want the"
 IF DEF(_RED)
-	line "seed #MON,"
+	line "turtle #MON,"
 ENDC
 IF DEF(_BLUE)
 	line "fairy #MON,"
@@ -157,8 +157,8 @@ _OaksLabGivePokeballsExplanationText::
 	cont "it's fair game."
 
 	para "Just throw a #"
-	line "BALL at it and try"
-	line "to catch it!"
+	line "BALL at it and"
+	cont "try to catch it!"
 
 	para "This won't always"
 	line "work, though."

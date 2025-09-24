@@ -1,7 +1,9 @@
 _Route8SuperNerd1BattleText::
 	text "You look good at"
 	line "#MON, but"
-	cont "how's your chem?"
+	cont "how's your"
+	
+	para "chemistry grade?"
 	done
 
 _Route8SuperNerd1EndBattleText::
@@ -143,8 +145,8 @@ _Route8CooltrainerF4EndBattleText::
 _Route8CooltrainerF4AfterBattleText::
 	text "I heard that"
 	line "CLEFAIRY evolves"
-	cont "when it's exposed"
-	cont "to a MOON STONE."
+	cont "when it reaches"
+	cont "a certain level."
 	done
 
 _Route8UndergroundSignText::

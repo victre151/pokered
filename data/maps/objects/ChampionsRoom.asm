@@ -1,5 +1,6 @@
 	object_const_def
-	const_export CHAMPIONSROOM_RIVAL
+	const_export CHAMPIONSROOM_RIVAL_MALE
+	const_export CHAMPIONSROOM_RIVAL_FEMALE
 	const_export CHAMPIONSROOM_OAK
 
 ChampionsRoom_Object:
@@ -14,7 +15,13 @@ ChampionsRoom_Object:
 	def_bg_events
 
 	def_object_events
-	object_event  4,  2, SPRITE_BLUE, STAY, DOWN, TEXT_CHAMPIONSROOM_RIVAL
+IF DEF(_BLUE)
+	object_event  4,  2, SPRITE_YELLOW, STAY, DOWN, TEXT_CHAMPIONSROOM_RIVAL_MALE
+	object_event  4,  2, SPRITE_PINK, STAY, DOWN, TEXT_CHAMPIONSROOM_RIVAL_FEMALE
+ELSE
+	object_event  4,  2, SPRITE_RED, STAY, DOWN, TEXT_CHAMPIONSROOM_RIVAL_MALE
+	object_event  4,  2, SPRITE_GREEN, STAY, DOWN, TEXT_CHAMPIONSROOM_RIVAL_FEMALE
+ENDC
 	object_event  3,  7, SPRITE_OAK, STAY, UP, TEXT_CHAMPIONSROOM_OAK
 
 	def_warps_to CHAMPIONS_ROOM

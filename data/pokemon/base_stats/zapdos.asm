@@ -19,4 +19,5 @@
 	     TRI_ATTACK,   SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(ZapdosPicFront)
+	assert BANK(ZapdosPicFront) == BANK(ZapdosPicBack)

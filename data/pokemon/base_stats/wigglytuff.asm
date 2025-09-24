@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/wigglytuff.pic", 0, 1 ; sprite dimensions
 	dw WigglytuffPicFront, WigglytuffPicBack
 
-	db TAKE_DOWN, AGILITY, LIGHT_SCREEN, BODY_SLAM ; level 1 learnset
+	db BARRIER, AGILITY, LIGHT_SCREEN, BODY_SLAM ; level 1 learnset
 	db GROWTH_FAST ; growth rate
 
 	; tm/hm learnset
@@ -19,4 +19,5 @@
 	     DREAM_EATER,  ACID_ARMOR,   REST,         SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(WigglytuffPicFront)
+	assert BANK(WigglytuffPicFront) == BANK(WigglytuffPicBack)

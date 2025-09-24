@@ -18,4 +18,5 @@
 	     REFLECT,      SKULL_BASH,   GLARE,        REST,         SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(VoltorbPicFront)
+	assert BANK(VoltorbPicFront) == BANK(VoltorbPicBack)

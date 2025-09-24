@@ -1,20 +1,28 @@
 Route6WildMons:
 	def_grass_wildmons 15 ; encounter rate
-	db 15, ODDISH
-	db 15, BELLSPROUT
-	db 17, KRABBY
-	db 17, PSYDUCK
-	db 16, GROWLITHE
-	db 16, VULPIX
-	db 16, DROWZEE
-	db 17, ABRA
 IF DEF(_RED)
-	db 15, EEVEE
-	db 15, SQUIRTLE
+	db 11, ODDISH
+	db 11, BELLSPROUT
+	db 13, KRABBY
+	db 13, PSYDUCK
+	db 12, GROWLITHE
+	db 12, VULPIX
+	db 12, DROWZEE
+	db 13, ABRA
+	db 11, EEVEE
+	db 11, SQUIRTLE
 ENDC
 IF DEF(_BLUE)
-	db 15, SQUIRTLE
-	db 15, EEVEE
+	db 11, BELLSPROUT
+	db 11, ODDISH
+	db 13, KRABBY
+	db 13, PSYDUCK
+	db 12, VULPIX
+	db 12, GROWLITHE
+	db 12, DROWZEE
+	db 13, ABRA
+	db 11, SQUIRTLE
+	db 11, EEVEE
 ENDC
 	end_grass_wildmons
 

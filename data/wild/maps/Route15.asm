@@ -1,28 +1,28 @@
 Route15WildMons:
 	def_grass_wildmons 15 ; encounter rate
 IF DEF(_RED)
-	db 42, VENOMOTH
-	db 41, PIDGEOT
-	db 41, FEAROW
-	db 43, GLOOM
-	db 43, WEEPINBELL
-	db 42, DITTO
-	db 43, TAUROS
-	db 41, SCYTHER
-	db 41, PINSIR
-	db 42, CHANSEY
+	db 40, VENOMOTH
+	db 39, PIDGEOT
+	db 39, FEAROW
+	db 41, GLOOM
+	db 41, WEEPINBELL
+	db 40, DITTO
+	db 41, TAUROS
+	db 39, SCYTHER
+	db 39, PINSIR
+	db 40, CHANSEY
 ENDC
 IF DEF(_BLUE)
-	db 42, VENOMOTH
-	db 41, FEAROW
-	db 41, PIDGEOT
-	db 43, WEEPINBELL
-	db 43, GLOOM
-	db 42, DITTO
-	db 43, TAUROS
-	db 41, PINSIR
-	db 41, SCYTHER
-	db 42, CHANSEY
+	db 40, VENOMOTH
+	db 39, FEAROW
+	db 39, PIDGEOT
+	db 41, WEEPINBELL
+	db 41, GLOOM
+	db 40, DITTO
+	db 41, TAUROS
+	db 39, PINSIR
+	db 39, SCYTHER
+	db 40, CHANSEY
 ENDC
 	end_grass_wildmons
 

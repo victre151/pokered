@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/starmie.pic", 0, 1 ; sprite dimensions
 	dw StarmiePicFront, StarmiePicBack
 
-	db MINIMIZE, TAKE_DOWN, LIGHT_SCREEN, WATERFALL ; level 1 learnset
+	db TAKE_DOWN, SCREECH, LIGHT_SCREEN, WATERFALL ; level 1 learnset
 	db GROWTH_SLOW ; growth rate
 
 	; tm/hm learnset
@@ -19,4 +19,5 @@
 	     REST,         SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(StarmiePicFront)
+	assert BANK(StarmiePicFront) == BANK(StarmiePicBack)

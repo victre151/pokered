@@ -19,4 +19,5 @@
 	     SKULL_BASH,   DREAM_EATER,  POISON_GAS,   REST,         SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(VenonatPicFront)
+	assert BANK(VenonatPicFront) == BANK(VenonatPicBack)

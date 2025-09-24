@@ -19,4 +19,5 @@
 	     THUNDER,      REFLECT,      SKULL_BASH,   REST,         SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(ElectabuzzPicFront)
+	assert BANK(ElectabuzzPicFront) == BANK(ElectabuzzPicBack)

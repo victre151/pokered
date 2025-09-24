@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/raichu.pic", 0, 1 ; sprite dimensions
 	dw RaichuPicFront, RaichuPicBack
 
-	db THUNDERSHOCK, TAIL_WHIP, NO_MOVE, NO_MOVE ; level 1 learnset
+	db TAKE_DOWN, SLASH, AGILITY, THUNDERBOLT ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
@@ -19,4 +19,5 @@
 	     REFLECT,      SKULL_BASH,   REST,         SUBSTITUTE 
 	; end
 
-	db 0 ; padding
+	db BANK(RaichuPicFront)
+	assert BANK(RaichuPicFront) == BANK(RaichuPicBack)

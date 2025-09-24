@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/machamp.pic", 0, 1 ; sprite dimensions
 	dw MachampPicFront, MachampPicBack
 
-	db SUBMISSION, DIZZY_PUNCH, ROCK_SLIDE, BODY_SLAM ; level 1 learnset
+	db AGILITY, SUBMISSION, ROCK_SLIDE, BODY_SLAM ; level 1 learnset
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset
@@ -19,4 +19,5 @@
 		 SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(MachampPicFront)
+	assert BANK(MachampPicFront) == BANK(MachampPicBack)

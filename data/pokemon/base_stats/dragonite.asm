@@ -19,4 +19,5 @@
 	     SKULL_BASH,   GLARE,  	     REST,  	   SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(DragonitePicFront)
+	assert BANK(DragonitePicFront) == BANK(DragonitePicBack)

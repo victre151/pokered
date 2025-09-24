@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/magneton.pic", 0, 1 ; sprite dimensions
 	dw MagnetonPicFront, MagnetonPicBack
 
-	db REFLECT, HEADBUTT, DOUBLE_TEAM, TAKE_DOWN ; level 1 learnset
+	db THUNDERPUNCH, HEADBUTT, BARRIER, TAKE_DOWN ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
@@ -19,4 +19,5 @@
 		 SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(MagnetonPicFront)
+	assert BANK(MagnetonPicFront) == BANK(MagnetonPicBack)

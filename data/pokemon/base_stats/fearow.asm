@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/fearow.pic", 0, 1 ; sprite dimensions
 	dw FearowPicFront, FearowPicBack
 
-	db SONICBOOM, RAGE, FURY_ATTACK, FURY_SWIPES ; level 1 learnset
+	db FOCUS_ENERGY, FURY_SWIPES, RAGE, FURY_ATTACK ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
@@ -18,4 +18,5 @@
 	     HYPER_BEAM,   REST,         SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(FearowPicFront)
+	assert BANK(FearowPicFront) == BANK(FearowPicBack)

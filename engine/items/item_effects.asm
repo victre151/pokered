@@ -253,9 +253,9 @@ ItemUseBall:
 ; Determine BallFactor. It's 8 for Great Balls and 12 for the others.
 	ld a, [wCurItem]
 	cp GREAT_BALL
-	ld a, 12
-	jr nz, .skip1
 	ld a, 8
+	jr nz, .skip1
+	ld a, 12
 
 .skip1
 ; Note that the results of all division operations are floored.
@@ -2077,10 +2077,7 @@ ItemUsePPRestore:
 	ret
 .fullyRestorePP
 	ld a, [hl] ; move PP
-; Bug: This code doesn't mask out the upper two bits, which are used to count
-; how many PP Ups have been used on the move.
-; So, Max Ethers and Max Elixirs will not be detected as having no effect on
-; a move with full PP if the move has had any PP Ups used on it.
+	and %00111111 ; lower 6 bits store current PP
 	cp b ; does current PP equal max PP?
 	ret z
 	jr .storeNewAmount
@@ -2184,6 +2181,8 @@ ItemUseTMHM:
 	ld a, [wCurrentMenuItem]
 	and a
 	jr z, .useMachine
+	ld a, ITEM_NAME
+	ld [wNameListType], a; TM crash bug fix
 	ld a, 2
 	ld [wActionResultOrTookBattleTurn], a ; item not used
 	ret
@@ -2934,6 +2933,8 @@ CheckMapForMon:
 	ld a, c
 	ld [de], a
 	inc de
+	inc hl
+	ret
 .nextEntry
 	inc hl
 	inc hl

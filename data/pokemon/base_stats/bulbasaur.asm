@@ -20,4 +20,5 @@
 		 GLARE,		   POISON_GAS,   ACID_ARMOR,   REST,		 SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(BulbasaurPicFront)
+	assert BANK(BulbasaurPicFront) == BANK(BulbasaurPicBack)

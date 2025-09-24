@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/pikachu.pic", 0, 1 ; sprite dimensions
 	dw PikachuPicFront, PikachuPicBack
 
-	db SCRATCH, TACKLE, THUNDER_WAVE, NO_MOVE ; level 1 learnset
+	db SCRATCH, TACKLE, DOUBLE_KICK, THUNDER_WAVE ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
@@ -19,4 +19,5 @@
 	     SKULL_BASH,   REST,         SUBSTITUTE  
 	; end
 
-	db 0 ; padding
+	db BANK(PikachuPicFront)
+	assert BANK(PikachuPicFront) == BANK(PikachuPicBack)

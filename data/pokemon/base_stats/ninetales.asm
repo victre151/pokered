@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/ninetales.pic", 0, 1 ; sprite dimensions
 	dw NinetalesPicFront, NinetalesPicBack
 
-	db CONFUSE_RAY, FLAMETHROWER, QUICK_ATTACK, NO_MOVE ; level 1 learnset
+	db SLASH, TAKE_DOWN, LIGHT_SCREEN, FLAMETHROWER ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
@@ -19,4 +19,5 @@
 	     SKULL_BASH,   DREAM_EATER,  REST,         SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(NinetalesPicFront)
+	assert BANK(NinetalesPicFront) == BANK(NinetalesPicBack)

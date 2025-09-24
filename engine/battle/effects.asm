@@ -1320,7 +1320,6 @@ DisableEffect:
 	ld a, [wLinkState]
 	cp LINK_STATE_BATTLING
 	pop hl ; wEnemyMonMoves
-	jr nz, .playerTurnNotLinkBattle
 ; .playerTurnLinkBattle
 	push hl
 	ld hl, wEnemyMonPP

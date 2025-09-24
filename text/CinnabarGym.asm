@@ -52,14 +52,14 @@ _CinnabarGymBlaineReceivedTM38Text::
 _CinnabarGymBlaineTM38ExplanationText::
 	text_start
 
-	para "TM38 contains"
+	para "TM40 contains"
 	line "FIRE BLAST!"
 
 	para "Teach it to fire-"
 	line "type #MON!"
 
-	para "CHARMELEON or"
-	line "PONYTA would be"
+	para "CHARIZARD or"
+	line "RAPIDASH would be"
 	cont "good bets!"
 	done
 

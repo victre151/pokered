@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/nidorina.pic", 0, 1 ; sprite dimensions
 	dw NidorinaPicFront, NidorinaPicBack
 
-	db DIG, FURY_SWIPES, ACID, LOW_KICK ; level 1 learnset
+	db DIG, FURY_ATTACK, ACID, HORN_ATTACK ; level 1 learnset
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset
@@ -20,4 +20,5 @@
 	     ROCK_SLIDE,   SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(NidorinaPicFront)
+	assert BANK(NidorinaPicFront) == BANK(NidorinaPicBack)

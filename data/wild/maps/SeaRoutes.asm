@@ -3,14 +3,14 @@ SeaRoutesWildMons:
 	end_grass_wildmons
 
 	def_water_wildmons 5 ; encounter rate
-	db 44, TENTACRUEL
-	db 45, TENTACRUEL
-	db 45, GYARADOS
-	db 44, CLOYSTER
-	db 43, STARMIE
-	db 44, GOLDUCK
-	db 45, SEAKING
-	db 43, POLIWRATH
-	db 43, DEWGONG
-	db 45, SEADRA
+	db 42, TENTACRUEL
+	db 43, TENTACRUEL
+	db 43, GYARADOS
+	db 42, CLOYSTER
+	db 41, STARMIE
+	db 42, GOLDUCK
+	db 43, SEAKING
+	db 41, POLIWHIRL
+	db 41, DEWGONG
+	db 43, SEADRA
 	end_water_wildmons

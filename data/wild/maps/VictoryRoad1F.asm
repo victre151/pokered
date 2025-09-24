@@ -1,15 +1,29 @@
 VictoryRoad1FWildMons:
 	def_grass_wildmons 15 ; encounter rate
-	db 52, GOLBAT
-	db 51, PRIMEAPE
-	db 52, MACHAMP
-	db 52, GOLEM
-	db 51, MAROWAK
-	db 53, ONIX
-	db 53, RHYDON
-	db 53, NIDOQUEEN
-	db 53, NIDOKING
-	db 45, AERODACTYL
+IF DEF(_RED)
+	db 50, GOLBAT
+	db 49, PRIMEAPE
+	db 50, MACHAMP
+	db 50, GOLEM
+	db 49, MAROWAK
+	db 51, ONIX
+	db 51, RHYDON
+	db 51, NIDOKING
+	db 51, NIDOQUEEN
+	db 49, AERODACTYL
+ENDC
+IF DEF(_BLUE)
+	db 50, GOLBAT
+	db 49, PRIMEAPE
+	db 50, MACHAMP
+	db 50, GOLEM
+	db 49, MAROWAK
+	db 51, ONIX
+	db 51, RHYDON
+	db 51, NIDOQUEEN
+	db 51, NIDOKING
+	db 49, AERODACTYL
+ENDC
 	end_grass_wildmons
 
 	def_water_wildmons 0 ; encounter rate

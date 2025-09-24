@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/golem.pic", 0, 1 ; sprite dimensions
 	dw GolemPicFront, GolemPicBack
 
-	db ROCK_SLIDE, EARTHQUAKE, DIZZY_PUNCH, BODY_SLAM ; level 1 learnset
+	db SCREECH, ROCK_SLIDE, EARTHQUAKE, BODY_SLAM ; level 1 learnset
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset
@@ -19,4 +19,5 @@
 	     REST,         ROCK_SLIDE,   SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(GolemPicFront)
+	assert BANK(GolemPicFront) == BANK(GolemPicBack)

@@ -19,4 +19,5 @@
 	     SKULL_BASH,   REST,         TRI_ATTACK,   SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(JolteonPicFront)
+	assert BANK(JolteonPicFront) == BANK(JolteonPicBack)

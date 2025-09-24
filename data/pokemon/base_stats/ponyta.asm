@@ -19,4 +19,5 @@
 	     SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(PonytaPicFront)
+	assert BANK(PonytaPicFront) == BANK(PonytaPicBack)

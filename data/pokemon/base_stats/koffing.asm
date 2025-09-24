@@ -18,4 +18,5 @@
 	     SLUDGE,       FIRE_BLAST,   POISON_GAS,   REST,         SUBSTITUTE  
 	; end
 
-	db 0 ; padding
+	db BANK(KoffingPicFront)
+	assert BANK(KoffingPicFront) == BANK(KoffingPicBack)

@@ -47,49 +47,71 @@ RivalEntrance_RLEMovement:
 	db -1 ; end
 
 ChampionsRoomRivalReadyToBattleScript:
-	ld a, [wSimulatedJoypadStatesIndex]
-	and a
-	ret nz
+    ld a, [wSimulatedJoypadStatesIndex]
+    and a
+    ret nz
 	call Delay3
-	xor a
-	ld [wJoyIgnore], a
+    xor a
+    ld [wJoyIgnore], a
 	ld hl, wOptions
-	res BIT_BATTLE_ANIMATION, [hl]
-	ld a, TEXT_CHAMPIONSROOM_RIVAL
-	ldh [hTextID], a
-	call DisplayTextID
-	call Delay3
-	ld hl, wStatusFlags3
-	set BIT_TALKED_TO_TRAINER, [hl]
-	set BIT_PRINT_END_BATTLE_TEXT, [hl]
-	ld hl, RivalDefeatedText
-	ld de, RivalVictoryText
-	call SaveEndBattleTextPointers
-	ld a, OPP_RIVAL3
-	ld [wCurOpponent], a
+    res BIT_BATTLE_ANIMATION, [hl]
 
-	; select which team to use during the encounter
-	ld a, [wRivalStarter]
-	cp STARTER2
-	jr nz, .NotStarter2
-	ld a, $1
-	jr .saveTrainerId
+    ld a, [wPlayerGender]
+    and a
+    jr z, .MaleIntro
+    ; Female player
+    ld a, TEXT_CHAMPIONSROOM_RIVAL_FEMALE
+    jr .ShowIntro
+.MaleIntro
+    ld a, TEXT_CHAMPIONSROOM_RIVAL_MALE
+.ShowIntro
+    ldh [hTextID], a
+    call DisplayTextID
+    call Delay3
+
+    ld hl, wStatusFlags3
+    set BIT_TALKED_TO_TRAINER, [hl]
+    set BIT_PRINT_END_BATTLE_TEXT, [hl]
+
+    ld a, [wPlayerGender]
+    and a
+    ; Female player
+    ld hl, DefeatedTextBoy
+    ld de, MaleVictoryText
+    ld a, OPP_RIVAL4
+    jr nz, .done
+    ; Male player
+    ld hl, DefeatedTextGirl
+    ld de, FemaleVictoryText
+    ld a, OPP_RIVAL3
+.done
+    ld [wCurOpponent], a
+    call SaveEndBattleTextPointers
+
+.PickTeam
+    ld a, [wRivalStarter]
+    cp STARTER2
+    jr nz, .NotStarter2
+    ld a, $1
+    jr .saveTrainerId
 .NotStarter2
-	cp STARTER3
-	jr nz, .NotStarter3
-	ld a, $2
-	jr .saveTrainerId
+    cp STARTER3
+    jr nz, .NotStarter3
+    ld a, $2
+    jr .saveTrainerId
 .NotStarter3
-	ld a, $3
+    ld a, $3
 .saveTrainerId
-	ld [wTrainerNo], a
+    ld [wTrainerNo], a
 
-	xor a
-	ldh [hJoyHeld], a
-	ld a, SCRIPT_CHAMPIONSROOM_RIVAL_DEFEATED
-	ld [wChampionsRoomCurScript], a
-	ret
+    xor a
+    ldh [hJoyHeld], a
 
+    ld a, SCRIPT_CHAMPIONSROOM_RIVAL_DEFEATED
+    ld [wChampionsRoomCurScript], a
+
+    ret
+	
 ChampionsRoomRivalDefeatedScript:
 	ld a, [wIsInBattle]
 	cp $ff
@@ -98,10 +120,17 @@ ChampionsRoomRivalDefeatedScript:
 	SetEvent EVENT_BEAT_CHAMPION_RIVAL
 	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
-	ld a, TEXT_CHAMPIONSROOM_RIVAL
-	ldh [hTextID], a
+	ld a, [wPlayerGender]
+	and a
+	ld a, TEXT_CHAMPIONSROOM_RIVAL_FEMALE
+	jr nz, .gotText
+	ld a, TEXT_CHAMPIONSROOM_RIVAL_MALE
+.gotText
+    ldh [hTextID], a
+	
 	call ChampionsRoom_DisplayTextID_AllowABSelectStart
-	ld a, CHAMPIONSROOM_RIVAL
+	ld a, [wPlayerGender]
+	add CHAMPIONSROOM_RIVAL_MALE
 	ldh [hSpriteIndex], a
 	call SetSpriteMovementBytesToFF
 	ld a, SCRIPT_CHAMPIONSROOM_OAK_ARRIVES
@@ -141,7 +170,8 @@ ChampionsRoomOakCongratulatesPlayerScript:
 	ret nz
 	ld a, PLAYER_DIR_LEFT
 	ld [wPlayerMovingDirection], a
-	ld a, CHAMPIONSROOM_RIVAL
+	ld a, [wPlayerGender]
+	add CHAMPIONSROOM_RIVAL_MALE
 	ldh [hSpriteIndex], a
 	ld a, SPRITE_FACING_LEFT
 	ldh [hSpriteFacingDirection], a
@@ -159,11 +189,6 @@ ChampionsRoomOakCongratulatesPlayerScript:
 	ret
 
 ChampionsRoomOakDisappointedWithRivalScript:
-	ld a, CHAMPIONSROOM_OAK
-	ldh [hSpriteIndex], a
-	ld a, SPRITE_FACING_RIGHT
-	ldh [hSpriteFacingDirection], a
-	call SetSpriteFacingDirectionAndDelay
 	ld a, TEXT_CHAMPIONSROOM_OAK_DISAPPOINTED_WITH_RIVAL
 	ldh [hTextID], a
 	call ChampionsRoom_DisplayTextID_AllowABSelectStart
@@ -172,11 +197,6 @@ ChampionsRoomOakDisappointedWithRivalScript:
 	ret
 
 ChampionsRoomOakComeWithMeScript:
-	ld a, CHAMPIONSROOM_OAK
-	ldh [hSpriteIndex], a
-	xor a ; SPRITE_FACING_DOWN
-	ldh [hSpriteFacingDirection], a
-	call SetSpriteFacingDirectionAndDelay
 	ld a, TEXT_CHAMPIONSROOM_OAK_COME_WITH_ME
 	ldh [hTextID], a
 	call ChampionsRoom_DisplayTextID_AllowABSelectStart
@@ -242,36 +262,63 @@ ChampionsRoom_DisplayTextID_AllowABSelectStart:
 
 ChampionsRoom_TextPointers:
 	def_text_pointers
-	dw_const ChampionsRoomRivalText,                    TEXT_CHAMPIONSROOM_RIVAL
+	dw_const ChampionsRoomMaleText,                     TEXT_CHAMPIONSROOM_RIVAL_MALE
+	dw_const ChampionsRoomFemaleText,                   TEXT_CHAMPIONSROOM_RIVAL_FEMALE
 	dw_const ChampionsRoomOakText,                      TEXT_CHAMPIONSROOM_OAK
 	dw_const ChampionsRoomOakCongratulatesPlayerText,   TEXT_CHAMPIONSROOM_OAK_CONGRATULATES_PLAYER
 	dw_const ChampionsRoomOakDisappointedWithRivalText, TEXT_CHAMPIONSROOM_OAK_DISAPPOINTED_WITH_RIVAL
 	dw_const ChampionsRoomOakComeWithMeText,            TEXT_CHAMPIONSROOM_OAK_COME_WITH_ME
 
-ChampionsRoomRivalText:
+ChampionsRoomMaleText:
 	text_asm
 	CheckEvent EVENT_BEAT_CHAMPION_RIVAL
-	ld hl, .IntroText
+	ld hl, IntroFemale
 	jr z, .printText
-	ld hl, ChampionsRoomRivalAfterBattleText
+	ld hl, AfterBattleGirl
+.printText
+	call PrintText
+	jp TextScriptEnd
+	
+ChampionsRoomFemaleText:
+	text_asm
+	CheckEvent EVENT_BEAT_CHAMPION_RIVAL
+	ld hl, IntroMale
+	jr z, .printText
+	ld hl, AfterBattleBoy
 .printText
 	call PrintText
 	jp TextScriptEnd
 
-.IntroText:
-	text_far _ChampionsRoomRivalIntroText
+IntroMale:
+	text_far _ChampionsRoomMaleIntroText
 	text_end
 
-RivalDefeatedText:
-	text_far _RivalDefeatedText
+IntroFemale:
+	text_far _ChampionsRoomFemaleIntroText
 	text_end
 
-RivalVictoryText:
-	text_far _RivalVictoryText
+DefeatedTextGirl:
+	text_far _GirlDefeatedText
 	text_end
 
-ChampionsRoomRivalAfterBattleText:
-	text_far _ChampionsRoomRivalAfterBattleText
+DefeatedTextBoy:
+	text_far _BoyDefeatedText
+	text_end
+	
+MaleVictoryText:
+	text_far _MaleVictoryText
+	text_end
+	
+FemaleVictoryText:
+	text_far _FemaleVictoryText
+	text_end
+
+AfterBattleGirl:
+	text_far _ChampionsRoomGirlAfterBattleText
+	text_end
+
+AfterBattleBoy:
+	text_far _ChampionsRoomBoyAfterBattleText
 	text_end
 
 ChampionsRoomOakText:

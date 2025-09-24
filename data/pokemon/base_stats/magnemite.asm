@@ -18,4 +18,5 @@
 	     REFLECT,      SKULL_BASH,   REST,         TRI_ATTACK,   SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(MagnemitePicFront)
+	assert BANK(MagnemitePicFront) == BANK(MagnemitePicBack)

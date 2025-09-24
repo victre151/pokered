@@ -20,4 +20,5 @@
 	     SKULL_BASH,   REST,         TRI_ATTACK,   SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(ArticunoPicFront)
+	assert BANK(ArticunoPicFront) == BANK(ArticunoPicBack)

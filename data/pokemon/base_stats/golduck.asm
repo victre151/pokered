@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/golduck.pic", 0, 1 ; sprite dimensions
 	dw GolduckPicFront, GolduckPicBack
 
-	db HEADBUTT, SLASH, AMNESIA, TAKE_DOWN ; level 1 learnset
+	db HEADBUTT, TAKE_DOWN, SLASH, SCREECH ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
@@ -21,4 +21,5 @@
 		 SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(GolduckPicFront)
+	assert BANK(GolduckPicFront) == BANK(GolduckPicBack)

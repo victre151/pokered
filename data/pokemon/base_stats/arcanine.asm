@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/arcanine.pic", 0, 1 ; sprite dimensions
 	dw ArcaninePicFront, ArcaninePicBack
 
-	db TAKE_DOWN, SLASH, AGILITY, FLAMETHROWER ; level 1 learnset
+	db SLASH, AGILITY, SCREECH, FLAMETHROWER ; level 1 learnset
 	db GROWTH_SLOW ; growth rate
 
 	; tm/hm learnset
@@ -19,4 +19,5 @@
 	     GLARE,        REST,   		 ROCK_SLIDE,   TRI_ATTACK,   SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(ArcaninePicFront)
+	assert BANK(ArcaninePicFront) == BANK(ArcaninePicBack)

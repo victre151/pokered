@@ -1,5 +1,5 @@
 _FuchsiaGymKogaPostBattleAdviceText::
-	para "The foe hit by"
+	text "The foe hit by"
 	line "SLUDGE may find"
 	cont "their strength"
 	cont "slowly slipping"
@@ -27,19 +27,21 @@ _FuchsiaGymKogaSoulBadgeInfoText::
 
 _FuchsiaGymKogaReceivedTM06Text::
 	text "<PLAYER> received"
-	line "@"
-	text_ram wStringBuffer
-	text "!@"
+	line "TM39!@"
 	text_end
 
 _FuchsiaGymKogaTM06ExplanationText::
+	text_start
+	
 	para "TM39 contains"
-	line "SLUDGE!"
-
-	para "A noxious attack"
-	line "delivered with swift"
-	cont "precision. It may also"
-	cont "leave a lingering poison!"
+	line "SLUDGE! A noxious"
+	cont "attack delivered"
+	cont "with swift"
+	cont "precision."
+	
+	para "It may also leave"
+	line "a lingering"
+	cont "poison!"
 	done
 
 _FuchsiaGymKogaTM06NoRoomText::

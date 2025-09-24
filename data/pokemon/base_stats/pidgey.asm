@@ -18,4 +18,5 @@
 		 REST,         SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(PidgeyPicFront)
+	assert BANK(PidgeyPicFront) == BANK(PidgeyPicBack)

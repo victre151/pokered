@@ -20,4 +20,5 @@
 	     POISON_GAS,   ACID_ARMOR,   REST,         TRI_ATTACK,   SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(VaporeonPicFront)
+	assert BANK(VaporeonPicFront) == BANK(VaporeonPicBack)

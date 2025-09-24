@@ -18,4 +18,5 @@
 	     REFLECT,      SKULL_BASH,   REST,         SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(ChanseyPicFront)
+	assert BANK(ChanseyPicFront) == BANK(ChanseyPicBack)

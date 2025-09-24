@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/pidgeot.pic", 0, 1 ; sprite dimensions
 	dw PidgeotPicFront, PidgeotPicBack
 
-	db TAKE_DOWN, AGILITY, SCREECH, DRILL_PECK ; level 1 learnset
+	db AGILITY, SCREECH, DRILL_PECK, BODY_SLAM ; level 1 learnset
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset
@@ -18,4 +18,5 @@
 		 SKULL_BASH,   REST,         SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(PidgeotPicFront)
+	assert BANK(PidgeotPicFront) == BANK(PidgeotPicBack)

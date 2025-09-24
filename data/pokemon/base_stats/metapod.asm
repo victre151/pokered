@@ -18,4 +18,5 @@
 		 REST,		   SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(MetapodPicFront)
+	assert BANK(MetapodPicFront) == BANK(MetapodPicBack)

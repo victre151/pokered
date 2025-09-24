@@ -18,4 +18,5 @@
 	     DIG,          SKULL_BASH,   REST,         ROCK_SLIDE,   SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(RaticatePicFront)
+	assert BANK(RaticatePicFront) == BANK(RaticatePicBack)

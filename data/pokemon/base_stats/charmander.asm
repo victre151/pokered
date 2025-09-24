@@ -19,4 +19,5 @@
 		 FIRE_BLAST,   SKULL_BASH,   GLARE,   	   REST,         SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(CharmanderPicFront)
+	assert BANK(CharmanderPicFront) == BANK(CharmanderPicBack)

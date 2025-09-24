@@ -3,14 +3,14 @@
 	db  65,  84,  74,  85, 100 ;  408BST
 	;   hp  atk  def  spd  spc
 
-	db POISON, POISON ; type
+	db POISON, DRAGON ; type
 	db 90 ; catch rate
 	db 147 ; base exp
 
 	INCBIN "gfx/pokemon/front/arbok.pic", 0, 1 ; sprite dimensions
 	dw ArbokPicFront, ArbokPicBack
 
-	db BITE, FOCUS_ENERGY, FURY_ATTACK, RAGE ; level 1 learnset
+	db FOCUS_ENERGY, FURY_ATTACK, RAGE, SWIFT ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
@@ -20,4 +20,5 @@
 		 SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(ArbokPicFront)
+	assert BANK(ArbokPicFront) == BANK(ArbokPicBack)

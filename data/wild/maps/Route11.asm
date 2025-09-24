@@ -1,15 +1,29 @@
 Route11WildMons:
 	def_grass_wildmons 15 ; encounter rate
-	db 20, EKANS
-	db 20, RATICATE
-	db 21, RATICATE
+IF DEF(_RED)
+	db 18, EKANS
+	db 18, RATTATA
+	db 19, RATTATA
+	db 17, PIDGEY
+	db 17, SPEAROW
+	db 19, PIDGEOTTO
+	db 19, SPEAROW
+	db 18, DROWZEE
+	db 17, MR_MIME
+	db 17, CHANSEY
+ENDC
+IF DEF(_BLUE)
+	db 18, EKANS
+	db 18, RATTATA
+	db 19, RATTATA
+	db 17, SPEAROW
+	db 17, PIDGEY
 	db 19, SPEAROW
 	db 19, PIDGEOTTO
-	db 21, FEAROW
-	db 21, PIDGEOTTO
-	db 20, DROWZEE
-	db 19, MR_MIME
-	db 19, CHANSEY
+	db 18, DROWZEE
+	db 17, MR_MIME
+	db 17, CHANSEY
+ENDC
 	end_grass_wildmons
 
 	def_water_wildmons 0 ; encounter rate

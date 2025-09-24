@@ -249,7 +249,7 @@ OaksLabChoseStarterScript:
 	db -1 ; end
 
 .Bulbasaur
-	ld de, .LeftBallMovement1
+	ld de, .MiddleBallMovement1
 	ld a, [wXCoord]
 	cp 9 ; is the player standing to the right of the table?
 	jr nz, .moveBlue
@@ -269,7 +269,7 @@ OaksLabChoseStarterScript:
 	ld [hl], 8 ; SPRITESTATEDATA2_MAPY
 	inc hl
 	ld [hl], 9 ; SPRITESTATEDATA2_MAPX
-	ld de, .LeftBallMovement2 ; the rival is not currently onscreen, so account for that
+	ld de, .MiddleBallMovement2 ; the rival is not currently onscreen, so account for that
 	pop hl
 	jr .moveBlue
 
@@ -816,9 +816,9 @@ OaksLabSquirtlePokeBallText:
 
 OaksLabBulbasaurPokeBallText:
 	text_asm
-	ld a, STARTER1
+	ld a, STARTER2
 	ld [wRivalStarterTemp], a
-	ld a, OAKSLAB_CHARMANDER_POKE_BALL
+	ld a, OAKSLAB_SQUIRTLE_POKE_BALL
 	ld [wRivalStarterBallSpriteIndex], a
 	ld a, STARTER3
 	ld b, OAKSLAB_BULBASAUR_POKE_BALL

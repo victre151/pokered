@@ -36,7 +36,7 @@ _CopycatsHouse2FPCCantSeeText::
 	done
 
 _MoveRelearnerGreetingText::
-	text "I'm the MOVE TUTOR."
+	text "I'm the COPYCAT."
     line "I know all the"
     cont "moves that"
     cont "#MON learn"

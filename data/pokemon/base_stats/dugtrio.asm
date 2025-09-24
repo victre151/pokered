@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/dugtrio.pic", 0, 1 ; sprite dimensions
 	dw DugtrioPicFront, DugtrioPicBack
 
-	db DIG, FURY_SWIPES, SWIFT, HEADBUTT ; level 1 learnset
+	db DIG, SWIFT, REFLECT, HEADBUTT ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
@@ -18,4 +18,5 @@
 	     DIG,          SKULL_BASH,   REST,         ROCK_SLIDE,   SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(DugtrioPicFront)
+	assert BANK(DugtrioPicFront) == BANK(DugtrioPicBack)

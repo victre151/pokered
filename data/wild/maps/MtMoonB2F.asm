@@ -1,20 +1,20 @@
 MtMoonB2FWildMons:
 	def_grass_wildmons 10 ; encounter rate
-	db 11, ZUBAT
-	db 12, ZUBAT
-	db 11, GEODUDE
-	db 13, ZUBAT
-	db 12, GEODUDE
-	db 11, PARAS
-	db 11, MACHOP
-	db 13, ONIX
+	db 7, ZUBAT
+	db 8, ZUBAT
+	db 7, GEODUDE
+	db 9, ZUBAT
+	db 8, GEODUDE
+	db 7, PARAS
+	db 7, MACHOP
+	db 9, ONIX
 IF DEF(_RED)
-	db 12, CLEFAIRY
-	db 12, CHARMANDER
+	db 8, CLEFAIRY
+	db 8, CHARMANDER
 ENDC
 IF DEF(_BLUE)
-	db 12, CHARMANDER
-	db 12, CLEFAIRY
+	db 8, CHARMANDER
+	db 8, CLEFAIRY
 ENDC
 	end_grass_wildmons
 	

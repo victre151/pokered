@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/graveler.pic", 0, 1 ; sprite dimensions
 	dw GravelerPicFront, GravelerPicBack
 
-	db DIG, SWIFT, HEADBUTT, LOW_KICK ; level 1 learnset
+	db DIG, SWIFT, HEADBUTT, DIZZY_PUNCH ; level 1 learnset
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset
@@ -19,4 +19,5 @@
 	     ROCK_SLIDE,   SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(GravelerPicFront)
+	assert BANK(GravelerPicFront) == BANK(GravelerPicBack)

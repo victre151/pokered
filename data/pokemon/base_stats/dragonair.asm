@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/dragonair.pic", 0, 1 ; sprite dimensions
 	dw DragonairPicFront, DragonairPicBack
 
-	db RAGE, BUBBLEBEAM, HEADBUTT, TAKE_DOWN ; level 1 learnset
+	db BUBBLEBEAM, HORN_ATTACK, HEADBUTT, TAKE_DOWN ; level 1 learnset
 	db GROWTH_SLOW ; growth rate
 
 	; tm/hm learnset
@@ -19,4 +19,5 @@
 	     GLARE,  	   REST,  	     SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(DragonairPicFront)
+	assert BANK(DragonairPicFront) == BANK(DragonairPicBack)

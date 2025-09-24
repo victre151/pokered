@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/primeape.pic", 0, 1 ; sprite dimensions
 	dw PrimeapePicFront, PrimeapePicBack
 
-	db FURY_SWIPES, LOW_KICK, ICE_PUNCH, TAKE_DOWN ; level 1 learnset
+	db SWIFT, LOW_KICK, ICE_PUNCH, TAKE_DOWN ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
@@ -20,4 +20,5 @@
 		 SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(PrimeapePicFront)
+	assert BANK(PrimeapePicFront) == BANK(PrimeapePicBack)

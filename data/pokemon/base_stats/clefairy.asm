@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/clefairy.pic", 0, 1 ; sprite dimensions
 	dw ClefairyPicFront, ClefairyPicBack
 
-	db TACKLE, PSYWAVE, NO_MOVE, NO_MOVE ; level 1 learnset
+	db TACKLE, DOUBLE_KICK, PSYWAVE, NO_MOVE ; level 1 learnset
 	db GROWTH_FAST ; growth rate
 
 	; tm/hm learnset
@@ -18,4 +18,5 @@
 		 SKULL_BASH,   DREAM_EATER,  REST,         SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(ClefairyPicFront)
+	assert BANK(ClefairyPicFront) == BANK(ClefairyPicBack)

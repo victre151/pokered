@@ -20,4 +20,5 @@
 		 POISON_GAS,   REST,   	     SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(VictreebelPicFront)
+	assert BANK(VictreebelPicFront) == BANK(VictreebelPicBack)

@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/kadabra.pic", 0, 1 ; sprite dimensions
 	dw KadabraPicFront, KadabraPicBack
 
-	db FURY_SWIPES, SWIFT, REFLECT, PSYBEAM ; level 1 learnset
+	db KINESIS, SWIFT, REFLECT, PSYBEAM ; level 1 learnset
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset
@@ -19,4 +19,5 @@
 	     SKULL_BASH,   DREAM_EATER,  REST,  	   TRI_ATTACK,   SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(KadabraPicFront)
+	assert BANK(KadabraPicFront) == BANK(KadabraPicBack)

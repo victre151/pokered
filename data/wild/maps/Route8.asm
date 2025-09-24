@@ -1,15 +1,29 @@
 Route8WildMons:
 	def_grass_wildmons 15 ; encounter rate
-	db 27, RATICATE
-	db 27, ARBOK
-	db 27, MANKEY
-	db 27, MEOWTH
-	db 28, SANDSLASH
-	db 29, VULPIX
-	db 29, GROWLITHE
-	db 28, PONYTA
-	db 28, KADABRA
-	db 29, CHANSEY
+IF DEF(_RED)
+	db 23, RATICATE
+	db 23, ARBOK
+	db 23, MANKEY
+	db 23, MEOWTH
+	db 24, SANDSLASH
+	db 25, GROWLITHE
+	db 25, VULPIX
+	db 24, PONYTA
+	db 24, ABRA
+	db 25, CHANSEY
+ENDC
+IF DEF(_BLUE)
+	db 23, RATICATE
+	db 23, SANDSLASH
+	db 23, MANKEY
+	db 23, MEOWTH
+	db 24, ARBOK
+	db 25, VULPIX
+	db 25, GROWLITHE
+	db 24, PONYTA
+	db 24, ABRA
+	db 25, CHANSEY
+ENDC
 	end_grass_wildmons
 
 	def_water_wildmons 0 ; encounter rate

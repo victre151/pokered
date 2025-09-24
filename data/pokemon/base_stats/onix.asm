@@ -19,4 +19,5 @@
 	     GLARE,        REST,         ROCK_SLIDE,   SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(OnixPicFront)
+	assert BANK(OnixPicFront) == BANK(OnixPicBack)

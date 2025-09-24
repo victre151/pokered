@@ -2483,6 +2483,8 @@ MoveSelectionMenu:
 	ret
 
 .regularmenu
+	xor a
+	ld e, a 
 	call AnyMoveToSelect
 	ret z
 	ld hl, wBattleMonMoves
@@ -2712,11 +2714,23 @@ SelectMenuItem_CursorDown:
 
 AnyMoveToSelect:
 ; return z and Struggle as the selected move if all moves have 0 PP and/or are disabled
+	ld a, e
+	and a
+	ld hl, wPlayerSelectedMove
+	jr z, .playerTurn
+	ld hl, wEnemySelectedMove
+.playerTurn
 	ld a, STRUGGLE
-	ld [wPlayerSelectedMove], a
-	ld a, [wPlayerDisabledMove]
+	ld [hl], a
+	ld a, e
 	and a
 	ld hl, wBattleMonPP
+	ld a, [wPlayerDisabledMove]
+	jr z, .playerTurn2
+	ld hl, wEnemyMonPP
+	ld a, [wEnemyDisabledMove]
+.playerTurn2
+	and a
 	jr nz, .handleDisabledMove
 	ld a, [hli]
 	or [hl]
@@ -2743,14 +2757,23 @@ AnyMoveToSelect:
 	or c
 	jr .handleDisabledMovePPLoop
 .allMovesChecked
-	and a ; any PP left?
+	and $3f ; any PP left?
 	ret nz ; return if a move has PP left
 .noMovesLeft
+;;;If Enemy, don't display the "No Moves Left Text"
+	ld a, e
+	and a
+	jr z, .playerTurn3
+	xor a
+	and a ;set the z flag again because checking whose turn it was overwrote it
+	ret
+.playerTurn3
 	ld hl, NoMovesLeftText
 	call PrintText
 	ld c, 60
 	call DelayFrames
 	xor a
+	and a ;set the z flag again because checking whose turn it was overwrote it
 	ret
 
 NoMovesLeftText:
@@ -2931,7 +2954,7 @@ SelectEnemyMove:
 	ld b, 0
 	add hl, bc
 	ld a, [hl]
-	jr .done
+	jp .done
 .noLinkBattle
 	ld a, [wEnemyBattleStatus2]
 	and (1 << NEEDS_TO_RECHARGE) | (1 << USING_RAGE) ; need to recharge or using rage
@@ -2953,15 +2976,11 @@ SelectEnemyMove:
 	ld a, $ff
 	jr .done
 .canSelectMove
-	ld hl, wEnemyMonMoves+1 ; 2nd enemy move
-	ld a, [hld]
-	and a
-	jr nz, .atLeastTwoMovesAvailable
-	ld a, [wEnemyDisabledMove]
-	and a
-	ld a, STRUGGLE ; struggle if the only move is disabled
-	jr nz, .done
-.atLeastTwoMovesAvailable
+	ld a, 1
+	ld e, a
+	call AnyMoveToSelect
+	jr z, .done2
+	ld hl, wEnemyMonMoves 
 	ld a, [wIsInBattle]
 	dec a
 	jr z, .chooseRandomMove ; wild encounter
@@ -2986,6 +3005,20 @@ SelectEnemyMove:
 	ld a, b
 	dec a
 	ld [wEnemyMoveListIndex], a
+	push hl
+	push bc
+	ld b, 0
+	ld c, a
+	ld hl, wEnemyMonPP
+	add hl, bc
+	ld a, [hl]
+	pop bc
+	pop hl
+	and a
+	jr nz, .disabledCheck
+	pop hl
+	jr z, .chooseRandomMove
+.disabledCheck
 	ld a, [wEnemyDisabledMove]
 	swap a
 	and $f
@@ -2997,6 +3030,7 @@ SelectEnemyMove:
 	jr z, .chooseRandomMove ; move non-existent, try again
 .done
 	ld [wEnemySelectedMove], a
+.done2 ;if jumping from after AnyMoveToSelect, wEnemySelectedMove has already been set to STRUGGLE
 	ret
 .linkedOpponentUsedStruggle
 	ld a, STRUGGLE
@@ -3458,7 +3492,7 @@ CheckPlayerStatusConditions:
 	ld hl, wPlayerBattleStatus1
 	ld a, [hl]
 	; clear bide, thrashing, charging up, and trapping moves such as warp (already cleared for confusion damage)
-	and ~((1 << STORING_ENERGY) | (1 << THRASHING_ABOUT) | (1 << CHARGING_UP) | (1 << USING_TRAPPING_MOVE))
+	and ~((1 << STORING_ENERGY) | (1 << THRASHING_ABOUT) | (1 << CHARGING_UP) | (1 << USING_TRAPPING_MOVE) | (1 << INVULNERABLE))
 	ld [hl], a
 	ld a, [wPlayerMoveEffect]
 	cp FLY_EFFECT
@@ -4617,7 +4651,6 @@ CriticalHitTest:
 	call GetMonHeader
 	ld a, [wMonHBaseSpeed]
 	ld b, a
-	srl b                        ; (effective (base speed/2))
 	ldh a, [hWhoseTurn]
 	and a
 	ld hl, wPlayerMovePower
@@ -4633,14 +4666,13 @@ CriticalHitTest:
 	ld c, [hl]                   ; read move id
 	ld a, [de]
 	bit GETTING_PUMPED, a        ; test for focus energy
-	jr z, .focusEnergyUsed      ; bug: using focus energy causes a shift to the right instead of left,
-	                             ; resulting in 1/4 the usual crit chance
+	jr z, .noFocusEnergyUsed
 	sla b                        ; (effective (base speed/2)*2)
+	jr c, .capFocus				 ; cap at 255/256
+	sla b						 ; *4 for focus energy
 	jr nc, .noFocusEnergyUsed
+.capFocus
 	ld b, $ff                    ; cap at 255/256
-	jr .noFocusEnergyUsed
-.focusEnergyUsed
-	srl b
 .noFocusEnergyUsed
 	ld hl, HighCriticalMoves     ; table of high critical hit moves
 .Loop
@@ -4653,11 +4685,10 @@ CriticalHitTest:
 	jr .SkipHighCritical         ; continue as a normal move
 .HighCritical
 	sla b                        ; *2 for high critical hit moves
-	jr nc, .noCarry
-	ld b, $ff                    ; cap at 255/256
-.noCarry
+	jr c, .capCritical
 	sla b                        ; *4 for high critical move (effective (base speed/2)*8))
 	jr nc, .SkipHighCritical
+.capCritical
 	ld b, $ff
 .SkipHighCritical
 	call BattleRandom            ; generates a random value, in "a"
@@ -5260,6 +5291,21 @@ AdjustDamageForMoveType:
 	ld b, a
 	ld a, [hl] ; a = damage multiplier
 	ldh [hMultiplier], a
+	and a  ; cp NO_EFFECT
+	jr z, .gotMultiplier
+	cp NOT_VERY_EFFECTIVE
+	jr nz, .nothalf
+	ld a, [wDamageMultipliers]
+	and $7f
+	srl a
+	jr .gotMultiplier
+.nothalf
+	cp SUPER_EFFECTIVE
+	jr nz, .gotMultiplier
+	ld a, [wDamageMultipliers]
+	and $7f
+	sla a
+.gotMultiplier
 	add b
 	ld [wDamageMultipliers], a
 	xor a
@@ -5352,25 +5398,25 @@ MoveHitTest:
 .dreamEaterCheck
 	ld a, [de]
 	cp DREAM_EATER_EFFECT
-	jr nz, .swiftCheck
+	jr nz, .checkForDigOrFlyStatus
 	ld a, [bc]
 	and SLP_MASK
 	jp z, .moveMissed
+.checkForDigOrFlyStatus
+	bit INVULNERABLE, [hl]
+	jp nz, .moveMissed
 .swiftCheck
 	ld a, [de]
 	cp SWIFT_EFFECT
 	ret z ; Swift never misses (this was fixed from the Japanese versions)
 	call CheckTargetSubstitute ; substitute check (note that this overwrites a)
-	jr z, .checkForDigOrFlyStatus
-; The fix for Swift broke this code. It's supposed to prevent HP draining moves from working on Substitutes.
-; Since CheckTargetSubstitute overwrites a with either $00 or $01, it never works.
+	jr z, .noSubstitute
+	ld a, [de]
 	cp DRAIN_HP_EFFECT
 	jp z, .moveMissed
 	cp DREAM_EATER_EFFECT
 	jp z, .moveMissed
-.checkForDigOrFlyStatus
-	bit INVULNERABLE, [hl]
-	jp nz, .moveMissed
+.noSubstitute
 	ldh a, [hWhoseTurn]
 	and a
 	jr nz, .enemyTurn
@@ -5623,6 +5669,10 @@ EnemyCanExecuteMove:
 	xor a
 	ld [wMonIsDisobedient], a
 	call PrintMonName1Text
+	ld hl, DecrementPP
+	ld de, wEnemySelectedMove ; pointer to the move just used
+	ld b, BANK(DecrementPP)
+	call Bankswitch
 	ld a, [wEnemyMoveEffect]
 	ld hl, ResidualEffects1
 	ld de, $1
@@ -5949,7 +5999,7 @@ CheckEnemyStatusConditions:
 	ld hl, wEnemyBattleStatus1
 	ld a, [hl]
 	; clear bide, thrashing about, charging up, and multi-turn moves such as warp
-	and ~((1 << STORING_ENERGY) | (1 << THRASHING_ABOUT) | (1 << CHARGING_UP) | (1 << USING_TRAPPING_MOVE))
+	and ~((1 << STORING_ENERGY) | (1 << THRASHING_ABOUT) | (1 << CHARGING_UP) | (1 << USING_TRAPPING_MOVE) | (1 << INVULNERABLE))
 	ld [hl], a
 	ld a, [wEnemyMoveEffect]
 	cp FLY_EFFECT
@@ -6212,9 +6262,22 @@ LoadEnemyMonData:
 	ld [wLearningMovesFromDayCare], a
 	predef WriteMonMoves ; get moves based on current level
 .loadMovePPs
+	ld a, [wIsInBattle]
+	cp $2 ; is it a trainer battle?
+	jr z, .copyPPFromEnemyPartyData
 	ld hl, wEnemyMonMoves
 	ld de, wEnemyMonPP - 1
 	predef LoadMovePPs
+	jr .loadMovePPs_2
+.copyPPFromEnemyPartyData
+	ld hl, wEnemyMon1PP ;Copy Data source
+	ld a, [wWhichPokemon]
+	ld bc, wEnemyMon2 - wEnemyMon1
+	call AddNTimes ;Copy Data Source now point to the PP of the correct Enemy Party Mon
+	ld de, wEnemyMonPP ;Copy Data Destination
+	ld bc, NUM_MOVES ;Number of Bytes to Copy
+	call CopyData
+.loadMovePPs_2 ;End of the original .loadMovePPs needs to be common to set up for the copyBaseStatsLoop properly
 	ld hl, wMonHBaseStats
 	ld de, wEnemyMonBaseStats
 	ld b, NUM_STATS
@@ -6928,8 +6991,14 @@ _LoadTrainerPic:
 	ld d, a ; de contains pointer to trainer pic
 	ld a, [wLinkState]
 	and a
-	ld a, BANK("Trainer Pics")
-	jr z, .loadSprite
+	jr nz, .useRed
+	ld a, [wTrainerClass]
+	cp PROF_OAK ; first trainer class in "Trainer Pics 2"
+	ld a, BANK("Trainer Pics 2")
+	jr nc, .loadSprite
+	ld a, BANK("Trainer Pics 1")
+	jr .loadSprite
+.useRed
 	ld a, BANK(RedPicFront)
 .loadSprite
 	call UncompressSpriteFromDE

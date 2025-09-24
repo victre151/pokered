@@ -137,7 +137,6 @@ ELSE
 
 	para "Now you've defeated"
 	line "TEAM ROCKET and"
-	line "TEAM ROCKET and"
 	cont "the ELITE FOUR,"
 	cont "so I believe you"
 	cont "can give MEW a"

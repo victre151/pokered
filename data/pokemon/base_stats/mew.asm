@@ -27,4 +27,5 @@
 		 POISON_GAS,   REST,		 ROCK_SLIDE,   TRI_ATTACK,	 SUBSTITUTE
 	; end
 
-	db %11111111 ; padding
+	db BANK(MewPicFront)
+	assert BANK(MewPicFront) == BANK(MewPicBack)

@@ -3,7 +3,7 @@
 	db  90,  80,  85,  50, 110 ;  415BST
 	;   hp  atk  def  spd  spc
 
-	db GRASS, POISON ; type
+	db GRASS, GRASS ; type
 	db 45 ; catch rate
 	db 184 ; base exp
 
@@ -20,4 +20,5 @@
 		 ACID_ARMOR,   REST,         SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(VileplumePicFront)
+	assert BANK(VileplumePicFront) == BANK(VileplumePicBack)

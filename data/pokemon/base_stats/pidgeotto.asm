@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/pidgeotto.pic", 0, 1 ; sprite dimensions
 	dw PidgeottoPicFront, PidgeottoPicBack
 
-	db QUICK_ATTACK, SONICBOOM, FURY_ATTACK, FURY_SWIPES ; level 1 learnset
+	db FOCUS_ENERGY, FURY_SWIPES, RAGE, FURY_ATTACK ; level 1 learnset
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset
@@ -18,4 +18,5 @@
 		 REST,         SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(PidgeottoPicFront)
+	assert BANK(PidgeottoPicFront) == BANK(PidgeottoPicBack)

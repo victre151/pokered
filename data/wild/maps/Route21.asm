@@ -1,26 +1,40 @@
 Route21WildMons:
 	def_grass_wildmons 25 ; encounter rate
-	db 3, RATTATA
-	db 5, RATTATA
-	db 3, PIDGEY
-	db 3, SPEAROW
-	db 5, KRABBY
-	db 4, KRABBY
-	db 4, SLOWPOKE
-	db 4, TANGELA
-	db 5, LICKITUNG
-	db 4, EXEGGCUTE
+IF DEF(_RED)
+	db 15, RATTATA
+	db 17, RATTATA
+	db 15, PIDGEY
+	db 15, SPEAROW
+	db 17, KRABBY
+	db 16, KRABBY
+	db 16, SLOWPOKE
+	db 16, TANGELA
+	db 17, LICKITUNG
+	db 16, EXEGGCUTE
+ENDC
+IF DEF(_BLUE)
+	db 15, RATTATA
+	db 17, RATTATA
+	db 15, SPEAROW
+	db 15, PIDGEY
+	db 17, KRABBY
+	db 16, KRABBY
+	db 16, SLOWPOKE
+	db 16, TANGELA
+	db 17, LICKITUNG
+	db 16, EXEGGCUTE
+ENDC
 	end_grass_wildmons
 
 	def_water_wildmons 5 ; encounter rate
-	db 3, TENTACOOL
-	db 3, MAGIKARP
-	db 5, TENTACOOL
-	db 5, MAGIKARP
-	db 4, SHELLDER
-	db 4, STARYU
-	db 3, GOLDEEN
-	db 4, POLIWAG
-	db 5, SEEL
-	db 5, HORSEA
+	db 15, TENTACOOL
+	db 15, MAGIKARP
+	db 17, TENTACOOL
+	db 17, MAGIKARP
+	db 16, SHELLDER
+	db 16, STARYU
+	db 15, GOLDEEN
+	db 16, POLIWAG
+	db 17, SEEL
+	db 17, HORSEA
 	end_water_wildmons

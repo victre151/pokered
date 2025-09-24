@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/sandslash.pic", 0, 1 ; sprite dimensions
 	dw SandslashPicFront, SandslashPicBack
 
-	db FURY_ATTACK, RAGE, DIG, FURY_SWIPES ; level 1 learnset
+	db FURY_SWIPES, RAGE, DIG, FURY_ATTACK ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
@@ -20,4 +20,5 @@
 	     ROCK_SLIDE,   SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(SandslashPicFront)
+	assert BANK(SandslashPicFront) == BANK(SandslashPicBack)

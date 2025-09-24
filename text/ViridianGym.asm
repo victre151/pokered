@@ -63,13 +63,13 @@ _ViridianGymGiovanniEarthBadgeInfoText::
 
 _ViridianGymGiovanniReceivedTM27Text::
 	text "<PLAYER> received"
-	line "TM27!@"
+	line "TM31!@"
 	text_end
 
 _ViridianGymGiovanniTM27ExplanationText::
 	text_start
 
-	para "TM27 is FISSURE!"
+	para "TM31 is FISSURE!"
 	line "It will take out"
 	cont "#MON with just"
 	cont "one hit!"

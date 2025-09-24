@@ -19,4 +19,5 @@
 	     ACID_ARMOR,   REST,         ROCK_SLIDE,   SUBSTITUTE    
 	; end
 
-	db 0 ; padding
+	db BANK(GrimerPicFront)
+	assert BANK(GrimerPicFront) == BANK(GrimerPicBack)

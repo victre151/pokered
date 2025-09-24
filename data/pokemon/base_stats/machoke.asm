@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/machoke.pic", 0, 1 ; sprite dimensions
 	dw MachokePicFront, MachokePicBack
 
-	db RAGE, SWIFT, LOW_KICK, STOMP ; level 1 learnset
+	db RAGE, SWIFT, LOW_KICK, DIZZY_PUNCH ; level 1 learnset
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset
@@ -18,4 +18,5 @@
 	     SEISMIC_TOSS, ROCK_THROW,   SKULL_BASH,   ROCK_SLIDE,   SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(MachokePicFront)
+	assert BANK(MachokePicFront) == BANK(MachokePicBack)

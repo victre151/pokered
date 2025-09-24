@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/seadra.pic", 0, 1 ; sprite dimensions
 	dw SeadraPicFront, SeadraPicBack
 
-	db HEADBUTT, DOUBLE_TEAM, TAKE_DOWN, SLASH ; level 1 learnset
+	db HEADBUTT, TAKE_DOWN, SLASH, AGILITY ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
@@ -18,4 +18,5 @@
 	     BUBBLEBEAM,   HYPER_BEAM,   SKULL_BASH,   REST,         SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(SeadraPicFront)
+	assert BANK(SeadraPicFront) == BANK(SeadraPicBack)

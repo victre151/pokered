@@ -19,4 +19,5 @@
 	     ACID_ARMOR,   REST,         SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(JigglypuffPicFront)
+	assert BANK(JigglypuffPicFront) == BANK(JigglypuffPicBack)

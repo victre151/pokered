@@ -19,4 +19,5 @@
 	     AMNESIA,      REST,         SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(PoliwagPicFront)
+	assert BANK(PoliwagPicFront) == BANK(PoliwagPicBack)

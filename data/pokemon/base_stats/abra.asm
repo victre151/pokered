@@ -19,4 +19,5 @@
 	     SKULL_BASH,   DREAM_EATER,  REST,  	   TRI_ATTACK,   SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(AbraPicFront)
+	assert BANK(AbraPicFront) == BANK(AbraPicBack)

@@ -18,4 +18,5 @@
 	     BUBBLEBEAM,   HYPER_BEAM,   SKULL_BASH,   REST,         SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(SeakingPicFront)
+	assert BANK(SeakingPicFront) == BANK(SeakingPicBack)

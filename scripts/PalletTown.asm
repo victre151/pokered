@@ -88,7 +88,14 @@ PalletTownOakWalksToPlayerScript:
 	; trigger the next script
 	ld a, SCRIPT_PALLETTOWN_OAK_NOT_SAFE_COME_WITH_ME
 	ld [wPalletTownCurScript], a
-	ret
+	
+	ld a, [wPlayerGender]
+    add HS_CHAMPIONS_ROOM_RIVAL_MALE
+    ld [wMissableObjectIndex], a
+    predef ShowObject
+    ld a, SCRIPT_CHAMPIONSROOM_PLAYER_ENTERS
+    ld [wChampionsRoomCurScript], a
+    ret
 
 PalletTownOakNotSafeComeWithMeScript:
 	ld a, [wStatusFlags5]

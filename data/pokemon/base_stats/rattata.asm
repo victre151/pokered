@@ -18,4 +18,5 @@
 	     SKULL_BASH,   REST,         ROCK_SLIDE,   SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(RattataPicFront)
+	assert BANK(RattataPicFront) == BANK(RattataPicBack)

@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/persian.pic", 0, 1 ; sprite dimensions
 	dw PersianPicFront, PersianPicBack
 
-	db FURY_SWIPES, HEADBUTT, STOMP, DOUBLE_TEAM ; level 1 learnset
+	db DIG, HEADBUTT, STOMP, TAKE_DOWN ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
@@ -19,4 +19,5 @@
 	     ROCK_SLIDE,   SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(PersianPicFront)
+	assert BANK(PersianPicFront) == BANK(PersianPicBack)

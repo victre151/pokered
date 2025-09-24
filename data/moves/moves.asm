@@ -29,19 +29,19 @@ Moves:
 	move GUST,         NO_ADDITIONAL_EFFECT,        40, FLYING,       100, 25
 	move WING_ATTACK,  NO_ADDITIONAL_EFFECT,        60, FLYING,       100, 15
 	move WHIRLWIND,    SWITCH_AND_TELEPORT_EFFECT,   0, NORMAL,        85, 20
-	move FLY,          FLY_EFFECT,                  90, FLYING,        95, 15
+	move FLY,          FLY_EFFECT,                  90, FLYING,       100, 15
 	move BIND,         TRAPPING_EFFECT,             15, NORMAL,        75, 20
-	move SLAM,         NO_ADDITIONAL_EFFECT,        80, DRAGON,       100, 20
+	move SLAM,         NO_ADDITIONAL_EFFECT,        80, DRAGON,       100, 10
 	move VINE_WHIP,    NO_ADDITIONAL_EFFECT,        20, GRASS,        100, 35
 	move STOMP,        FLINCH_SIDE_EFFECT2,         60, NORMAL,       100, 15
 	move DOUBLE_KICK,  ATTACK_TWICE_EFFECT,         10, FIGHTING,     100, 35
 	move MEGA_KICK,    NO_ADDITIONAL_EFFECT,       120, FIGHTING,      85,  5
 	move JUMP_KICK,    JUMP_KICK_EFFECT,            80, FIGHTING,     100, 10
 	move ROLLING_KICK, FLINCH_SIDE_EFFECT2,         60, FIGHTING,     100, 15
-	move SAND_ATTACK,  ACCURACY_DOWN1_EFFECT,       20, GROUND,       100, 35
+	move SAND_ATTACK,  NO_ADDITIONAL_EFFECT,        20, GROUND,       100, 35
 	move HEADBUTT,     FLINCH_SIDE_EFFECT2,         60, NORMAL,       100, 25
 	move HORN_ATTACK,  NO_ADDITIONAL_EFFECT,        60, NORMAL,       100, 25
-	move FURY_ATTACK,  TWO_TO_FIVE_ATTACKS_EFFECT,  30, NORMAL,       100, 10
+	move FURY_ATTACK,  TWO_TO_FIVE_ATTACKS_EFFECT,  30, NORMAL,       100, 15
 	move HORN_DRILL,   OHKO_EFFECT,                  1, NORMAL,        30,  5
 	move TACKLE,       NO_ADDITIONAL_EFFECT,        20, NORMAL,       100, 35
 	move BODY_SLAM,    PARALYZE_SIDE_EFFECT2,       80, NORMAL,       100, 10
@@ -156,7 +156,7 @@ Moves:
 	move SKY_ATTACK,   NO_ADDITIONAL_EFFECT,       120, FLYING,        85,  5
 	move TRANSFORM,    TRANSFORM_EFFECT,             0, NORMAL,       100,  5
 	move BUBBLE,       SPEED_DOWN_SIDE_EFFECT,      20, WATER,        100, 35
-	move DIZZY_PUNCH,  NO_ADDITIONAL_EFFECT,        80, FIGHTING,     100, 10
+	move DIZZY_PUNCH,  TWO_TO_FIVE_ATTACKS_EFFECT,  20, FIGHTING,     100, 20
 	move SPORE,        SLEEP_EFFECT,                 0, NORMAL,       100,  5
 	move FLASH,        ACCURACY_DOWN1_EFFECT,        0, NORMAL,        70, 20
 	move PSYWAVE,      CONFUSION_SIDE_EFFECT,       20, PSYCHIC_TYPE, 100, 35

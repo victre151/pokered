@@ -19,4 +19,5 @@
 	     ROCK_SLIDE,   SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(KabutoPicFront)
+	assert BANK(KabutoPicFront) == BANK(KabutoPicBack)

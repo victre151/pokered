@@ -10,13 +10,15 @@
 	INCBIN "gfx/pokemon/front/kingler.pic", 0, 1 ; sprite dimensions
 	dw KinglerPicFront, KinglerPicBack
 
-	db BUBBLEBEAM, VICEGRIP, HEADBUTT, DOUBLE_TEAM ; level 1 learnset
+	db REFLECT, BUBBLEBEAM, VICEGRIP, HEADBUTT ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm SURF,         CUT,          GUILLOTINE,   THRASH,       DOUBLE_EDGE,  \
-	     HYDRO_PUMP,   BUBBLEBEAM,   HYPER_BEAM,   ROCK_THROW,   FISSURE,      \
-	     DIG,          SKULL_BASH,   REST,         ROCK_SLIDE,   SUBSTITUTE
+	tmhm SURF,         CUT,          STRENGTH,     GUILLOTINE,   THRASH,       \
+	     DOUBLE_EDGE,  HYDRO_PUMP,   BUBBLEBEAM,   HYPER_BEAM,   ROCK_THROW,   \
+	     FISSURE,      DIG,          SKULL_BASH,   REST,         ROCK_SLIDE,   \
+		 SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(KinglerPicFront)
+	assert BANK(KinglerPicFront) == BANK(KinglerPicBack)

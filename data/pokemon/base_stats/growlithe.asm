@@ -19,4 +19,5 @@
 	     REST,   	   ROCK_SLIDE,   TRI_ATTACK,   SUBSTITUTE
 	; end
 
-	db 0 ; padding
+	db BANK(GrowlithePicFront)
+	assert BANK(GrowlithePicFront) == BANK(GrowlithePicBack)
