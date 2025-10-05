@@ -15,7 +15,8 @@
 
 	; tm/hm learnset
 	tmhm THRASH,       DOUBLE_EDGE,  MIST,         TOXIC,        HAZE,         \
-	     SLUDGE,       FIRE_BLAST,   POISON_GAS,   REST,         SUBSTITUTE  
+	     SLUDGE,       FIRE_BLAST,   POISON_GAS,   REST,         SUBSTITUTE,   \
+		 FLASH  
 	; end
 
 	db BANK(KoffingPicFront)

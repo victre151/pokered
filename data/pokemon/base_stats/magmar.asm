@@ -16,7 +16,7 @@
 	; tm/hm learnset
 	tmhm STRENGTH,     MEGA_PUNCH,   FIRE_PUNCH,   THRASH,       MEGA_KICK,    \
 	     DOUBLE_EDGE,  HYPER_BEAM,   REFLECT,      FIRE_BLAST,   SKULL_BASH,   \
-	     REST,         SUBSTITUTE
+	     REST,         SUBSTITUTE,   FLASH
 	; end
 
 	db BANK(MagmarPicFront)

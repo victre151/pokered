@@ -16,7 +16,7 @@
 	; tm/hm learnset
 	tmhm THRASH,       DOUBLE_EDGE,  ROAR,    	   ROCK_THROW,   FISSURE,      \
 	     DIG,  	   	   FIRE_BLAST,   REFLECT,      SKULL_BASH,   GLARE,        \
-	     REST,   	   ROCK_SLIDE,   TRI_ATTACK,   SUBSTITUTE
+	     REST,   	   ROCK_SLIDE,   TRI_ATTACK,   SUBSTITUTE,   FLASH
 	; end
 
 	db BANK(GrowlithePicFront)

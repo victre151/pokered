@@ -16,7 +16,7 @@
 	; tm/hm learnset
 	tmhm MEGA_KICK,    HORN_DRILL,   THRASH,       DOUBLE_EDGE,  HYPER_BEAM,   \
 	     FISSURE,      DIG,          REFLECT,      FIRE_BLAST,   SKULL_BASH,   \
-	     REST,         SUBSTITUTE
+	     REST,         SUBSTITUTE,   FLASH
 	; end
 
 	db BANK(RapidashPicFront)

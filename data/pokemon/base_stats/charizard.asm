@@ -17,7 +17,7 @@
 	tmhm CUT,          STRENGTH,     FLY,   	   MEGA_PUNCH,   FIRE_PUNCH,   \
 		 RAZOR_WIND,   SWORDS_DANCE, MEGA_KICK,    THRASH,       DOUBLE_EDGE,  \
 		 ROAR,	       REFLECT,	     HYPER_BEAM,   FIRE_BLAST,   SKULL_BASH,   \
-		 GLARE,        REST,         SUBSTITUTE
+		 GLARE,        REST,         SUBSTITUTE,   FLASH
 	; end
 
 	db BANK(CharizardPicFront)

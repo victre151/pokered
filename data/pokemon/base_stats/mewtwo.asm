@@ -17,7 +17,7 @@
 	tmhm STRENGTH,     MEGA_PUNCH,   FIRE_PUNCH,   ICE_PUNCH,    THUNDERPUNCH, \
 	     MEGA_KICK,    THRASH,       DOUBLE_EDGE,  DISABLE,      HYPER_BEAM,   \
 	     SEISMIC_TOSS, SKULL_BASH,   GLARE,        REST,         TRI_ATTACK,   \
-	     SUBSTITUTE
+	     SUBSTITUTE,   FLASH
 	; end
 
 	db BANK(MewtwoPicFront)

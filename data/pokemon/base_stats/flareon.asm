@@ -16,7 +16,7 @@
 	; tm/hm learnset
 	tmhm SWORDS_DANCE, THRASH,       DOUBLE_EDGE,  ROAR,         HYPER_BEAM,   \
 	     ROCK_THROW,   FISSURE,      DIG,          FIRE_BLAST,   SKULL_BASH,   \
-	     REST,         ROCK_THROW,   TRI_ATTACK,   SUBSTITUTE
+	     REST,         ROCK_THROW,   TRI_ATTACK,   SUBSTITUTE,   FLASH
 	; end
 
 	db BANK(FlareonPicFront)

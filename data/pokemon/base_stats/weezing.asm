@@ -16,7 +16,7 @@
 	; tm/hm learnset
 	tmhm THRASH,       DOUBLE_EDGE,  MIST,         HYPER_BEAM,   TOXIC,        \
 	     HAZE,         SLUDGE,       FIRE_BLAST,   POISON_GAS,   REST,         \
-		 SUBSTITUTE 
+		 SUBSTITUTE,   FLASH 
 	; end
 
 	db BANK(WeezingPicFront)

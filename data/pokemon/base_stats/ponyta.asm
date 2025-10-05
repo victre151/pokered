@@ -16,7 +16,7 @@
 	; tm/hm learnset
 	tmhm MEGA_KICK,    HORN_DRILL,   THRASH,       DOUBLE_EDGE,  FISSURE,      \
 	     DIG,          REFLECT,      FIRE_BLAST,   SKULL_BASH,   REST,         \
-	     SUBSTITUTE
+	     SUBSTITUTE,   FLASH
 	; end
 
 	db BANK(PonytaPicFront)

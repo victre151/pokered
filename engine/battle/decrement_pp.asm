@@ -69,6 +69,8 @@ DecrementPP:
 	pop hl
 	ld bc, wPartyMon2 - wPartyMon1
 	call AddNTimes       ; calculate address of the mon to modify
+	call .DecrementPP
+	ret
 .DecrementPP:
 	push hl
 	ld hl, wPlayerMoveListIndex

@@ -16,7 +16,8 @@
 	; tm/hm learnset
 	tmhm CUT,          STRENGTH,     MEGA_PUNCH,   FIRE_PUNCH,   SWORDS_DANCE, \
 		 MEGA_KICK,    THRASH,    	 DOUBLE_EDGE,  ROAR,  		 REFLECT,	   \
-		 FIRE_BLAST,   SKULL_BASH,   GLARE,   	   REST,         SUBSTITUTE
+		 FIRE_BLAST,   SKULL_BASH,   GLARE,   	   REST,         SUBSTITUTE,   \
+		 FLASH
 	; end
 
 	db BANK(CharmanderPicFront)

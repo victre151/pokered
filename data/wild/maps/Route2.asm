@@ -1,28 +1,28 @@
 Route2WildMons:
 	def_grass_wildmons 25 ; encounter rate
 IF DEF(_RED)
-	db  1, RATTATA
 	db  3, RATTATA
-	db  2, PIDGEY
-	db  2, SPEAROW
-	db  1, CATERPIE
-	db  1, WEEDLE
-	db  3, NIDORAN_M
-	db  3, NIDORAN_F
-	db  2, ODDISH
-	db  2, BELLSPROUT
+	db  5, RATTATA
+	db  4, PIDGEY
+	db  4, SPEAROW
+	db  3, CATERPIE
+	db  3, WEEDLE
+	db  5, NIDORAN_M
+	db  5, NIDORAN_F
+	db  4, ODDISH
+	db  4, BELLSPROUT
 ENDC
 IF DEF(_BLUE)
-	db  1, RATTATA
 	db  3, RATTATA
-	db  2, SPEAROW
-	db  2, PIDGEY
-	db  1, WEEDLE
-	db  1, CATERPIE
-	db  3, NIDORAN_F
-	db  3, NIDORAN_M
-	db  2, ODDISH
-	db  2, BELLSPROUT
+	db  5, RATTATA
+	db  4, SPEAROW
+	db  4, PIDGEY
+	db  3, WEEDLE
+	db  3, CATERPIE
+	db  5, NIDORAN_F
+	db  5, NIDORAN_M
+	db  4, ODDISH
+	db  4, BELLSPROUT
 ENDC
 	end_grass_wildmons
 

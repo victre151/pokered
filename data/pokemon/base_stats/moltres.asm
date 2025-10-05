@@ -16,7 +16,7 @@
 	; tm/hm learnset
 	tmhm FLY,          RAZOR_WIND,   THRASH,       DOUBLE_EDGE,  HYPER_BEAM,   \
 	     REFLECT,      FIRE_BLAST,   SKULL_BASH,   REST,         TRI_ATTACK,   \
-	     SUBSTITUTE
+	     SUBSTITUTE,   FLASH
 	; end
 
 	db BANK(MoltresPicFront)
