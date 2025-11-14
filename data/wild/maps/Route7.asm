@@ -9,8 +9,8 @@ IF DEF(_RED)
 	db 25, GROWLITHE
 	db 25, VULPIX
 	db 24, PONYTA
-	db 24, ABRA
-	db 25, CHANSEY
+	db 25, KADABRA
+	db 24, CHANSEY
 ENDC
 IF DEF(_BLUE)
 	db 23, RATICATE
@@ -21,8 +21,8 @@ IF DEF(_BLUE)
 	db 25, VULPIX
 	db 25, GROWLITHE
 	db 24, PONYTA
-	db 24, ABRA
-	db 25, CHANSEY
+	db 25, KADABRA
+	db 24, CHANSEY
 ENDC
 	end_grass_wildmons
 

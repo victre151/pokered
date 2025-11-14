@@ -25,14 +25,13 @@ DecrementPP:
 
 ; decrement PP in the battle struct
 	call .DecrementPP
+	ld hl, wPlayerBattleStatus3
 	ldh a, [hWhoseTurn]
 	and a
 	jr z, .playersTurn3
 	ld hl, wPlayerBattleStatus3
 .playersTurn3
 	ld a, [hl]
-; decrement PP in the party struct
-	ld hl, wPlayerBattleStatus3
 	bit TRANSFORMED, a
 	ret nz               ; Return if transformed. Pokemon Red stores the "current pokemon's" PP
 	                     ; separately from the "Pokemon in your party's" PP.  This is
@@ -69,8 +68,6 @@ DecrementPP:
 	pop hl
 	ld bc, wPartyMon2 - wPartyMon1
 	call AddNTimes       ; calculate address of the mon to modify
-	call .DecrementPP
-	ret
 .DecrementPP:
 	push hl
 	ld hl, wPlayerMoveListIndex

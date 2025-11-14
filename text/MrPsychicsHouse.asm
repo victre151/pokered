@@ -1,6 +1,6 @@
 _MoveDeleterGreetingText::
 	text "Um… Oh, yes,"
-    line "I'm the MR."
+    line "I'm MR."
     cont "PSYCHIC! I can"
     cont "make #MON"
 	cont "forget moves."

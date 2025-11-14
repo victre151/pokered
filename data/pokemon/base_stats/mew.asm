@@ -3,7 +3,7 @@
 	db 116, 116, 116, 116, 116 ;  580BST
 	;   hp  atk  def  spd  spc
 
-	db PSYCHIC_TYPE, PSYCHIC_TYPE ; type
+	db PSYCHIC_TYPE, NORMAL ; type
 	db 45 ; catch rate
 	db 64 ; base exp
 

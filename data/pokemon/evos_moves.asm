@@ -764,7 +764,7 @@ MewEvosMoves:
 	db 33, LIGHT_SCREEN
 	db 35, PSYCHIC_M
 	db 37, BODY_SLAM
-	db 39, AMNESIA
+	db 39, SCREECH
 	db 0
 
 GyaradosEvosMoves:
@@ -3172,7 +3172,8 @@ MewtwoEvosMoves:
 	db 31, LIGHT_SCREEN
 	db 33, PSYCHIC_M
 	db 35, SUBMISSION
-	db 39, BODY_SLAM
+	db 39, TWINEEDLE
+	db 41, BODY_SLAM
 	db 50, THRASH
 	db 0
 

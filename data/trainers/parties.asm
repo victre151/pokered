@@ -585,7 +585,7 @@ RocketData:
 	db 32, MACHOKE, ARBOK, 0
 ; Rocket Hideout B4F
 	db 31, RATICATE, ARBOK, SANDSLASH, 0
-	db 31, MAROWAK, SANDSLASH, ARBOK, 0
+	db 31, GRIMER, MACHOKE, MAROWAK, 0
 	db 32, KOFFING, GOLBAT, 0
 ; Pokémon Tower 7F
 	db 33, SANDSLASH, GRIMER, GOLBAT, 0
@@ -764,7 +764,7 @@ ChannelerData:
 	db 24, GASTLY, 0
 ; Pokémon Tower 3F
 	db 27, HAUNTER, 0
-	db 27, MAROWAK, 0
+	db 27, CUBONE, 0
 ; Unused
 	db 24, HAUNTER, 0
 ; Pokémon Tower 3F
@@ -775,7 +775,7 @@ ChannelerData:
 ; Unused
 	db 24, GASTLY, 0
 ; Pokémon Tower 4F
-	db 27, MAROWAK, 0
+	db 27, CUBONE, 0
 ; Unused
 	db 24, GASTLY, 0
 ; Pokémon Tower 5F
@@ -784,10 +784,10 @@ ChannelerData:
 	db 24, GASTLY, 0
 ; Pokémon Tower 5F
 	db 27, HYPNO, 0
-	db 27, MAROWAK, 0
+	db 27, CUBONE, 0
 	db 27, HAUNTER, 0
 ; Pokémon Tower 6F
-	db 25, HAUNTER, PARASECT, MAROWAK, 0
+	db 25, HAUNTER, PARASECT, CUBONE, 0
 	db 27, HYPNO, 0
 	db 27, PARASECT, 0
 ; Saffron Gym
