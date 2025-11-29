@@ -16,7 +16,7 @@
 	; tm/hm learnset
 	tmhm THRASH,       DOUBLE_EDGE,  ROAR,         DISABLE,      ICE_BEAM,     \
 	     BLIZZARD,     HYPNOSIS,     REFLECT,      FIRE_BLAST,   SKULL_BASH,   \
-	     DREAM_EATER,  REST,         SUBSTITUTE,   FLASH
+	     DREAM_EATER,  REST,         SUBSTITUTE,   FIRE_PUNCH,	 FLASH
 	; end
 
 	db BANK(VulpixPicFront)

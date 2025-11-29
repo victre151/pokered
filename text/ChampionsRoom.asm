@@ -24,7 +24,8 @@ IF DEF(_BLUE)
 	done
 ELSE
 	text "RED: So you are"
-	line "the new challenger!"
+	line "the new"
+	cont "challenger!"
 	
 	para "I see the"
 	line "determination in"

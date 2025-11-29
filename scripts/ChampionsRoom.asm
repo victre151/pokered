@@ -89,17 +89,17 @@ ChampionsRoomRivalReadyToBattleScript:
     call SaveEndBattleTextPointers
 
 .PickTeam
-    ld a, [wRivalStarter]
-    cp STARTER2
-    jr nz, .NotStarter2
+    ld a, [wPlayerStarter]
+    cp STARTER1
+    jr nz, .NotStarter1
     ld a, $1
     jr .saveTrainerId
-.NotStarter2
-    cp STARTER3
-    jr nz, .NotStarter3
+.NotStarter1
+    cp STARTER2
+    jr nz, .NotStarter2
     ld a, $2
     jr .saveTrainerId
-.NotStarter3
+.NotStarter2
     ld a, $3
 .saveTrainerId
     ld [wTrainerNo], a

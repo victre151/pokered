@@ -1,31 +1,339 @@
-# Pokémon Red and Blue [![Build Status][ci-badge]][ci]
+======GUIDE======
 
-This is a disassembly of Pokémon Red and Blue.
+Route 1, (Wild Lv5)
 
-It builds the following ROMs:
+Route 2, 22 (Wild Lv7, 2nd Rival Battle Lv9)
 
-- Pokemon Red (UE) [S][!].gb `sha1: ea9bcae617fdf159b045185467ae58b2e4a48b9a`
-- Pokemon Blue (UE) [S][!].gb `sha1: d7037c83e1ae5b39bde3c30787637ba1d4c48ce2`
-- BLUEMONS.GB (debug build) `sha1: 5b1456177671b79b263c614ea0e7cc9ac542e9c4`
-- dmgapae0.e69.patch `sha1: 0fb5f743696adfe1dbb2e062111f08f9bc5a293a`
-- dmgapee0.e68.patch `sha1: ed4be94dc29c64271942c87f2157bca9ca1019c7`
+Viridian Forest (Trainers Lv11), Pewter Gym (Trainers Lv13, Brock Lv15)
 
-To set up the repository, see [**INSTALL.md**](INSTALL.md).
+Route 3, Mt. Moon, Route 4 (Trainers Lv16)
 
+Cerulean Gym (Trainers Lv16, Misty Lv20)
 
-## See also
+Route 5, 6, 24, 25 (Wild Lv17, 3rd Rival Battle/Trainers 21)
 
-- [**Wiki**][wiki] (includes [tutorials][tutorials])
-- [**Symbols**][symbols]
-- [**Tools**][tools]
+SS.Anne, Vermilion Gym (4th Rival Battle/Trainers Lv23, Lt.Surge Lv27)
 
-You can find us on [Discord (pret, #pokered)](https://discord.gg/d5dubZ3).
+Route 11 (Wild Lv21, Trainers Lv28)
 
-For other pret projects, see [pret.github.io](https://pret.github.io/).
+Diglett's Cave (Wild Lv23)
 
-[wiki]: https://github.com/pret/pokered/wiki
-[tutorials]: https://github.com/pret/pokered/wiki/Tutorials
-[symbols]: https://github.com/pret/pokered/tree/symbols
-[tools]: https://github.com/pret/gb-asm-tools
-[ci]: https://github.com/pret/pokered/actions
-[ci-badge]: https://github.com/pret/pokered/actions/workflows/main.yml/badge.svg
+Route 9, 10, Rock Tunnel (Wild Lv25, Trainers Lv30)
+
+Pokemon Tower (Wild Lv26, 5th Rival Battle/Trainers Lv32)
+
+Route 8, 7 (Wild Lv29, Trainers Lv34)
+
+Celadon Gym (Trainers Lv34, Erika Lv38)
+
+Rocket Hideout (Trainers Lv39, Giovanni Lv44)
+
+Pokemon Tower 7th Floor (Wild 35, Trainers Lv42)
+
+Talk to Mr.Psychic
+
+Fighting Dojo (Trainers Lv44)
+
+Silph Co. (6th Rival Battle/Trainers Lv42, Giovanni Lv44)
+
+Saffron Gym (Trainers Lv42, Sabrina Lv46)
+
+Talk to Copy Cat (Doesn't need Pokedoll anymore)
+
+Route 16, 17, 18 (Wild 37, Trainers Lv47)
+
+Fuchsia Gym (Trainers Lv47, Koga Lv51)
+
+Route 12, 13 (Wild Lv41, Trainers Lv52)
+
+Route 14, 15 (Wild Lv43, Trainers Lv52)
+
+Route 19, Seafoam Islands, 20, Pokemon Mansion, Cinnabar Gym (Wild Lv45, Trainers Lv54, Blaine Lv58)
+
+Route 21 (Wild Lv5, Trainers Lv59)
+
+Power Plant (Wild Lv45)
+
+Viridian Gym (Trainers Lv59, Giovanni Lv63)
+
+Route 22 (7th Rival Battle Lv64)
+
+Route 23, Victory Road (Wild Lv53, Trainers Lv64)
+
+Lorelei (Lv66)
+
+Bruno (Lv68)
+
+Agatha (Lv70)
+
+Lance (Lv73)
+
+Champion (Lv75)
+
+======POSTGAME======
+
+Cerulean Cave (Wild Lv70, Mewtwo/Mew Lv75)
+
+Fighting Dojo (Lv75)
+
+Talk to Mr.Fuji
+
+======TMCHANGES======
+
+TM01 MEGA PUNCH (Victory Road/Department Store)
+
+TM02 FIRE_PUNCH (Department Store)
+
+TM03 ICE_PUNCH (Department Store)
+
+TM04 THUNDERPUNCH (Department Store)
+
+TM05 GUILLOTINE (Silph Co.)
+
+TM06 RAZOR_WIND (Route 12)
+
+TM07 SWORDS_DANCE (Silph Co.)
+
+TM08 MEGA_KICK (Victory Road/Department Store)
+
+TM09 HORN_DRILL (Rocket Hideout/Department Store)
+
+TM10 THRASH (Rocket Hideout/Department Store)
+
+TM11 DOUBLE_EDGE (Rocket Hideout/Department Store)
+
+TM12 ROAR (Route 15)
+
+TM13 DISABLE (Cinnabar Island Lab)
+
+TM14 MIST (Mt. Moon)
+
+TM15 HYDRO_PUMP (Silph Co.)
+
+TM16 ICE_BEAM (Department Store Roof)
+
+TM17 BLIZZARD (Pokemon Mansion)
+
+TM18 BUBBLEBEAM (Misty)
+
+TM19 HYPER_BEAM (Game Corner)
+
+TM20 SEISMIC_TOSS (Victory Road)
+
+TM21 MEGA_DRAIN (Erika)
+
+TM22 LEECH_SEED (Route 4)
+
+TM23 SOLARBEAM (Pokemon Mansion)
+
+TM24 POISONPOWDER (Safari Zone)
+
+TM25 STUN_SPORE (Safari Zone)
+
+TM26 SLEEP_POWDER (Safari Zone)
+
+TM27 PETAL_DANCE (Victory Road)
+
+TM28 THUNDERBOLT (Lt.Surge)
+
+TM29 THUNDER (Power Plant)
+
+TM30 ROCK_THROW (Brock)
+
+TM31 FISSURE (Giovanni)
+
+TM32 DIG (Cerulean City/Game Corner)
+
+TM33 TOXIC (Silph Co.)
+
+TM34 HYPNOSIS (Mt. Moon)
+
+TM35 RECOVER (Celadon City)
+
+TM36 LIGHT_SCREEN (SS.Anne)
+
+TM37 HAZE (SS.Anne)
+
+TM38 REFLECT (Route 25)
+
+TM39 SLUDGE (Koga)
+
+TM40 FIRE_BLAST (Blaine)
+
+TM41 SKULL_BASH (Department Store/Route 9)
+
+TM42 AMNESIA (Route 12)
+
+TM43 GLARE (Route 24)
+
+TM44 DREAM_EATER (Sabrina)
+
+TM45 POISON_GAS (Power Plant)
+
+TM46 ACID_ARMOR (Department Store Gift)
+
+TM47 REST (Viridian City)
+
+TM48 ROCK_SLIDE (Department Store Roof)
+
+TM49 TRI_ATTACK (Department Store Roof)
+
+TM50 SUBSTITUTE (Game Corner)
+
+======MOVECHANGES======
+
+KARATE_CHOP, NO_ADDITIONAL_EFFECT, 40, FIGHTING, 100, 25
+
+DOUBLESLAP, ATTACK_TWICE_EFFECT, 20, NORMAL, 100, 25
+
+COMET_PUNCH, TWO_TO_FIVE_ATTACKS_EFFECT, 20, FIGHTING, 100, 20
+
+MEGA_PUNCH, NO_ADDITIONAL_EFFECT, 120, FIGHTING, 85, 5
+
+PAY_DAY, PAY_DAY_EFFECT, 60, NORMAL, 100, 20
+
+FIRE_PUNCH, BURN_SIDE_EFFECT1, 60, FIRE, 100, 15
+
+ICE_PUNCH, FREEZE_SIDE_EFFECT1, 60, ICE, 100, 15
+
+THUNDERPUNCH, PARALYZE_SIDE_EFFECT1, 60, ELECTRIC, 100, 15
+
+SCRATCH, NO_ADDITIONAL_EFFECT, 20, NORMAL, 100, 35
+
+VICEGRIP, NO_ADDITIONAL_EFFECT, 60, NORMAL, 100, 15
+
+RAZOR_WIND, NO_ADDITIONAL_EFFECT, 120, FLYING, 85, 5
+
+CUT, NO_ADDITIONAL_EFFECT, 60, NORMAL, 100, 15
+
+WING_ATTACK, NO_ADDITIONAL_EFFECT, 60, FLYING, 100, 15
+
+FLY, FLY_EFFECT, 90, FLYING, 100, 15
+
+SLAM, NO_ADDITIONAL_EFFECT, 80, DRAGON, 100, 20
+
+VINE_WHIP, NO_ADDITIONAL_EFFECT, 20, GRASS, 100, 35
+
+STOMP, FLINCH_SIDE_EFFECT2, 60, NORMAL, 100, 15
+
+DOUBLE_KICK, ATTACK_TWICE_EFFECT, 10, FIGHTING, 100, 35
+
+JUMP_KICK, JUMP_KICK_EFFECT, 80, FIGHTING, 100, 10
+
+SAND_ATTACK, NO_ADDITIONAL_EFFECT, 20, GROUND, 100, 35
+
+HEADBUTT, FLINCH_SIDE_EFFECT2, 60, NORMAL, 100, 25
+
+HORN_ATTACK, NO_ADDITIONAL_EFFECT, 60, NORMAL, 100, 25
+
+FURY_ATTACK, TWO_TO_FIVE_ATTACKS_EFFECT, 30, NORMAL, 100, 10
+
+TACKLE, NO_ADDITIONAL_EFFECT, 20, NORMAL, 100, 35
+
+BODY_SLAM, PARALYZE_SIDE_EFFECT2, 80, NORMAL, 100, 10
+
+TAKE_DOWN, RECOIL_EFFECT, 100, NORMAL, 100, 10
+
+THRASH, THRASH_PETAL_DANCE_EFFECT, 120, NORMAL, 85, 5
+
+DOUBLE_EDGE, RECOIL_EFFECT, 120, NORMAL, 85, 5
+
+POISON_STING, POISON_SIDE_EFFECT1, 20, POISON, 100, 35
+
+TWINEEDLE, TWINEEDLE_EFFECT, 40, BUG, 100, 10
+
+PIN_MISSILE, TWO_TO_FIVE_ATTACKS_EFFECT, 20, BUG, 100, 20
+
+SONICBOOM, TWO_TO_FIVE_ATTACKS_EFFECT, 20, NORMAL, 100, 20
+
+ACID, DEFENSE_DOWN_SIDE_EFFECT, 60, POISON, 100, 15
+
+FLAMETHROWER, BURN_SIDE_EFFECT1, 80, FIRE, 100, 10
+
+ICE_BEAM, FREEZE_SIDE_EFFECT1, 80, ICE, 100, 10
+
+PSYBEAM, CONFUSION_SIDE_EFFECT, 60, PSYCHIC_TYPE, 100, 15
+
+BUBBLEBEAM, SPEED_DOWN_SIDE_EFFECT, 60, WATER, 100, 15
+
+AURORA_BEAM, ATTACK_DOWN_SIDE_EFFECT, 40, ICE, 100, 25
+
+HYPER_BEAM, CHARGE_EFFECT, 120, NORMAL, 85, 5
+
+PECK, NO_ADDITIONAL_EFFECT, 20, FLYING, 100, 35
+
+LOW_KICK, FLINCH_SIDE_EFFECT2, 60, FIGHTING, 100, 15
+
+SEISMIC_TOSS, NO_ADDITIONAL_EFFECT, 120, FIGHTING, 85, 5
+
+ABSORB, DRAIN_HP_EFFECT, 40, GRASS, 100, 25
+
+MEGA_DRAIN, DRAIN_HP_EFFECT, 60, GRASS, 100, 15
+
+RAZOR_LEAF, NO_ADDITIONAL_EFFECT, 80, GRASS, 100, 10
+
+SOLARBEAM, CHARGE_EFFECT, 120, GRASS, 85, 5
+
+PETAL_DANCE, THRASH_PETAL_DANCE_EFFECT, 120, GRASS, 85, 5
+
+DRAGON_RAGE, NO_ADDITIONAL_EFFECT, 40, DRAGON, 100, 25
+
+FIRE_SPIN, BURN_SIDE_EFFECT1, 20, FIRE, 100, 35
+
+THUNDERBOLT, PARALYZE_SIDE_EFFECT1, 80, ELECTRIC, 100, 10
+
+THUNDER_WAVE, PARALYZE_SIDE_EFFECT1, 20, ELECTRIC, 100, 35
+
+ROCK_THROW, NO_ADDITIONAL_EFFECT, 40, ROCK, 100, 25
+
+EARTHQUAKE, NO_ADDITIONAL_EFFECT, 80, GROUND, 100, 10
+
+CONFUSION, CONFUSION_SIDE_EFFECT, 40, PSYCHIC_TYPE, 100, 25
+
+PSYCHIC_M, SPECIAL_DOWN_SIDE_EFFECT, 80, PSYCHIC_TYPE, 100, 10
+
+NIGHT_SHADE, NO_ADDITIONAL_EFFECT, 80, GHOST, 100, 10
+
+EGG_BOMB, NO_ADDITIONAL_EFFECT, 120, NORMAL, 85, 5
+
+LICK, PARALYZE_SIDE_EFFECT2, 40, GHOST, 100, 25
+
+SMOG, POISON_SIDE_EFFECT1, 40, POISON, 100, 25
+
+SLUDGE, POISON_SIDE_EFFECT2, 80, POISON, 100, 10
+
+BONE_CLUB, FLINCH_SIDE_EFFECT1, 60, GROUND, 100, 15
+
+SKULL_BASH, PARALYZE_SIDE_EFFECT2, 120, NORMAL, 85, 5
+
+HI_JUMP_KICK, JUMP_KICK_EFFECT, 120, FIGHTING, 85, 5
+
+DREAM_EATER, DREAM_EATER_EFFECT, 120, PSYCHIC_TYPE, 85, 5
+
+BARRAGE, TWO_TO_FIVE_ATTACKS_EFFECT, 20, NORMAL, 100, 20
+
+LEECH_LIFE, DRAIN_HP_EFFECT, 60, BUG, 100, 15
+
+SKY_ATTACK, NO_ADDITIONAL_EFFECT, 120, FLYING, 85, 5
+
+DIZZY_PUNCH, NO_ADDITIONAL_EFFECT, 80, FIGHTING, 100, 10
+
+PSYWAVE, CONFUSION_SIDE_EFFECT, 20, PSYCHIC_TYPE, 100, 35
+
+CRABHAMMER, NO_ADDITIONAL_EFFECT, 120, WATER, 85, 5
+
+FURY_SWIPES, TWO_TO_FIVE_ATTACKS_EFFECT, 20, NORMAL, 100, 20
+
+BONEMERANG, ATTACK_TWICE_EFFECT, 60, GROUND, 85, 5
+
+ROCK_SLIDE, FLINCH_SIDE_EFFECT1, 80, ROCK, 100, 10
+
+SUPER_FANG, FLINCH_SIDE_EFFECT1, 60, NORMAL, 100, 15
+
+SLASH, NO_ADDITIONAL_EFFECT, 80, NORMAL, 100, 10
+
+======TYPECHANGES======
+
+PHYSICAL = NORMAL, FIGHTING, FLYING, GROUND, ROCK, BUG, DRAGON, ICE, GRASS
+
+SPECIAL = FIRE, WATER, ELECTRIC, PSYCHIC, GHOST, POISON
