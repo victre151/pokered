@@ -14,10 +14,10 @@
 	db GROWTH_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm SURF,         THRASH,       DOUBLE_EDGE,  HYDRO_PUMP,   BUBBLEBEAM,   \
-	     HYPER_BEAM,   MEGA_DRAIN,   TOXIC,        REFLECT,      SLUDGE,       \
-	     SKULL_BASH,   GLARE,        POISON_GAS,   ACID_ARMOR,   REST,         \
-		 SUBSTITUTE
+	tmhm SURF,         THRASH, 		 MIST,         DOUBLE_EDGE,  HYDRO_PUMP,   \
+	     ICE_BEAM,     BLIZZARD,     BUBBLEBEAM,   HYPER_BEAM,   HAZE, 		   \
+	     MEGA_DRAIN,   TOXIC,        REFLECT,      SLUDGE,       SKULL_BASH,   \
+		 GLARE,        POISON_GAS,   ACID_ARMOR,   REST,         SUBSTITUTE
 	; end
 
 	db BANK(TentacruelPicFront)

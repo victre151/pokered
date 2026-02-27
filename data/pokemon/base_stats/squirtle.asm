@@ -14,11 +14,10 @@
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm SURF,   	   STRENGTH,     MEGA_PUNCH,   ICE_PUNCH,    MEGA_KICK,    \
-	     THRASH,  	   DOUBLE_EDGE,  ROAR,    	   MIST,     	 HYDRO_PUMP,   \
-	     ICE_BEAM,     BLIZZARD,     BUBBLEBEAM,   SEISMIC_TOSS, ROCK_THROW,   \
-	     HAZE,	       REFLECT,      SKULL_BASH,   AMNESIA,      GLARE,  	   \
-	     REST,   	   ROCK_SLIDE,   SUBSTITUTE
+	tmhm SURF,   	   STRENGTH,     MEGA_PUNCH,   MEGA_KICK,    THRASH,  	   \
+	     DOUBLE_EDGE,  ROAR,    	 HYDRO_PUMP,   BUBBLEBEAM,	 SEISMIC_TOSS, \
+	     ROCK_THROW,   REFLECT,   	 FISSURE,  	   DIG,          SKULL_BASH,   \
+	     AMNESIA,      GLARE,  	     REST,   	   ROCK_SLIDE,   SUBSTITUTE
 	; end
 
 	db BANK(SquirtlePicFront)

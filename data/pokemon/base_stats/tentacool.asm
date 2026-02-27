@@ -14,9 +14,10 @@
 	db GROWTH_SLOW ; growth rate
 
 	; tm/hm learnset
-	tmhm SURF,         THRASH,       DOUBLE_EDGE,  HYDRO_PUMP,   BUBBLEBEAM,   \
-	     MEGA_DRAIN,   TOXIC,        REFLECT,      SLUDGE,       SKULL_BASH,   \
-	     GLARE,        POISON_GAS,   ACID_ARMOR,   REST,         SUBSTITUTE
+	tmhm SURF,         THRASH, 		 MIST,         HYDRO_PUMP,   ICE_BEAM,     \
+	     BLIZZARD,     BUBBLEBEAM,   HAZE, 		   MEGA_DRAIN,   TOXIC,	       \
+	     REFLECT,      SLUDGE,       SKULL_BASH,   GLARE,        POISON_GAS,   \
+	     ACID_ARMOR,   REST,         SUBSTITUTE
 	; end
 
 	db BANK(TentacoolPicFront)

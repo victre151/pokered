@@ -828,21 +828,22 @@ TentacoolEvosMoves:
 	db 5, SUPERSONIC
 	db 7, WATER_GUN
 	db 9, SMOG
-	db 11, ABSORB
-	db 13, FOCUS_ENERGY
+	db 11, AURORA_BEAM
+	db 13, ABSORB
 	db 15, DOUBLESLAP
 	db 17, RAGE
 	db 19, FURY_ATTACK
-	db 21, SWIFT
-	db 23, BUBBLEBEAM
-	db 25, ACID
+	db 21, BUBBLEBEAM
+	db 23, ACID
+	db 25, ICE_PUNCH
 	db 27, VICEGRIP
 	db 29, MEGA_DRAIN
 	db 31, LEECH_LIFE
 	db 33, SCREECH
 	db 35, WATERFALL
 	db 37, SLUDGE
-	db 39, BODY_SLAM
+	db 39, ICE_BEAM
+	db 41, BODY_SLAM
 	db 43, ACID_ARMOR
 	db 50, THRASH
 	db 0
@@ -936,7 +937,7 @@ BlastoiseEvosMoves:
 	db 3, TAIL_WHIP
 	db 5, DEFENSE_CURL
 	db 7, WATER_GUN
-	db 9, AURORA_BEAM
+	db 9, ROCK_THROW
 	db 11, WITHDRAW
 	db 13, BITE
 	db 15, FOCUS_ENERGY
@@ -944,15 +945,16 @@ BlastoiseEvosMoves:
 	db 19, FURY_SWIPES
 	db 21, SWIFT
 	db 23, BUBBLEBEAM
-	db 25, ICE_PUNCH
+	db 25, DIG
 	db 27, HEADBUTT
 	db 29, TAKE_DOWN
 	db 31, SLASH
 	db 33, SCREECH
 	db 35, WATERFALL
-	db 37, ICE_BEAM
-	db 39, BODY_SLAM
-	db 41, AMNESIA
+	db 37, EARTHQUAKE
+	db 39, ROCK_SLIDE
+	db 41, BODY_SLAM
+	db 43, AMNESIA
 	db 50, THRASH
 	db 0
 
@@ -3684,23 +3686,25 @@ TentacruelEvosMoves:
 	db 5, SUPERSONIC
 	db 7, WATER_GUN
 	db 9, SMOG
-	db 11, ABSORB
-	db 13, FOCUS_ENERGY
+	db 11, AURORA_BEAM
+	db 13, ABSORB
 	db 15, DOUBLESLAP
 	db 17, RAGE
 	db 19, FURY_ATTACK
-	db 21, SWIFT
-	db 23, BUBBLEBEAM
-	db 25, ACID
+	db 21, BUBBLEBEAM
+	db 23, ACID
+	db 25, ICE_PUNCH
 	db 27, VICEGRIP
 	db 29, MEGA_DRAIN
 	db 31, LEECH_LIFE
 	db 33, SCREECH
 	db 35, WATERFALL
 	db 37, SLUDGE
-	db 39, BODY_SLAM
+	db 39, ICE_BEAM
+	db 41, BODY_SLAM
 	db 43, ACID_ARMOR
 	db 50, THRASH
+	db 0
 
 
 MissingNo9CEvosMoves:
@@ -4104,7 +4108,7 @@ SquirtleEvosMoves:
 	db 3, TAIL_WHIP
 	db 5, DEFENSE_CURL
 	db 7, WATER_GUN
-	db 9, AURORA_BEAM
+	db 9, ROCK_THROW
 	db 11, WITHDRAW
 	db 13, BITE
 	db 15, FOCUS_ENERGY
@@ -4112,15 +4116,16 @@ SquirtleEvosMoves:
 	db 19, FURY_SWIPES
 	db 21, SWIFT
 	db 23, BUBBLEBEAM
-	db 25, ICE_PUNCH
+	db 25, DIG
 	db 27, HEADBUTT
 	db 29, TAKE_DOWN
 	db 31, SLASH
 	db 33, SCREECH
 	db 35, WATERFALL
-	db 37, ICE_BEAM
-	db 39, BODY_SLAM
-	db 41, AMNESIA
+	db 37, EARTHQUAKE
+	db 39, ROCK_SLIDE
+	db 41, BODY_SLAM
+	db 43, AMNESIA
 	db 50, THRASH
 	db 0
 
@@ -4160,7 +4165,7 @@ WartortleEvosMoves:
 	db 3, TAIL_WHIP
 	db 5, DEFENSE_CURL
 	db 7, WATER_GUN
-	db 9, AURORA_BEAM
+	db 9, ROCK_THROW
 	db 11, WITHDRAW
 	db 13, BITE
 	db 15, FOCUS_ENERGY
@@ -4168,18 +4173,19 @@ WartortleEvosMoves:
 	db 19, FURY_SWIPES
 	db 21, SWIFT
 	db 23, BUBBLEBEAM
-	db 25, ICE_PUNCH
+	db 25, DIG
 	db 27, HEADBUTT
 	db 29, TAKE_DOWN
 	db 31, SLASH
 	db 33, SCREECH
 	db 35, WATERFALL
-	db 37, ICE_BEAM
-	db 39, BODY_SLAM
-	db 41, AMNESIA
+	db 37, EARTHQUAKE
+	db 39, ROCK_SLIDE
+	db 41, BODY_SLAM
+	db 43, AMNESIA
 	db 50, THRASH
 	db 0
-
+	
 CharizardEvosMoves:
 ; Evolutions
 	db 0
