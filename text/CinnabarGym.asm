@@ -210,3 +210,47 @@ _CinnabarGymGymGuideBeatBlaineText::
 	text "<PLAYER>! You beat"
 	line "that fire brand!"
 	done
+
+_CinnabarGymRematchPreBattleText::
+	text "Hah! You've"
+	line "found me at"
+	cont "last! Koga"
+	cont "told me you"
+	cont "were coming."
+	para "Are you ready"
+	line "for a fiery"
+	cont "rematch?"
+	done
+	
+_CinnabarGymRematchAcceptedText::
+	text "My flames are"
+	line "roaring! I"
+	cont "won't be"
+	cont "doused so"
+	cont "easily!"
+	done
+	
+_CinnabarGymRematchRefusedText::
+	text "I'll keep my"
+	line "quizzes warm"
+	cont "until you"
+	cont "return!"
+	done
+
+_CinnabarGymRematchDefeatedText::
+	text "My fire"
+	line "was"
+	cont "extinguished!"
+	cont "Bravo!"
+	done
+	
+_CinnabarGymRematchPostBattleText::
+	text "That was a"
+	line "total blast!"
+	para "Misty has been"
+	line "training and"
+	cont "is looking for"
+	cont "a challenge in"
+	cont "Cerulean City!"
+	done
+	

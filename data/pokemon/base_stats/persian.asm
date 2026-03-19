@@ -1,6 +1,6 @@
 	db DEX_PERSIAN ; pokedex id
 
-	db  72,  77,  67, 122,  72 ;  410BST
+	db  75,  85,  65, 115,  70 ;  410BST
 	;   hp  atk  def  spd  spc
 
 	db NORMAL, GROUND ; type

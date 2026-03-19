@@ -60,6 +60,7 @@ DEF SHOW EQU $15
 	const HS_POKEDEX_2                     ; 30
 	const HS_OAKS_LAB_OAK_2                ; 31
 	const HS_VIRIDIAN_GYM_GIOVANNI         ; 32
+	const HS_VIRIDIAN_GYM_OAK
 	const HS_VIRIDIAN_GYM_ITEM             ; 33 X
 	const HS_OLD_AMBER                     ; 34
 	const HS_CERULEAN_CAVE_1F_ITEM_1       ; 35 X
@@ -93,8 +94,9 @@ DEF SHOW EQU $15
 	const HS_VOLTORB_4                     ; 51 X
 	const HS_VOLTORB_5                     ; 52 X
 	const HS_ELECTRODE_2                   ; 53 X
-	const HS_VOLTORB_6                     ; 54 X
 	const HS_ZAPDOS                        ; 55 X
+	const HS_POWER_PLANT_ARCHER
+	const HS_POWER_PLANT_SILVER
 	const HS_POWER_PLANT_ITEM_1            ; 56 X
 	const HS_POWER_PLANT_ITEM_2            ; 57 X
 	const HS_POWER_PLANT_ITEM_3            ; 58 X
@@ -132,6 +134,7 @@ DEF SHOW EQU $15
 	const HS_VICTORY_ROAD_3F_ITEM_1        ; 78 X
 	const HS_VICTORY_ROAD_3F_ITEM_2        ; 79 X
 	const HS_VICTORY_ROAD_3F_BOULDER       ; 7A
+	const HS_VICTORY_ROAD_3F_ARIANA
 	const HS_ROCKET_HIDEOUT_B1F_ITEM_1     ; 7B X
 	const HS_ROCKET_HIDEOUT_B1F_ITEM_2     ; 7C X
 	const HS_ROCKET_HIDEOUT_B2F_ITEM_1     ; 7D X
@@ -239,4 +242,9 @@ DEF SHOW EQU $15
 	const HS_SEAFOAM_ISLANDS_B4F_BOULDER_1 ; E1
 	const HS_SEAFOAM_ISLANDS_B4F_BOULDER_2 ; E2
 	const HS_ARTICUNO                      ; E3 X
+	const HS_SEAFOAM_B4F_PROTON 
+	const HS_SEAFOAM_B4F_GRUNT_L 
+	const HS_SEAFOAM_B4F_GRUNT_R 
+	const HS_LORELEISROOM_LORELEI
+	const HS_LORELEISROOM_SILVER
 DEF NUM_HS_OBJECTS EQU const_value

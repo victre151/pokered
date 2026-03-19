@@ -1,6 +1,6 @@
 	db DEX_JIGGLYPUFF ; pokedex id
 
-	db 120,  50,  25,  25,  50 ;  270BST
+	db 100,  55,  30,  40,  45 ;  270BST
 	;   hp  atk  def  spd  spc
 
 	db NORMAL, NORMAL ; type

@@ -1,6 +1,6 @@
 	db DEX_SEADRA ; pokedex id
 
-	db  58,  78,  98,  88,  88 ;  410BST
+	db  60,  95,  85,  80,  90 ;  410BST
 	;   hp  atk  def  spd  spc
 
 	db WATER, DRAGON ; type

@@ -1,6 +1,6 @@
 	db DEX_GRAVELER ; pokedex id
 
-	db  55,  95, 115,  35,  45 ;  345BST
+	db  50,  80, 100,  35,  80 ;  345BST
 	;   hp  atk  def  spd  spc
 
 	db ROCK, GROUND ; type

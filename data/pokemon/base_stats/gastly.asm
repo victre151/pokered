@@ -1,6 +1,6 @@
 	db DEX_GASTLY ; pokedex id
 
-	db  30,  35,  30,  80, 100 ;  275BST
+	db  65,  30,  35,  55, 90 ;  275BST
 	;   hp  atk  def  spd  spc
 
 	db GHOST, POISON ; type

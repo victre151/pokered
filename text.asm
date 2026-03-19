@@ -57,6 +57,7 @@ INCLUDE "text/LoreleisRoom.asm"
 INCLUDE "text/BrunosRoom.asm"
 INCLUDE "text/AgathasRoom.asm"
 INCLUDE "text/RockTunnelB1F.asm"
+INCLUDE "text/CeruleanCave1F.asm"
 
 
 SECTION "Text 3", ROMX

@@ -1,6 +1,6 @@
 	db DEX_CHANSEY ; pokedex id
 
-	db 250,   5,   5,  50, 105 ;  415BST
+	db 115,  75, 105,  40,  80 ;  415BST
 	;   hp  atk  def  spd  spc
 
 	db NORMAL, NORMAL ; type

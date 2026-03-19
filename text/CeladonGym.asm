@@ -218,3 +218,50 @@ _CeladonGymAfterBattleText8::
 	para "Wait 'til next"
 	line "time!"
 	done
+
+_CeladonGymRematchPreBattleText::
+	text "Oh! My... I was"
+	line "not expecting"
+	cont "to see you so"
+	cont "soon!"
+	
+	para "SABRINA sent"
+	line "you here?!"
+	
+	para "Oh... we're"
+	line "having a"
+	cont "rematch?"
+	done
+	
+_CeladonGymRematchAcceptedText::
+	text "Please, give me"
+	line "a moment to"
+	cont "collect my"
+	cont "thoughts..."
+	done
+	
+_CeladonGymRematchRefusedText::
+	text "Oh, thank goodness."
+	line "I need to fix"
+	cont "my kimono first."
+	done
+
+_CeladonGymRematchDefeatedText::
+	text "Oh dear! My"
+	line "composure is"
+	cont "all gone..."
+	done
+
+_CeladonGymRematchPostBattleText::
+	text "That was quite"
+	line "the surprise!"
+	
+	para "I must have a"
+	line "word with"
+	cont "SABRINA..."
+	
+	para "In the meantime,"
+	line "KOGA is also"
+	cont "awaiting your"
+	cont "rematch!"
+	done

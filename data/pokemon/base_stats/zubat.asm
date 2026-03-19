@@ -3,7 +3,7 @@
 	db  51,  56,  46,  66,  51 ;  270BST
 	;   hp  atk  def  spd  spc
 
-	db POISON, FLYING ; type
+	db FLYING, FLYING ; type
 	db 255 ; catch rate
 	db 54 ; base exp
 

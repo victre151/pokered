@@ -1,6 +1,6 @@
 	db DEX_PINSIR ; pokedex id
 
-	db  65, 125, 100,  85,  70 ;  445BST
+	db  85, 115, 105,  75,  65 ;  445BST
 	;   hp  atk  def  spd  spc
 
 	db BUG, FIGHTING ; type

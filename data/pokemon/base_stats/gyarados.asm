@@ -1,6 +1,6 @@
 	db DEX_GYARADOS ; pokedex id
 
-	db  95, 125,  79,  81, 100 ;  480BST
+	db  85, 115,  70,  80, 100 ;  450BST
 	;   hp  atk  def  spd  spc
 
 	db WATER, DRAGON ; type

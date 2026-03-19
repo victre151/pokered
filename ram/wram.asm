@@ -2014,6 +2014,7 @@ wLoreleisRoomCurScript:: db
 wBrunosRoomCurScript:: db
 wAgathasRoomCurScript:: db
 wCeruleanCaveB1FCurScript:: db
+wCeruleanCave1FCurScript:: db
 wVictoryRoad1FCurScript:: db
 	ds 1
 wLancesRoomCurScript:: db
@@ -2029,9 +2030,8 @@ wGameCornerCurScript:: db
 wRoute16Gate1FCurScript:: db
 wBillsHouseCurScript:: db
 wRoute5GateCurScript:: db
-wPowerPlantCurScript:: ; overload
+wPowerPlantCurScript:: db
 wRoute7GateCurScript:: db
-	ds 1
 wSSAnne2FCurScript:: db
 wSeafoamIslandsB3FCurScript:: db
 wRoute23CurScript:: db

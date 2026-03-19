@@ -17,6 +17,7 @@ SeafoamIslandsB4F_ScriptPointers:
 	dw_const SeafoamIslandsB4FMoveObjectScript,    SCRIPT_SEAFOAMISLANDSB4F_MOVE_OBJECT
 	dw_const SeafoamIslandsB4FObjectMoving2Script, SCRIPT_SEAFOAMISLANDSB4F_OBJECT_MOVING2
 	dw_const SeafoamIslandsB4FObjectMoving3Script, SCRIPT_SEAFOAMISLANDSB4F_OBJECT_MOVING3
+	dw_const SeafoamIslandsB4FRocketCleanupScript, SCRIPT_SEAFOAMISLANDSB4F_ROCKET_CLEANUP
 	EXPORT SCRIPT_SEAFOAMISLANDSB4F_MOVE_OBJECT ; used by engine/overworld/player_state.asm
 
 SeafoamIslandsB4FObjectMoving3Script:
@@ -29,6 +30,35 @@ SeafoamIslandsB4FObjectMoving3Script:
 	ret
 
 SeafoamIslandsB4FDefaultScript:
+	CheckEvent EVENT_BEAT_KOGA_REMATCH
+	ret z
+	
+	CheckEvent EVENT_SEAFOAM_ROCKETS_DONE
+	ret nz
+	
+	CheckEvent EVENT_SEAFOAM_ROCKETS_ARTICUNO
+	ret nz 
+	
+	ld a, HS_ARTICUNO
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	
+	ld a, HS_SEAFOAM_B4F_PROTON
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	
+	ld a, HS_SEAFOAM_B4F_GRUNT_L
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	
+	ld a, HS_SEAFOAM_B4F_GRUNT_R
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	
+	call UpdateSprites
+	SetEvent EVENT_SEAFOAM_ROCKETS_ARTICUNO
+	ret
+	
 	CheckBothEventsSet EVENT_SEAFOAM3_BOULDER1_DOWN_HOLE, EVENT_SEAFOAM3_BOULDER2_DOWN_HOLE
 	ret z
 	ld hl, .Coords
@@ -137,6 +167,9 @@ SeafoamIslandsB4F_TextPointers:
 	dw_const BoulderText,                       TEXT_SEAFOAMISLANDSB4F_BOULDER1
 	dw_const BoulderText,                       TEXT_SEAFOAMISLANDSB4F_BOULDER2
 	dw_const SeafoamIslandsB4FArticunoText,     TEXT_SEAFOAMISLANDSB4F_ARTICUNO
+	dw_const SeafoamIslandsB4FRocketSilenceText,   TEXT_SEAFOAMISLANDSB4F_GRUNTL             
+	dw_const SeafoamIslandsB4FRocketSilenceText,   TEXT_SEAFOAMISLANDSB4F_GRUNTR 
+	dw_const SeafoamIslandsB4FProtonEncounterText, TEXT_SEAFOAMISLANDSB4F_PROTON                
 	dw_const SeafoamIslandsB4FBouldersSignText, TEXT_SEAFOAMISLANDSB4F_BOULDERS_SIGN
 	dw_const SeafoamIslandsB4FDangerSignText,   TEXT_SEAFOAMISLANDSB4F_DANGER_SIGN
 
@@ -163,6 +196,48 @@ SeafoamIslandsB4FArticunoBattleText:
 	call PlayCry
 	call WaitForSoundToFinish
 	jp TextScriptEnd
+	
+SeafoamIslandsB4FProtonEncounterText:
+	text_asm
+	ld hl, SeafoamProtonEncounterText
+	call PrintText
+	call DisableWaitingAfterTextDisplay
+	
+	ld a, SCRIPT_SEAFOAMISLANDSB4F_ROCKET_CLEANUP
+    ld [wSeafoamIslandsB4FCurScript], a
+	
+	jp TextScriptEnd
+	
+SeafoamIslandsB4FRocketCleanupScript:
+	call GBFadeOutToBlack
+	
+	SetEvent EVENT_SEAFOAM_ROCKETS_DONE
+	
+	ld a, HS_ARTICUNO
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	
+	ld a, HS_SEAFOAM_B4F_PROTON
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	
+	ld a, HS_SEAFOAM_B4F_GRUNT_L
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	
+	ld a, HS_SEAFOAM_B4F_GRUNT_R
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	
+	call UpdateSprites
+	call Delay3
+	
+	call GBFadeInFromBlack
+	
+	xor a
+	ld [wSeafoamIslandsB4FCurScript], a
+	
+	ret
 
 SeafoamIslandsB4FBouldersSignText:
 	text_far _SeafoamIslandsB4FBouldersSignText
@@ -170,4 +245,12 @@ SeafoamIslandsB4FBouldersSignText:
 
 SeafoamIslandsB4FDangerSignText:
 	text_far _SeafoamIslandsB4FDangerSignText
+	text_end
+
+SeafoamProtonEncounterText:
+	text_far _SeafoamProtonEncounterText
+	text_end
+
+SeafoamIslandsB4FRocketSilenceText:
+	text_far _SeafoamRocketSilenceText
 	text_end

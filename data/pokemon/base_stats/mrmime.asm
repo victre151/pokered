@@ -1,6 +1,6 @@
 	db DEX_MR_MIME ; pokedex id
 
-	db  48,  53,  73,  98, 128 ;  400BST
+	db  60,  50,  77,  98, 115 ;  400BST
 	;   hp  atk  def  spd  spc
 
 	db PSYCHIC_TYPE, PSYCHIC_TYPE ; type

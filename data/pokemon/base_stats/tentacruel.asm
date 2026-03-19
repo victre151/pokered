@@ -1,9 +1,9 @@
 	db DEX_TENTACRUEL ; pokedex id
 
-	db  80,  70,  65, 100, 120 ;  435BST
+	db  70,  85,  65, 100, 115 ;  435BST
 	;   hp  atk  def  spd  spc
 
-	db WATER, POISON ; type
+	db WATER, WATER ; type
 	db 60 ; catch rate
 	db 205 ; base exp
 

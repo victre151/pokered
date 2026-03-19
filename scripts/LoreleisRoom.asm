@@ -16,6 +16,8 @@ LoreleiShowOrHideExitBlock:
 	ret z
 	ld hl, wElite4Flags
 	set BIT_STARTED_ELITE_4, [hl]
+	CheckEvent EVENT_VICTORY_ROAD_ROCKETS_DONE
+	jr nz, .Rematch
 	CheckEvent EVENT_BEAT_LORELEIS_ROOM_TRAINER_0
 	jr z, .blockExitToNextRoom
 	ld a, $5
@@ -26,7 +28,12 @@ LoreleiShowOrHideExitBlock:
 	ld [wNewTileBlockID], a
 	lb bc, 0, 2
 	predef_jump ReplaceTileBlock
-
+.Rematch
+	CheckEvent EVENT_BEAT_LORELEIS_ROOM_TRAINER_1
+	jr z, .blockExitToNextRoom
+	ld a, $5
+	jr .setExitBlock
+	
 ResetLoreleiScript:
 	xor a ; SCRIPT_LORELEISROOM_DEFAULT
 	ld [wLoreleisRoomCurScript], a
@@ -112,19 +119,28 @@ LoreleisRoomLoreleiEndBattleScript:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, ResetLoreleiScript
+	CheckEvent EVENT_VICTORY_ROAD_ROCKETS_DONE
+	jr nz, .Rematch
 	ld a, TEXT_LORELEISROOM_LORELEI
+.continue
 	ldh [hTextID], a
 	jp DisplayTextID
+.Rematch
+	ld a, TEXT_LORELEISROOM_SILVER
+	jr .continue
 
 LoreleisRoom_TextPointers:
 	def_text_pointers
 	dw_const LoreleisRoomLoreleiText,            TEXT_LORELEISROOM_LORELEI
+	dw_const LoreleisRoomSilverText,			 TEXT_LORELEISROOM_SILVER
 	dw_const LoreleisRoomLoreleiDontRunAwayText, TEXT_LORELEISROOM_DONT_RUN_AWAY
-
+	
 LoreleisRoomTrainerHeaders:
 	def_trainers
 LoreleisRoomTrainerHeader0:
 	trainer EVENT_BEAT_LORELEIS_ROOM_TRAINER_0, 0, LoreleisRoomLoreleiBeforeBattleText, LoreleisRoomLoreleiEndBattleText, LoreleisRoomLoreleiAfterBattleText
+LoreleisRoomTrainerHeader1:
+	trainer EVENT_BEAT_LORELEIS_ROOM_TRAINER_1, 0, LoreleisRoomSilverBeforeBattleText, LoreleisRoomSilverEndBattleText, LoreleisRoomSilverAfterBattleText
 	db -1 ; end
 
 LoreleisRoomLoreleiText:
@@ -147,4 +163,22 @@ LoreleisRoomLoreleiAfterBattleText:
 
 LoreleisRoomLoreleiDontRunAwayText:
 	text_far _LoreleisRoomLoreleiDontRunAwayText
+	text_end
+	
+LoreleisRoomSilverText:
+	text_asm
+	ld hl, LoreleisRoomTrainerHeader1
+	call TalkToTrainer
+	jp TextScriptEnd
+
+LoreleisRoomSilverBeforeBattleText:
+	text_far _LoreleisRoomSilverBeforeBattleText
+	text_end
+
+LoreleisRoomSilverEndBattleText:
+	text_far _LoreleisRoomSilverEndBattleText
+	text_end
+
+LoreleisRoomSilverAfterBattleText:
+	text_far _LoreleisRoomSilverAfterBattleText
 	text_end

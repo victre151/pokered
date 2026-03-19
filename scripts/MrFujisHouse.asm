@@ -72,9 +72,9 @@ MrFujisHouseMrFujiText:
 	CheckEvent EVENT_PLAYER_IS_CHAMPION
 	jr z, .pokeflute
 IF DEF(_RED)
-	lb bc, MEW, 75
+	lb bc, MEW, 59
 ELSE
-	lb bc, MEWTWO, 75
+	lb bc, MEWTWO, 59
 ENDC
 	jr nz, .getBoxMon
 	jp TextScriptEnd

@@ -61,3 +61,20 @@ _VictoryRoad3FCooltrainerF2AfterBattleText::
 	line "battles, you get"
 	cont "stronger!"
 	done
+
+_VictoryRoad3FArianaEncounterText::
+	text "You are too"
+	line "late, brat!"
+	
+	para "Now that I"
+	line "have MOLTRES,"
+	cont "we can invade"
+	cont "the POKéMON"
+	cont "LEAGUE!"
+	
+	para "We will take"
+	line "over the"
+	cont "region and"
+	cont "bring back"
+	cont "GIOVANNI!"
+	done

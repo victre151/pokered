@@ -44,7 +44,14 @@ FuchsiaGymKogaPostBattleScript:
 	jp z, FuchsiaGymResetScripts
 	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
-; fallthrough
+	CheckEvent EVENT_BEAT_KOGA
+	jr z, FuchsiaGymReceiveTM06	
+	SetEvent EVENT_BEAT_KOGA_REMATCH
+	ld a, TEXT_FUCHSIAGYM_REMATCH_POST_BATTLE
+	ldh [hTextID], a
+	call DisplayTextID
+	jp FuchsiaGymResetScripts
+
 FuchsiaGymReceiveTM06:
 	ld a, TEXT_FUCHSIAGYM_KOGA_SOUL_BADGE_INFO
 	ldh [hTextID], a
@@ -86,6 +93,7 @@ FuchsiaGym_TextPointers:
 	dw_const FuchsiaGymKogaSoulBadgeInfoText, TEXT_FUCHSIAGYM_KOGA_SOUL_BADGE_INFO
 	dw_const FuchsiaGymKogaReceivedTM06Text,  TEXT_FUCHSIAGYM_KOGA_RECEIVED_TM06
 	dw_const FuchsiaGymKogaTM06NoRoomText,    TEXT_FUCHSIAGYM_KOGA_TM06_NO_ROOM
+	dw_const FuchsiaGymRematchPostBattleText, TEXT_FUCHSIAGYM_REMATCH_POST_BATTLE
 
 FuchsiaGymTrainerHeaders:
 	def_trainers 2
@@ -111,9 +119,17 @@ FuchsiaGymKogaText:
 	jr nz, .afterBeat
 	call z, FuchsiaGymReceiveTM06
 	call DisableWaitingAfterTextDisplay
-	jr .done
+	jp .done
 .afterBeat
+	CheckEvent EVENT_BEAT_KOGA_REMATCH
+	jr nz, .alreadyRematched
+	CheckEvent EVENT_PLAYER_IS_CHAMPION
+	jr nz, .KogaRematch
 	ld hl, .PostBattleAdviceText
+	call PrintText
+	jr .done
+.alreadyRematched
+	ld hl, FuchsiaGymRematchPostBattleText
 	call PrintText
 	jr .done
 .beforeBeat
@@ -133,6 +149,33 @@ FuchsiaGymKogaText:
 	ld [wGymLeaderNo], a
 	xor a
 	ldh [hJoyHeld], a
+	jr .endBattle
+.KogaRematch
+	ld hl, FuchsiaGymRematchText
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jr nz, .refused
+	ld hl, FuchsiaGymRematchAcceptedText
+	call PrintText
+	call Delay3
+	ld hl, wStatusFlags3
+	set BIT_TALKED_TO_TRAINER, [hl]
+	set BIT_PRINT_END_BATTLE_TEXT, [hl]
+	ld hl, FuchsiaGymRematchDefeatedText
+	ld de, FuchsiaGymRematchDefeatedText
+	call SaveEndBattleTextPointers
+	ld a, OPP_KOGA
+	ld [wCurOpponent], a
+	ld a, 2
+	ld [wTrainerNo], a
+	jr .endBattle
+.refused
+	ld hl, FuchsiaGymRematchRefusedText
+	call PrintText
+	jr .done	
+.endBattle
 	ld a, SCRIPT_FUCHSIAGYM_KOGA_POST_BATTLE
 	ld [wFuchsiaGymCurScript], a
 .done
@@ -288,4 +331,24 @@ FuchsiaGymGymGuideText:
 
 .BeatKogaText:
 	text_far _FuchsiaGymGymGuideBeatKogaText
+	text_end
+
+FuchsiaGymRematchText:
+	text_far _FuchsiaGymRematchPreBattleText
+	text_end
+	
+FuchsiaGymRematchAcceptedText:
+	text_far _FuchsiaGymRematchAcceptedText
+	text_end
+	
+FuchsiaGymRematchRefusedText:
+	text_far _FuchsiaGymRematchRefusedText
+	text_end
+
+FuchsiaGymRematchDefeatedText:
+	text_far _FuchsiaGymRematchDefeatedText
+	text_end
+
+FuchsiaGymRematchPostBattleText:
+	text_far _FuchsiaGymRematchPostBattleText
 	text_end

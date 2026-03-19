@@ -42,6 +42,13 @@ CeladonGymErikaPostBattleScript:
 	jp z, CeladonGymResetScripts
 	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
+	CheckEvent EVENT_BEAT_ERIKA
+	jr z, CeladonGymReceiveTM21	
+	SetEvent EVENT_BEAT_ERIKA_REMATCH
+	ld a, TEXT_CELADONGYM_REMATCH_POST_BATTLE
+	ldh [hTextID], a
+	call DisplayTextID
+	jp CeladonGymResetScripts
 
 CeladonGymReceiveTM21:
 	ld a, TEXT_CELADONGYM_RAINBOWBADGE_INFO
@@ -84,6 +91,7 @@ CeladonGym_TextPointers:
 	dw_const CeladonGymRainbowBadgeInfoText, TEXT_CELADONGYM_RAINBOWBADGE_INFO
 	dw_const CeladonGymReceivedTM21Text,     TEXT_CELADONGYM_RECEIVED_TM21
 	dw_const CeladonGymTM21NoRoomText,       TEXT_CELADONGYM_TM21_NO_ROOM
+	dw_const CeladonGymRematchPostBattleText,     TEXT_CELADONGYM_REMATCH_POST_BATTLE
 
 CeladonGymTrainerHeaders:
 	def_trainers 2
@@ -111,9 +119,17 @@ CeladonGymErikaText:
 	jr nz, .afterBeat
 	call z, CeladonGymReceiveTM21
 	call DisableWaitingAfterTextDisplay
-	jr .done
+	jp .done
 .afterBeat
+	CheckEvent EVENT_BEAT_ERIKA_REMATCH
+	jr nz, .alreadyRematched
+	CheckEvent EVENT_PLAYER_IS_CHAMPION
+	jr nz, .ErikaRematch
 	ld hl, .PostBattleAdviceText
+	call PrintText
+	jr .done
+.alreadyRematched
+	ld hl, CeladonGymRematchPostBattleText
 	call PrintText
 	jr .done
 .beforeBeat
@@ -131,6 +147,35 @@ CeladonGymErikaText:
 	call InitBattleEnemyParameters
 	ld a, $4
 	ld [wGymLeaderNo], a
+	xor a
+	ldh [hJoyHeld], a
+	jr .endBattle
+.ErikaRematch
+	ld hl, CeladonGymRematchText
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jr nz, .refused
+	ld hl, CeladonGymRematchAcceptedText
+	call PrintText
+	call Delay3
+	ld hl, wStatusFlags3
+	set BIT_TALKED_TO_TRAINER, [hl]
+	set BIT_PRINT_END_BATTLE_TEXT, [hl]
+	ld hl, CeladonGymRematchDefeatedText
+	ld de, CeladonGymRematchDefeatedText
+	call SaveEndBattleTextPointers
+	ld a, OPP_ERIKA
+	ld [wCurOpponent], a
+	ld a, 2
+	ld [wTrainerNo], a
+	jr .endBattle
+.refused
+	ld hl, CeladonGymRematchRefusedText
+	call PrintText
+	jr .done	
+.endBattle	
 	ld a, SCRIPT_CELADONGYM_ERIKA_POST_BATTLE
 	ld [wCeladonGymCurScript], a
 	ld [wCurMapScript], a
@@ -287,4 +332,24 @@ CeladonGymEndBattleText8:
 
 CeladonGymAfterBattleText8:
 	text_far _CeladonGymAfterBattleText8
+	text_end
+
+CeladonGymRematchText:
+	text_far _CeladonGymRematchPreBattleText
+	text_end
+	
+CeladonGymRematchAcceptedText:
+	text_far _CeladonGymRematchAcceptedText
+	text_end
+	
+CeladonGymRematchRefusedText:
+	text_far _CeladonGymRematchRefusedText
+	text_end
+
+CeladonGymRematchDefeatedText:
+	text_far _CeladonGymRematchDefeatedText
+	text_end
+
+CeladonGymRematchPostBattleText:
+	text_far _CeladonGymRematchPostBattleText
 	text_end

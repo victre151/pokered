@@ -12,3 +12,12 @@ _SeafoamIslandsB4FDangerSignText::
 	text "DANGER"
 	line "Fast current!"
 	done
+
+_SeafoamProtonEncounterText::
+	text "Get out of my"
+	line "way, brat!"
+	done
+
+_SeafoamRocketSilenceText::
+	text "..."
+	done

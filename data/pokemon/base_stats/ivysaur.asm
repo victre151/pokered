@@ -1,6 +1,6 @@
 	db DEX_IVYSAUR ; pokedex id
 
-	db  60,  80,  63,  60,  62 ;  325BST
+	db  85,  80,  65,  55,  70 ;  325BST
 	;   hp  atk  def  spd  spc
 
 	db GRASS, POISON ; type

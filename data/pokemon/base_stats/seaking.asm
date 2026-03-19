@@ -1,6 +1,6 @@
 	db DEX_SEAKING ; pokedex id
 
-	db  85,  85,  67,  73,  97 ;  407BST
+	db  82,  85,  78,  70,  92 ;  407BST
 	;   hp  atk  def  spd  spc
 
 	db WATER, WATER ; type

@@ -55,4 +55,5 @@ ENDC
 	li "CHANNELER"
 	li "AGATHA"
 	li "LANCE"
+	li "SILVER"
 	assert_list_length NUM_TRAINERS

@@ -1,6 +1,23 @@
 VictoryRoad3F_Script:
 	call VictoryRoad3FCheckBoulderEventScript
 	call EnableAutoTextBoxDrawing
+	CheckEvent EVENT_BEAT_VIRIDIAN_GYM_OAK
+	jr z, .runEngine
+	
+	CheckEvent EVENT_VICTORY_ROAD_ROCKETS_DONE
+	jr nz, .runEngine
+	
+	CheckEvent EVENT_VICTORY_ROAD_ROCKETS_MOLTRES
+	jr nz, .runEngine
+	
+	ld a, HS_VICTORY_ROAD_3F_ARIANA
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	
+	call UpdateSprites
+	SetEvent EVENT_VICTORY_ROAD_ROCKETS_MOLTRES
+
+.runEngine
 	ld hl, VictoryRoad3TrainerHeaders
 	ld de, VictoryRoad3F_ScriptPointers
 	ld a, [wVictoryRoad3FCurScript]
@@ -25,6 +42,7 @@ VictoryRoad3F_ScriptPointers:
 	dw_const VictoryRoad3FDefaultScript,            SCRIPT_VICTORYROAD3F_DEFAULT
 	dw_const DisplayEnemyTrainerTextAndStartBattle, SCRIPT_VICTORYROAD3F_START_BATTLE
 	dw_const EndTrainerBattle,                      SCRIPT_VICTORYROAD3F_END_BATTLE
+	dw_const VictoryRoad3FRocketCleanupScript, 		SCRIPT_VICTORYROAD3F_ROCKET_CLEANUP
 
 VictoryRoad3FDefaultScript:
 	ld hl, wMiscFlags
@@ -81,6 +99,7 @@ VictoryRoad3F_TextPointers:
 	dw_const VictoryRoad3FCooltrainerF1Text, TEXT_VICTORYROAD3F_COOLTRAINER_F1
 	dw_const VictoryRoad3FCooltrainerM2Text, TEXT_VICTORYROAD3F_COOLTRAINER_M2
 	dw_const VictoryRoad3FCooltrainerF2Text, TEXT_VICTORYROAD3F_COOLTRAINER_F2
+	dw_const VictoryRoad3FArianaEncounterText, TEXT_VICTORYROAD3F_ARIANA
 	dw_const PickUpItemText,                 TEXT_VICTORYROAD3F_MAX_REVIVE
 	dw_const PickUpItemText,                 TEXT_VICTORYROAD3F_TM_EXPLOSION
 	dw_const BoulderText,                    TEXT_VICTORYROAD3F_BOULDER1
@@ -123,6 +142,45 @@ VictoryRoad3FCooltrainerF2Text:
 	ld hl, VictoryRoad3TrainerHeader3
 	call TalkToTrainer
 	jp TextScriptEnd
+	
+VictoryRoad3FArianaEncounterText:
+	text_asm
+	ld hl, VictoryRoadArianaEncounterText
+	call PrintText
+	call DisableWaitingAfterTextDisplay
+	
+	ld a, SCRIPT_VICTORYROAD3F_ROCKET_CLEANUP
+    ld [wVictoryRoad3FCurScript], a
+	
+	jp TextScriptEnd
+	
+VictoryRoad3FRocketCleanupScript:
+	
+	call GBFadeOutToBlack
+	
+	SetEvent EVENT_VICTORY_ROAD_ROCKETS_DONE
+	
+	ld a, HS_VICTORY_ROAD_3F_ARIANA
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	
+	ld a, HS_LORELEISROOM_LORELEI
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	
+	ld a, HS_LORELEISROOM_SILVER
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	
+	call UpdateSprites
+	call Delay3
+	
+	call GBFadeInFromBlack
+	
+	xor a
+	ld [wVictoryRoad3FCurScript], a
+	ld [wCurMapScript], a
+	ret
 
 VictoryRoad3FCooltrainerM1BattleText:
 	text_far _VictoryRoad3FCooltrainerM1BattleText
@@ -170,4 +228,8 @@ VictoryRoad3FCooltrainerF2EndBattleText:
 
 VictoryRoad3FCooltrainerF2AfterBattleText:
 	text_far _VictoryRoad3FCooltrainerF2AfterBattleText
+	text_end
+
+VictoryRoadArianaEncounterText:
+	text_far _VictoryRoad3FArianaEncounterText
 	text_end

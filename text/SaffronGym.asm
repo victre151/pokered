@@ -239,3 +239,41 @@ _SaffronGymYoungster4AfterBattleText::
 	line "used telepathy to"
 	cont "read your mind!"
 	done
+
+_SaffronGymRematchPreBattleText::
+	text "I foresaw your"
+	line "return!"
+	
+	para "Are you here"
+	line "for a battle?"
+	done
+
+_SaffronGymRematchAcceptedText::
+	text "I have been"
+	line "preparing for"
+	cont "our rematch!"
+	done
+
+_SaffronGymRematchRefusedText::
+	text "I already knew"
+	line "you would say"
+	cont "that..."
+	done
+
+_SaffronGymRematchDefeatedText::
+	text "This"
+	line "outcome... I"
+	cont "did not"
+	cont "expect this!"
+	done
+
+_SaffronGymRematchPostBattleText::
+	text "I have foreseen"
+	line "your next"
+	cont "challenge with"
+	cont "ERIKA!"
+	
+	para "She is waiting"
+	line "for you in"
+	cont "CELADON CITY!"
+	done

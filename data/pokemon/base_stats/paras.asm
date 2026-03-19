@@ -3,7 +3,7 @@
 	db  41,  76,  61,  31,  61 ;  270BST
 	;   hp  atk  def  spd  spc
 
-	db BUG, POISON ; type
+	db BUG, GRASS ; type
 	db 190 ; catch rate
 	db 70 ; base exp
 
@@ -15,9 +15,10 @@
 
 	; tm/hm learnset
 	tmhm CUT,          GUILLOTINE,   THRASH,       DOUBLE_EDGE,  DISABLE,  	   \
-	     MEGA_DRAIN,   LEECH_SEED,   POISONPOWDER, STUN_SPORE,   SLEEP_POWDER, \
-	     TOXIC,        HYPNOSIS,     REFLECT,      SLUDGE,       SKULL_BASH,   \
-	     GLARE,        POISON_GAS,   ACID_ARMOR,   REST,         SUBSTITUTE
+	     MEGA_DRAIN,   LEECH_SEED,   SOLARBEAM,	   POISONPOWDER, STUN_SPORE,   \
+	     SLEEP_POWDER, PETAL_DANCE,  TOXIC,        HYPNOSIS,     REFLECT,      \
+	     SLUDGE,       SKULL_BASH,   GLARE,        POISON_GAS,   ACID_ARMOR,   \
+		 REST,         SUBSTITUTE
 	; end
 
 	db BANK(ParasPicFront)

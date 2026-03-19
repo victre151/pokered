@@ -30,6 +30,7 @@ ViridianGym_ScriptPointers:
 	dw_const EndTrainerBattle,                      SCRIPT_VIRIDIANGYM_END_BATTLE
 	dw_const ViridianGymGiovanniPostBattle,         SCRIPT_VIRIDIANGYM_GIOVANNI_POST_BATTLE
 	dw_const ViridianGymPlayerSpinningScript,       SCRIPT_VIRIDIANGYM_PLAYER_SPINNING
+	dw_const ViridianGymOakPostBattle,          	SCRIPT_VIRIDIANGYM_OAK_POST_BATTLE
 
 ViridianGymDefaultScript:
 	ld a, [wYCoord]
@@ -134,7 +135,6 @@ ViridianGymGiovanniPostBattle:
 	jp z, ViridianGymResetScripts
 	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
-; fallthrough
 ViridianGymReceiveTM27:
 	ld a, TEXT_VIRIDIANGYM_GIOVANNI_EARTH_BADGE_INFO
 	ldh [hTextID], a
@@ -166,6 +166,22 @@ ViridianGymReceiveTM27:
 	predef ShowObject
 	SetEvents EVENT_2ND_ROUTE22_RIVAL_BATTLE, EVENT_ROUTE22_RIVAL_WANTS_BATTLE
 	jp ViridianGymResetScripts
+	
+ViridianGymOakPostBattle:
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, ViridianGymResetScripts
+	
+	ld a, PAD_CTRL_PAD
+	ld [wJoyIgnore], a
+	
+	SetEvent EVENT_BEAT_VIRIDIAN_GYM_OAK
+	
+	ld a, TEXT_VIRIDIANGYM_REMATCH_POST_BATTLE
+	ldh [hTextID], a
+	call DisplayTextID
+	
+	jp ViridianGymResetScripts
 
 ViridianGym_TextPointers:
 	def_text_pointers
@@ -179,10 +195,12 @@ ViridianGym_TextPointers:
 	dw_const ViridianGymRocker2Text,                TEXT_VIRIDIANGYM_ROCKER2
 	dw_const ViridianGymCooltrainerM3Text,          TEXT_VIRIDIANGYM_COOLTRAINER_M3
 	dw_const ViridianGymGymGuideText,               TEXT_VIRIDIANGYM_GYM_GUIDE
+	dw_const ViridianGymOakText,					TEXT_VIRIDIANGYM_OAK
 	dw_const PickUpItemText,                        TEXT_VIRIDIANGYM_REVIVE
 	dw_const ViridianGymGiovanniEarthBadgeInfoText, TEXT_VIRIDIANGYM_GIOVANNI_EARTH_BADGE_INFO
 	dw_const ViridianGymGiovanniReceivedTM27Text,   TEXT_VIRIDIANGYM_GIOVANNI_RECEIVED_TM27
 	dw_const ViridianGymGiovanniTM27NoRoomText,     TEXT_VIRIDIANGYM_GIOVANNI_TM27_NO_ROOM
+	dw_const ViridianGymRematchPostBattleText,		TEXT_VIRIDIANGYM_REMATCH_POST_BATTLE
 
 ViridianGymTrainerHeaders:
 	def_trainers 2
@@ -212,7 +230,7 @@ ViridianGymGiovanniText:
 	jr nz, .afterBeat
 	call z, ViridianGymReceiveTM27
 	call DisableWaitingAfterTextDisplay
-	jr .text_script_end
+	jp .text_script_end
 .afterBeat
 	ld a, $1
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
@@ -225,7 +243,7 @@ ViridianGymGiovanniText:
 	call UpdateSprites
 	call Delay3
 	call GBFadeInFromBlack
-	jr .text_script_end
+	jp .text_script_end
 .beforeBeat
 	ld hl, .PreBattleText
 	call PrintText
@@ -274,6 +292,64 @@ ViridianGymGiovanniTM27ExplanationText:
 
 ViridianGymGiovanniTM27NoRoomText:
 	text_far _ViridianGymGiovanniTM27NoRoomText
+	text_end
+
+ViridianGymOakText:
+	text_asm
+	CheckEvent EVENT_BEAT_VIRIDIAN_GYM_OAK
+	ld hl, .ViridianGymRematchText
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jr nz, .refused
+	ld hl, .ViridianGymRematchAcceptedText
+	call PrintText
+	call Delay3
+	ld hl, wStatusFlags3
+	set BIT_TALKED_TO_TRAINER, [hl]
+	set BIT_PRINT_END_BATTLE_TEXT, [hl]
+	ld hl, ViridianGymRematchDefeatedText
+	ld de, ViridianGymRematchDefeatedText
+	call SaveEndBattleTextPointers
+	
+	ldh a, [hSpriteIndex]
+	ld [wSpriteIndex], a
+	call EngageMapTrainer
+	call InitBattleEnemyParameters
+	ld a, OPP_PROF_OAK
+	ld [wCurOpponent], a
+	ld a, 1
+	ld [wTrainerNo], a
+	ld a, SCRIPT_VIRIDIANGYM_OAK_POST_BATTLE
+	ld [wViridianGymCurScript], a
+	ld [wCurMapScript], a
+	jr .done
+.refused
+	ld hl, .ViridianGymRematchRefusedText
+	call PrintText
+	jr .done
+.done
+	jp TextScriptEnd
+
+.ViridianGymRematchText:
+	text_far _ViridianGymRematchPreBattleText
+	text_end
+
+.ViridianGymRematchAcceptedText:
+	text_far _ViridianGymRematchAcceptedText
+	text_end
+	
+.ViridianGymRematchRefusedText:
+	text_far _ViridianGymRematchRefusedText
+	text_end
+
+ViridianGymRematchDefeatedText:
+	text_far _ViridianGymRematchDefeatedText
+	text_end
+
+ViridianGymRematchPostBattleText:
+	text_far _ViridianGymRematchPostBattleText
 	text_end
 
 ViridianGymCooltrainerM1Text:
@@ -436,7 +512,7 @@ ViridianGymGymGuideText:
 ViridianGymGuidePreBattleText:
 	text_far _ViridianGymGuidePreBattleText
 	text_end
-
+	
 ViridianGymGuidePostBattleText:
 	text_far _ViridianGymGuidePostBattleText
 	text_end

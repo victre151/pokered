@@ -142,7 +142,15 @@ CinnabarGymBlainePostBattleScript:
 	jp z, CinnabarGymResetScripts
 	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
-; fallthrough
+	CheckEvent EVENT_BEAT_BLAINE
+	jr z, CinnabarGymReceiveTM38	
+	SetEvent EVENT_BEAT_BLAINE_REMATCH
+	ld a, TEXT_CINNABARGYM_REMATCH_POST_BATTLE
+	ldh [hTextID], a
+	call DisplayTextID
+	jp CinnabarGymResetScripts
+
+
 CinnabarGymReceiveTM38:
 	ld a, TEXT_CINNABARGYM_BLAINE_VOLCANO_BADGE_INFO
 	ldh [hTextID], a
@@ -155,6 +163,9 @@ CinnabarGymReceiveTM38:
 	ldh [hTextID], a
 	call DisplayTextID
 	SetEvent EVENT_GOT_TM38
+	ld a, HS_VIRIDIAN_GYM_GIOVANNI
+	ld [wMissableObjectIndex], a
+	predef ShowObject
 	jr .gymVictory
 .BagFull
 	ld a, TEXT_CINNABARGYM_BLAINE_TM38_NO_ROOM
@@ -188,6 +199,7 @@ CinnabarGym_TextPointers:
 	dw_const CinnabarGymBlaineVolcanoBadgeInfoText, TEXT_CINNABARGYM_BLAINE_VOLCANO_BADGE_INFO
 	dw_const CinnabarGymBlaineReceivedTM38Text,     TEXT_CINNABARGYM_BLAINE_RECEIVED_TM38
 	dw_const CinnabarGymBlaineTM38NoRoomText,       TEXT_CINNABARGYM_BLAINE_TM38_NO_ROOM
+	dw_const CinnabarGymRematchPostBattleText, 		TEXT_CINNABARGYM_REMATCH_POST_BATTLE
 
 CinnabarGymStartBattleScript:
 	ldh a, [hSpriteIndex]
@@ -217,11 +229,19 @@ CinnabarGymBlaineText:
 	jr nz, .afterBeat
 	call z, CinnabarGymReceiveTM38
 	call DisableWaitingAfterTextDisplay
-	jp TextScriptEnd
+	jp .done
 .afterBeat
+	CheckEvent EVENT_BEAT_BLAINE_REMATCH
+	jr nz, .alreadyRematched
+	CheckEvent EVENT_PLAYER_IS_CHAMPION
+	jr nz, .BlaineRematch
 	ld hl, .PostBattleAdviceText
 	call PrintText
-	jp TextScriptEnd
+	jr .done
+.alreadyRematched
+	ld hl, CinnabarGymRematchPostBattleText
+	call PrintText
+	jr .done
 .beforeBeat
 	ld hl, .PreBattleText
 	call PrintText
@@ -231,6 +251,39 @@ CinnabarGymBlaineText:
 	ld a, $7
 	ld [wGymLeaderNo], a
 	jp CinnabarGymStartBattleScript
+	xor a
+	ldh [hJoyHeld], a
+	jr .endBattle
+.BlaineRematch
+	ld hl, CinnabarGymRematchText
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jr nz, .refused
+	ld hl, CinnabarGymRematchAcceptedText
+	call PrintText
+	call Delay3
+	ld hl, wStatusFlags3
+	set BIT_TALKED_TO_TRAINER, [hl]
+	set BIT_PRINT_END_BATTLE_TEXT, [hl]
+	ld hl, CinnabarGymRematchDefeatedText
+	ld de, CinnabarGymRematchDefeatedText
+	call SaveEndBattleTextPointers
+	ld a, OPP_BLAINE
+	ld [wCurOpponent], a
+	ld a, 2
+	ld [wTrainerNo], a
+	jr .endBattle
+.refused
+	ld hl, CinnabarGymRematchRefusedText
+	call PrintText
+	jr .done	
+.endBattle
+	ld a, SCRIPT_CINNABARGYM_BLAINE_POST_BATTLE
+	ld [wCinnabarGymCurScript], a
+.done
+	jp TextScriptEnd
 
 .PreBattleText:
 	text_far _CinnabarGymBlainePreBattleText
@@ -474,4 +527,24 @@ CinnabarGymGymGuideText:
 
 .BeatBlaineText:
 	text_far _CinnabarGymGymGuideBeatBlaineText
+	text_end
+
+CinnabarGymRematchText:
+	text_far _CinnabarGymRematchPreBattleText
+	text_end
+	
+CinnabarGymRematchAcceptedText:
+	text_far _CinnabarGymRematchAcceptedText
+	text_end
+	
+CinnabarGymRematchRefusedText:
+	text_far _CinnabarGymRematchRefusedText
+	text_end
+
+CinnabarGymRematchDefeatedText:
+	text_far _CinnabarGymRematchDefeatedText
+	text_end
+
+CinnabarGymRematchPostBattleText:
+	text_far _CinnabarGymRematchPostBattleText
 	text_end

@@ -238,3 +238,69 @@ _ViridianGymGuidePostBattleText::
 	line "GIOVANNI was the"
 	cont "GYM LEADER here?"
 	done
+
+_ViridianGymRematchPreBattleText::
+	text "I heard you"
+	line "beat BROCK"
+	cont "again!"
+	
+	para "Since GIOVANNI" 
+	line "disappeared,"
+	cont "this GYM needed"
+	cont "a new LEADER."
+	
+	para "With <RIVAL>"
+	line "off training,"
+	cont "I decided to"
+	cont "come out of"
+	cont "retirement."
+	
+	para "Now, are you"
+	line "ready to see if"
+	cont "you can beat"
+	cont "the original"
+	cont "CHAMPION?!"
+	done
+
+_ViridianGymRematchAcceptedText::
+	text "Let's see if I"
+	line "still have what"
+	cont "it takes!"
+	done
+	
+_ViridianGymRematchRefusedText::
+	text "Come back"
+	line "when you are"
+	cont "prepared."
+	done
+	
+_ViridianGymRematchDefeatedText::
+	text "I'm"
+	line "still abit"
+	cont "rusty..."
+	done
+	
+_ViridianGymRematchPostBattleText::
+	text "You have come"
+	line "so far since"
+	cont "we first met!"
+	
+	para "Now on to the"
+	line "matter at hand."
+	cont "There have been"
+	cont "sightings of"
+	cont "ROCKET remnants"
+	cont "across the"
+	cont "entire region!"
+	
+	para "The last"
+	line "sighting was"
+	cont "at VICTORY"
+	cont "ROAD!"
+	
+	para "As the current"
+	line "CHAMPION, you"
+	cont "must go see"
+	cont "what they are"
+	cont "up to!"
+	done

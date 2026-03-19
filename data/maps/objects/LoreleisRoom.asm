@@ -1,5 +1,6 @@
 	object_const_def
 	const_export LORELEISROOM_LORELEI
+	const_export LORELEISROOM_SILVER
 
 LoreleisRoom_Object:
 	db $3 ; border block
@@ -14,5 +15,5 @@ LoreleisRoom_Object:
 
 	def_object_events
 	object_event  5,  2, SPRITE_LORELEI, STAY, DOWN, TEXT_LORELEISROOM_LORELEI, OPP_LORELEI, 1
-
+	object_event  5,  2, SPRITE_YOUNGSTER, STAY, DOWN, TEXT_LORELEISROOM_SILVER, OPP_SILVER, 2
 	def_warps_to LORELEIS_ROOM

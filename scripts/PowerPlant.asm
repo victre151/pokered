@@ -1,10 +1,36 @@
 PowerPlant_Script:
 	call EnableAutoTextBoxDrawing
+	
+	CheckEvent EVENT_BEAT_MISTY_REMATCH
+	jr z, .runEngine
+	
+	CheckEvent EVENT_POWER_PLANT_ROCKETS_DONE
+	jr nz, .runEngine
+	
+	CheckEvent EVENT_POWER_PLANT_ROCKETS_ZAPDOS
+	jr nz, .runEngine
+	
+	ld a, HS_ZAPDOS
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	
+	ld a, HS_POWER_PLANT_ARCHER
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	
+	ld a, HS_POWER_PLANT_SILVER
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	
+	call UpdateSprites
+	SetEvent EVENT_POWER_PLANT_ROCKETS_ZAPDOS
+
+.runEngine
+	ld a, [wPowerPlantCurScript]
+	ld [wPowerPlantCurScript], a
 	ld hl, PowerPlantTrainerHeaders
 	ld de, PowerPlant_ScriptPointers
-	ld a, [wPowerPlantCurScript]
 	call ExecuteCurMapScriptInTable
-	ld [wPowerPlantCurScript], a
 	ret
 
 PowerPlant_ScriptPointers:
@@ -12,6 +38,7 @@ PowerPlant_ScriptPointers:
 	dw_const CheckFightingMapTrainers,              SCRIPT_POWERPLANT_DEFAULT
 	dw_const DisplayEnemyTrainerTextAndStartBattle, SCRIPT_POWERPLANT_START_BATTLE
 	dw_const EndTrainerBattle,                      SCRIPT_POWERPLANT_END_BATTLE
+	dw_const PowerPlantRocketCleanupScript,         SCRIPT_POWERPLANT_ROCKET_CLEANUP
 
 PowerPlant_TextPointers:
 	def_text_pointers
@@ -22,13 +49,14 @@ PowerPlant_TextPointers:
 	dw_const PowerPlantVoltorb4Text,   TEXT_POWERPLANT_VOLTORB4
 	dw_const PowerPlantVoltorb5Text,   TEXT_POWERPLANT_VOLTORB5
 	dw_const PowerPlantElectrode2Text, TEXT_POWERPLANT_ELECTRODE2
-	dw_const PowerPlantVoltorb6Text,   TEXT_POWERPLANT_VOLTORB6
 	dw_const PowerPlantZapdosText,     TEXT_POWERPLANT_ZAPDOS
 	dw_const PickUpItemText,           TEXT_POWERPLANT_CARBOS
 	dw_const PickUpItemText,           TEXT_POWERPLANT_HP_UP
 	dw_const PickUpItemText,           TEXT_POWERPLANT_RARE_CANDY
 	dw_const PickUpItemText,           TEXT_POWERPLANT_TM_THUNDER
 	dw_const PickUpItemText,           TEXT_POWERPLANT_TM_REFLECT
+	dw_const PowerPlantArcherEncounterText,	   TEXT_POWERPLANT_ARCHER 
+	dw_const PowerPlantSilverText, 	   TEXT_POWERPLANT_SILVER
 
 PowerPlantTrainerHeaders:
 	def_trainers
@@ -57,6 +85,40 @@ PowerPlantInitBattleScript:
 	ld a, [wCurMapScript]
 	ld [wPowerPlantCurScript], a
 	jp TextScriptEnd
+
+PowerPlantRocketCleanupScript:
+	call GBFadeOutToBlack
+	
+	SetEvent EVENT_POWER_PLANT_ROCKETS_DONE
+	
+	ld a, HS_ZAPDOS
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	
+	ld a, HS_POWER_PLANT_ARCHER
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	
+	ld a, HS_POWER_PLANT_SILVER
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	
+	ld a, HS_VIRIDIAN_GYM_GIOVANNI
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	
+	ld a, HS_VIRIDIAN_GYM_OAK
+    ld [wMissableObjectIndex], a
+    predef ShowObject
+	
+	call UpdateSprites
+	call Delay3
+	
+	call GBFadeInFromBlack
+	
+	xor a
+	ld [wPowerPlantCurScript], a
+	ret
 
 PowerPlantVoltorb1Text:
 	text_asm
@@ -96,12 +158,12 @@ PowerPlantElectrode2Text:
 PowerPlantVoltorb6Text:
 	text_asm
 	ld hl, Voltorb7TrainerHeader
-	jr PowerPlantInitBattleScript
+	jp PowerPlantInitBattleScript
 
 PowerPlantZapdosText:
 	text_asm
 	ld hl, ZapdosTrainerHeader
-	jr PowerPlantInitBattleScript
+	jp PowerPlantInitBattleScript
 
 PowerPlantVoltorbBattleText:
 	text_far _PowerPlantVoltorbBattleText
@@ -114,3 +176,26 @@ PowerPlantZapdosBattleText:
 	call PlayCry
 	call WaitForSoundToFinish
 	jp TextScriptEnd
+
+PowerPlantArcherEncounterText:
+	text_asm
+	ld hl, PowerPlantArcherText
+	call PrintText
+	call DisableWaitingAfterTextDisplay
+	ld a, SCRIPT_POWERPLANT_ROCKET_CLEANUP
+	ld [wPowerPlantCurScript], a
+	jp TextScriptEnd
+	
+PowerPlantSilverEncounterText:
+	text_asm
+	ld hl, PowerPlantSilverText
+	call PrintText
+	jp TextScriptEnd
+
+PowerPlantArcherText:
+	text_far _PowerPlantArcherText
+	text_end
+
+PowerPlantSilverText:
+	text_far _PowerPlantSilverText
+	text_end

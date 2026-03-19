@@ -72,6 +72,7 @@ FightingDojoKarateMasterPostBattleScript:
 	ld [wJoyIgnore], a
 	CheckEvent EVENT_PLAYER_IS_CHAMPION
 	jr z, .not_rematch
+	SetEvent EVENT_BEAT_KARATE_MASTER_REMATCH
 	ld a, TEXT_KARATE_MASTER_POST_BATTLE
 	ResetEvents EVENT_GOT_HITMONLEE, EVENT_GOT_HITMONCHAN
 	jr .is_rematch
@@ -113,6 +114,8 @@ FightingDojoTrainerHeader3:
 
 FightingDojoKarateMasterText:
 	text_asm
+	CheckEvent EVENT_BEAT_KARATE_MASTER_REMATCH
+	jp nz, .alreadyRematched
 	CheckEvent EVENT_PLAYER_IS_CHAMPION
 	jr z, .skip_rematch
 
@@ -143,6 +146,11 @@ FightingDojoKarateMasterText:
 
 .refused
 	ld hl, KarateMasterRematchRefusedText
+	call PrintText
+	jp TextScriptEnd
+
+.alreadyRematched
+	ld hl, KarateMasterRematchPostBattleText
 	call PrintText
 	jp TextScriptEnd
 
@@ -342,7 +350,7 @@ KarateMasterRematchIntroText:
 	text_far _KarateMasterRematchIntroText
 	text_end
 	
-	KarateMasterRematchAcceptedText:
+KarateMasterRematchAcceptedText:
 	text_far _KarateMasterRematchAcceptedText
 	text_end
 

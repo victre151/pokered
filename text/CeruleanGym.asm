@@ -131,3 +131,54 @@ _CeruleanGymGymGuideBeatMistyText::
 	line "we make a pretty"
 	cont "darn good team!"
 	done
+
+_CeruleanGymRematchPreBattleText::
+	text "You've got a lot"
+	line "of nerve coming"
+	
+	para "back here after"
+	line "beating me once!"
+
+	para "Are you here"
+	line "for a rematch?"
+	prompt
+
+_CeruleanGymRematchAcceptedText::
+	text "I won't let you"
+	line "win so easily"
+	cont "this time!"
+	done
+
+_CeruleanGymRematchRefusedText::
+	text "Hmph! Why'd you"
+	line "even come back?"
+	done
+
+_CeruleanGymRematchDefeatedText::
+	text "No! You've"
+	line "totally"
+	cont "overpowered my"
+	cont "best team!"
+	prompt
+
+_CeruleanGymRematchPostBattleText::
+	text "Don't think you"
+	line "are better than"
+	cont "me just yet!"
+	
+	para "Oh, by the way..."
+	line "I heard that"
+	cont "there was a"
+	cont "sighting of" 
+	cont "TEAM ROCKET"
+	cont "remnants at the"
+	cont "POWER PLANT!"
+	cont "you should go"
+	cont "check it out!"
+	
+	para "I also heard that"
+	line "LT.SURGE was"
+	cont "training hard"
+	cont "for a rematch"
+	cont "with you!"
+	done

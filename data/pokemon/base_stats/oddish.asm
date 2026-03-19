@@ -1,6 +1,6 @@
 	db DEX_ODDISH ; pokedex id
 
-	db  50,  75,  55,  30,  50 ;  260BST
+	db  50,  63,  55,  30,  62 ;  260BST
 	;   hp  atk  def  spd  spc
 
 	db GRASS, GRASS ; type

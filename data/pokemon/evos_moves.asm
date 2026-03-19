@@ -748,7 +748,7 @@ MewEvosMoves:
 ; Learnset
 	db 3, TAIL_WHIP
 	db 5, DEFENSE_CURL
-	db 7, CONFUSION
+	db 7, LICK
 	db 9, QUICK_ATTACK
 	db 11, MEDITATE
 	db 13, FOCUS_ENERGY
@@ -757,16 +757,16 @@ MewEvosMoves:
 	db 19, SWIFT
 	db 21, CONFUSE_RAY
 	db 23, REFLECT
-	db 25, PSYBEAM
+	db 25, HEADBUTT
 	db 27, BARRIER
 	db 29, TAKE_DOWN
 	db 31, AGILITY
-	db 33, LIGHT_SCREEN
-	db 35, PSYCHIC_M
+	db 33, SLASH
+	db 35, NIGHT_SHADE
 	db 37, BODY_SLAM
-	db 39, SCREECH
+	db 39, LIGHT_SCREEN
 	db 0
-
+	
 GyaradosEvosMoves:
 ; Evolutions
 	db 0
@@ -1379,10 +1379,11 @@ ParasectEvosMoves:
 	db 29, MEGA_DRAIN
 	db 31, TAKE_DOWN
 	db 33, SLASH
-	db 35, TWINEEDLE
+	db 35, RAZOR_LEAF
 	db 37, NIGHT_SHADE
 	db 39, SLUDGE
-	db 41, BODY_SLAM
+	db 41, TWINEEDLE
+	db 43, BODY_SLAM
 	db 50, THRASH
 	db 0
 
@@ -2701,7 +2702,8 @@ ParasEvosMoves:
 	db 35, TWINEEDLE
 	db 37, NIGHT_SHADE
 	db 39, SLUDGE
-	db 41, BODY_SLAM
+	db 41, RAZOR_LEAF
+	db 43, BODY_SLAM
 	db 50, THRASH
 	db 0
 
@@ -3174,9 +3176,8 @@ MewtwoEvosMoves:
 	db 31, LIGHT_SCREEN
 	db 33, PSYCHIC_M
 	db 35, SUBMISSION
-	db 39, TWINEEDLE
+	db 39, SCREECH
 	db 41, BODY_SLAM
-	db 50, THRASH
 	db 0
 
 SnorlaxEvosMoves:

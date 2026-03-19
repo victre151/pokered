@@ -1,6 +1,6 @@
 	db DEX_EXEGGCUTE ; pokedex id
 
-	db  60,  40,  80,  40,  60 ;  280BST
+	db  60,  45,  75,  25,  65 ;  270BST
 	;   hp  atk  def  spd  spc
 
 	db GRASS, GRASS ; type

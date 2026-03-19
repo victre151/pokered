@@ -1,6 +1,6 @@
 	db DEX_GLOOM ; pokedex id
 
-	db  70,  65,  70,  40,  85 ;  330BST
+	db  70,  75,  70,  40,  75 ;  330BST
 	;   hp  atk  def  spd  spc
 
 	db GRASS, GRASS ; type

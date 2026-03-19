@@ -1,6 +1,6 @@
 	db DEX_MAGIKARP ; pokedex id
 
-	db  37,  27,  72,  97,  37 ;  270BST
+	db  55,  70,  40,  45,  60 ;  270BST
 	;   hp  atk  def  spd  spc
 
 	db WATER, WATER ; type

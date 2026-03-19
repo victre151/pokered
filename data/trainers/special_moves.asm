@@ -75,11 +75,11 @@ SpecialTrainerMoves:
 
 	db KOGA, 1
 	db 1, 1, TWINEEDLE
-	db 1, 2, DRILL_PECK
-	db 1, 3, SWORDS_DANCE
+	db 1, 2, SLASH
+	db 1, 3, PSYCHIC_M
 	db 1, 4, SLUDGE
-	db 2, 1, LEECH_LIFE
-	db 2, 2, DRILL_PECK
+	db 2, 1, EARTHQUAKE
+	db 2, 2, ROCK_SLIDE
 	db 2, 3, ACID_ARMOR
 	db 2, 4, SLUDGE
 	db 3, 1, SLAM
@@ -132,6 +132,10 @@ SpecialTrainerMoves:
 	db 2, 2, BARRIER
 	db 2, 3, BODY_SLAM
 	db 2, 4, PSYCHIC_M
+	db 3, 1, WING_ATTACK
+	db 3, 2, AGILITY
+	db 3, 3, TWINEEDLE
+	db 3, 4, PSYCHIC_M
 	db 5, 1, PSYCHIC_M
 	db 5, 2, TRI_ATTACK
 	db 5, 3, HYPNOSIS
@@ -183,8 +187,8 @@ SpecialTrainerMoves:
 	db 4, 3, PSYCHIC_M
 	db 4, 4, BLIZZARD
 	db 5, 1, WATERFALL
-	db 5, 2, BODY_SLAM
-	db 5, 3, AMNESIA
+	db 5, 2, SLUDGE
+	db 5, 3, BODY_SLAM
 	db 5, 4, BLIZZARD
 	db 6, 1, WATERFALL
 	db 6, 2, ROCK_SLIDE
@@ -221,7 +225,7 @@ SpecialTrainerMoves:
 	db 0
 
 	db AGATHA, 1
-	db 1, 1, SLASH
+	db 1, 1, RAZOR_LEAF
 	db 1, 2, TWINEEDLE
 	db 1, 3, NIGHT_SHADE
 	db 1, 4, SLUDGE
@@ -362,8 +366,8 @@ ELSE
 	db 5, 3, BODY_SLAM
 	db 5, 4, THRASH
 	db 6, 1, WATERFALL
-	db 6, 2, ICE_BEAM
-	db 6, 3, AMNESIA
+	db 6, 2, EARTHQUAKE
+	db 6, 3, ROCK_SLIDE
 	db 6, 4, THRASH
 	db 0
 
@@ -494,9 +498,9 @@ ELSE
 	db 5, 3, BODY_SLAM
 	db 5, 4, THRASH
 	db 6, 1, WATERFALL
-	db 6, 2, ICE_BEAM
+	db 6, 2, ROCK_SLIDE
 	db 6, 3, AMNESIA
-	db 6, 4, THRASH
+	db 6, 4, BODY_SLAM
 	db 0
 
 	db RIVAL4, 2

@@ -1,6 +1,6 @@
 	db DEX_AERODACTYL ; pokedex id
 
-	db  79, 104,  64, 129,  74 ;  450BST
+	db  80, 110,  70, 115,  75 ;  450BST
 	;   hp  atk  def  spd  spc
 
 	db ROCK, DRAGON ; type

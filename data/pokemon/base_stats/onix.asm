@@ -1,6 +1,6 @@
 	db DEX_ONIX ; pokedex id
 
-	db  71,  81, 156,  66,  76 ;  450BST
+	db  85,  95, 115,  75,  80 ;  450BST
 	;   hp  atk  def  spd  spc
 
 	db ROCK, DRAGON ; type
