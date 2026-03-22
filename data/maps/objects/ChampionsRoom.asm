@@ -2,6 +2,7 @@
 	const_export CHAMPIONSROOM_RIVAL_MALE
 	const_export CHAMPIONSROOM_RIVAL_FEMALE
 	const_export CHAMPIONSROOM_OAK
+	const_export CHAMPIONSROOM_ARCHER
 
 ChampionsRoom_Object:
 	db $3 ; border block
@@ -22,6 +23,7 @@ ELSE
 	object_event  4,  2, SPRITE_RED, STAY, DOWN, TEXT_CHAMPIONSROOM_RIVAL_MALE
 	object_event  4,  2, SPRITE_GREEN, STAY, DOWN, TEXT_CHAMPIONSROOM_RIVAL_FEMALE
 ENDC
-	object_event  3,  7, SPRITE_OAK, STAY, UP, TEXT_CHAMPIONSROOM_OAK
+	object_event  3,  7, SPRITE_OAK, STAY, UP, 3
+	object_event  4,  2, SPRITE_ROCKET, STAY, DOWN, 4
 
 	def_warps_to CHAMPIONS_ROOM

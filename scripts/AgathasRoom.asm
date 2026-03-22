@@ -14,6 +14,8 @@ AgathaShowOrHideExitBlock:
 	bit BIT_CUR_MAP_LOADED_1, [hl]
 	res BIT_CUR_MAP_LOADED_1, [hl]
 	ret z
+	CheckEvent EVENT_VICTORY_ROAD_ROCKETS_DONE
+	jr nz, .Proton
 	CheckEvent EVENT_BEAT_AGATHAS_ROOM_TRAINER_0
 	jr z, .blockExitToNextRoom
 	ld a, $e
@@ -24,6 +26,11 @@ AgathaShowOrHideExitBlock:
 	ld [wNewTileBlockID], a
 	lb bc, 0, 2
 	predef_jump ReplaceTileBlock
+.Proton
+	CheckEvent EVENT_BEAT_AGATHAS_ROOM_TRAINER_1
+	jr z, .blockExitToNextRoom
+	ld a, $e
+	jr .setExitBlock
 
 ResetAgathaScript:
 	xor a ; SCRIPT_AGATHASROOM_DEFAULT
@@ -110,22 +117,31 @@ AgathasRoomAgathaEndBattleScript:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, ResetAgathaScript
+	CheckEvent EVENT_VICTORY_ROAD_ROCKETS_DONE
+	jr nz, .Proton
 	ld a, TEXT_AGATHASROOM_AGATHA
+.continue
 	ldh [hTextID], a
 	call DisplayTextID
 	ld a, SCRIPT_CHAMPIONSROOM_PLAYER_ENTERS
 	ld [wChampionsRoomCurScript], a
 	ret
+.Proton
+	ld a, TEXT_AGATHASROOM_PROTON
+	jr .continue
 
 AgathasRoom_TextPointers:
 	def_text_pointers
 	dw_const AgathasRoomAgathaText,            TEXT_AGATHASROOM_AGATHA
+	dw_const AgathasRoomProtonText,			   TEXT_AGATHASROOM_PROTON
 	dw_const AgathasRoomAgathaDontRunAwayText, TEXT_AGATHASROOM_AGATHA_DONT_RUN_AWAY
 
 AgathasRoomTrainerHeaders:
 	def_trainers
 AgathasRoomTrainerHeader0:
 	trainer EVENT_BEAT_AGATHAS_ROOM_TRAINER_0, 0, AgathaBeforeBattleText, AgathaEndBattleText, AgathaAfterBattleText
+AgathasRoomTrainerHeader1:
+	trainer EVENT_BEAT_AGATHAS_ROOM_TRAINER_1, 0, ProtonBeforeBattleText, ProtonEndBattleText, ProtonAfterBattleText	
 	db -1 ; end
 
 AgathasRoomAgathaText:
@@ -148,4 +164,22 @@ AgathaAfterBattleText:
 
 AgathasRoomAgathaDontRunAwayText:
 	text_far _AgathasRoomAgathaDontRunAwayText
+	text_end
+
+AgathasRoomProtonText:
+	text_asm
+	ld hl, AgathasRoomTrainerHeader1
+	call TalkToTrainer
+	jp TextScriptEnd
+
+ProtonBeforeBattleText:
+	text_far _ProtonBeforeBattleText
+	text_end
+
+ProtonEndBattleText:
+	text_far _ProtonEndBattleText
+	text_end
+
+ProtonAfterBattleText:
+	text_far _ProtonAfterBattleText
 	text_end

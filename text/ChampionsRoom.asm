@@ -283,3 +283,69 @@ _ChampionsRoomOakComeWithMeText::
 	para "<PLAYER>,"
 	line "Come with me!"
 	done
+
+_ChampionsRoomArcherIntro::
+	text "So, you've made"
+	line "it to the very"
+	cont "top."
+	para "The ELITE FOUR"
+	line "are gone. The"
+	cont "CHAMPION is"
+	cont "nowhere to be"
+	cont "found."
+	para "I am ARCHER,"
+	line "and I lead this"
+	cont "new order!"
+	para "The LEAGUE now"
+	line "belongs to"
+	cont "TEAM ROCKET!"
+	done
+
+_ChampionsRoomArcherDefeated::
+	text "..."
+	prompt
+	
+_ChampionsRoomArcherAfterBattle::
+	text "You may"
+	line "have defeated"
+	cont "me, but"
+	cont "TEAM ROCKET"
+	cont "will be back!"
+	prompt
+
+_ChampionsRoomArcherVictory::
+	text "As expected."
+	line "The old era is"
+	cont "finished."
+	prompt
+
+_ChampionsRoomRocketsOakText::
+	text "OAK: <PLAYER>!"
+	line "You're safe!"
+	para "I just finished"
+	line "securing the"
+	cont "ELITE FOUR."
+	para "They're being"
+	line "moved to a"
+	cont "safe location."
+	done
+
+_ChampionsRoomOakBeatRockets::
+	text "OAK: I see you"
+	line "handled things"
+	cont "on this end."
+	para "With ARCHER"
+	line "defeated, their"
+	cont "command chain"
+	cont "is shattered."
+	done
+
+_ChampionsRoomFollowOakRocketsText::
+	text "OAK: Come,"
+	line "<PLAYER>!"
+	para "You have saved"
+	line "KANTO this day."
+	para "Your victory"
+	line "must be"
+	cont "recorded!"
+	done

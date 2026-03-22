@@ -172,6 +172,42 @@ VictoryRoad3FRocketCleanupScript:
 	ld [wMissableObjectIndex], a
 	predef ShowObject
 	
+	ld a, HS_BRUNOSROOM_BRUNO
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	
+	ld a, HS_BRUNOSROOM_PETREL
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	
+	ld a, HS_AGATHASROOM_AGATHA
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	
+	ld a, HS_AGATHASROOM_PROTON
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	
+	ld a, HS_LANCESROOM_LANCE
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	
+	ld a, HS_LANCESROOM_ARIANA
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	
+	ld a, HS_CHAMPIONS_ROOM_RIVAL_MALE
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	
+	ld a, HS_CHAMPIONS_ROOM_RIVAL_FEMALE
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	
+	ld a, HS_CHAMPIONS_ROOM_ARCHER
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	
 	call UpdateSprites
 	call Delay3
 	

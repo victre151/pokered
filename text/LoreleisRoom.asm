@@ -43,20 +43,13 @@ _LoreleisRoomLoreleiDontRunAwayText::
 
 _LoreleisRoomSilverBeforeBattleText::
 	text "So, you're"
-	line "the brat who"
+	line "the one who"
 	cont "humiliated"
-	cont "my father?"
+	cont "my father?!"
+	
 	para "He may have"
 	line "given up, but"
 	cont "I never will!"
-	para "I'll show you"
-	line "the true power"
-	cont "of our blood!"
-	para "I've taken"
-	line "this LEAGUE"
-	cont "for him!"
-	para "Now, prepare"
-	line "to fall!"
 	done
 	
 _LoreleisRoomSilverEndBattleText::
@@ -70,10 +63,12 @@ _LoreleisRoomSilverAfterBattleText::
 	cont "father's goal"
 	cont "is within"
 	cont "our reach."
+	
 	para "The ELITE FOUR"
 	line "are gone. The"
 	cont "others await"
 	cont "at the top."
+	
 	para "Go on. Face"
 	line "your end!"
 	done

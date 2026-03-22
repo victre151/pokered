@@ -14,6 +14,8 @@ BrunoShowOrHideExitBlock:
 	bit BIT_CUR_MAP_LOADED_1, [hl]
 	res BIT_CUR_MAP_LOADED_1, [hl]
 	ret z
+	CheckEvent EVENT_VICTORY_ROAD_ROCKETS_DONE
+	jr nz, .Petrel
 	CheckEvent EVENT_BEAT_BRUNOS_ROOM_TRAINER_0
 	jr z, .blockExitToNextRoom
 	ld a, $5
@@ -24,6 +26,11 @@ BrunoShowOrHideExitBlock:
 	ld [wNewTileBlockID], a
 	lb bc, 0, 2
 	predef_jump ReplaceTileBlock
+.Petrel
+	CheckEvent EVENT_BEAT_BRUNOS_ROOM_TRAINER_1
+	jr z, .blockExitToNextRoom
+	ld a, $5
+	jr .setExitBlock
 
 ResetBrunoScript:
 	xor a ; SCRIPT_BRUNOSROOM_DEFAULT
@@ -110,19 +117,28 @@ BrunosRoomBrunoEndBattleScript:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, ResetBrunoScript
+	CheckEvent EVENT_VICTORY_ROAD_ROCKETS_DONE
+	jr nz, .Petrel
 	ld a, TEXT_BRUNOSROOM_BRUNO
+.continue
 	ldh [hTextID], a
 	jp DisplayTextID
+.Petrel
+	ld a, TEXT_BRUNOSROOM_PETREL
+	jr .continue
 
 BrunosRoom_TextPointers:
 	def_text_pointers
 	dw_const BrunosRoomBrunoText,            TEXT_BRUNOSROOM_BRUNO
+	dw_const BrunosRoomPetrelText,			 TEXT_BRUNOSROOM_PETREL
 	dw_const BrunosRoomBrunoDontRunAwayText, TEXT_BRUNOSROOM_BRUNO_DONT_RUN_AWAY
 
 BrunosRoomTrainerHeaders:
 	def_trainers
 BrunosRoomTrainerHeader0:
 	trainer EVENT_BEAT_BRUNOS_ROOM_TRAINER_0, 0, BrunoBeforeBattleText, BrunoEndBattleText, BrunoAfterBattleText
+BrunosRoomTrainerHeader1:	
+	trainer EVENT_BEAT_BRUNOS_ROOM_TRAINER_1, 0, PetrelBeforeBattleText, PetrelEndBattleText, PetrelAfterBattleText
 	db -1 ; end
 
 BrunosRoomBrunoText:
@@ -145,4 +161,22 @@ BrunoAfterBattleText:
 
 BrunosRoomBrunoDontRunAwayText:
 	text_far _BrunosRoomBrunoDontRunAwayText
+	text_end
+
+BrunosRoomPetrelText:
+	text_asm
+	ld hl, BrunosRoomTrainerHeader1
+	call TalkToTrainer
+	jp TextScriptEnd
+
+PetrelBeforeBattleText:
+	text_far _PetrelBeforeBattleText
+	text_end
+
+PetrelEndBattleText:
+	text_far _PetrelEndBattleText
+	text_end
+
+PetrelAfterBattleText:
+	text_far _PetrelAfterBattleText
 	text_end

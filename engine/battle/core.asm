@@ -6993,7 +6993,11 @@ _LoadTrainerPic:
 	and a
 	jr nz, .useRed
 	ld a, [wTrainerClass]
-	cp PROF_OAK ; first trainer class in "Trainer Pics 2"
+	cp ARIANA ; first trainer class in "Trainer Pics 3"
+	ld a, BANK("Trainer Pics 3")
+	jr z, .loadSprite
+	ld a, [wTrainerClass]
+	cp PROF_OAK
 	ld a, BANK("Trainer Pics 2")
 	jr nc, .loadSprite
 	ld a, BANK("Trainer Pics 1")

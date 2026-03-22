@@ -48,6 +48,10 @@ TrainerDataPointers:
 	dw AgathaData
 	dw LanceData
 	dw SilverData
+	dw PetrelData
+	dw ProtonData
+	dw ArianaData
+	dw ArcherData
 	assert_table_length NUM_TRAINERS
 
 ; if first byte != $FF, then
@@ -830,3 +834,15 @@ LanceData:
 
 SilverData:
 	db $FF, 75, CLOYSTER, 75, ELECTABUZZ, 75, MAROWAK, 75, FEAROW, 75, ALAKAZAM, 77, AERODACTYL, 0
+	
+PetrelData:
+	db $FF, 77, WEEZING, 77, MUK, 77, RATICATE, 77, HYPNO, 77, VENOMOTH, 79, DITTO, 0
+	
+ProtonData: 
+	db $FF, 79, GOLBAT, 79, PRIMEAPE, 79, MAGNETON, 79, MACHAMP, 79, PINSIR, 81, ARTICUNO, 0
+
+ArianaData:
+	db $FF, 81, ARBOK, 81, VILEPLUME, 81, NINETALES, 81, DEWGONG, 81, PERSIAN, 83, MOLTRES, 0
+
+ArcherData:
+	db $FF, 83, TAUROS, 83, TENTACRUEL, 83, RHYDON, 83, DRAGONITE, 83, ARCANINE, 85, ZAPDOS, 0

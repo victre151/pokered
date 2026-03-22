@@ -55,7 +55,9 @@ ChampionsRoomRivalReadyToBattleScript:
     ld [wJoyIgnore], a
 	ld hl, wOptions
     res BIT_BATTLE_ANIMATION, [hl]
-
+	
+	CheckEvent EVENT_VICTORY_ROAD_ROCKETS_DONE
+	jr nz, .Archer
     ld a, [wPlayerGender]
     and a
     jr z, .MaleIntro
@@ -87,7 +89,6 @@ ChampionsRoomRivalReadyToBattleScript:
 .done
     ld [wCurOpponent], a
     call SaveEndBattleTextPointers
-
 .PickTeam
     ld a, [wPlayerStarter]
     cp STARTER1
@@ -111,12 +112,29 @@ ChampionsRoomRivalReadyToBattleScript:
     ld [wChampionsRoomCurScript], a
 
     ret
+.Archer
+	ld a, TEXT_CHAMPIONSROOM_ARCHER_INTRO
+	ldh [hTextID], a
+    call DisplayTextID
+    call Delay3
+	ld hl, wStatusFlags3
+    set BIT_TALKED_TO_TRAINER, [hl]
+    set BIT_PRINT_END_BATTLE_TEXT, [hl]
+	ld hl, ChampionsRoomArcherDefeatedText
+    ld de, ChampionsRoomArcherVictoryText
+	call SaveEndBattleTextPointers
+	ld a, OPP_ARCHER
+	ld [wCurOpponent], a
+	ld a, $1
+	jr .saveTrainerId
 	
 ChampionsRoomRivalDefeatedScript:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, ResetRivalScript
 	call UpdateSprites
+	CheckEvent EVENT_VICTORY_ROAD_ROCKETS_DONE
+	jr nz, .ArcherDefeated
 	SetEvent EVENT_BEAT_CHAMPION_RIVAL
 	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
@@ -136,10 +154,38 @@ ChampionsRoomRivalDefeatedScript:
 	ld a, SCRIPT_CHAMPIONSROOM_OAK_ARRIVES
 	ld [wChampionsRoomCurScript], a
 	ret
+.ArcherDefeated
+	SetEvent EVENT_BEAT_LEAGUE_ROCKETS
+	ld a, PAD_CTRL_PAD
+	ld [wJoyIgnore], a
+	ld a, CHAMPIONSROOM_ARCHER
+	ldh [hSpriteIndex], a
+	ld a, TEXT_CHAMPIONSROOM_ARCHER_AFTER_BATTLE
+	ldh [hTextID], a
+	call ChampionsRoom_DisplayTextID_AllowABSelectStart
+	call SetSpriteMovementBytesToFF
+	
+	call GBFadeOutToBlack
+	ld a, HS_CHAMPIONS_ROOM_ARCHER
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	
+	call UpdateSprites
+	call Delay3
+	
+	call GBFadeInFromBlack
+	
+	ld a, SCRIPT_CHAMPIONSROOM_OAK_ARRIVES
+	ld [wChampionsRoomCurScript], a
+	ret
 
 ChampionsRoomOakArrivesScript:
 	farcall Music_Cities1AlternateTempo
+	CheckEvent EVENT_BEAT_LEAGUE_ROCKETS
+	jr nz, .RocketsOak
 	ld a, TEXT_CHAMPIONSROOM_OAK
+	jr .continue
+.continue
 	ldh [hTextID], a
 	call ChampionsRoom_DisplayTextID_AllowABSelectStart
 	ld a, CHAMPIONSROOM_OAK
@@ -155,6 +201,9 @@ ChampionsRoomOakArrivesScript:
 	ld a, SCRIPT_CHAMPIONSROOM_OAK_CONGRATULATES_PLAYER
 	ld [wChampionsRoomCurScript], a
 	ret
+.RocketsOak
+	ld a, TEXT_CHAMPIONSROOM_ROCKETS_OAK
+	jr .continue
 
 OakEntranceAfterVictoryMovement:
 	db NPC_MOVEMENT_UP
@@ -165,6 +214,8 @@ OakEntranceAfterVictoryMovement:
 	db -1 ; end
 
 ChampionsRoomOakCongratulatesPlayerScript:
+	CheckEvent EVENT_BEAT_LEAGUE_ROCKETS
+	jr nz, .LeagueRockets
 	ld a, [wStatusFlags5]
 	bit BIT_SCRIPTED_NPC_MOVEMENT, a
 	ret nz
@@ -187,6 +238,23 @@ ChampionsRoomOakCongratulatesPlayerScript:
 	ld a, SCRIPT_CHAMPIONSROOM_OAK_DISAPPOINTED_WITH_RIVAL
 	ld [wChampionsRoomCurScript], a
 	ret
+.LeagueRockets
+	ld a, [wStatusFlags5]
+	bit BIT_SCRIPTED_NPC_MOVEMENT, a
+	ret nz
+	ld a, PLAYER_DIR_LEFT
+	ld [wPlayerMovingDirection], a
+	ld a, CHAMPIONSROOM_OAK
+	ldh [hSpriteIndex], a
+	xor a ; SPRITE_FACING_DOWN
+	ldh [hSpriteFacingDirection], a
+	call SetSpriteFacingDirectionAndDelay
+	ld a, TEXT_CHAMPIONSROOM_OAK_BEAT_ROCKETS
+	ldh [hTextID], a
+	call ChampionsRoom_DisplayTextID_AllowABSelectStart
+	ld a, SCRIPT_CHAMPIONSROOM_OAK_COME_WITH_ME
+	ld [wChampionsRoomCurScript], a
+	ret
 
 ChampionsRoomOakDisappointedWithRivalScript:
 	ld a, TEXT_CHAMPIONSROOM_OAK_DISAPPOINTED_WITH_RIVAL
@@ -197,7 +265,20 @@ ChampionsRoomOakDisappointedWithRivalScript:
 	ret
 
 ChampionsRoomOakComeWithMeScript:
+	CheckEvent EVENT_BEAT_LEAGUE_ROCKETS
+	jr nz, .FollowOak
 	ld a, TEXT_CHAMPIONSROOM_OAK_COME_WITH_ME
+	ldh [hTextID], a
+	call ChampionsRoom_DisplayTextID_AllowABSelectStart
+	ld de, OakExitChampionsRoomMovement
+	ld a, CHAMPIONSROOM_OAK
+	ldh [hSpriteIndex], a
+	call MoveSprite
+	ld a, SCRIPT_CHAMPIONSROOM_OAK_EXITS
+	ld [wChampionsRoomCurScript], a
+	ret
+.FollowOak
+	ld a, TEXT_CHAMPIONSROOM_FOLLOW_OAK_ROCKETS
 	ldh [hTextID], a
 	call ChampionsRoom_DisplayTextID_AllowABSelectStart
 	ld de, OakExitChampionsRoomMovement
@@ -268,6 +349,12 @@ ChampionsRoom_TextPointers:
 	dw_const ChampionsRoomOakCongratulatesPlayerText,   TEXT_CHAMPIONSROOM_OAK_CONGRATULATES_PLAYER
 	dw_const ChampionsRoomOakDisappointedWithRivalText, TEXT_CHAMPIONSROOM_OAK_DISAPPOINTED_WITH_RIVAL
 	dw_const ChampionsRoomOakComeWithMeText,            TEXT_CHAMPIONSROOM_OAK_COME_WITH_ME
+	dw_const ChampionsRoomArcherIntro,					TEXT_CHAMPIONSROOM_ARCHER_INTRO
+	dw_const ChampionsRoomArcherDefeatedText,		    TEXT_CHAMPIONSROOM_ARCHER_DEFEATED
+	dw_const ChampionsRoomArcherAfterBattleText,		TEXT_CHAMPIONSROOM_ARCHER_AFTER_BATTLE
+	dw_const ChampionsRoomRocketsOakText,   			TEXT_CHAMPIONSROOM_ROCKETS_OAK
+	dw_const ChampionsRoomOakBeatRockets, 			    TEXT_CHAMPIONSROOM_OAK_BEAT_ROCKETS
+	dw_const ChampionsRoomFollowOakRocketsText,         TEXT_CHAMPIONSROOM_FOLLOW_OAK_ROCKETS
 
 ChampionsRoomMaleText:
 	text_asm
@@ -344,4 +431,32 @@ ChampionsRoomOakDisappointedWithRivalText:
 
 ChampionsRoomOakComeWithMeText:
 	text_far _ChampionsRoomOakComeWithMeText
+	text_end
+
+ChampionsRoomArcherIntro:
+	text_far _ChampionsRoomArcherIntro
+	text_end
+
+ChampionsRoomArcherDefeatedText:
+	text_far _ChampionsRoomArcherDefeated
+	text_end
+
+ChampionsRoomArcherVictoryText:
+	text_far _ChampionsRoomArcherVictory
+	text_end
+
+ChampionsRoomArcherAfterBattleText:
+	text_far _ChampionsRoomArcherAfterBattle
+	text_end
+
+ChampionsRoomRocketsOakText:
+	text_far _ChampionsRoomRocketsOakText
+	text_end
+
+ChampionsRoomOakBeatRockets:
+	text_far _ChampionsRoomOakBeatRockets
+	text_end
+
+ChampionsRoomFollowOakRocketsText:
+	text_far _ChampionsRoomFollowOakRocketsText
 	text_end

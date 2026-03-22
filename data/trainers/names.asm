@@ -56,4 +56,8 @@ ENDC
 	li "AGATHA"
 	li "LANCE"
 	li "SILVER"
+	li "PETREL"
+	li "PROTON"
+	li "ARIANA"
+	li "ARCHER"
 	assert_list_length NUM_TRAINERS

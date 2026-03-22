@@ -91,6 +91,8 @@ HallOfFameOakCongratulationsScript:
 	ld [wJoyIgnore], a
 	inc a ; PLAYER_DIR_RIGHT
 	ld [wPlayerMovingDirection], a
+	CheckEvent EVENT_BEAT_LEAGUE_ROCKETS
+	jr nz, .postCoup
 	ld a, TEXT_HALLOFFAME_OAK
 	ldh [hTextID], a
 	call DisplayTextID
@@ -103,11 +105,34 @@ HallOfFameOakCongratulationsScript:
 	ld a, SCRIPT_HALLOFFAME_RESET_EVENTS_AND_SAVE
 	ld [wHallOfFameCurScript], a
 	ret
+.postCoup
+	ld a, TEXT_POSTCOUP_OAK
+	ldh [hTextID], a
+	call DisplayTextID
+	ld a, PAD_BUTTONS | PAD_CTRL_PAD
+	ld [wJoyIgnore], a
+	ld a, HS_ARTICUNO
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	ld a, HS_ZAPDOS
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	ld a, HS_MOLTRES
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	ld a, SCRIPT_HALLOFFAME_RESET_EVENTS_AND_SAVE
+	ld [wHallOfFameCurScript], a
+	ret
 
 HallOfFame_TextPointers:
 	def_text_pointers
 	dw_const HallOfFameOakText, TEXT_HALLOFFAME_OAK
+	dw_const PostCoupOakText, TEXT_POSTCOUP_OAK
 
 HallOfFameOakText:
 	text_far _HallOfFameOakText
+	text_end
+
+PostCoupOakText:
+	text_far _PostCoupOakText
 	text_end

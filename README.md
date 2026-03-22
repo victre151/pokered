@@ -70,11 +70,57 @@ Champion (Lv65)
 
 ======POSTGAME======
 
-Cerulean Cave (Wild Lv57, Mewtwo/Mew Lv59)
+Cerulean Cave (Wild Lv57, 8th Rival Battle Lv59, Mewtwo/Mew Lv59)
 
 Talk to Mr.Fuji
 
 Fighting Dojo (Lv59)
+
+Sabrina (Lv61)
+
+Erika (Lv63)
+
+Koga (Lv65)
+
+Blaine (Lv67)
+	
+Misty (Lv69)
+
+Surge (Lv71)
+
+Brock (Lv73)
+
+??? (Lv75)
+
+??? (Lv77)
+
+??? (Lv79)
+
+??? (Lv81)
+
+??? (Lv83)
+
+??? (Lv85)
+
+======TYPECHANGES======
+
+PHYSICAL = NORMAL, FIGHTING, FLYING, GROUND, ROCK, BUG, DRAGON, ICE, GRASS
+
+SPECIAL = FIRE, WATER, ELECTRIC, PSYCHIC, GHOST, POISON
+
+FIXED: Psychic's Ghost Immunity (now Ghost is super effective against Psychic)
+
+FIXED: Bug/Poison's mutual super effectiveness (now Bug is not very effective to Poison and Poison is neutral to Bug)
+
+CHANGED: Ice is not very effective against Fire
+
+CHANGED: Fighting is not very effective against Poison
+
+CHANGED: Ghost/Ghost mutual super effectiveness
+
+CHANGED: Poison is not very effective against Ghost
+
+CHANGED: Ground is not very effective againt Bug
 
 ======TMCHANGES======
 
@@ -329,17 +375,3 @@ ROCK_SLIDE, FLINCH_SIDE_EFFECT1, 80, ROCK, 100, 10
 SUPER_FANG, FLINCH_SIDE_EFFECT1, 60, NORMAL, 100, 15
 
 SLASH, NO_ADDITIONAL_EFFECT, 80, NORMAL, 100, 10
-
-======TYPECHANGES======
-
-PHYSICAL = NORMAL, FIGHTING, FLYING, GROUND, ROCK, BUG, DRAGON, ICE, GRASS
-
-SPECIAL = FIRE, WATER, ELECTRIC, PSYCHIC, GHOST, POISON
-
-FIXED: Psychic's Ghost Immunity (now Ghost is super effective against Psychic)
-FIXED: Bug/Poison's mutual super effectiveness (now Bug is not very effective to Poison and Poison is neutral to Bug)
-CHANGED: Ice is not very effective against Fire
-CHANGED: Fighting is not very effective against Poison
-CHANGED: Ghost/Ghost mutual super effectiveness
-CHANGED: Poison is not very effective against Ghost
-CHANGED: Ground is not very effective againt Bug

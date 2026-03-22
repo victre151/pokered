@@ -51,5 +51,9 @@ TrainerAIPointers:
 	dbw 3, GenericAI
 	dbw 2, AgathaAI ; agatha
 	dbw 1, LanceAI ; lance
-	dbw 3, GenericAI ; silver
+	dbw 1, GenericAI ; silver
+	dbw 1, GenericAI ; petrel
+	dbw 1, GenericAI ; proton
+	dbw 1, GenericAI ; ariana
+	dbw 1, GenericAI ; archer
 	assert_table_length NUM_TRAINERS

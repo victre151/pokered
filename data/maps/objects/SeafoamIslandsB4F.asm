@@ -22,7 +22,7 @@ SeafoamIslandsB4F_Object:
 	def_object_events
 	object_event  4, 15, SPRITE_BOULDER, STAY, NONE, TEXT_SEAFOAMISLANDSB4F_BOULDER1
 	object_event  5, 15, SPRITE_BOULDER, STAY, NONE, TEXT_SEAFOAMISLANDSB4F_BOULDER2
-	object_event  6,  1, SPRITE_BIRD, STAY, DOWN, TEXT_SEAFOAMISLANDSB4F_ARTICUNO, ARTICUNO, 50
+	object_event  6,  1, SPRITE_BIRD, STAY, DOWN, TEXT_SEAFOAMISLANDSB4F_ARTICUNO, ARTICUNO, 85
 	object_event  6,  2, SPRITE_ROCKET, STAY, UP, 4    ; Grunt  (Left)
 	object_event  6,  0, SPRITE_ROCKET, STAY, DOWN, 5  ; Proton (Middle)
 	object_event  7,  1, SPRITE_ROCKET, STAY, LEFT, 6  ; Grunt  (Right)

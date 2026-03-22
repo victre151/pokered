@@ -42,3 +42,37 @@ _AgathasRoomAgathaDontRunAwayText::
 	text "Someone's voice:"
 	line "Don't run away!"
 	done
+
+_ProtonBeforeBattleText::
+	text "So you're the"
+	line "pest causing"
+	cont "all this noise?"
+	para "I don't care"
+	line "who you beat"
+	cont "to get here."
+	para "The ELITE FOUR"
+	line "are gone, and"
+	cont "you're next."
+	para "I'll make sure"
+	line "you don't leave"
+	cont "this room!"
+	done
+
+_ProtonEndBattleText::
+	text "I... I"
+	line "failed?!"
+	prompt
+
+_ProtonAfterBattleText::
+	text "It doesn't"
+	line "matter."
+	para "You only got"
+	line "lucky against"
+	cont "me."
+	para "The person in"
+	line "the next room"
+	cont "will ensure"
+	cont "you never"
+	cont "leave this"
+	cont "building!"
+	done

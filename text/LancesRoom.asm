@@ -45,3 +45,40 @@ _LancesRoomLanceAfterBattleText::
 	line "face the"
 	cont "champion?"
 	done
+
+_LancesRoomArianaBeforeBattleText::
+	text "So you're the"
+	line "one who caused"
+	cont "all that fuss."
+	para "The others"
+	line "were careless"
+	cont "to let a child"
+	cont "get this far."
+	para "But your luck"
+	line "ends here."
+	para "I don't tolerate"
+	line "failure, and"
+	cont "I won't lose"
+	cont "to you."
+	done
+
+_LancesRoomArianaEndBattleText::
+	text "That's"
+	line "impossible."
+	cont "How...?"
+	prompt
+
+_LancesRoomArianaAfterBattleText::
+	text "It doesn't"
+	line "matter now."
+	para "The takeover"
+	line "is already"
+	cont "complete."
+	para "Our leader is"
+	line "waiting in the"
+	cont "final room."
+	para "You've only"
+	line "come this far"
+	cont "to witness"
+	cont "our victory!"
+	done

@@ -384,6 +384,10 @@ ELSE
 Rival4Pic::        INCBIN "gfx/trainers/rival4red.pic"
 ENDC
 
+SECTION "Trainer Pics 3", ROMX
+
+RocketFPic::	   INCBIN "gfx/trainers/rocketf.pic"
+
 SECTION "Pics 7", ROMX
 
 FossilKabutopsPic::   INCBIN "gfx/pokemon/front/fossilkabutops.pic"

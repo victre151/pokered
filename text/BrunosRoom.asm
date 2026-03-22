@@ -35,3 +35,39 @@ _BrunosRoomBrunoDontRunAwayText::
 	text "Someone's voice:"
 	line "Don't run away!"
 	done
+
+_PetrelBeforeBattleText::
+	text "So the heir"
+	line "couldn't even"
+	cont "handle you?"
+	
+	para "Typical."
+	line "He was always"
+	cont "a weak link."
+	
+	para "But you won't"
+	line "get any further."
+	para "I'll finish"
+	line "what the boy"
+	cont "couldn't!"
+	done
+
+_PetrelEndBattleText::
+	text "This..."
+	line "can't be" 
+	cont "happening!"
+	prompt
+
+_PetrelAfterBattleText::
+	text "Don't get"
+	line "too smug."
+	
+	para "The next room"
+	line "is guarded by"
+	cont "someone far"
+	cont "more ruthless."
+	
+	para "You'll never"
+	line "make it to the"
+	cont "top alive!"
+	done

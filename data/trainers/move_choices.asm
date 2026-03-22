@@ -57,4 +57,8 @@ TrainerClassMoveChoiceModifications:
 	move_choices 1       ; AGATHA
 	move_choices 1, 3    ; LANCE
 	move_choices 1, 3    ; SILVER
+	move_choices 1, 3    ; PETREL
+	move_choices 1, 3    ; PROTON
+	move_choices 1, 3    ; ARIANA
+	move_choices 1, 3    ; ARCHER
 	assert_list_length NUM_TRAINERS

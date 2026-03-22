@@ -62,5 +62,9 @@ ENDM
 	trainer_const CHANNELER      ; $2D
 	trainer_const AGATHA         ; $2E
 	trainer_const LANCE          ; $2F
-	trainer_const SILVER
+	trainer_const SILVER		 ; $30
+	trainer_const PETREL		 ; $31
+	trainer_const PROTON         ; $32
+	trainer_const ARIANA		 ; $33
+    trainer_const ARCHER         ; $34
 DEF NUM_TRAINERS EQU const_value - 1

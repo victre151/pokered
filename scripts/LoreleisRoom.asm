@@ -17,7 +17,7 @@ LoreleiShowOrHideExitBlock:
 	ld hl, wElite4Flags
 	set BIT_STARTED_ELITE_4, [hl]
 	CheckEvent EVENT_VICTORY_ROAD_ROCKETS_DONE
-	jr nz, .Rematch
+	jr nz, .Silver
 	CheckEvent EVENT_BEAT_LORELEIS_ROOM_TRAINER_0
 	jr z, .blockExitToNextRoom
 	ld a, $5
@@ -28,7 +28,7 @@ LoreleiShowOrHideExitBlock:
 	ld [wNewTileBlockID], a
 	lb bc, 0, 2
 	predef_jump ReplaceTileBlock
-.Rematch
+.Silver
 	CheckEvent EVENT_BEAT_LORELEIS_ROOM_TRAINER_1
 	jr z, .blockExitToNextRoom
 	ld a, $5
