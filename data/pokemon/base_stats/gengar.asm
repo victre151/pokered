@@ -1,9 +1,9 @@
 	db DEX_GENGAR ; pokedex id
 
-	db 100,  65,  70, 75, 115 ;  425BST
+	db  95,  55,  85, 75, 115 ;  425BST
 	;   hp  atk  def  spd  spc
 
-	db GHOST, POISON ; type
+	db GHOST, GHOST ; type
 	db 45 ; catch rate
 	db 190 ; base exp
 

@@ -3,14 +3,14 @@
 	db  25,  65,  35,  95,  55 ;  275BST
 	;   hp  atk  def  spd  spc
 
-	db ELECTRIC, ELECTRIC ; type
+	db ELECTRIC, GRASS ; type
 	db 190 ; catch rate
 	db 103 ; base exp
 
 	INCBIN "gfx/pokemon/front/voltorb.pic", 0, 1 ; sprite dimensions
 	dw VoltorbPicFront, VoltorbPicBack
 
-	db TACKLE, THUNDER_WAVE, NO_MOVE, NO_MOVE ; level 1 learnset
+	db TACKLE, THUNDER_WAVE, VINE_WHIP, NO_MOVE ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

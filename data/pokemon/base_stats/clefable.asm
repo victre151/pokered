@@ -1,6 +1,6 @@
 	db DEX_CLEFABLE ; pokedex id
 
-	db  110,  70,  85,  65, 115 ;  445BST
+	db  75, 100,  80,  85, 90 ;  430BST
 	;   hp  atk  def  spd  spc
 
 	db PSYCHIC_TYPE, PSYCHIC_TYPE ; type

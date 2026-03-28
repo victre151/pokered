@@ -1,9 +1,9 @@
 	db DEX_PIDGEOTTO ; pokedex id
 
-	db  70,  67,  62,  78,  57 ;  334BST
+	db  80,  60,  70,  45,  75 ;  330BST
 	;   hp  atk  def  spd  spc
 
-	db FLYING, FLYING ; type
+	db FLYING, NORMAL ; type
 	db 120 ; catch rate
 	db 113 ; base exp
 

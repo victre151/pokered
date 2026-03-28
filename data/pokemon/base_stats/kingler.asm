@@ -3,14 +3,14 @@
 	db  75,  65, 115,  70, 100 ;  425BST
 	;   hp  atk  def  spd  spc
 
-	db WATER, WATER ; type
+	db BUG, WATER ; type
 	db 60 ; catch rate
 	db 206 ; base exp
 
 	INCBIN "gfx/pokemon/front/kingler.pic", 0, 1 ; sprite dimensions
 	dw KinglerPicFront, KinglerPicBack
 
-	db REFLECT, BUBBLEBEAM, VICEGRIP, HEADBUTT ; level 1 learnset
+	db SWIFT, LEECH_LIFE, BUBBLEBEAM, VICEGRIP ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

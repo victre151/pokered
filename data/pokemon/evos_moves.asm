@@ -344,21 +344,22 @@ VoltorbEvosMoves:
 	db 3, DEFENSE_CURL
 	db 5, SUPERSONIC
 	db 7, THUNDERSHOCK
-	db 9, ROCK_THROW
-	db 11, SONICBOOM
-	db 13, FOCUS_ENERGY
+	db 9, ABSORB
+	db 11, ROCK_THROW
+	db 13, SONICBOOM
 	db 15, RAGE
-	db 18, SWIFT
-	db 21, REFLECT
-	db 23, THUNDERPUNCH
+	db 17, SWIFT
+	db 19, REFLECT
+	db 21, THUNDERPUNCH
+	db 23, MEGA_DRAIN
 	db 25, HEADBUTT
 	db 27, BARRIER
 	db 29, TAKE_DOWN
-	db 31, AGILITY
 	db 33, SCREECH
 	db 35, THUNDERBOLT
-	db 37, ROCK_SLIDE
-	db 39, BODY_SLAM
+	db 37, RAZOR_LEAF
+	db 39, ROCK_SLIDE
+	db 41, BODY_SLAM
 	db 50, THRASH
 	db 0
 
@@ -397,7 +398,7 @@ SlowbroEvosMoves:
 	db 5, TAIL_WHIP
 	db 7, WATER_GUN
 	db 9, CONFUSION
-	db 11, POUND
+	db 11, PIN_MISSILE
 	db 13, BITE
 	db 15, DOUBLESLAP
 	db 17, RAGE
@@ -405,12 +406,12 @@ SlowbroEvosMoves:
 	db 21, SWIFT
 	db 23, BUBBLEBEAM
 	db 25, PSYBEAM
-	db 27, HEADBUTT
+	db 27, LEECH_LIFE
 	db 29, AMNESIA
 	db 31, TAKE_DOWN
 	db 33, LIGHT_SCREEN
 	db 35, WATERFALL
-	db 37, PSYCHIC_M
+	db 37, TWINEEDLE
 	db 39, BODY_SLAM
 	db 50, THRASH
 	db 0
@@ -473,9 +474,9 @@ LickitungEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 3, TAIL_WHIP
-	db 5, LICK
-	db 7, DEFENSE_CURL
+	db 3, LICK
+	db 5, DEFENSE_CURL
+	db 7, AURORA_BEAM
 	db 9, SUPERSONIC
 	db 11, POUND
 	db 13, ROCK_THROW
@@ -485,12 +486,14 @@ LickitungEvosMoves:
 	db 21, SWIFT
 	db 23, STOMP
 	db 25, HEADBUTT
-	db 27, SLASH
-	db 29, TAKE_DOWN
-	db 31, SCREECH
+	db 27, ICE_PUNCH
+	db 29, SLASH
+	db 31, TAKE_DOWN
 	db 33, BODY_SLAM
-	db 35, ROCK_SLIDE
-	db 37, EARTHQUAKE
+	db 35, NIGHT_SHADE
+	db 37, ICE_BEAM
+	db 39, ROCK_SLIDE
+	db 41, EARTHQUAKE
 	db 50, THRASH
 	db 0
 
@@ -799,26 +802,26 @@ ShellderEvosMoves:
 ; Learnset
 	db 3, LEER
 	db 5, DEFENSE_CURL
-	db 7, WATER_GUN
-	db 9, AURORA_BEAM
-	db 11, WITHDRAW
-	db 13, HORN_ATTACK
+	db 7, PIN_MISSILE
+	db 9, WATER_GUN
+	db 11, AURORA_BEAM
+	db 13, WITHDRAW
 	db 15, SPIKE_CANNON
 	db 17, RAGE
 	db 19, BITE
 	db 21, FURY_ATTACK
-	db 23, SWIFT
+	db 23, LEECH_LIFE
 	db 25, BUBBLEBEAM
-	db 27, VICEGRIP
-	db 29, TAKE_DOWN
-	db 31, SLASH
-	db 33, SCREECH
-	db 35, ICE_BEAM
+	db 27, ICE_PUNCH
+	db 29, VICEGRIP
+	db 31, TAKE_DOWN
+	db 33, SLASH
+	db 35, TWINEEDLE
 	db 37, WATERFALL
-	db 39, BODY_SLAM
+	db 39, ICE_BEAM
+	db 41, BODY_SLAM
 	db 50, THRASH
 	db 0
-
 
 TentacoolEvosMoves:
 ; Evolutions
@@ -1397,20 +1400,21 @@ PsyduckEvosMoves:
 	db 7, WATER_GUN
 	db 9, CONFUSION
 	db 11, POUND
-	db 13, FOCUS_ENERGY
+	db 13, AURORA_BEAM
 	db 15, DOUBLESLAP
 	db 17, RAGE
 	db 19, FURY_SWIPES
 	db 21, SWIFT
 	db 23, BUBBLEBEAM
 	db 25, PSYBEAM
-	db 27, HEADBUTT
-	db 29, TAKE_DOWN
+	db 27, ICE_PUNCH
+	db 29, HEADBUTT
 	db 31, SLASH
 	db 33, SCREECH
 	db 35, WATERFALL
 	db 37, PSYCHIC_M
-	db 39, BODY_SLAM
+	db 39, ICE_BEAM
+	db 41, BODY_SLAM
 	db 50, THRASH
 	db 0
 
@@ -1528,8 +1532,8 @@ MagnetonEvosMoves:
 	db 0
 ; Learnset
 	db 3, SUPERSONIC
-	db 5, HARDEN
-	db 7, THUNDERSHOCK
+	db 5, THUNDERSHOCK
+	db 7, ROCK_THROW
 	db 11, QUICK_ATTACK
 	db 13, SONICBOOM
 	db 15, FOCUS_ENERGY
@@ -1543,8 +1547,9 @@ MagnetonEvosMoves:
 	db 31, SCREECH
 	db 33, LIGHT_SCREEN
 	db 35, THUNDERBOLT
-	db 37, TRI_ATTACK
-	db 39, BODY_SLAM
+	db 37, ROCK_SLIDE
+	db 39, TRI_ATTACK
+	db 41, BODY_SLAM
 	db 50, THRASH, 
 	db 0
 
@@ -2006,22 +2011,22 @@ KrabbyEvosMoves:
 ; Learnset
 	db 3, LEER
 	db 5, HARDEN
-	db 7, WATER_GUN
-	db 9, ROCK_THROW
+	db 7, PIN_MISSILE
+	db 9, WATER_GUN
 	db 11, FOCUS_ENERGY
 	db 13, FURY_SWIPES
 	db 15, RAGE
 	db 17, DIG
 	db 19, FURY_ATTACK
 	db 21, REFLECT
-	db 23, BUBBLEBEAM
-	db 25, VICEGRIP
-	db 27, HEADBUTT
+	db 23, LEECH_LIFE
+	db 25, BUBBLEBEAM
+	db 27, VICEGRIP
 	db 29, SLASH
 	db 31, TAKE_DOWN
 	db 33, AGILITY
-	db 35, WATERFALL
-	db 37, ROCK_SLIDE
+	db 35, TWINEEDLE
+	db 37, WATERFALL
 	db 39, EARTHQUAKE
 	db 41, BODY_SLAM 
 	db 50, CRABHAMMER
@@ -2269,22 +2274,22 @@ HorseaEvosMoves:
 	db 5, LEER
 	db 7, WATER_GUN
 	db 9, DRAGON_RAGE
-	db 11, QUICK_ATTACK
+	db 11, AURORA_BEAM
 	db 13, SONICBOOM
 	db 15, SMOKESCREEN
 	db 17, FOCUS_ENERGY
 	db 19, RAGE
 	db 21, SWIFT
 	db 23, BUBBLEBEAM
-	db 25, HEADBUTT
+	db 25, ICE_PUNCH
 	db 27, TAKE_DOWN
 	db 29, SLASH
 	db 31, AGILITY
 	db 33, SCREECH
 	db 35, WATERFALL
 	db 37, SLAM
-	db 39, BODY_SLAM
-	db 41, SWORDS_DANCE
+	db 39, ICE_BEAM
+	db 41, BODY_SLAM
 	db 50, THRASH
 	db 0
 
@@ -2296,22 +2301,22 @@ SeadraEvosMoves:
 	db 5, LEER
 	db 7, WATER_GUN
 	db 9, DRAGON_RAGE
-	db 11, QUICK_ATTACK
+	db 11, AURORA_BEAM
 	db 13, SONICBOOM
 	db 15, SMOKESCREEN
 	db 17, FOCUS_ENERGY
 	db 19, RAGE
 	db 21, SWIFT
 	db 23, BUBBLEBEAM
-	db 25, HEADBUTT
+	db 25, ICE_PUNCH
 	db 27, TAKE_DOWN
 	db 29, SLASH
 	db 31, AGILITY
 	db 33, SCREECH
-	db 35, WATERFALL
+	db 35, ICE_BEAM
 	db 37, SLAM
-	db 39, BODY_SLAM
-	db 41, SWORDS_DANCE
+	db 39, WATERFALL
+	db 41, BODY_SLAM
 	db 50, THRASH
 	db 0
 	
@@ -3088,20 +3093,21 @@ GolduckEvosMoves:
 	db 7, WATER_GUN
 	db 9, CONFUSION
 	db 11, POUND
-	db 13, FOCUS_ENERGY
+	db 13, AURORA_BEAM
 	db 15, DOUBLESLAP
 	db 17, RAGE
 	db 19, FURY_SWIPES
 	db 21, SWIFT
 	db 23, BUBBLEBEAM
 	db 25, PSYBEAM
-	db 27, HEADBUTT
-	db 29, TAKE_DOWN
+	db 27, ICE_PUNCH
+	db 29, HEADBUTT
 	db 31, SLASH
 	db 33, SCREECH
-	db 35, WATERFALL
+	db 35, ICE_BEAM
 	db 37, PSYCHIC_M
-	db 39, BODY_SLAM
+	db 39, WATERFALL
+	db 41, BODY_SLAM
 	db 50, THRASH
 	db 0
 
@@ -3279,22 +3285,22 @@ KinglerEvosMoves:
 ; Learnset
 	db 3, LEER
 	db 5, HARDEN
-	db 7, WATER_GUN
-	db 9, ROCK_THROW
+	db 7, PIN_MISSILE
+	db 9, WATER_GUN
 	db 11, FOCUS_ENERGY
 	db 13, FURY_SWIPES
 	db 15, RAGE
 	db 17, DIG
 	db 19, FURY_ATTACK
-	db 21, REFLECT
-	db 23, BUBBLEBEAM
-	db 25, VICEGRIP
-	db 27, HEADBUTT
+	db 21, SWIFT
+	db 23, LEECH_LIFE
+	db 25, BUBBLEBEAM
+	db 27, VICEGRIP
 	db 29, SLASH
 	db 31, TAKE_DOWN
 	db 33, AGILITY
-	db 35, WATERFALL
-	db 37, ROCK_SLIDE
+	db 35, TWINEEDLE
+	db 37, WATERFALL
 	db 39, EARTHQUAKE
 	db 41, BODY_SLAM 
 	db 50, CRABHAMMER
@@ -3306,23 +3312,24 @@ CloysterEvosMoves:
 ; Learnset
 	db 3, LEER
 	db 5, DEFENSE_CURL
-	db 7, WATER_GUN
-	db 9, AURORA_BEAM
-	db 11, WITHDRAW
-	db 13, HORN_ATTACK
+	db 7, PIN_MISSILE
+	db 9, WATER_GUN
+	db 11, AURORA_BEAM
+	db 13, WITHDRAW
 	db 15, SPIKE_CANNON
 	db 17, RAGE
 	db 19, BITE
 	db 21, FURY_ATTACK
-	db 23, SWIFT
+	db 23, LEECH_LIFE
 	db 25, BUBBLEBEAM
-	db 27, VICEGRIP
-	db 29, TAKE_DOWN
-	db 31, SLASH
-	db 33, SCREECH
-	db 35, ICE_BEAM
-	db 37, WATERFALL
-	db 39, BODY_SLAM
+	db 27, ICE_PUNCH
+	db 29, VICEGRIP
+	db 31, TAKE_DOWN
+	db 33, SLASH
+	db 35, TWINEEDLE
+	db 37, ICE_BEAM
+	db 39, WATERFALL
+	db 41, BODY_SLAM
 	db 50, THRASH
 	db 0
 
@@ -3340,25 +3347,26 @@ ElectrodeEvosMoves:
 	db 3, DEFENSE_CURL
 	db 5, SUPERSONIC
 	db 7, THUNDERSHOCK
-	db 9, ROCK_THROW
-	db 11, SONICBOOM
-	db 13, FOCUS_ENERGY
+	db 9, ABSORB
+	db 11, ROCK_THROW
+	db 13, SONICBOOM
 	db 15, RAGE
-	db 18, SWIFT
-	db 21, REFLECT
-	db 23, THUNDERPUNCH
+	db 17, SWIFT
+	db 19, REFLECT
+	db 21, THUNDERPUNCH
+	db 23, MEGA_DRAIN
 	db 25, HEADBUTT
 	db 27, BARRIER
 	db 29, TAKE_DOWN
-	db 31, AGILITY
 	db 33, SCREECH
 	db 35, THUNDERBOLT
-	db 37, ROCK_SLIDE
-	db 39, BODY_SLAM
+	db 37, RAZOR_LEAF
+	db 39, ROCK_SLIDE
+	db 41, BODY_SLAM
 	db 50, THRASH
 	db 0
 
-
+	
 ClefableEvosMoves:
 ; Evolutions
 	db 0
@@ -3791,7 +3799,7 @@ MissingNoA2EvosMoves:
 
 PonytaEvosMoves:
 ; Evolutions
-	db EVOLVE_LEVEL, 40, RAPIDASH
+	db EVOLVE_LEVEL, 30, RAPIDASH
 	db 0
 ; Learnset
 	db 3, LEER
@@ -4041,8 +4049,8 @@ MagnemiteEvosMoves:
 	db 0
 ; Learnset
 	db 3, SUPERSONIC
-	db 5, HARDEN
-	db 7, THUNDERSHOCK
+	db 5, THUNDERSHOCK
+	db 7, ROCK_THROW
 	db 11, QUICK_ATTACK
 	db 13, SONICBOOM
 	db 15, FOCUS_ENERGY
@@ -4056,8 +4064,9 @@ MagnemiteEvosMoves:
 	db 31, SCREECH
 	db 33, LIGHT_SCREEN
 	db 35, THUNDERBOLT
-	db 37, TRI_ATTACK
-	db 39, BODY_SLAM
+	db 37, ROCK_SLIDE
+	db 39, TRI_ATTACK
+	db 41, BODY_SLAM
 	db 50, THRASH, 
 	db 0
 

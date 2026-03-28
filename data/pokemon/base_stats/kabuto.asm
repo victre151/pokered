@@ -1,6 +1,6 @@
 	db DEX_KABUTO ; pokedex id
 
-	db  30,  80,  90,  55,  55 ;  310BST
+	db  35,  85,  60,  75,  55 ;  310BST
 	;   hp  atk  def  spd  spc
 
 	db ROCK, BUG ; type

@@ -1,6 +1,6 @@
 	db DEX_DODUO ; pokedex id
 
-	db  35,  85,  45,  75,  35 ;  275BST
+	db  40,  85,  45,  75,  30 ;  275BST
 	;   hp  atk  def  spd  spc
 
 	db GROUND, FLYING ; type

@@ -1,6 +1,6 @@
 	db DEX_MAGMAR ; pokedex id
 
-	db  63,  92,  55,  93,  97 ;  400BST
+	db  95, 85,  90,  50,  80 ;  400BST
 	;   hp  atk  def  spd  spc
 
 	db FIRE, FIRE ; type

@@ -1,9 +1,9 @@
 	db DEX_LICKITUNG ; pokedex id
 
-	db 104,  84,  94,  39,  79 ;  400BST
+	db 100,  90,  70,  55,  85 ;  400BST
 	;   hp  atk  def  spd  spc
 
-	db NORMAL, NORMAL ; type
+	db NORMAL, GHOST ; type
 	db 45 ; catch rate
 	db 127 ; base exp
 

@@ -1,10 +1,10 @@
 	db DEX_EEVEE ; pokedex id
 
-	db  70,  65,  65,  55,  70 ;  325BST
+	db  65,  65,  65,  65,  65 ;  325BST
 	;   hp  atk  def  spd  spc
 
 	db NORMAL, NORMAL ; type
-	db 45 ; catch rate
+	db 75 ; catch rate
 	db 92 ; base exp
 
 	INCBIN "gfx/pokemon/front/eevee.pic", 0, 1 ; sprite dimensions

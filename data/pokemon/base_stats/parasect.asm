@@ -1,6 +1,6 @@
 	db DEX_PARASECT ; pokedex id
 
-	db  73, 108,  93,  43,  93 ;  410BST
+	db  75, 110,  95,  40,  90 ;  410BST
 	;   hp  atk  def  spd  spc
 
 	db GRASS, GHOST ; type

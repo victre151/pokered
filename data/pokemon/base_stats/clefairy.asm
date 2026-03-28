@@ -1,10 +1,10 @@
 	db DEX_CLEFAIRY ; pokedex id
 
-	db  72,  47,  51,  37,  67 ;  274BST
+	db  40,  65,  50,  55,  60 ;  270BST
 	;   hp  atk  def  spd  spc
 
 	db PSYCHIC_TYPE, PSYCHIC_TYPE ; type
-	db 150 ; catch rate
+	db 75 ; catch rate
 	db 68 ; base exp
 
 	INCBIN "gfx/pokemon/front/clefairy.pic", 0, 1 ; sprite dimensions

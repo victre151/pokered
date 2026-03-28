@@ -3,14 +3,14 @@
 	db  50,  85,  65, 115,  95 ;  410BST
 	;   hp  atk  def  spd  spc
 
-	db ELECTRIC, ELECTRIC ; type
+	db ELECTRIC, GRASS ; type
 	db 60 ; catch rate
 	db 150 ; base exp
 
 	INCBIN "gfx/pokemon/front/electrode.pic", 0, 1 ; sprite dimensions
 	dw ElectrodePicFront, ElectrodePicBack
 
-	db THUNDERPUNCH, HEADBUTT, BARRIER, TAKE_DOWN ; level 1 learnset
+	db MEGA_DRAIN, HEADBUTT, BARRIER, TAKE_DOWN ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

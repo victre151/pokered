@@ -1,10 +1,10 @@
 	db DEX_BULBASAUR ; pokedex id
 
-	db  65,  60,  50,  45,  50 ;  253BST
+	db  65,  45,  35,  40,  60 ;  250BST
 	;   hp  atk  def  spd  spc
 
 	db GRASS, GRASS ; type
-	db 45 ; catch rate
+	db 75 ; catch rate
 	db 64 ; base exp
 
 	INCBIN "gfx/pokemon/front/bulbasaur.pic", 0, 1 ; sprite dimensions

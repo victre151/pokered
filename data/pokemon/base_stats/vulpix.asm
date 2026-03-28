@@ -1,6 +1,6 @@
 	db DEX_VULPIX ; pokedex id
 
-	db  45,  41,  45,  75,  70 ;  276BST
+	db  45,  30,  55,  90,  80 ;  300BST
 	;   hp  atk  def  spd  spc
 
 	db FIRE, FIRE ; type

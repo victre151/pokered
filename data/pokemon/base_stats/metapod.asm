@@ -1,6 +1,6 @@
 	db DEX_METAPOD ; pokedex id
 
-	db  64,  34,  69,  44,  39 ;  250BST
+	db  70,  40,  65,  25,  45 ;  250BST
 	;   hp  atk  def  spd  spc
 
 	db BUG, BUG ; type

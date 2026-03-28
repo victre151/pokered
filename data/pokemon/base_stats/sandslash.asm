@@ -1,6 +1,6 @@
 	db DEX_SANDSLASH ; pokedex id
 
-	db  75,  90, 110,  65,  65 ;  405BST
+	db  70,  85, 110,  65,  75 ;  405BST
 	;   hp  atk  def  spd  spc
 
 	db GROUND, GROUND ; type

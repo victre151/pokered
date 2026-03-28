@@ -1,16 +1,16 @@
 	db DEX_SLOWBRO ; pokedex id
 
-	db  95,  75, 110,  30,  100 ;  410BST
+	db  95,  80, 100,  45,  90 ;  410BST
 	;   hp  atk  def  spd  spc
 
-	db WATER, PSYCHIC_TYPE ; type
+	db WATER, BUG ; type
 	db 75 ; catch rate
 	db 164 ; base exp
 
 	INCBIN "gfx/pokemon/front/slowbro.pic", 0, 1 ; sprite dimensions
 	dw SlowbroPicFront, SlowbroPicBack
 
-	db TAKE_DOWN, LIGHT_SCREEN, WATERFALL, PSYCHIC_M ; level 1 learnset
+	db TAKE_DOWN, LIGHT_SCREEN, WATERFALL, TWINEEDLE ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

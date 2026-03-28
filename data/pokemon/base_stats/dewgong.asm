@@ -1,9 +1,9 @@
 	db DEX_DEWGONG ; pokedex id
 
-	db  90,  70,  80,  70,  95 ;  405BST
+	db  105, 80,  95,  60,  75 ;  405BST
 	;   hp  atk  def  spd  spc
 
-	db WATER, ICE ; type
+	db ICE, ICE ; type
 	db 75 ; catch rate
 	db 176 ; base exp
 

@@ -1,6 +1,6 @@
 	db DEX_DODRIO ; pokedex id
 
-	db  60, 110,  70, 110,  60 ;  410BST
+	db  65, 110,  75, 100,  60 ;  410BST
 	;   hp  atk  def  spd  spc
 
 	db GROUND, FLYING ; type

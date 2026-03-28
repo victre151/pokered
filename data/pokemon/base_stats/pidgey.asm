@@ -1,9 +1,9 @@
 	db DEX_PIDGEY ; pokedex id
 
-	db  48,  53,  48,  64,  43 ;  256BST
+	db  60,  40,  50,  35,  45 ;  230BST
 	;   hp  atk  def  spd  spc
 
-	db FLYING, FLYING ; type
+	db FLYING, NORMAL ; type
 	db 255 ; catch rate
 	db 55 ; base exp
 

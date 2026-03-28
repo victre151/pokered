@@ -1,6 +1,6 @@
 	db DEX_KAKUNA ; pokedex id
 
-	db  59,  39,  64,  49,  39 ;  250BST
+	db  65,  45,  75,  30,  35 ;  250BST
 	;   hp  atk  def  spd  spc
 
 	db BUG, POISON ; type

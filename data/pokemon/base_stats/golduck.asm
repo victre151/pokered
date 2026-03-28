@@ -1,16 +1,16 @@
 	db DEX_GOLDUCK ; pokedex id
 
-	db  75,  65,  70, 100, 110 ;  420BST
+	db  75,  95,  70, 100,  80 ;  420BST
 	;   hp  atk  def  spd  spc
 
-	db WATER, PSYCHIC_TYPE ; type
+	db ICE, PSYCHIC_TYPE ; type
 	db 75 ; catch rate
 	db 174 ; base exp
 
 	INCBIN "gfx/pokemon/front/golduck.pic", 0, 1 ; sprite dimensions
 	dw GolduckPicFront, GolduckPicBack
 
-	db HEADBUTT, TAKE_DOWN, SLASH, SCREECH ; level 1 learnset
+	db ICE_PUNCH, HEADBUTT, SLASH, SCREECH ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

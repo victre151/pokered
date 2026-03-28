@@ -1,6 +1,6 @@
 	db DEX_WEEDLE ; pokedex id
 
-	db  43,  23,  33,  53,  37 ;  200BST
+	db  35,  55,  25,  45,  40 ;  200BST
 	;   hp  atk  def  spd  spc
 
 	db BUG, POISON ; type

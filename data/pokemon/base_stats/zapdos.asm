@@ -1,6 +1,6 @@
 	db DEX_ZAPDOS ; pokedex id
 
-	db  96,  96,  91, 106, 131 ;  520BST
+	db  95, 105,  80, 130, 110 ;  520BST
 	;   hp  atk  def  spd  spc
 
 	db ELECTRIC, FLYING ; type

@@ -1,6 +1,6 @@
 	db DEX_PRIMEAPE ; pokedex id
 
-	db  68, 98,  63,  98,  83 ;  410BST
+	db  55, 105,  65,  90,  95 ;  410BST
 	;   hp  atk  def  spd  spc
 
 	db FIGHTING, GHOST ; type

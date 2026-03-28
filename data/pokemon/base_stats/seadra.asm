@@ -3,14 +3,14 @@
 	db  60,  95,  85,  80,  90 ;  410BST
 	;   hp  atk  def  spd  spc
 
-	db WATER, DRAGON ; type
+	db ICE, DRAGON ; type
 	db 75 ; catch rate
 	db 155 ; base exp
 
 	INCBIN "gfx/pokemon/front/seadra.pic", 0, 1 ; sprite dimensions
 	dw SeadraPicFront, SeadraPicBack
 
-	db HEADBUTT, TAKE_DOWN, SLASH, AGILITY ; level 1 learnset
+	db ICE_PUNCH, TAKE_DOWN, SLASH, AGILITY ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

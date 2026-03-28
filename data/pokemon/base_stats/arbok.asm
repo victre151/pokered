@@ -1,6 +1,6 @@
 	db DEX_ARBOK ; pokedex id
 
-	db  65,  84,  74,  85, 100 ;  408BST
+	db  65,  80,  70,  95, 100 ;  410BST
 	;   hp  atk  def  spd  spc
 
 	db POISON, DRAGON ; type

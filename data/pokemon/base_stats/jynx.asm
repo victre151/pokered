@@ -1,6 +1,6 @@
 	db DEX_JYNX ; pokedex id
 
-	db  73,  68,  73, 103,  83 ;  400BST
+	db  70,  80,  50, 105, 95 ;  400BST
 	;   hp  atk  def  spd  spc
 
 	db ICE, PSYCHIC_TYPE ; type

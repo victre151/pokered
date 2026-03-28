@@ -3,7 +3,7 @@
 	db  25,  70,  50,  30,  95 ;  270BST
 	;   hp  atk  def  spd  spc
 
-	db ELECTRIC, ELECTRIC ; type
+	db ELECTRIC, ROCK ; type
 	db 190 ; catch rate
 	db 89 ; base exp
 

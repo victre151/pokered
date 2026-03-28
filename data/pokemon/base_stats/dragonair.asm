@@ -1,6 +1,6 @@
 	db DEX_DRAGONAIR ; pokedex id
 
-	db  60,  95,  45,  80,  70 ;  350BST
+	db  65,  90,  50,  70,  75 ;  350BST
 	;   hp  atk  def  spd  spc
 
 	db DRAGON, DRAGON ; type

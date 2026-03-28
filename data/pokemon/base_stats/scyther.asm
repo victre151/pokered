@@ -1,9 +1,9 @@
 	db DEX_SCYTHER ; pokedex id
 
-	db  70, 110,  80, 105,  80 ;  445BST
+	db  70, 110,  85, 105,  75 ;  445BST
 	;   hp  atk  def  spd  spc
 
-	db BUG, FLYING ; type
+	db BUG, BUG ; type
 	db 45 ; catch rate
 	db 187 ; base exp
 

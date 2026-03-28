@@ -1,16 +1,16 @@
 	db DEX_SQUIRTLE ; pokedex id
 
-	db  44,  48,  65,  43,  64 ;  264BST
+	db  50,  55,  65,  30,  50 ;  250BST
 	;   hp  atk  def  spd  spc
 
 	db WATER, WATER ; type
-	db 45 ; catch rate
+	db 75 ; catch rate
 	db 66 ; base exp
 
 	INCBIN "gfx/pokemon/front/squirtle.pic", 0, 1 ; sprite dimensions
 	dw SquirtlePicFront, SquirtlePicBack
 
-	db TACKLE, BUBBLE, NO_MOVE, NO_MOVE ; level 1 learnset
+	db TACKLE, BUBBLE, SAND_ATTACK, NO_MOVE ; level 1 learnset
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset

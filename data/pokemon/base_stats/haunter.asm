@@ -1,9 +1,9 @@
 	db DEX_HAUNTER ; pokedex id
 
-	db  80,  50,  55,  65, 100 ;  350BST
+	db  80,  40,  70,  60, 100 ;  350BST
 	;   hp  atk  def  spd  spc
 
-	db GHOST, POISON ; type
+	db GHOST, GHOST ; type
 	db 90 ; catch rate
 	db 126 ; base exp
 

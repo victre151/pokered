@@ -1,9 +1,9 @@
 	db DEX_ZUBAT ; pokedex id
 
-	db  51,  56,  46,  66,  51 ;  270BST
+	db  45,  60,  40,  70,  55 ;  270BST
 	;   hp  atk  def  spd  spc
 
-	db FLYING, FLYING ; type
+	db POISON, FLYING ; type
 	db 255 ; catch rate
 	db 54 ; base exp
 

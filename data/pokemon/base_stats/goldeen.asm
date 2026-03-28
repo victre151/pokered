@@ -1,9 +1,9 @@
 	db DEX_GOLDEEN ; pokedex id
 
-	db  45,  50,  60,  63,  67 ;  285BST
+	db  70,  50,  65,  40,  60 ;  285BST
 	;   hp  atk  def  spd  spc
 
-	db WATER, WATER ; type
+	db WATER, NORMAL ; type
 	db 225 ; catch rate
 	db 111 ; base exp
 

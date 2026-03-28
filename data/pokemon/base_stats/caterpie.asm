@@ -1,6 +1,6 @@
 	db DEX_CATERPIE ; pokedex id
 
-	db  50,  35,  40,  50,  25 ;  200BST
+	db  55,  50,  35,  40,  20 ;  200BST
 	;   hp  atk  def  spd  spc
 
 	db BUG, BUG ; type
