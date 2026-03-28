@@ -1369,8 +1369,8 @@ ParasectEvosMoves:
 	db 3, GROWL
 	db 5, DEFENSE_CURL
 	db 7, PIN_MISSILE
-	db 9, SMOG
-	db 11, ABSORB
+	db 9, ABSORB
+	db 11, SMOG
 	db 13, FURY_SWIPES
 	db 15, RAGE
 	db 17, GROWTH
@@ -1378,14 +1378,14 @@ ParasectEvosMoves:
 	db 21, CONFUSE_RAY
 	db 23, SPORE
 	db 25, LEECH_LIFE
-	db 27, ACID
-	db 29, MEGA_DRAIN
+	db 27, MEGA_DRAIN
+	db 29, ACID
 	db 31, TAKE_DOWN
 	db 33, SLASH
 	db 35, RAZOR_LEAF
 	db 37, NIGHT_SHADE
-	db 39, SLUDGE
-	db 41, TWINEEDLE
+	db 39, TWINEEDLE
+	db 41, SLUDGE
 	db 43, BODY_SLAM
 	db 50, THRASH
 	db 0
@@ -2691,8 +2691,8 @@ ParasEvosMoves:
 	db 3, GROWL
 	db 5, DEFENSE_CURL
 	db 7, PIN_MISSILE
-	db 9, SMOG
-	db 11, ABSORB
+	db 9, ABSORB
+	db 11, SMOG
 	db 13, FURY_SWIPES
 	db 15, RAGE
 	db 17, GROWTH
@@ -2700,14 +2700,14 @@ ParasEvosMoves:
 	db 21, CONFUSE_RAY
 	db 23, SPORE
 	db 25, LEECH_LIFE
-	db 27, ACID
-	db 29, MEGA_DRAIN
+	db 27, MEGA_DRAIN
+	db 29, ACID
 	db 31, TAKE_DOWN
 	db 33, SLASH
 	db 35, TWINEEDLE
-	db 37, NIGHT_SHADE
-	db 39, SLUDGE
-	db 41, RAZOR_LEAF
+	db 37, RAZOR_LEAF
+	db 39, NIGHT_SHADE
+	db 41, SLUDGE
 	db 43, BODY_SLAM
 	db 50, THRASH
 	db 0

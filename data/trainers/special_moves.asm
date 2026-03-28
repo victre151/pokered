@@ -21,13 +21,13 @@ SpecialTrainerMoves:
 	db 0
 
 	db MISTY, 1
-	db 1, 1, DRAGON_RAGE
-	db 1, 2, SONICBOOM
-	db 1, 3, SMOKESCREEN
+	db 1, 1, CONFUSION
+	db 1, 2, BITE
+	db 1, 3, DOUBLESLAP
 	db 1, 4, BUBBLEBEAM
-	db 2, 1, CONFUSION
-	db 2, 2, FOCUS_ENERGY
-	db 2, 3, DOUBLESLAP
+	db 2, 1, SAND_ATTACK
+	db 2, 2, ROCK_THROW
+	db 2, 3, WITHDRAW
 	db 2, 4, BUBBLEBEAM
 	db 3, 1, CONFUSION
 	db 3, 2, AURORA_BEAM
@@ -36,9 +36,9 @@ SpecialTrainerMoves:
 	db 0
 
 	db LT_SURGE, 1
-	db 1, 1, ROCK_THROW
-	db 1, 2, SONICBOOM
-	db 1, 3, FOCUS_ENERGY
+	db 1, 1, ABSORB
+	db 1, 2, ROCK_THROW
+	db 1, 3, THUNDERPUNCH
 	db 1, 4, THUNDERBOLT
 	db 2, 1, KARATE_CHOP
 	db 2, 2, PIN_MISSILE
@@ -55,7 +55,7 @@ SpecialTrainerMoves:
 	db 0
 
 	db ERIKA, 1
-	db 1, 1, GROWTH
+	db 1, 1, ROCK_THROW
 	db 1, 2, TAKE_DOWN
 	db 1, 3, SLASH
 	db 1, 4, MEGA_DRAIN
@@ -198,14 +198,14 @@ SpecialTrainerMoves:
 	db 0
 
 	db BRUNO, 1
-	db 1, 1, EARTHQUAKE
-	db 1, 2, ROCK_SLIDE
+	db 1, 1, AGILITY
+	db 1, 2, DRILL_PECK
 	db 1, 3, SWORDS_DANCE
-	db 1, 4, SEISMIC_TOSS
-	db 2, 1, AGILITY
-	db 2, 2, DRILL_PECK
-	db 2, 3, SUBMISSION
-	db 2, 4, SWORDS_DANCE
+	db 1, 4, SUBMISSION
+	db 2, 1, ICE_PUNCH
+	db 2, 2, NIGHT_SHADE
+	db 2, 3, ROCK_SLIDE
+	db 2, 4, SEISMIC_TOSS
 	db 3, 1, TWINEEDLE
 	db 3, 2, BODY_SLAM
 	db 3, 3, ROCK_SLIDE
@@ -233,10 +233,10 @@ SpecialTrainerMoves:
 	db 2, 2, FLAMETHROWER
 	db 2, 3, NIGHT_SHADE
 	db 2, 4, PSYCHIC_M
-	db 3, 1, ICE_PUNCH
-	db 3, 2, SUBMISSION
-	db 3, 3, NIGHT_SHADE
-	db 3, 4, ROCK_SLIDE
+	db 3, 1, NIGHT_SHADE
+	db 3, 2, ICE_BEAM
+	db 3, 3, ROCK_SLIDE
+	db 3, 4, EARTHQUAKE
 	db 4, 1, AMNESIA
 	db 4, 2, PSYCHIC_M
 	db 4, 3, NIGHT_SHADE
@@ -288,10 +288,10 @@ IF DEF(_BLUE)
 	db 3, 2, BARRIER
 	db 3, 3, PSYCHIC_M
 	db 3, 4, EGG_BOMB
-	db 4, 1, WATERFALL
-	db 4, 2, ICE_BEAM
-	db 4, 3, DRILL_PECK
-	db 4, 4, EARTHQUAKE
+	db 4, 1, ICE_PUNCH
+	db 4, 2, WATERFALL
+	db 4, 3, SUBMISSION
+	db 4, 4, PSYCHIC_M
 	db 5, 1, AGILITY
 	db 5, 2, FLAMETHROWER
 	db 5, 3, EARTHQUAKE
@@ -420,10 +420,10 @@ IF DEF(_BLUE)
 	db 3, 2, BARRIER
 	db 3, 3, PSYCHIC_M
 	db 3, 4, EGG_BOMB
-	db 4, 1, WATERFALL
-	db 4, 2, ICE_BEAM
-	db 4, 3, DRILL_PECK
-	db 4, 4, EARTHQUAKE
+	db 4, 1, ICE_PUNCH
+	db 4, 2, WATERFALL
+	db 4, 3, SUBMISSION
+	db 4, 4, PSYCHIC_M
 	db 5, 1, AGILITY
 	db 5, 2, FLAMETHROWER
 	db 5, 3, EARTHQUAKE

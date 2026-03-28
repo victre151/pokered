@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/paras.pic", 0, 1 ; sprite dimensions
 	dw ParasPicFront, ParasPicBack
 
-	db SCRATCH, SAND_ATTACK, POISON_STING, NO_MOVE ; level 1 learnset
+	db VINE_WHIP, SAND_ATTACK, POISON_STING, SCRATCH ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
