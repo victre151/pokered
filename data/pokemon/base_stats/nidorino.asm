@@ -3,7 +3,7 @@
 	db  60,  80,  55,  65,  75 ;  335BST
 	;   hp  atk  def  spd  spc
 
-	db POISON, POISON ; type
+	db POISON, GROUND ; type
 	db 120 ; catch rate
 	db 118 ; base exp
 

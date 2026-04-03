@@ -306,7 +306,8 @@ ClefairyEvosMoves:
 	db 31, SLASH
 	db 33, LIGHT_SCREEN
 	db 35, PSYCHIC_M
-	db 37, BODY_SLAM
+	db 37, SUBMISSION
+	db 39, BODY_SLAM
 	db 0
 
 SpearowEvosMoves:
@@ -1207,7 +1208,8 @@ GravelerEvosMoves:
 	db 31, SCREECH
 	db 33, ROCK_SLIDE
 	db 35, EARTHQUAKE
-	db 37, BODY_SLAM
+	db 37, SUBMISSION
+	db 39, BODY_SLAM
 	db 50, THRASH
 	db 0
 
@@ -1464,7 +1466,8 @@ GolemEvosMoves:
 	db 31, SCREECH
 	db 33, ROCK_SLIDE
 	db 35, EARTHQUAKE
-	db 37, BODY_SLAM
+	db 37, SUBMISSION
+	db 39, BODY_SLAM
 	db 50, THRASH
 	db 0
 
@@ -3390,7 +3393,8 @@ ClefableEvosMoves:
 	db 31, SLASH
 	db 33, LIGHT_SCREEN
 	db 35, PSYCHIC_M
-	db 37, BODY_SLAM
+	db 37, SUBMISSION
+	db 39, BODY_SLAM
 	db 0
 	
 WeezingEvosMoves:
@@ -3983,7 +3987,8 @@ GeodudeEvosMoves:
 	db 31, SCREECH
 	db 33, ROCK_SLIDE
 	db 35, EARTHQUAKE
-	db 37, BODY_SLAM
+	db 37, SUBMISSION
+	db 39, BODY_SLAM
 	db 50, THRASH
 	db 0
 
