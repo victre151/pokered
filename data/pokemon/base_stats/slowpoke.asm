@@ -3,7 +3,7 @@
 	db  70,  50,  55,  35,  65 ;  275BST
 	;   hp  atk  def  spd  spc
 
-	db WATER, PSYCHIC_TYPE ; type
+	db WATER, WATER ; type
 	db 190 ; catch rate
 	db 99 ; base exp
 

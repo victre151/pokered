@@ -2016,7 +2016,7 @@ wAgathasRoomCurScript:: db
 wCeruleanCaveB1FCurScript:: db
 wCeruleanCave1FCurScript:: db
 wVictoryRoad1FCurScript:: db
-	ds 1
+	
 wLancesRoomCurScript:: db
 	ds 4
 wSilphCo10FCurScript:: db

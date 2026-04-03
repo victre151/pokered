@@ -14,7 +14,7 @@ Moves:
 	move POUND,        NO_ADDITIONAL_EFFECT,        40, NORMAL,       100, 25
 	move KARATE_CHOP,  NO_ADDITIONAL_EFFECT,        40, FIGHTING,     100, 25
 	move DOUBLESLAP,   ATTACK_TWICE_EFFECT,         20, NORMAL,       100, 25
-	move COMET_PUNCH,  TWO_TO_FIVE_ATTACKS_EFFECT,  10, FIGHTING,     100, 20
+	move COMET_PUNCH,  ATTACK_TWICE_EFFECT,  		20, FIGHTING,     100, 20
 	move MEGA_PUNCH,   NO_ADDITIONAL_EFFECT,       120, FIGHTING,      85, 5
 	move PAY_DAY,      PAY_DAY_EFFECT,              60, NORMAL,       100, 20
 	move FIRE_PUNCH,   BURN_SIDE_EFFECT1,           60, FIRE,         100, 15
@@ -41,7 +41,7 @@ Moves:
 	move SAND_ATTACK,  NO_ADDITIONAL_EFFECT,        20, GROUND,       100, 35
 	move HEADBUTT,     FLINCH_SIDE_EFFECT2,         60, NORMAL,       100, 25
 	move HORN_ATTACK,  NO_ADDITIONAL_EFFECT,        60, NORMAL,       100, 25
-	move FURY_ATTACK,  TWO_TO_FIVE_ATTACKS_EFFECT,  15, NORMAL,       100, 15
+	move FURY_ATTACK,  ATTACK_TWICE_EFFECT,  		30, NORMAL,       100, 15
 	move HORN_DRILL,   OHKO_EFFECT,                  1, NORMAL,        30,  5
 	move TACKLE,       NO_ADDITIONAL_EFFECT,        20, NORMAL,       100, 35
 	move BODY_SLAM,    PARALYZE_SIDE_EFFECT2,       80, NORMAL,       100, 10
@@ -52,14 +52,14 @@ Moves:
 	move TAIL_WHIP,    DEFENSE_DOWN1_EFFECT,         0, NORMAL,       100, 15
 	move POISON_STING, POISON_SIDE_EFFECT1,         20, POISON,       100, 35
 	move TWINEEDLE,    TWINEEDLE_EFFECT,            40, BUG,          100, 10
-	move PIN_MISSILE,  TWO_TO_FIVE_ATTACKS_EFFECT,  10, BUG,          100, 20
+	move PIN_MISSILE,  ATTACK_TWICE_EFFECT,  		20, BUG,          100, 20
 	move LEER,         DEFENSE_DOWN1_EFFECT,         0, NORMAL,       100, 15
 	move BITE,         FLINCH_SIDE_EFFECT1,         60, NORMAL,       100, 15
 	move GROWL,        ATTACK_DOWN1_EFFECT,          0, NORMAL,       100, 15
 	move ROAR,         SWITCH_AND_TELEPORT_EFFECT,   0, NORMAL,       100, 20
 	move SING,         SLEEP_EFFECT,                 0, NORMAL,       100,  5
 	move SUPERSONIC,   CONFUSION_EFFECT,             0, NORMAL,       100, 10
-	move SONICBOOM,    TWO_TO_FIVE_ATTACKS_EFFECT,  10, NORMAL,       100, 20
+	move SONICBOOM,    ATTACK_TWICE_EFFECT, 		20, NORMAL,       100, 20
 	move DISABLE,      DISABLE_EFFECT,               0, NORMAL,        55, 20
 	move ACID,         DEFENSE_DOWN_SIDE_EFFECT,    60, POISON,       100, 15
 	move EMBER,        BURN_SIDE_EFFECT1,           40, FIRE,         100, 25
@@ -91,7 +91,7 @@ Moves:
 	move STUN_SPORE,   PARALYZE_EFFECT,              0, NORMAL,       100,  5
 	move SLEEP_POWDER, SLEEP_EFFECT,                 0, NORMAL,       100,  5
 	move PETAL_DANCE,  THRASH_PETAL_DANCE_EFFECT,  120, GRASS,         85,  5
-	move STRING_SHOT,  SPEED_DOWN1_EFFECT,           0, BUG,          100, 15
+	move STRING_SHOT,  SPEED_DOWN1_EFFECT,           0, NORMAL,          100, 15
 	move DRAGON_RAGE,  NO_ADDITIONAL_EFFECT,        40, DRAGON,       100, 25
 	move FIRE_SPIN,    BURN_SIDE_EFFECT1,           20, FIRE,         100, 35
 	move THUNDERSHOCK, PARALYZE_SIDE_EFFECT1,       40, ELECTRIC,     100, 25
@@ -141,7 +141,7 @@ Moves:
 	move CLAMP,        TRAPPING_EFFECT,             35, WATER,         85, 10
 	move SWIFT,        SWIFT_EFFECT,                60, NORMAL,       100, 15
 	move SKULL_BASH,   PARALYZE_SIDE_EFFECT2,      120, NORMAL,        85,  5
-	move SPIKE_CANNON, TWO_TO_FIVE_ATTACKS_EFFECT,  15, NORMAL,       100, 20
+	move SPIKE_CANNON, ATTACK_TWICE_EFFECT,  		20, NORMAL,       100, 25
 	move CONSTRICT,    SPEED_DOWN_SIDE_EFFECT,      40, NORMAL,       100, 35
 	move AMNESIA,      SPECIAL_UP2_EFFECT,           0, NORMAL,       100, 10
 	move KINESIS,      ACCURACY_DOWN1_EFFECT,        0, NORMAL,       100, 15
@@ -149,14 +149,14 @@ Moves:
 	move HI_JUMP_KICK, JUMP_KICK_EFFECT,           120, FIGHTING,      85,  5
 	move GLARE,        PARALYZE_EFFECT,              0, NORMAL,       100,  5
 	move DREAM_EATER,  DREAM_EATER_EFFECT,         120, PSYCHIC_TYPE,  85,  5
-	move POISON_GAS,   POISON_EFFECT,                0, NORMAL,       100, 5
-	move BARRAGE,      TWO_TO_FIVE_ATTACKS_EFFECT,  20, NORMAL,       100, 20
+	move POISON_GAS,   POISON_EFFECT,                0, NORMAL,       100,  5
+	move BARRAGE,      ATTACK_TWICE_EFFECT,  		40, NORMAL,       100, 10
 	move LEECH_LIFE,   DRAIN_HP_EFFECT,             60, BUG,          100, 15
 	move LOVELY_KISS,  SLEEP_EFFECT,                 0, NORMAL,       100,  5
 	move SKY_ATTACK,   NO_ADDITIONAL_EFFECT,       120, FLYING,        85,  5
 	move TRANSFORM,    TRANSFORM_EFFECT,             0, NORMAL,       100,  5
 	move BUBBLE,       SPEED_DOWN_SIDE_EFFECT,      20, WATER,        100, 35
-	move DIZZY_PUNCH,  TWO_TO_FIVE_ATTACKS_EFFECT,  20, FIGHTING,     100, 20
+	move DIZZY_PUNCH,  ATTACK_TWICE_EFFECT,  		40, FIGHTING,     100, 10
 	move SPORE,        SLEEP_EFFECT,                 0, NORMAL,       100,  5
 	move FLASH,        ACCURACY_DOWN1_EFFECT,        0, NORMAL,        70, 20
 	move PSYWAVE,      CONFUSION_SIDE_EFFECT,       20, PSYCHIC_TYPE, 100, 35
@@ -164,7 +164,7 @@ Moves:
 	move ACID_ARMOR,   DEFENSE_UP2_EFFECT,           0, NORMAL,       100, 10
 	move CRABHAMMER,   NO_ADDITIONAL_EFFECT,       120, WATER,         85,  5
 	move EXPLOSION,    EXPLODE_EFFECT,             170, NORMAL,       100,  5
-	move FURY_SWIPES,  TWO_TO_FIVE_ATTACKS_EFFECT,  15, NORMAL,       100, 20
+	move FURY_SWIPES,  ATTACK_TWICE_EFFECT,  		30, NORMAL,       100, 15
 	move BONEMERANG,   ATTACK_TWICE_EFFECT,         60, GROUND,        85,  5
 	move REST,         HEAL_EFFECT,                  0, NORMAL,       100, 10
 	move ROCK_SLIDE,   FLINCH_SIDE_EFFECT1,         80, ROCK,         100, 10

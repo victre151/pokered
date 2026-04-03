@@ -2121,7 +2121,8 @@ PikachuEvosMoves:
 	db 31, SLASH
 	db 33, AGILITY
 	db 35, THUNDERBOLT
-	db 37, BODY_SLAM
+	db 37, SUBMISSION
+	db 39, BODY_SLAM
 	db 50, THRASH
 	db 0
 
@@ -2144,7 +2145,8 @@ RaichuEvosMoves:
 	db 31, SLASH
 	db 33, AGILITY
 	db 35, THUNDERBOLT
-	db 37, BODY_SLAM
+	db 37, SUBMISSION
+	db 39, BODY_SLAM
 	db 50, THRASH
 	db 0
 	
