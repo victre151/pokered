@@ -197,14 +197,24 @@ OaksLabChoseStarterScript:
 	jr z, .Charmander
 	cp STARTER2
 	jr z, .Squirtle
-	jr .Bulbasaur
+	jp .Bulbasaur
 .Charmander
+	ld a, [wPlayerGender]
+	and a
+	jr nz, .girlBSC
 	ld de, .MiddleBallMovement1
 	ld a, [wYCoord]
 	cp 4 ; is the player standing below the table?
-	jr z, .moveBlue
+	jp z, .moveBlue
 	ld de, .MiddleBallMovement2
-	jr .moveBlue
+	jp .moveBlue
+.girlBSC
+	ld de, .RightBallMovement1
+	ld a, [wYCoord]
+	cp 4
+	jp z, .moveBlue
+	ld de, .RightBallMovement2
+	jp .moveBlue
 
 .MiddleBallMovement1
 	db NPC_MOVEMENT_DOWN
@@ -223,11 +233,38 @@ OaksLabChoseStarterScript:
 	db -1 ; end
 
 .Squirtle
+	ld a, [wPlayerGender]
+	and a
+	jr nz, .girlCBS
 	ld de, .RightBallMovement1
 	ld a, [wYCoord]
 	cp 4 ; is the player standing below the table?
-	jr z, .moveBlue
+	jp z, .moveBlue
 	ld de, .RightBallMovement2
+	jr .moveBlue
+.girlCBS
+	ld de, .LeftBallMovement1
+	ld a, [wXCoord]
+	cp 9
+	jr nz, .moveBlue
+	push hl
+	ld a, OAKSLAB_RIVAL
+	ldh [hSpriteIndex], a
+	ld a, SPRITESTATEDATA1_YPIXELS
+	ldh [hSpriteDataOffset], a
+	call GetPointerWithinSpriteStateData1
+	push hl
+	ld [hl], $4c ; SPRITESTATEDATA1_YPIXELS
+	inc hl
+	inc hl
+	ld [hl], $0 ; SPRITESTATEDATA1_XPIXELS
+	pop hl
+	inc h
+	ld [hl], 8 ; SPRITESTATEDATA2_MAPY
+	inc hl
+	ld [hl], 9 ; SPRITESTATEDATA2_MAPX
+	ld de, .LeftBallMovement2 ; the rival is not currently onscreen, so account for that
+	pop hl
 	jr .moveBlue
 
 .RightBallMovement1
@@ -249,7 +286,10 @@ OaksLabChoseStarterScript:
 	db -1 ; end
 
 .Bulbasaur
-	ld de, .MiddleBallMovement1
+	ld a, [wPlayerGender]
+	and a
+	jr nz, .girlSCB
+	ld de, .LeftBallMovement1
 	ld a, [wXCoord]
 	cp 9 ; is the player standing to the right of the table?
 	jr nz, .moveBlue
@@ -269,10 +309,17 @@ OaksLabChoseStarterScript:
 	ld [hl], 8 ; SPRITESTATEDATA2_MAPY
 	inc hl
 	ld [hl], 9 ; SPRITESTATEDATA2_MAPX
-	ld de, .MiddleBallMovement2 ; the rival is not currently onscreen, so account for that
+	ld de, .LeftBallMovement2 ; the rival is not currently onscreen, so account for that
 	pop hl
 	jr .moveBlue
-
+.girlSCB
+	ld de, .MiddleBallMovement1
+	ld a, [wYCoord]
+	cp 4
+	jr z, .moveBlue
+	ld de, .MiddleBallMovement2
+	jr .moveBlue
+	
 .LeftBallMovement1
 	db NPC_MOVEMENT_DOWN
 	db NPC_MOVEMENT_RIGHT
@@ -796,32 +843,60 @@ OaksLabRivalText:
 
 OaksLabCharmanderPokeBallText:
 	text_asm
+	ld a, [wPlayerGender]
+	and a
+	jr nz, .girl
 	ld a, STARTER2
 	ld [wRivalStarterTemp], a
 	ld a, OAKSLAB_SQUIRTLE_POKE_BALL
-	ld [wRivalStarterBallSpriteIndex], a
-	ld a, STARTER1
-	ld b, OAKSLAB_CHARMANDER_POKE_BALL
-	jr OaksLabSelectedPokeBallScript
-
-OaksLabSquirtlePokeBallText:
-	text_asm
+	jr .done
+.girl:
 	ld a, STARTER3
 	ld [wRivalStarterTemp], a
 	ld a, OAKSLAB_BULBASAUR_POKE_BALL
+.done:
 	ld [wRivalStarterBallSpriteIndex], a
-	ld a, STARTER2
+	ld a, STARTER1 ; Player gets Bulbasaur
+	ld b, OAKSLAB_CHARMANDER_POKE_BALL
+	jr OaksLabSelectedPokeBallScript
+	
+OaksLabSquirtlePokeBallText:
+	text_asm
+	ld a, [wPlayerGender]
+	and a
+	jr nz, .girl
+	ld a, STARTER3
+	ld [wRivalStarterTemp], a
+	ld a, OAKSLAB_BULBASAUR_POKE_BALL
+	jr .done
+.girl:
+	ld a, STARTER1
+	ld [wRivalStarterTemp], a
+	ld a, OAKSLAB_CHARMANDER_POKE_BALL
+.done:
+	ld [wRivalStarterBallSpriteIndex], a
+	ld a, STARTER2 ; Player gets Charmander
 	ld b, OAKSLAB_SQUIRTLE_POKE_BALL
 	jr OaksLabSelectedPokeBallScript
 
 OaksLabBulbasaurPokeBallText:
 	text_asm
+	ld a, [wPlayerGender]
+	and a
+	jr nz, .girl
+	ld a, STARTER1
+	ld [wRivalStarterTemp], a
+	ld a, OAKSLAB_CHARMANDER_POKE_BALL
+	jr .done
+.girl:
 	ld a, STARTER2
 	ld [wRivalStarterTemp], a
 	ld a, OAKSLAB_SQUIRTLE_POKE_BALL
+.done:
 	ld [wRivalStarterBallSpriteIndex], a
-	ld a, STARTER3
+	ld a, STARTER3 ; Player gets Squirtle
 	ld b, OAKSLAB_BULBASAUR_POKE_BALL
+	jr OaksLabSelectedPokeBallScript
 
 OaksLabSelectedPokeBallScript:
 	ld [wCurPartySpecies], a

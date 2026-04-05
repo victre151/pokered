@@ -1416,7 +1416,8 @@ PsyduckEvosMoves:
 	db 35, WATERFALL
 	db 37, PSYCHIC_M
 	db 39, ICE_BEAM
-	db 41, BODY_SLAM
+	db 41, DRILL_PECK
+	db 43, BODY_SLAM
 	db 50, THRASH
 	db 0
 
@@ -3054,7 +3055,8 @@ ButterfreeEvosMoves:
 	db 33, SCREECH
 	db 35, TWINEEDLE
 	db 37, PSYCHIC_M
-	db 39, BODY_SLAM
+	db 39, DRILL_PECK
+	db 41, BODY_SLAM
 	db 50, RAZOR_WIND
 	db 0
 
@@ -3112,7 +3114,8 @@ GolduckEvosMoves:
 	db 35, ICE_BEAM
 	db 37, PSYCHIC_M
 	db 39, WATERFALL
-	db 41, BODY_SLAM
+	db 41, DRILL_PECK
+	db 43, BODY_SLAM
 	db 50, THRASH
 	db 0
 

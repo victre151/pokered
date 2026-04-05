@@ -93,15 +93,33 @@ ChampionsRoomRivalReadyToBattleScript:
     ld a, [wPlayerStarter]
     cp STARTER1
     jr nz, .NotStarter1
-    ld a, $1
+	ld a, [wPlayerGender]
+	and a
+	jr nz, .girlBSC
+    ld a, $2
     jr .saveTrainerId
+.girlBSC
+	ld a, $3
+	jr .saveTrainerId
 .NotStarter1
     cp STARTER2
     jr nz, .NotStarter2
-    ld a, $2
-    jr .saveTrainerId
-.NotStarter2
+	ld a, [wPlayerGender]
+	and a
+	jr nz, .girlCBS
     ld a, $3
+    jr .saveTrainerId
+.girlCBS
+	ld a, $1
+	jr .saveTrainerId
+.NotStarter2
+	ld a, [wPlayerGender]
+	and a
+	jr nz, .girlSCB
+    ld a, $1
+	jr .saveTrainerId
+.girlSCB
+	ld a, $2
 .saveTrainerId
     ld [wTrainerNo], a
 

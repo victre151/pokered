@@ -90,7 +90,16 @@ PalletTownOakWalksToPlayerScript:
 	ld [wPalletTownCurScript], a
 	
 	ld a, [wPlayerGender]
-    add HS_CHAMPIONS_ROOM_RIVAL_FEMALE
+    and a
+    jr z, .isBoyPlayer
+    
+    ld a, HS_CHAMPIONS_ROOM_RIVAL_MALE
+    jr .showRival
+    
+.isBoyPlayer:
+    ld a, HS_CHAMPIONS_ROOM_RIVAL_FEMALE
+    
+.showRival:
     ld [wMissableObjectIndex], a
     predef ShowObject
     ld a, SCRIPT_CHAMPIONSROOM_PLAYER_ENTERS

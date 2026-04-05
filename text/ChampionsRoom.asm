@@ -89,22 +89,23 @@ IF DEF(_BLUE) ;YELLOW
 	line "looked so happy!"
 	
 	para "I'm so glad I"
-	line "got to see that."
+	line "got to see that!"
 	
 	para "Thank you for the"
-	line "wonderful battle."
+	line "wonderful battle!"
 	prompt
 ELSE ;RED
 	text "That was an"
 	line "amazing battle!"
 	
 	para "You have a good"
-	line "team. They really"
-	cont "showed their strength."
+	line "team! They"
+	cont "really showed"
+	cont "their strength!"
 	
 	para "You've got the"
 	line "making of a true"
-	cont "champion."
+	cont "champion!"
 	prompt
 ENDC
 
@@ -322,16 +323,16 @@ _ChampionsRoomArcherVictory::
 _ChampionsRoomRocketsOakText::
 	text "OAK: <PLAYER>!"
 	line "You're safe!"
-	para "I just finished"
-	line "securing the"
-	cont "ELITE FOUR."
-	para "They're being"
-	line "moved to a"
-	cont "safe location."
 	done
 
 _ChampionsRoomOakBeatRockets::
-	text "OAK: I see you"
+	text "OAK: I just"
+	line "finished securing"
+	cont "the ELITE FOUR."
+	para "They're being"
+	line "moved to a"
+	cont "safe location."
+	text "I see you"
 	line "handled things"
 	cont "on this end."
 	para "With ARCHER"

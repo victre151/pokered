@@ -137,6 +137,18 @@ ELSE
 	call ChooseRivalName
 ENDC
 .skipSpeech
+	xor a
+	ld [wCurrentMenuItem], a
+	ld [wLastMenuItem], a
+	ldh [hJoyPressed], a
+	ldh [hJoyHeld], a
+	
+	ld hl, BoyGirlText
+	call PrintText
+	call BoyGirlChoice
+	ld a, [wCurrentMenuItem]
+	ld [wPlayerGender], a
+	call ClearScreen
 IF DEF(_RED)
 	call GBFadeOutToWhite
 	call ClearScreen

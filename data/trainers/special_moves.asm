@@ -351,21 +351,21 @@ SpecialTrainerMoves:
 	db 1, 2, DRILL_PECK
 	db 1, 3, EARTHQUAKE
 	db 1, 4, BLIZZARD
-	db 2, 1, VICEGRIP
-	db 2, 2, WATERFALL
-	db 2, 3, BODY_SLAM
-	db 2, 4, BLIZZARD
-	db 3, 1, SLUDGE
-	db 3, 2, ICE_BEAM
-	db 3, 3, ACID_ARMOR
-	db 3, 4, SURF
-	db 4, 1, LIGHT_SCREEN
+	db 2, 1, ICE_BEAM
+	db 2, 2, PSYCHIC_M
+	db 2, 3, WATERFALL
+	db 2, 4, DRILL_PECK
+	db 3, 1, WATERFALL
+	db 3, 2, SLUDGE
+	db 3, 3, ICE_BEAM
+	db 3, 4, ACID_ARMOR
+	db 4, 1, REFLECT
 	db 4, 2, ICE_BEAM
 	db 4, 3, PSYCHIC_M
 	db 4, 4, BLIZZARD
-	db 5, 1, WATERFALL
-	db 5, 2, SLUDGE
-	db 5, 3, BODY_SLAM
+	db 5, 1, TWINEEDLE
+	db 5, 2, ICE_BEAM
+	db 5, 3, WATERFALL
 	db 5, 4, BLIZZARD
 	db 6, 1, WATERFALL
 	db 6, 2, ROCK_SLIDE
@@ -461,98 +461,98 @@ IF DEF(_BLUE)
 	db 2, 2, SLUDGE
 	db 2, 3, ACID_ARMOR
 	db 2, 4, PETAL_DANCE
-	db 3, 1, SOFTBOILED
-	db 3, 2, BARRIER
-	db 3, 3, PSYCHIC_M
-	db 3, 4, EGG_BOMB
-	db 4, 1, ICE_PUNCH
-	db 4, 2, WATERFALL
-	db 4, 3, SUBMISSION
-	db 4, 4, PSYCHIC_M
-	db 5, 1, AGILITY
-	db 5, 2, FLAMETHROWER
-	db 5, 3, EARTHQUAKE
-	db 5, 4, BODY_SLAM
-	db 6, 1, DIZZY_PUNCH
-	db 6, 2, LIGHT_SCREEN
-	db 6, 3, PSYCHIC_M
-	db 6, 4, BODY_SLAM
+	db 5, 1, ICE_PUNCH
+	db 5, 2, WATERFALL
+	db 5, 3, SUBMISSION
+	db 5, 4, PSYCHIC_M
+	db 6, 1, PSYCHIC_M
+	db 6, 2, SUBMISSION
+	db 6, 3, HYPNOSIS
+	db 6, 4, DREAM_EATER
 	db 0
 
 	db RIVAL3, 2
-	db 1, 1, JUMP_KICK
-	db 1, 2, BODY_SLAM
-	db 1, 3, TRI_ATTACK
-	db 1, 4, SWORDS_DANCE
-	db 3, 1, FLAMETHROWER
-	db 3, 2, ROCK_SLIDE
-	db 3, 3, SLAM
-	db 3, 4, SWORDS_DANCE
+	db 1, 1, DRILL_PECK
+	db 1, 2, EARTHQUAKE
+	db 1, 3, JUMP_KICK
+	db 1, 4, TRI_ATTACK
+	db 2, 1, TWINEEDLE
+	db 2, 2, PSYCHIC_M
+	db 2, 3, DRILL_PECK
+	db 2, 4, RAZOR_WIND
+	db 3, 1, SOFTBOILED
+	db 3, 2, PSYCHIC_M
+	db 3, 3, BODY_SLAM
+	db 3, 4, EGG_BOMB
 	db 4, 1, WATERFALL
 	db 4, 2, ICE_BEAM
 	db 4, 3, ROCK_SLIDE
 	db 4, 4, BODY_SLAM
-	db 5, 1, SLASH
-	db 5, 2, RAZOR_LEAF
+	db 5, 1, FLAMETHROWER
+	db 5, 2, SLAM
 	db 5, 3, ROCK_SLIDE
-	db 5, 4, BODY_SLAM
-	db 6, 1, DIZZY_PUNCH
-	db 6, 2, AGILITY
-	db 6, 3, THUNDERBOLT
+	db 5, 4, EARTHQUAKE
+	db 6, 1, SUBMISSION
+	db 6, 2, THUNDERBOLT
+	db 6, 3, BODY_SLAM
 	db 6, 4, THUNDER
 	db 0
 
 	db RIVAL3, 3
-	db 1, 1, JUMP_KICK
-	db 1, 2, BODY_SLAM
-	db 1, 3, TRI_ATTACK
-	db 1, 4, SWORDS_DANCE
-	db 3, 1, FLAMETHROWER
-	db 3, 2, ROCK_SLIDE
-	db 3, 3, SLAM
-	db 3, 4, SWORDS_DANCE
+	db 1, 1, SLASH
+	db 1, 2, AGILITY
+	db 1, 3, DRILL_PECK
+	db 1, 4, SUBMISSION
+	db 2, 1, RAZOR_LEAF
+	db 2, 2, PSYCHIC_M
+	db 2, 3, EARTHQUAKE
+	db 2, 4, EGG_BOMB
+	db 3, 1, ROCK_SLIDE
+	db 3, 2, EARTHQUAKE
+	db 3, 3, BODY_SLAM
+	db 3, 4, SEISMIC_TOSS
 	db 4, 1, WATERFALL
-	db 4, 2, ICE_BEAM
+	db 4, 2, SLAM
 	db 4, 3, ROCK_SLIDE
-	db 4, 4, BODY_SLAM
-	db 5, 1, SLASH
-	db 5, 2, RAZOR_LEAF
-	db 5, 3, ROCK_SLIDE
-	db 5, 4, BODY_SLAM
-	db 6, 1, DIZZY_PUNCH
-	db 6, 2, AGILITY
-	db 6, 3, THUNDERBOLT
-	db 6, 4, THUNDER
+	db 4, 4, THRASH
+	db 5, 1, AGILITY
+	db 5, 2, THUNDERBOLT
+	db 5, 3, PSYCHIC_M
+	db 5, 4, TRI_ATTACK
+	db 6, 1, FLAMETHROWER
+	db 6, 2, EARTHQUAKE
+	db 6, 3, ROCK_SLIDE
+	db 6, 4, FIRE_BLAST
 	db 0
 ELSE
 	db RIVAL3, 1
 	db 2, 1, NIGHT_SHADE
 	db 2, 2, SLUDGE
-	db 2, 3, ACID_ARMOR
-	db 2, 4, BLIZZARD
-	db 3, 1, SCREECH
-	db 3, 2, ROCK_SLIDE
-	db 3, 3, SLAM
-	db 3, 4, EARTHQUAKE
-	db 4, 1, AGILITY
-	db 4, 2, FLAMETHROWER
-	db 4, 3, EARTHQUAKE
-	db 4, 4, FIRE_BLAST
-	db 5, 1, RAZOR_LEAF
-	db 5, 2, SLUDGE
-	db 5, 3, BODY_SLAM
-	db 5, 4, THRASH
+	db 2, 3, ICE_BEAM
+	db 2, 4, ACID_ARMOR
+	db 3, 1, ROCK_SLIDE
+	db 3, 2, SLAM
+	db 3, 3, EARTHQUAKE
+	db 3, 4, BODY_SLAM
+	db 5, 1, SLASH
+	db 5, 2, RAZOR_LEAF
+	db 5, 3, SLUDGE
+	db 5, 4, BODY_SLAM
 	db 6, 1, WATERFALL
 	db 6, 2, EARTHQUAKE
 	db 6, 3, ROCK_SLIDE
-	db 6, 4, THRASH
+	db 6, 4, HYDRO_PUMP
 	db 0
 
 	db RIVAL3, 2
-	db 1, 1, SCREECH
+	db 1, 1, SLUDGE
 	db 1, 2, DRILL_PECK
 	db 1, 3, BODY_SLAM
-	db 1, 4, SWORDS_DANCE
+	db 1, 4, ACID_ARMOR
+	db 2, 1, KINESIS
+	db 2, 2, REFLECT
+	db 2, 3, PSYCHIC_M
+	db 2, 4, DISABLE
 	db 4, 1, ICE_PUNCH
 	db 4, 2, WATERFALL
 	db 4, 3, SUBMISSION
@@ -563,27 +563,31 @@ ELSE
 	db 5, 4, EARTHQUAKE
 	db 6, 1, RAZOR_LEAF
 	db 6, 2, SLUDGE
-	db 6, 3, ACID_ARMOR
+	db 6, 3, BODY_SLAM
 	db 6, 4, PETAL_DANCE
 	db 0
 
 	db RIVAL3, 3
-	db 1, 1, SCREECH
-	db 1, 2, DRILL_PECK
-	db 1, 3, BODY_SLAM
-	db 1, 4, SWORDS_DANCE
-	db 4, 1, ICE_PUNCH
-	db 4, 2, WATERFALL
-	db 4, 3, SUBMISSION
-	db 4, 4, SEISMIC_TOSS
-	db 5, 1, FLAMETHROWER
-	db 5, 2, SLAM
-	db 5, 3, ROCK_SLIDE
-	db 5, 4, EARTHQUAKE
-	db 6, 1, RAZOR_LEAF
-	db 6, 2, SLUDGE
-	db 6, 3, ACID_ARMOR
-	db 6, 4, PETAL_DANCE
+	db 2, 1, TWINEEDLE
+	db 2, 2, WATERFALL
+	db 2, 3, EARTHQUAKE
+	db 2, 4, CRABHAMMER
+	db 3, 1, AGILITY
+	db 3, 2, SUBMISSION
+	db 3, 3, ROCK_SLIDE
+	db 3, 4, BODY_SLAM
+	db 4, 1, TAKE_DOWN
+	db 4, 2, ROCK_SLIDE
+	db 4, 3, EARTHQUAKE
+	db 4, 4, THRASH
+	db 5, 1, LEECH_LIFE
+	db 5, 2, RAZOR_LEAF
+	db 5, 3, SLUDGE
+	db 5, 4, BODY_SLAM
+	db 6, 1, SLASH
+	db 6, 2, FLAMETHROWER
+	db 6, 3, SLAM
+	db 6, 4, FIRE_BLAST
 	db 0
 ENDC
 
@@ -593,98 +597,98 @@ IF DEF(_BLUE)
 	db 2, 2, SLUDGE
 	db 2, 3, ACID_ARMOR
 	db 2, 4, PETAL_DANCE
-	db 3, 1, SOFTBOILED
-	db 3, 2, BARRIER
-	db 3, 3, PSYCHIC_M
-	db 3, 4, EGG_BOMB
-	db 4, 1, ICE_PUNCH
-	db 4, 2, WATERFALL
-	db 4, 3, SUBMISSION
-	db 4, 4, PSYCHIC_M
-	db 5, 1, AGILITY
-	db 5, 2, FLAMETHROWER
-	db 5, 3, EARTHQUAKE
-	db 5, 4, BODY_SLAM
-	db 6, 1, DIZZY_PUNCH
-	db 6, 2, LIGHT_SCREEN
-	db 6, 3, PSYCHIC_M
-	db 6, 4, BODY_SLAM
+	db 5, 1, ICE_PUNCH
+	db 5, 2, WATERFALL
+	db 5, 3, SUBMISSION
+	db 5, 4, PSYCHIC_M
+	db 6, 1, PSYCHIC_M
+	db 6, 2, SUBMISSION
+	db 6, 3, HYPNOSIS
+	db 6, 4, DREAM_EATER
 	db 0
 
 	db RIVAL4, 2
-	db 1, 1, JUMP_KICK
-	db 1, 2, BODY_SLAM
-	db 1, 3, TRI_ATTACK
-	db 1, 4, SWORDS_DANCE
-	db 3, 1, FLAMETHROWER
-	db 3, 2, ROCK_SLIDE
-	db 3, 3, SLAM
-	db 3, 4, SWORDS_DANCE
+	db 1, 1, DRILL_PECK
+	db 1, 2, EARTHQUAKE
+	db 1, 3, JUMP_KICK
+	db 1, 4, TRI_ATTACK
+	db 2, 1, TWINEEDLE
+	db 2, 2, PSYCHIC_M
+	db 2, 3, DRILL_PECK
+	db 2, 4, RAZOR_WIND
+	db 3, 1, SOFTBOILED
+	db 3, 2, PSYCHIC_M
+	db 3, 3, BODY_SLAM
+	db 3, 4, EGG_BOMB
 	db 4, 1, WATERFALL
 	db 4, 2, ICE_BEAM
 	db 4, 3, ROCK_SLIDE
 	db 4, 4, BODY_SLAM
-	db 5, 1, SLASH
-	db 5, 2, RAZOR_LEAF
+	db 5, 1, FLAMETHROWER
+	db 5, 2, SLAM
 	db 5, 3, ROCK_SLIDE
-	db 5, 4, BODY_SLAM
-	db 6, 1, DIZZY_PUNCH
-	db 6, 2, AGILITY
-	db 6, 3, THUNDERBOLT
+	db 5, 4, EARTHQUAKE
+	db 6, 1, SUBMISSION
+	db 6, 2, THUNDERBOLT
+	db 6, 3, BODY_SLAM
 	db 6, 4, THUNDER
 	db 0
 
 	db RIVAL4, 3
-	db 1, 1, JUMP_KICK
-	db 1, 2, BODY_SLAM
-	db 1, 3, TRI_ATTACK
-	db 1, 4, SWORDS_DANCE
-	db 3, 1, FLAMETHROWER
-	db 3, 2, ROCK_SLIDE
-	db 3, 3, SLAM
-	db 3, 4, SWORDS_DANCE
+	db 1, 1, SLASH
+	db 1, 2, AGILITY
+	db 1, 3, DRILL_PECK
+	db 1, 4, SUBMISSION
+	db 2, 1, RAZOR_LEAF
+	db 2, 2, PSYCHIC_M
+	db 2, 3, EARTHQUAKE
+	db 2, 4, EGG_BOMB
+	db 3, 1, ROCK_SLIDE
+	db 3, 2, EARTHQUAKE
+	db 3, 3, BODY_SLAM
+	db 3, 4, SEISMIC_TOSS
 	db 4, 1, WATERFALL
-	db 4, 2, ICE_BEAM
+	db 4, 2, SLAM
 	db 4, 3, ROCK_SLIDE
-	db 4, 4, BODY_SLAM
-	db 5, 1, SLASH
-	db 5, 2, RAZOR_LEAF
-	db 5, 3, ROCK_SLIDE
-	db 5, 4, BODY_SLAM
-	db 6, 1, DIZZY_PUNCH
-	db 6, 2, AGILITY
-	db 6, 3, THUNDERBOLT
-	db 6, 4, THUNDER
+	db 4, 4, THRASH
+	db 5, 1, AGILITY
+	db 5, 2, THUNDERBOLT
+	db 5, 3, PSYCHIC_M
+	db 5, 4, TRI_ATTACK
+	db 6, 1, FLAMETHROWER
+	db 6, 2, EARTHQUAKE
+	db 6, 3, ROCK_SLIDE
+	db 6, 4, FIRE_BLAST
 	db 0
 ELSE
 	db RIVAL4, 1
 	db 2, 1, NIGHT_SHADE
 	db 2, 2, SLUDGE
-	db 2, 3, ACID_ARMOR
-	db 2, 4, BLIZZARD
-	db 3, 1, SCREECH
-	db 3, 2, ROCK_SLIDE
-	db 3, 3, SLAM
-	db 3, 4, EARTHQUAKE
-	db 4, 1, AGILITY
-	db 4, 2, FLAMETHROWER
-	db 4, 3, EARTHQUAKE
-	db 4, 4, FIRE_BLAST
-	db 5, 1, RAZOR_LEAF
-	db 5, 2, SLUDGE
-	db 5, 3, BODY_SLAM
-	db 5, 4, THRASH
+	db 2, 3, ICE_BEAM
+	db 2, 4, ACID_ARMOR
+	db 3, 1, ROCK_SLIDE
+	db 3, 2, SLAM
+	db 3, 3, EARTHQUAKE
+	db 3, 4, BODY_SLAM
+	db 5, 1, SLASH
+	db 5, 2, RAZOR_LEAF
+	db 5, 3, SLUDGE
+	db 5, 4, BODY_SLAM
 	db 6, 1, WATERFALL
-	db 6, 2, ROCK_SLIDE
-	db 6, 3, AMNESIA
-	db 6, 4, BODY_SLAM
+	db 6, 2, EARTHQUAKE
+	db 6, 3, ROCK_SLIDE
+	db 6, 4, HYDRO_PUMP
 	db 0
 
 	db RIVAL4, 2
-	db 1, 1, SCREECH
+	db 1, 1, SLUDGE
 	db 1, 2, DRILL_PECK
 	db 1, 3, BODY_SLAM
-	db 1, 4, SWORDS_DANCE
+	db 1, 4, ACID_ARMOR
+	db 2, 1, KINESIS
+	db 2, 2, REFLECT
+	db 2, 3, PSYCHIC_M
+	db 2, 4, DISABLE
 	db 4, 1, ICE_PUNCH
 	db 4, 2, WATERFALL
 	db 4, 3, SUBMISSION
@@ -695,27 +699,31 @@ ELSE
 	db 5, 4, EARTHQUAKE
 	db 6, 1, RAZOR_LEAF
 	db 6, 2, SLUDGE
-	db 6, 3, ACID_ARMOR
+	db 6, 3, BODY_SLAM
 	db 6, 4, PETAL_DANCE
 	db 0
 
 	db RIVAL4, 3
-	db 1, 1, SCREECH
-	db 1, 2, DRILL_PECK
-	db 1, 3, BODY_SLAM
-	db 1, 4, SWORDS_DANCE
-	db 4, 1, ICE_PUNCH
-	db 4, 2, WATERFALL
-	db 4, 3, SUBMISSION
-	db 4, 4, SEISMIC_TOSS
-	db 5, 1, FLAMETHROWER
-	db 5, 2, SLAM
-	db 5, 3, ROCK_SLIDE
-	db 5, 4, EARTHQUAKE
-	db 6, 1, RAZOR_LEAF
-	db 6, 2, SLUDGE
-	db 6, 3, ACID_ARMOR
-	db 6, 4, PETAL_DANCE
+	db 2, 1, TWINEEDLE
+	db 2, 2, WATERFALL
+	db 2, 3, EARTHQUAKE
+	db 2, 4, CRABHAMMER
+	db 3, 1, AGILITY
+	db 3, 2, SUBMISSION
+	db 3, 3, ROCK_SLIDE
+	db 3, 4, BODY_SLAM
+	db 4, 1, TAKE_DOWN
+	db 4, 2, ROCK_SLIDE
+	db 4, 3, EARTHQUAKE
+	db 4, 4, THRASH
+	db 5, 1, LEECH_LIFE
+	db 5, 2, RAZOR_LEAF
+	db 5, 3, SLUDGE
+	db 5, 4, BODY_SLAM
+	db 6, 1, SLASH
+	db 6, 2, FLAMETHROWER
+	db 6, 3, SLAM
+	db 6, 4, FIRE_BLAST
 	db 0
 ENDC
 
@@ -743,87 +751,83 @@ ENDC
 	
 	db RIVAL2, 25
 IF DEF(_BLUE) ; flareon
-	db 2, 1, ROCK_SLIDE
-	db 2, 2, EARTHQUAKE
-	db 2, 3, SUBMISSION
-	db 2, 4, THRASH
-	db 3, 1, SLASH
-	db 3, 2, THUNDERBOLT
-	db 3, 3, SUBMISSION
-	db 3, 4, BODY_SLAM
-	db 4, 1, HYDRO_PUMP
+	db 1, 1, SLASH
+	db 1, 2, AGILITY
+	db 1, 3, DRILL_PECK
+	db 1, 4, SUBMISSION
+	db 2, 1, RAZOR_LEAF
+	db 2, 2, PSYCHIC_M
+	db 2, 3, EARTHQUAKE
+	db 2, 4, EGG_BOMB
+	db 3, 1, ROCK_SLIDE
+	db 3, 2, EARTHQUAKE
+	db 3, 3, BODY_SLAM
+	db 3, 4, SEISMIC_TOSS
+	db 4, 1, WATERFALL
 	db 4, 2, SLAM
 	db 4, 3, ROCK_SLIDE
-	db 4, 4, WATERFALL
-	db 5, 1, RAZOR_LEAF
-	db 5, 2, PSYCHIC_M
-	db 5, 3, EARTHQUAKE
-	db 5, 4, EGG_BOMB
-	db 6, 1, FIRE_BLAST
+	db 4, 4, THRASH
+	db 5, 1, AGILITY
+	db 5, 2, THUNDERBOLT
+	db 5, 3, PSYCHIC_M
+	db 5, 4, TRI_ATTACK
+	db 6, 1, FLAMETHROWER
 	db 6, 2, EARTHQUAKE
 	db 6, 3, ROCK_SLIDE
-	db 6, 4, FLAMETHROWER
+	db 6, 4, FIRE_BLAST
 	db 0
 ELSE ; charizard
-	db 2, 1, ROCK_SLIDE
-	db 2, 2, SEISMIC_TOSS
-	db 2, 3, SUBMISSION
-	db 2, 4, THRASH
-	db 4, 1, RAZOR_LEAF
-	db 4, 2, SLUDGE
-	db 4, 3, BODY_SLAM
-	db 4, 4, PETAL_DANCE
-	db 5, 1, TWINEEDLE
-	db 5, 2, WATERFALL
-	db 5, 3, EARTHQUAKE
-	db 5, 4, CRABHAMMER
-	db 6, 1, FLAMETHROWER
-	db 6, 2, SLAM
-	db 6, 3, BODY_SLAM
+	db 2, 1, TWINEEDLE
+	db 2, 2, WATERFALL
+	db 2, 3, EARTHQUAKE
+	db 2, 4, CRABHAMMER
+	db 3, 1, AGILITY
+	db 3, 2, SUBMISSION
+	db 3, 3, ROCK_SLIDE
+	db 3, 4, BODY_SLAM
+	db 4, 1, TAKE_DOWN
+	db 4, 2, ROCK_SLIDE
+	db 4, 3, EARTHQUAKE
+	db 4, 4, THRASH
+	db 5, 1, LEECH_LIFE
+	db 5, 2, RAZOR_LEAF
+	db 5, 3, SLUDGE
+	db 5, 4, BODY_SLAM
+	db 6, 1, SLASH
+	db 6, 2, FLAMETHROWER
+	db 6, 3, SLAM
 	db 6, 4, FIRE_BLAST
 	db 0
 ENDC
 	
 	db RIVAL2, 26
 IF DEF(_BLUE) ; clefable
-	db 2, 1, TAKE_DOWN
-	db 2, 2, PSYCHIC_M
-	db 2, 3, BODY_SLAM
-	db 2, 4, EGG_BOMB
-	db 3, 1, ICE_PUNCH
-	db 3, 2, WATERFALL
-	db 3, 3, SUBMISSION
-	db 3, 4, HYDRO_PUMP
-	db 4, 1, FLAMETHROWER
-	db 4, 2, EARTHQUAKE
-	db 4, 3, HORN_DRILL
-	db 4, 4, THRASH
-	db 5, 1, RAZOR_LEAF
-	db 5, 2, SLUDGE
-	db 5, 3, PETAL_DANCE
-	db 5, 4, BODY_SLAM
-	db 6, 1, SLASH
-	db 6, 2, PSYCHIC_M
-	db 6, 3, SUBMISSION
-	db 6, 4, BODY_SLAM
+	db 2, 1, RAZOR_LEAF
+	db 2, 2, SLUDGE
+	db 2, 3, ACID_ARMOR
+	db 2, 4, PETAL_DANCE
+	db 5, 1, ICE_PUNCH
+	db 5, 2, WATERFALL
+	db 5, 3, SUBMISSION
+	db 5, 4, PSYCHIC_M
+	db 6, 1, PSYCHIC_M
+	db 6, 2, SUBMISSION
+	db 6, 3, HYPNOSIS
+	db 6, 4, DREAM_EATER
 	db 0
 ELSE ; blastoise
-	db 2, 1, ROCK_SLIDE
-	db 2, 2, SLAM
-	db 2, 3, EARTHQUAKE
-	db 2, 4, THRASH
-	db 3, 1, FLAMETHROWER
-	db 3, 2, EARTHQUAKE
-	db 3, 3, BODY_SLAM
-	db 3, 4, FIRE_BLAST
-	db 4, 1, SCREECH
-	db 4, 2, RAZOR_LEAF
-	db 4, 3, SLUDGE
-	db 4, 4, BODY_SLAM
-	db 5, 1, NIGHT_SHADE
-	db 5, 2, SLUDGE
-	db 5, 3, ICE_BEAM
-	db 5, 4, THRASH
+	db 2, 1, NIGHT_SHADE
+	db 2, 2, SLUDGE
+	db 2, 3, ICE_BEAM
+	db 2, 4, ACID_ARMOR
+	db 3, 1, ROCK_SLIDE
+	db 3, 2, SLAM
+	db 3, 3, EARTHQUAKE
+	db 3, 4, BODY_SLAM
+	db 5, 1, SLASH
+	db 5, 2, RAZOR_LEAF
+	db 5, 3, SLUDGE
+	db 5, 4, BODY_SLAM
 	db 6, 1, WATERFALL
 	db 6, 2, EARTHQUAKE
 	db 6, 3, ROCK_SLIDE
@@ -832,45 +836,53 @@ ELSE ; blastoise
 ENDC
 	
 	db RIVAL2, 27
-IF DEF(_BLUE) ; flareon
-	db 2, 1, ROCK_SLIDE
-	db 2, 2, EARTHQUAKE
-	db 2, 3, SUBMISSION
-	db 2, 4, THRASH
-	db 3, 1, SLASH
-	db 3, 2, THUNDERBOLT
-	db 3, 3, SUBMISSION
-	db 3, 4, BODY_SLAM
-	db 4, 1, HYDRO_PUMP
-	db 4, 2, SLAM
+IF DEF(_BLUE) ; raichu
+	db 1, 1, DRILL_PECK
+	db 1, 2, EARTHQUAKE
+	db 1, 3, JUMP_KICK
+	db 1, 4, TRI_ATTACK
+	db 2, 1, TWINEEDLE
+	db 2, 2, PSYCHIC_M
+	db 2, 3, DRILL_PECK
+	db 2, 4, RAZOR_WIND
+	db 3, 1, SOFTBOILED
+	db 3, 2, PSYCHIC_M
+	db 3, 3, BODY_SLAM
+	db 3, 4, EGG_BOMB
+	db 4, 1, WATERFALL
+	db 4, 2, ICE_BEAM
 	db 4, 3, ROCK_SLIDE
-	db 4, 4, WATERFALL
-	db 5, 1, RAZOR_LEAF
-	db 5, 2, PSYCHIC_M
-	db 5, 3, EARTHQUAKE
-	db 5, 4, EGG_BOMB
-	db 6, 1, FIRE_BLAST
-	db 6, 2, EARTHQUAKE
-	db 6, 3, ROCK_SLIDE
-	db 6, 4, FLAMETHROWER
-	db 0
-ELSE ; charizard
-	db 2, 1, ROCK_SLIDE
-	db 2, 2, SEISMIC_TOSS
-	db 2, 3, SUBMISSION
-	db 2, 4, THRASH
-	db 4, 1, RAZOR_LEAF
-	db 4, 2, SLUDGE
-	db 4, 3, BODY_SLAM
-	db 4, 4, PETAL_DANCE
-	db 5, 1, TWINEEDLE
-	db 5, 2, WATERFALL
-	db 5, 3, EARTHQUAKE
-	db 5, 4, CRABHAMMER
-	db 6, 1, FLAMETHROWER
-	db 6, 2, SLAM
+	db 4, 4, BODY_SLAM
+	db 5, 1, FLAMETHROWER
+	db 5, 2, SLAM
+	db 5, 3, ROCK_SLIDE
+	db 5, 4, EARTHQUAKE
+	db 6, 1, SUBMISSION
+	db 6, 2, THUNDERBOLT
 	db 6, 3, BODY_SLAM
-	db 6, 4, FIRE_BLAST
+	db 6, 4, THUNDER
+	db 0
+ELSE ; venusaur
+	db 1, 1, SLUDGE
+	db 1, 2, DRILL_PECK
+	db 1, 3, BODY_SLAM
+	db 1, 4, ACID_ARMOR
+	db 2, 1, KINESIS
+	db 2, 2, REFLECT
+	db 2, 3, PSYCHIC_M
+	db 2, 4, DISABLE
+	db 4, 1, ICE_PUNCH
+	db 4, 2, WATERFALL
+	db 4, 3, SUBMISSION
+	db 4, 4, SEISMIC_TOSS
+	db 5, 1, FLAMETHROWER
+	db 5, 2, SLAM
+	db 5, 3, ROCK_SLIDE
+	db 5, 4, EARTHQUAKE
+	db 6, 1, RAZOR_LEAF
+	db 6, 2, SLUDGE
+	db 6, 3, BODY_SLAM
+	db 6, 4, PETAL_DANCE
 	db 0
 ENDC
 	
