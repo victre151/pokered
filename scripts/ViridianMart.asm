@@ -56,6 +56,19 @@ ViridianMartOaksParcelScript:
 	lb bc, OAKS_PARCEL, 1
 	call GiveItem
 	SetEvent EVENT_GOT_OAKS_PARCEL
+	
+	ld a, HS_STARTER_BALL_1
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	
+	ld a, HS_STARTER_BALL_2
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	
+	ld a, HS_STARTER_BALL_3
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	
 	ld a, SCRIPT_VIRIDIANMART_NOOP
 	ld [wViridianMartCurScript], a
 	; fallthrough

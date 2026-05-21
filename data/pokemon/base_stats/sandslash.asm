@@ -16,7 +16,7 @@
 	; tm/hm learnset
 	tmhm STRENGTH,     CUT,          SWORDS_DANCE, THRASH,       DOUBLE_EDGE,  \
 	     HYPER_BEAM,   ROCK_THROW,   FISSURE,      DIG,          TOXIC,        \
-	     SLUDGE,       SKULL_BASH,   POISON_GAS,   ACID_ARMOR,   REST,         \
+	     SLUDGE,       SKULL_BASH,   LEECH_LIFE,   ACID_ARMOR,   REST,         \
 	     ROCK_SLIDE,   SUBSTITUTE
 	; end
 

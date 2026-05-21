@@ -16,6 +16,28 @@ SafariZoneGate_ScriptPointers:
 	EXPORT SCRIPT_SAFARIZONEGATE_LEAVING_SAFARI ; used by engine/events/hidden_objects/safari_game.asm
 
 SafariZoneGateDefaultScript:
+	ld hl, wObtainedBadges
+	bit BIT_MARSHBADGE, [hl]
+	jr nz, .have_marsh_badge
+	ld hl, .PlayerNextToSafariZoneWorker1CoordsArray
+	call ArePlayerCoordsInArray
+	ret nc
+	ld a, TEXT_SAFARIZONEGATE_SAFARI_ZONE_WORKER1_NEED_MARSH_BADGE
+	ldh [hTextID], a
+	call DisplayTextID
+	ld a, PAD_BUTTONS | PAD_CTRL_PAD
+	ld [wJoyIgnore], a
+	xor a
+	ldh [hJoyHeld], a
+	ld a, PAD_DOWN
+	ld c, 1
+	call SafariZoneEntranceAutoWalk
+	ld a, PAD_CTRL_PAD
+	ld [wJoyIgnore], a
+	ld a, SCRIPT_SAFARIZONEGATE_PLAYER_MOVING_DOWN
+	ld [wSafariZoneGateCurScript], a
+	ret
+.have_marsh_badge
 	ld hl, .PlayerNextToSafariZoneWorker1CoordsArray
 	call ArePlayerCoordsInArray
 	ret nc
@@ -137,6 +159,7 @@ SafariZoneGate_TextPointers:
 	dw_const SafariZoneGateSafariZoneWorker1Text,                   TEXT_SAFARIZONEGATE_SAFARI_ZONE_WORKER1
 	dw_const SafariZoneGateSafariZoneWorker2Text,                   TEXT_SAFARIZONEGATE_SAFARI_ZONE_WORKER2
 	dw_const SafariZoneGateSafariZoneWorker1Text,                   TEXT_SAFARIZONEGATE_SAFARI_ZONE_WORKER1_1
+	dw_const SafariZoneGateSafariZoneWorker1NeedMarshBadgeText,     TEXT_SAFARIZONEGATE_SAFARI_ZONE_WORKER1_NEED_MARSH_BADGE
 	dw_const SafariZoneGateSafariZoneWorker1WouldYouLikeToJoinText, TEXT_SAFARIZONEGATE_SAFARI_ZONE_WORKER1_WOULD_YOU_LIKE_TO_JOIN
 	dw_const SafariZoneGateSafariZoneWorker1LeavingEarlyText,       TEXT_SAFARIZONEGATE_SAFARI_ZONE_WORKER1_LEAVING_EARLY
 	dw_const SafariZoneGateSafariZoneWorker1GoodHaulComeAgainText,  TEXT_SAFARIZONEGATE_SAFARI_ZONE_WORKER1_GOOD_HAUL_COME_AGAIN
@@ -293,4 +316,8 @@ SafariZoneGateSafariZoneWorker2Text:
 
 .YoureARegularHereText
 	text_far _SafariZoneGateSafariZoneWorker2YoureARegularHereText
+	text_end
+
+SafariZoneGateSafariZoneWorker1NeedMarshBadgeText:
+	text_far _SafariZoneGateSafariZoneWorker1NeedMarshBadgeText
 	text_end

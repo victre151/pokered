@@ -10,13 +10,13 @@
 	INCBIN "gfx/pokemon/front/zubat.pic", 0, 1 ; sprite dimensions
 	dw ZubatPicFront, ZubatPicBack
 
-	db TACKLE, POISON_STING, PECK, NO_MOVE ; level 1 learnset
+	db TACKLE, POISON_GAS, PECK, NO_MOVE ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
 	tmhm FLY,   	   RAZOR_WIND,   THRASH,       DOUBLE_EDGE,  MIST,         \
 	     MEGA_DRAIN,   TOXIC,        HYPNOSIS,     HAZE,         SLUDGE,       \
-	     SKULL_BASH,   GLARE,        POISON_GAS,   ACID_ARMOR,   REST,         \
+	     SKULL_BASH,   GLARE,        LEECH_LIFE,   ACID_ARMOR,   REST,         \
 		 SUBSTITUTE
 	; end
 

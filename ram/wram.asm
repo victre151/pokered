@@ -1283,6 +1283,9 @@ wPlayerBattleStatus1:: db
 wPlayerBattleStatus2:: db
 wPlayerBattleStatus3:: db
 
+wBattleStatModChangedPlayerCombat:: db 
+; 1 = atk/def/spd/spec touched this stat-up/down
+
 ; always 0
 wEnemyStatsToDouble:: db
 ; always 0
@@ -1940,6 +1943,7 @@ wCeruleanGymCurScript:: db
 wVermilionGymCurScript:: db
 wCeladonGymCurScript:: db
 wRoute6CurScript:: db
+wRoute7CurScript:: db
 wRoute8CurScript:: db
 wRoute24CurScript:: db
 wRoute25CurScript:: db

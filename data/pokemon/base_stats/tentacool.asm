@@ -10,13 +10,13 @@
 	INCBIN "gfx/pokemon/front/tentacool.pic", 0, 1 ; sprite dimensions
 	dw TentacoolPicFront, TentacoolPicBack
 
-	db TACKLE, VINE_WHIP, BUBBLE, POISON_STING ; level 1 learnset
+	db TACKLE, VINE_WHIP, BUBBLE, POISON_GAS ; level 1 learnset
 	db GROWTH_SLOW ; growth rate
 
 	; tm/hm learnset
 	tmhm SURF,         THRASH, 		 MIST,         HYDRO_PUMP,   ICE_BEAM,     \
 	     BLIZZARD,     BUBBLEBEAM,   HAZE, 		   MEGA_DRAIN,   TOXIC,	       \
-	     REFLECT,      SLUDGE,       SKULL_BASH,   GLARE,        POISON_GAS,   \
+	     REFLECT,      SLUDGE,       SKULL_BASH,   GLARE,        LEECH_LIFE,   \
 	     ACID_ARMOR,   REST,         SUBSTITUTE
 	; end
 

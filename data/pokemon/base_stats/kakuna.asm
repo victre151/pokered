@@ -16,7 +16,7 @@
 	; tm/hm learnset
 	tmhm CUT, 		   SWORDS_DANCE, HORN_DRILL,   THRASH,  	 DOUBLE_EDGE,  \
 	     MEGA_DRAIN,   TOXIC,   	 REFLECT,  	   SLUDGE,  	 SKULL_BASH,   \
-	     POISON_GAS,   REST,   	     SUBSTITUTE
+	     LEECH_LIFE,   REST,   	     SUBSTITUTE
 	; end
 
 	db BANK(KakunaPicFront)

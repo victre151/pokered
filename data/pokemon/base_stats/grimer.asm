@@ -10,12 +10,12 @@
 	INCBIN "gfx/pokemon/front/grimer.pic", 0, 1 ; sprite dimensions
 	dw GrimerPicFront, GrimerPicBack
 
-	db TACKLE, POISON_STING, SAND_ATTACK, NO_MOVE ; level 1 learnset
+	db TACKLE, POISON_GAS, SAND_ATTACK, NO_MOVE ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
 	tmhm THRASH,       ROAR,         DISABLE,      ROCK_THROW,   FISSURE,      \
-	     DIG,          TOXIC,        SLUDGE,       GLARE,        POISON_GAS,   \
+	     DIG,          TOXIC,        SLUDGE,       GLARE,        LEECH_LIFE,   \
 	     ACID_ARMOR,   REST,         ROCK_SLIDE,   SUBSTITUTE    
 	; end
 

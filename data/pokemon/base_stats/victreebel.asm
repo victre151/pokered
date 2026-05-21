@@ -10,14 +10,14 @@
 	INCBIN "gfx/pokemon/front/victreebel.pic", 0, 1 ; sprite dimensions
 	dw VictreebelPicFront, VictreebelPicBack
 
-	db RAZOR_LEAF, SLUDGE, BODY_SLAM, SWORDS_DANCE ; level 1 learnset
+	db RAZOR_LEAF, ACID, BODY_SLAM, SWORDS_DANCE ; level 1 learnset
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset
 	tmhm CUT, 		   SWORDS_DANCE, THRASH,       DOUBLE_EDGE,  HYPER_BEAM,   \
 	     MEGA_DRAIN,   LEECH_SEED,   SOLARBEAM,    POISONPOWDER, STUN_SPORE,   \
 	     SLEEP_POWDER, PETAL_DANCE,  TOXIC,        REFLECT,      SLUDGE,	   \
-		 POISON_GAS,   REST,   	     SUBSTITUTE
+		 LEECH_LIFE,   REST,   	     SUBSTITUTE
 	; end
 
 	db BANK(VictreebelPicFront)

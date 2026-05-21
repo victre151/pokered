@@ -7,12 +7,9 @@ CeruleanCave1F_Script:
 CeruleanCave1F_ScriptPointers:
 	def_script_pointers
 	dw_const CeruleanCave1FDefaultScript,           SCRIPT_CERULEANCAVE1F_DEFAULT
-	dw_const CeruleanCave1FRivalStartBattleScript, SCRIPT_CERULEANCAVE1F_RIVAL_START_BATTLE
-	dw_const CeruleanCave1FRivalAfterBattleScript, SCRIPT_CERULEANCAVE1F_RIVAL_AFTER_BATTLE
-	dw_const CeruleanCave1FNoopScript,              SCRIPT_CERULEANCAVE1F_NOOP
-
-CeruleanCave1FNoopScript:
-	ret
+	dw_const CeruleanCave1FRivalStartBattleScript,  SCRIPT_CERULEANCAVE1F_RIVAL_START_BATTLE
+	dw_const CeruleanCave1FRivalAfterBattleScript,  SCRIPT_CERULEANCAVE1F_RIVAL_AFTER_BATTLE
+	dw_const CeruleanCave1FRivalExitScript,         SCRIPT_CERULEANCAVE1F_RIVAL_EXIT
 
 CeruleanCave1FDefaultScript:
 	CheckEvent EVENT_BEAT_CERULEAN_CAVE_RIVAL
@@ -74,6 +71,15 @@ CeruleanCave1FDefaultScript:
 	dbmapcoord 23, 15
 	dbmapcoord 24, 15
 	db -1
+	
+CeruleanCave1FRivalExitMovement:
+	REPT 2
+	db NPC_MOVEMENT_LEFT
+	ENDR
+	REPT 4
+	db NPC_MOVEMENT_UP
+	ENDR
+	db -1
 
 CeruleanCave1FRivalStartBattleScript:
 	ld a, [wStatusFlags5]
@@ -89,7 +95,7 @@ CeruleanCave1FRivalStartBattleScript:
 	xor a
 	ld [wJoyIgnore], a
 	
-	ld a, TEXT_CERULEANCAVE1F_RIVAL ; Always ID 1
+	ld a, TEXT_CERULEANCAVE1F_RIVAL
 	ldh [hTextID], a
 	call DisplayTextID
 	
@@ -113,15 +119,18 @@ CeruleanCave1FRivalStartBattleScript:
 	ret
 
 .CeruleanRivalStarterTable:
-	db STARTER2, 13
-	db STARTER3, 14
-	db STARTER1, 15
+	db STARTER2, 16
+	db STARTER3, 17
+	db STARTER1, 18
+	db -1
 
 CeruleanCaveGetRivalTrainerNoByStarter:
 	ld a, [wRivalStarter]
 	ld b, a
 .next_trainer_no
 	ld a, [hli]
+	cp -1
+	jr z, .fallback
 	cp b
 	jr z, .got_trainer_no
 	inc hl
@@ -130,13 +139,16 @@ CeruleanCaveGetRivalTrainerNoByStarter:
 	ld a, [hl]
 	ld [wTrainerNo], a
 	ret
+.fallback
+	ld a, 16
+	ld [wTrainerNo], a
+	ret
 
 CeruleanCave1FRivalAfterBattleScript:
 	ld a, [wIsInBattle]
 	cp $ff
 	jr z, .reset_script
 	
-	; Essential: Clear Joypad lock immediately
 	xor a
 	ld [wJoyIgnore], a         
 	
@@ -148,11 +160,42 @@ CeruleanCave1FRivalAfterBattleScript:
 	
 	SetEvent EVENT_BEAT_CERULEAN_CAVE_RIVAL
 	
-	ld a, TEXT_CERULEANCAVE1F_RIVAL ; Still ID 1
+	ld a, TEXT_CERULEANCAVE1F_RIVAL_AFTER
 	ldh [hTextID], a
 	call DisplayTextID
 	
-	ld a, SCRIPT_CERULEANCAVE1F_NOOP
+	ld a, CERULEANCAVE1F_RIVAL
+	ldh [hSpriteIndex], a
+	call SetSpriteMovementBytesToFF
+	ld de, CeruleanCave1FRivalExitMovement
+	call MoveSprite
+	
+	ld a, SCRIPT_CERULEANCAVE1F_RIVAL_EXIT
+	ld [wCeruleanCave1FCurScript], a
+	ld [wCurMapScript], a
+	ret
+	
+.reset_script
+	xor a
+	ld [wJoyIgnore], a
+	ld [wCeruleanCave1FCurScript], a
+	ret
+	
+CeruleanCave1FRivalExitScript:
+	ld a, [wStatusFlags5]
+	bit BIT_SCRIPTED_NPC_MOVEMENT, a
+	ret nz
+	
+	xor a
+	ld [wJoyIgnore], a
+	
+	ld a, HS_CERULEAN_CAVE_1F_RIVAL
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	
+	call PlayDefaultMusic
+	
+	ld a, SCRIPT_CERULEANCAVE1F_DEFAULT
 	ld [wCeruleanCave1FCurScript], a
 	ld [wCurMapScript], a
 	ret
@@ -165,29 +208,17 @@ CeruleanCave1FRivalAfterBattleScript:
 
 CeruleanCave1F_TextPointers:
 	def_text_pointers
-	dw_const CeruleanCaveRivalText, TEXT_CERULEANCAVE1F_RIVAL
-	dw_const PickUpItemText,        TEXT_CERULEANCAVE1F_FULL_RESTORE
-	dw_const PickUpItemText,        TEXT_CERULEANCAVE1F_MAX_ELIXER
-	dw_const PickUpItemText,        TEXT_CERULEANCAVE1F_NUGGET
+	dw_const CeruleanCaveRivalText, 	   	   TEXT_CERULEANCAVE1F_RIVAL
+	dw_const PickUpItemText,        	   	   TEXT_CERULEANCAVE1F_FULL_RESTORE
+	dw_const PickUpItemText,        	   	   TEXT_CERULEANCAVE1F_MAX_ELIXER
+	dw_const PickUpItemText,        	   	   TEXT_CERULEANCAVE1F_NUGGET
+	dw_const CeruleanCaveRivalAfterBattleText, TEXT_CERULEANCAVE1F_RIVAL_AFTER
 
 CeruleanCaveRivalText:
-	text_asm
-	CheckEvent EVENT_BEAT_CERULEAN_CAVE_RIVAL
-	jr nz, .after
-	ld hl, .Before
-	call PrintText
-	jr .done
-.after
-	ld hl, .After
-	call PrintText
-.done
-	jp TextScriptEnd
-
-.Before:
-	text_far _CeruleanCaveRivalBeforeBattleText
+	text_far _CeruleanCaveRivalText
 	text_end
-
-.After:
+	
+CeruleanCaveRivalAfterBattleText:
 	text_far _CeruleanCaveRivalAfterBattleText
 	text_end
 

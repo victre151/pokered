@@ -9,7 +9,7 @@ _Route12SuperRodHouseFishingGuruDoYouLikeToFishText::
 	line "fish?"
 	done
 
-_Route12SuperRodHouseFishingGuruReceivedSuperRodText::
+_Route12SuperRodHouseFishingGuruReceivedGoodRodText::
 	text "Grand! I like"
 	line "your style!"
 
@@ -43,20 +43,13 @@ _Route12SuperRodHouseFishingGuruTryFishingText::
 	text "Hello there,"
 	line "<PLAYER>!"
 
-	para "Use the SUPER ROD"
-	line "in any water!"
-	cont "You can catch"
-	cont "different kinds"
-	cont "of #MON."
-
-	para "Try fishing"
-	line "wherever you can!"
+	para "How are the fish"
+	line "biting?"
 	done
 
 _Route12SuperRodHouseFishingGuruNoRoomText::
 	text "Oh no!"
 
-	para "I had a gift for"
-	line "you, but you have"
-	cont "no room for it!"
+	para "You have no room"
+	line "for my gift!"
 	done

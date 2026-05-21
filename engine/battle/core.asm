@@ -6704,6 +6704,21 @@ ApplyBadgeStatBoosts:
 	ld a, LOW(MAX_STAT_VALUE)
 	ld [hld], a
 	ret
+	
+RecalculatePlayerCombatStatsApplyBurnAndBadges:
+	ld a, [wLinkState]
+	cp LINK_STATE_BATTLING
+	ret z
+	ldh a, [hWhoseTurn]
+	push af
+	xor a
+	ld [wCalculateWhoseStats], a
+	call CalculateModifiedStats
+	call ApplyBurnAndParalysisPenaltiesToPlayer
+	call ApplyBadgeStatBoosts
+	pop af
+	ldh [hWhoseTurn], a
+	ret
 
 LoadHudAndHpBarAndStatusTilePatterns:
 	call LoadHpBarAndStatusTilePatterns

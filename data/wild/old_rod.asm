@@ -1,0 +1,11 @@
+OldRodMons:
+	db 13, MAGIKARP
+	db 15, MAGIKARP
+	db 13, GOLDEEN
+	db 15, TENTACOOL
+	db 14, KRABBY
+	db 13, POLIWAG
+	db 14, SEEL
+	db 13, SHELLDER
+	db 14, STARYU
+	db 15, HORSEA

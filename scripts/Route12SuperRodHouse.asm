@@ -8,7 +8,7 @@ Route12SuperRodHouse_TextPointers:
 Route12SuperRodHouseFishingGuruText:
 	text_asm
 	ld a, [wStatusFlags1]
-	bit BIT_GOT_SUPER_ROD, a
+	bit BIT_GOT_GOOD_ROD, a
 	jr nz, .got_item
 	ld hl, .DoYouLikeToFishText
 	call PrintText
@@ -16,12 +16,12 @@ Route12SuperRodHouseFishingGuruText:
 	ld a, [wCurrentMenuItem]
 	and a
 	jr nz, .refused
-	lb bc, SUPER_ROD, 1
+	lb bc, GOOD_ROD, 1
 	call GiveItem
 	jr nc, .bag_full
 	ld hl, wStatusFlags1
-	set BIT_GOT_SUPER_ROD, [hl]
-	ld hl, .ReceivedSuperRodText
+	set BIT_GOT_GOOD_ROD, [hl]
+	ld hl, .ReceivedGoodRodText
 	jr .done
 .bag_full
 	ld hl, .NoRoomText
@@ -39,10 +39,9 @@ Route12SuperRodHouseFishingGuruText:
 	text_far _Route12SuperRodHouseFishingGuruDoYouLikeToFishText
 	text_end
 
-.ReceivedSuperRodText:
-	text_far _Route12SuperRodHouseFishingGuruReceivedSuperRodText
+.ReceivedGoodRodText:
+	text_far _Route12SuperRodHouseFishingGuruReceivedGoodRodText
 	sound_get_item_1
-	text_far _Route12SuperRodHouseFishingGuruFishingWayOfLifeText
 	text_end
 
 .ThatsDisappointingText:

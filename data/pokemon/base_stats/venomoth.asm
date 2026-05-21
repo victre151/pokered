@@ -16,7 +16,7 @@
 	; tm/hm learnset
 	tmhm RAZOR_WIND,   THRASH,       DOUBLE_EDGE,  DISABLE,      HYPER_BEAM,   \
 	     POISONPOWDER, STUN_SPORE,   SLEEP_POWDER, TOXIC,        HYPNOSIS,     \
-	     REFLECT,      SLUDGE,       SKULL_BASH,   DREAM_EATER,  POISON_GAS,   \
+	     REFLECT,      SLUDGE,       SKULL_BASH,   DREAM_EATER,  LEECH_LIFE,   \
 		 REST,         SUBSTITUTE
 	; end
 

@@ -15,7 +15,7 @@
 
 	; tm/hm learnset
 	tmhm THRASH,       DOUBLE_EDGE,  MIST,         HYPER_BEAM,   TOXIC,        \
-	     HAZE,         SLUDGE,       FIRE_BLAST,   POISON_GAS,   REST,         \
+	     HAZE,         SLUDGE,       FIRE_BLAST,   LEECH_LIFE,   REST,         \
 		 SUBSTITUTE,   FLASH 
 	; end
 

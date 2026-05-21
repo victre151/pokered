@@ -1,5 +1,11 @@
-; random choice of 2 good rod encounters
 GoodRodMons:
-	; level, species
-	db 10, GOLDEEN
-	db 10, POLIWAG
+	db 35, SEAKING
+	db 37, SEAKING
+	db 35, TENTACRUEL
+	db 37, KINGLER
+	db 36, POLIWHIRL
+	db 35, DEWGONG
+	db 36, CLOYSTER
+	db 35, STARMIE
+	db 36, SEADRA
+	db 37, GYARADOS

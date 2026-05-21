@@ -10,13 +10,13 @@
 	INCBIN "gfx/pokemon/front/muk.pic", 0, 1 ; sprite dimensions
 	dw MukPicFront, MukPicBack
 
-	db SCREECH, SLUDGE, EARTHQUAKE, ROCK_SLIDE ; level 1 learnset
+	db SCREECH, ACID, EARTHQUAKE, ROCK_SLIDE ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
 	tmhm THRASH,       ROAR,         DISABLE,      HYPER_BEAM,   ROCK_THROW,   \
 	     FISSURE,      DIG,          TOXIC,        SLUDGE,       GLARE,        \
-	     POISON_GAS,   ACID_ARMOR,   REST,         ROCK_SLIDE,   SUBSTITUTE       
+	     LEECH_LIFE,   ACID_ARMOR,   REST,         ROCK_SLIDE,   SUBSTITUTE       
 	; end
 
 	db BANK(MukPicFront)

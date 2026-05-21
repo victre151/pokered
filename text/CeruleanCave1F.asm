@@ -1,56 +1,61 @@
-_CeruleanCaveRivalBeforeBattleText::
-IF DEF(_BLUE)
-	text "BROWN: Hey!"
-	line "<PLAYER>!"
-	cont "Are you looking"
-	cont "for the rumored"
-	cont "strong #MON"
-	cont "too?"
-
-	para "I won't let you"
-	line "get to it first!"
+_CeruleanCaveRivalText::
+	text "<RIVAL>: <PLAYER>?"
+	
+	para "It must be true!"
+	
+	para "I heard you"
+	line "beat the"
+	cont "CHAMPION!"
+	
+	para "I challenged"
+	line "the CHAMPION"
+	cont "too..."
+	
+	para "They say a"
+	line "really strong"
+	cont "#MON lives"
+	cont "deep in here."
+	
+	para "I came to"
+	line "find it."
+	
+	para "If you're"
+	line "after it too,"
+	cont "back off!"
+	
+	para "I won't let"
+	line "you get there"
+	cont "first!"
 	done
-ELSE
-	text "BLUE: Hey!" 
-	line "<PLAYER>!"
-	cont "Are you looking"
-	cont "for the rumored"
-	cont "strong #MON"
-	cont "too?"
-
-	para "I won't let you"
-	line "get to it first!"
-	done
-ENDC
 
 _CeruleanCaveRivalDefeatedText::
-	text "What!?"
-	line "Unbelievable!"
+	text "<RIVAL>: I'm"
+	line "not strong"
+	cont "enough still..."
 	prompt
-
+	
 _CeruleanCaveRivalVictoryText::
-	text "Heh!"
-	line "I knew I was"
-	cont "the best!"
+	text "<RIVAL>: Hmph."
+	line "See?"
+	
+	para "Becoming CHAMPION"
+	line "doesn't make"
+	cont "you perfect!"
+	
+	para "Train harder,"
+	line "<PLAYER>!"
 	prompt
 
 _CeruleanCaveRivalAfterBattleText::
-IF DEF(_BLUE)
-	text "BROWN: I guess I"
-	line "need to keep"
-	cont "training."
+	text "<RIVAL>: I guess"
+	line "I need to"
+	cont "keep training."
 
+	para "Go on."
+	line "I'll keep"
+	cont "looking."
+	
 	para "Good luck"
-	line "finding the"
-	cont "rumored #MON!"
+	line "down there,"
+	cont "<PLAYER>!"
 	done
-ELSE
-	text "BLUE: I guess I"
-	line "need to keep"
-	cont "training."
-
-	para "Good luck"
-	line "finding the"
-	cont "rumored #MON!"
-	done
-ENDC

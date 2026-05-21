@@ -108,19 +108,19 @@ PHYSICAL = NORMAL, FIGHTING, FLYING, GROUND, ROCK, BUG, DRAGON, ICE, GRASS
 
 SPECIAL = FIRE, WATER, ELECTRIC, PSYCHIC, GHOST, POISON
 
-FIXED: Psychic's Ghost Immunity (now Ghost is super effective against Psychic)
+FIXED: Poison is neutral to Bug
 
-FIXED: Bug/Poison's mutual super effectiveness (now Bug is not very effective to Poison and Poison is neutral to Bug)
+FIXED: Bug is not very effective to Poison
+
+FIXED: Ghost is super effective against Psychic
+
+CHANGED: Ice is neutral to Water 
 
 CHANGED: Ice is not very effective against Fire
 
-CHANGED: Fighting is not very effective against Poison
+CHANGED: Ice is not very effective against Ghost
 
-CHANGED: Ghost/Ghost mutual super effectiveness
-
-CHANGED: Poison is not very effective against Ghost
-
-CHANGED: Ground is not very effective againt Bug
+CHANGED: Bug is not very effective against Rock
 
 ======TMCHANGES======
 
@@ -604,13 +604,15 @@ DEWGONG ICE
 
 MUK POISON/GROUND
 
-SHELDER WATER/BUG
+SHELLDER BUG/WATER
 
-CLOYSTER ICE/BUG
+CLOYSTER BUG/ICE
 
 GASTLY/HAUNTER/GENGAR GHOST
 
 ONIX ROCK/DRAGON
+
+HYPNO PSYCHIC/GHOST
 
 KRABBY/KINGLER WATER/BUG
 

@@ -35,6 +35,26 @@ Route22GetRivalTrainerNoByStarterScript:
 	ld a, [hl]
 	ld [wTrainerNo], a
 	ret
+	
+Route22GetRival2TrainerNoByPlayerStarter:
+	ld a, [wPlayerStarter]
+	ld b, a
+.next
+	ld a, [hli]
+	cp -1
+	jr z, .fallback
+	cp b
+	jr z, .got_it
+	inc hl
+	jr .next
+.got_it
+	ld a, [hl]
+	ld [wTrainerNo], a
+	ret
+.fallback
+	ld a, 16
+	ld [wTrainerNo], a
+	ret
 
 Route22MoveRivalRightScript:
 	ld de, Route22RivalMovementData
@@ -234,7 +254,12 @@ Route22Rival1ExitScript:
 	ret
 
 Route22SecondRivalBattleScript:
-	ld a, ROUTE22_RIVAL2
+	ld a, [wPlayerGender]
+	and a
+	ld a, ROUTE22_RIVAL_MALE
+	jr nz, .gotSprite
+	ld a, ROUTE22_RIVAL_FEMALE
+.gotSprite
 	ld [wEmotionBubbleSpriteIndex], a
 	xor a ; EXCLAMATION_BUBBLE
 	ld [wWhichEmotionBubble], a
@@ -250,18 +275,23 @@ Route22SecondRivalBattleScript:
 	ld [wNewSoundID], a
 	call PlaySound
 	farcall Music_RivalAlternateTempo
-	ld a, ROUTE22_RIVAL2
+	ld a, [wEmotionBubbleSpriteIndex]
 	ldh [hSpriteIndex], a
 	call Route22MoveRivalRightScript
 	ld a, SCRIPT_ROUTE22_RIVAL2_START_BATTLE
 	ld [wRoute22CurScript], a
 	ret
-
+	
 Route22Rival2StartBattleScript:
 	ld a, [wStatusFlags5]
 	bit BIT_SCRIPTED_NPC_MOVEMENT, a
 	ret nz
-	ld a, ROUTE22_RIVAL2
+	ld a, [wPlayerGender]
+	and a
+	ld a, ROUTE22_RIVAL_MALE
+	jr nz, .gotSprite
+	ld a, ROUTE22_RIVAL_FEMALE
+.gotSprite
 	ldh [hSpriteIndex], a
 	ld a, [wSavedCoordIndex]
 	cp 1 ; index of second, lower entry in Route22DefaultScript.Route22RivalBattleCoords
@@ -279,33 +309,67 @@ Route22Rival2StartBattleScript:
 	call SetSpriteFacingDirectionAndDelay
 	xor a
 	ld [wJoyIgnore], a
-	ld a, TEXT_ROUTE22_RIVAL2
+	ld a, [wPlayerGender]
+	and a
+	ld a, TEXT_ROUTE22_RIVAL_MALE
+	jr nz, .gotText2
+	ld a, TEXT_ROUTE22_RIVAL_FEMALE
+.gotText2
 	ldh [hTextID], a
 	call DisplayTextID
 	ld hl, wStatusFlags3
 	set BIT_TALKED_TO_TRAINER, [hl]
 	set BIT_PRINT_END_BATTLE_TEXT, [hl]
-	ld hl, Route22Rival2DefeatedText
-	ld de, Route22Rival2VictoryText
+	ld a, [wPlayerGender]
+	and a
+	jr z, .rival2FemaleTextPtrs
+	ld hl, Route22Rival2MaleDefeatedText
+	ld de, Route22Rival2MaleVictoryText
+	jr .rival2SaveTextPtrs
+.rival2FemaleTextPtrs
+	ld hl, Route22Rival2FemaleDefeatedText
+	ld de, Route22Rival2FemaleVictoryText
+.rival2SaveTextPtrs
 	call SaveEndBattleTextPointers
-	ld a, OPP_RIVAL2
+	ld a, [wPlayerGender]
+	and a
+	jr z, .femaleOpp
+	ld a, OPP_RIVAL4
 	ld [wCurOpponent], a
-	ld hl, .StarterTable
-	call Route22GetRivalTrainerNoByStarterScript
+	ld hl, .StarterTableMaleRival2
+	jr .gotStarterTable
+.femaleOpp
+	ld a, OPP_RIVAL3
+	ld [wCurOpponent], a
+	ld hl, .StarterTableFemaleRival2
+.gotStarterTable
+	call Route22GetRival2TrainerNoByPlayerStarter
 	ld a, SCRIPT_ROUTE22_RIVAL2_AFTER_BATTLE
 	ld [wRoute22CurScript], a
 	ret
-
-.StarterTable:
-	db STARTER2, 10
-	db STARTER3, 11
-	db STARTER1, 12
-
+	
+.StarterTableFemaleRival2
+	db STARTER1, 16
+	db STARTER2, 17
+	db STARTER3, 18
+	db -1
+	
+.StarterTableMaleRival2
+	db STARTER1, 18
+	db STARTER2, 16
+	db STARTER3, 17
+	db -1
+	
 Route22Rival2AfterBattleScript:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, Route22SetDefaultScript
-	ld a, ROUTE22_RIVAL2
+	ld a, [wPlayerGender]
+	and a
+	ld a, ROUTE22_RIVAL_MALE
+	jr nz, .gotSprite
+	ld a, ROUTE22_RIVAL_FEMALE
+.gotSprite
 	ldh [hSpriteIndex], a
 	ld a, [wSavedCoordIndex]
 	cp 1 ; index of second, lower entry in Route22DefaultScript.Route22RivalBattleCoords
@@ -324,7 +388,12 @@ Route22Rival2AfterBattleScript:
 	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 	SetEvent EVENT_BEAT_ROUTE22_RIVAL_2ND_BATTLE
-	ld a, TEXT_ROUTE22_RIVAL2
+	ld a, [wPlayerGender]
+	and a
+	ld a, TEXT_ROUTE22_RIVAL_MALE
+	jr nz, .gotText2After
+	ld a, TEXT_ROUTE22_RIVAL_FEMALE
+.gotText2After
 	ldh [hTextID], a
 	call DisplayTextID
 	ld a, SFX_STOP_ALL_MUSIC
@@ -342,33 +411,41 @@ Route22Rival2AfterBattleScript:
 	ld a, SCRIPT_ROUTE22_RIVAL2_EXIT
 	ld [wRoute22CurScript], a
 	ret
-
 .RivalExit1Script:
 	ld de, Route22Rival2ExitMovementData1
 	jr Route22MoveRival2
-
 .RivalExit2Script:
 	ld de, Route22Rival2ExitMovementData2
+	
 Route22MoveRival2:
-	ld a, ROUTE22_RIVAL2
+	ld a, [wPlayerGender]
+	and a
+	ld a, ROUTE22_RIVAL_MALE
+	jr nz, .gotSprite
+	ld a, ROUTE22_RIVAL_FEMALE
+.gotSprite
 	ldh [hSpriteIndex], a
 	jp MoveSprite
-
+	
 Route22Rival2ExitMovementData1:
 	db NPC_MOVEMENT_LEFT
+	
 Route22Rival2ExitMovementData2:
 	db NPC_MOVEMENT_LEFT
 	db NPC_MOVEMENT_LEFT
 	db NPC_MOVEMENT_LEFT
 	db -1 ; end
-
+	
 Route22Rival2ExitScript:
 	ld a, [wStatusFlags5]
 	bit BIT_SCRIPTED_NPC_MOVEMENT, a
 	ret nz
 	xor a
 	ld [wJoyIgnore], a
-	ld a, HS_ROUTE_22_RIVAL_2
+	ld a, HS_ROUTE_22_RIVAL_MALE
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	ld a, HS_ROUTE_22_RIVAL_FEMALE
 	ld [wMissableObjectIndex], a
 	predef HideObject
 	call PlayDefaultMusic
@@ -380,7 +457,8 @@ Route22Rival2ExitScript:
 Route22_TextPointers:
 	def_text_pointers
 	dw_const Route22Rival1Text,            TEXT_ROUTE22_RIVAL1
-	dw_const Route22Rival2Text,            TEXT_ROUTE22_RIVAL2
+	dw_const Route22RivalMaleText,         TEXT_ROUTE22_RIVAL_MALE
+	dw_const Route22RivalFemaleText,       TEXT_ROUTE22_RIVAL_FEMALE
 	dw_const Route22PokemonLeagueSignText, TEXT_ROUTE22_POKEMON_LEAGUE_SIGN
 
 Route22Rival1Text:
@@ -396,15 +474,28 @@ Route22Rival1Text:
 .text_script_end
 	jp TextScriptEnd
 
-Route22Rival2Text:
+Route22RivalMaleText:
 	text_asm
 	CheckEvent EVENT_BEAT_ROUTE22_RIVAL_2ND_BATTLE
 	jr z, .before_battle
-	ld hl, Route22RivalAfterBattleText2
+	ld hl, Route22Rival2MaleAfterBattleText
 	call PrintText
 	jr .text_script_end
 .before_battle
-	ld hl, Route22RivalBeforeBattleText2
+	ld hl, Route22Rival2MaleBeforeBattleText
+	call PrintText
+.text_script_end
+	jp TextScriptEnd
+
+Route22RivalFemaleText:
+	text_asm
+	CheckEvent EVENT_BEAT_ROUTE22_RIVAL_2ND_BATTLE
+	jr z, .before_battle
+	ld hl, Route22Rival2FemaleAfterBattleText
+	call PrintText
+	jr .text_script_end
+.before_battle
+	ld hl, Route22Rival2FemaleBeforeBattleText
 	call PrintText
 .text_script_end
 	jp TextScriptEnd
@@ -425,20 +516,36 @@ Route22Rival1VictoryText:
 	text_far _Route22Rival1VictoryText
 	text_end
 
-Route22RivalBeforeBattleText2:
-	text_far _Route22RivalBeforeBattleText2
+Route22Rival2MaleBeforeBattleText:
+	text_far _Route22Rival2MaleBeforeBattleText
 	text_end
-
-Route22RivalAfterBattleText2:
-	text_far _Route22RivalAfterBattleText2
+	
+Route22Rival2MaleAfterBattleText:
+	text_far _Route22Rival2MaleAfterBattleText
 	text_end
-
-Route22Rival2DefeatedText:
-	text_far _Route22Rival2DefeatedText
+	
+Route22Rival2MaleDefeatedText:
+	text_far _Route22Rival2MaleDefeatedText
 	text_end
-
-Route22Rival2VictoryText:
-	text_far _Route22Rival2VictoryText
+	
+Route22Rival2MaleVictoryText:
+	text_far _Route22Rival2MaleVictoryText
+	text_end
+	
+Route22Rival2FemaleBeforeBattleText:
+	text_far _Route22Rival2FemaleBeforeBattleText
+	text_end
+	
+Route22Rival2FemaleAfterBattleText:
+	text_far _Route22Rival2FemaleAfterBattleText
+	text_end
+	
+Route22Rival2FemaleDefeatedText:
+	text_far _Route22Rival2FemaleDefeatedText
+	text_end
+	
+Route22Rival2FemaleVictoryText:
+	text_far _Route22Rival2FemaleVictoryText
 	text_end
 
 Route22PokemonLeagueSignText:

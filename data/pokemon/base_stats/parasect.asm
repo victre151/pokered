@@ -17,7 +17,7 @@
 	tmhm CUT,          GUILLOTINE,   THRASH,       DOUBLE_EDGE,  DISABLE,  	   \
 	     HYPER_BEAM,   MEGA_DRAIN,   LEECH_SEED,   SOLARBEAM,	 POISONPOWDER, \
 	     STUN_SPORE,   SLEEP_POWDER, PETAL_DANCE,  TOXIC,        HYPNOSIS,     \
-	     REFLECT,      SLUDGE,       SKULL_BASH,   GLARE,        POISON_GAS,   \
+	     REFLECT,      SLUDGE,       SKULL_BASH,   GLARE,        LEECH_LIFE,   \
 		 ACID_ARMOR,   REST,         SUBSTITUTE
 	; end
 

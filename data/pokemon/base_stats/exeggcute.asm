@@ -10,7 +10,7 @@
 	INCBIN "gfx/pokemon/front/exeggcute.pic", 0, 1 ; sprite dimensions
 	dw ExeggcutePicFront, ExeggcutePicBack
 
-	db BARRAGE, VINE_WHIP, PSYWAVE, NO_MOVE ; level 1 learnset
+	db BARRAGE, VINE_WHIP, NO_MOVE, NO_MOVE ; level 1 learnset
 	db GROWTH_SLOW ; growth rate
 
 	; tm/hm learnset

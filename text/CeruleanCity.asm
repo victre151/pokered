@@ -136,50 +136,16 @@ _CeruleanCityGuardText::
 	cont "with the ROCKETs!"
 	done
 
-_CeruleanCityCooltrainerF1SlowbroUseSonicboomText::
-	text "OK! SLOWBRO!"
-	line "Use SONICBOOM!"
-	cont "Come on, SLOWBRO"
-	cont "pay attention!"
-	done
-
-_CeruleanCityCooltrainerF1SlowbroPunchText::
-	text "SLOWBRO punch!"
-	line "No! You blew it"
-	cont "again!"
-	done
-
-_CeruleanCityCooltrainerF1SlowbroWithdrawText::
-	text "SLOWBRO, WITHDRAW!"
-	line "No! That's wrong!"
-
-	para "It's so hard to"
-	line "control #MON!"
-
-	para "Your #MON's"
-	line "obedience depends"
-	cont "on your abilities"
-	cont "as a trainer!"
-	done
-
-_CeruleanCitySlowbroTookASnoozeText::
-	text "SLOWBRO took a"
-	line "snooze..."
-	done
-
-_CeruleanCitySlowbroIsLoafingAroundText::
-	text "SLOWBRO is"
-	line "loafing around..."
-	done
-
-_CeruleanCitySlowbroTurnedAwayText::
-	text "SLOWBRO turned"
-	line "away..."
-	done
-
-_CeruleanCitySlowbroIgnoredOrdersText::
-	text "SLOWBRO"
-	line "ignored orders..."
+_CeruleanCityCooltrainerF1Text::
+	text "My #MON won't"
+	line "listen to me!"
+	
+	para "I traded for a"
+	line "really strong"
+	cont "one, but without"
+	cont "more BADGES it"
+	cont "keeps ignoring"
+	cont "me!"
 	done
 
 _CeruleanCityCooltrainerF2Text::

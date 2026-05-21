@@ -129,6 +129,13 @@ StartMenu_Pokemon::
 	dw .dig
 	dw .teleport
 	dw .softboiled
+	dw .cut       ; 10 SLASH
+	dw .flash     ; 11 THUNDERBOLT
+	dw .flash     ; 12 THUNDER
+	dw .flash     ; 13 FIRE BLAST
+	dw .flash     ; 14 FLAMETHROWER
+	dw .strength  ; 15 SUBMISSION
+	dw .strength  ; 16 SEISMIC TOSS
 .fly
 	bit BIT_THUNDERBADGE, a
 	jp z, .newBadgeRequired

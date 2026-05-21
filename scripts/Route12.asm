@@ -32,7 +32,7 @@ Route12DefaultScript:
 	call DisplayTextID
 	ld a, SNORLAX
 	ld [wCurOpponent], a
-	ld a, 45
+	ld a, 33
 	ld [wCurEnemyLevel], a
 	ld a, HS_ROUTE_12_SNORLAX
 	ld [wMissableObjectIndex], a

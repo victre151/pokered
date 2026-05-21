@@ -24,7 +24,7 @@
 	     FISSURE,      DIG,          TOXIC,   	   HYPNOSIS,     RECOVER,      \
 	     LIGHT_SCREEN, HAZE, 		 REFLECT,      SLUDGE,       FIRE_BLAST,   \
 	     SKULL_BASH,   AMNESIA,      GLARE,        DREAM_EATER,  ACID_ARMOR,   \
-		 POISON_GAS,   REST,		 ROCK_SLIDE,   TRI_ATTACK,	 SUBSTITUTE
+		 LEECH_LIFE,   REST,		 ROCK_SLIDE,   TRI_ATTACK,	 SUBSTITUTE
 	; end
 
 	db BANK(MewPicFront)

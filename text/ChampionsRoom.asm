@@ -1,21 +1,22 @@
 _ChampionsRoomMaleIntroText::
 IF DEF(_BLUE)
 	text "YELLOW: You and"
-	para "your #MON have"
-	line "traveled far and" 
-	cont "trained hard" 
-	cont "to get here."
+	line "your #MON"
+	cont "have traveled" 
+	cont "far and trained" 
+	cont "hard to"
+	cont "get here."
 	
 	para "But the strongest"
-	line "bond is not found"
-	cont "through battle"
-	cont "alone."
+	line "bond is not"
+	cont "found through"
+	cont "battle alone."
 	
 	para "It's forged in"
 	line "the quiet moments"
 	cont "and the trust"
 	cont "between you and"
-	cont "you #MON."
+	cont "your #MON."
 	
 	para "Let me see if"
 	line "your heart truly"
@@ -85,8 +86,9 @@ ENDC
 
 _BoyDefeatedText::
 IF DEF(_BLUE) ;YELLOW
-	text "Your #MON"
-	line "looked so happy!"
+	text "Your"
+	line "#MON looked"
+	cont "so happy!"
 	
 	para "I'm so glad I"
 	line "got to see that!"
@@ -122,8 +124,8 @@ IF DEF(_BLUE) ;PINK
 	line "have this match!"
 	prompt
 ELSE ;GREEN
-	text "The battle"
-	line "is over."
+	text "The"
+	line "battle is over."
 	
 	para "I understand your" 
 	line "strategy now."
@@ -136,7 +138,8 @@ ENDC
 
 _MaleVictoryText::
 IF DEF(_BLUE) ;YELLOW
-	text "You fought well..."
+	text "You"
+	line "fought well..."
 	
 	para "But my bonds with"
 	line "my #MON"
@@ -147,7 +150,7 @@ IF DEF(_BLUE) ;YELLOW
 	cont "another great battle!"
 	prompt
 ELSE ;RED
-	text "RED: You battled"
+	text "You battled"
 	line "with great skill!"
 	
 	para "I had to push"
@@ -174,9 +177,10 @@ IF DEF(_BLUE) ;PINK
 	cont "next battle!"
 	prompt
 ELSE ;GREEN
-	text "Not bad, You"
-	line "gave me quite" 
-	cont "the challenge."
+	text "Not bad," 
+	line "You gave me" 
+	cont "quite the"
+	cont "challenge."
 	
 	para "But my strategy"
 	line "was better."
@@ -272,7 +276,9 @@ _ChampionsRoomOakDisappointedWithRivalText::
 	done
 	
 _ChampionsRoomOakComeWithMeText::
-	text "You understand"
+	text "OAK: <PLAYER>!"
+	
+	para "You understand"
 	line "that your victory"
 	cont "was not just your"
 	cont "own doing!"

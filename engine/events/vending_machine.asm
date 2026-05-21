@@ -1,4 +1,10 @@
 VendingMachineMenu::
+	ld a, [wObtainedBadges]
+	bit BIT_SOULBADGE, a
+	jr nz, .machineWorking
+	ld hl, VendingMachineOutOfOrderText
+	jp PrintText
+.machineWorking:
 	ld hl, VendingMachineText1
 	call PrintText
 	ld a, MONEY_BOX
@@ -79,6 +85,10 @@ VendingMachineMenu::
 .notThirsty
 	ld hl, VendingMachineText7
 	jp PrintText
+
+VendingMachineOutOfOrderText:
+	text_far _VendingMachineOutOfOrderText
+	text_end
 
 VendingMachineText1:
 	text_far _VendingMachineText1

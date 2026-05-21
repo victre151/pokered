@@ -16,7 +16,7 @@
 	; tm/hm learnset
 	tmhm FLY,   	   RAZOR_WIND,   THRASH,       DOUBLE_EDGE,  MIST,         \
 	     HYPER_BEAM,   MEGA_DRAIN,   TOXIC,        HYPNOSIS,     HAZE,         \
-	     SLUDGE,       SKULL_BASH,   GLARE,        POISON_GAS,   ACID_ARMOR,   \
+	     SLUDGE,       SKULL_BASH,   GLARE,        LEECH_LIFE,   ACID_ARMOR,   \
 		 REST,         SUBSTITUTE
 	; end
 

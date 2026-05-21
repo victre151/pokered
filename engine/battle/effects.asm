@@ -349,6 +349,8 @@ FireDefrostedText:
 	text_end
 
 StatModifierUpEffect:
+	xor a
+	ld [wBattleStatModChangedPlayerCombat], a
 	ld hl, wPlayerMonStatMods
 	ld de, wPlayerMoveEffect
 	ldh a, [hWhoseTurn]
@@ -454,6 +456,11 @@ UpdateStat:
 	ldh a, [hProduct + 3]
 	ld [hl], a
 	pop hl
+	ldh a, [hWhoseTurn]
+	and a
+	jr nz, UpdateStatDone
+	ld a, 1
+	ld [wBattleStatModChangedPlayerCombat], a
 UpdateStatDone:
 	ld b, c
 	inc b
@@ -496,8 +503,11 @@ UpdateStatDone:
 .applyBadgeBoostsAndStatusPenalties
 	ldh a, [hWhoseTurn]
 	and a
-	call z, ApplyBadgeStatBoosts ; whenever the player uses a stat-up move, badge boosts get reapplied again to every stat,
-	                             ; even to those not affected by the stat-up move (will be boosted further)
+	jr nz, .skipPlayerCombatRecalcAfterStatUp
+	ld a, [wBattleStatModChangedPlayerCombat]
+	and a
+	call nz, RecalculatePlayerCombatStatsApplyBurnAndBadges
+.skipPlayerCombatRecalcAfterStatUp
 	ld hl, MonsStatsRoseText
 	call PrintText
 
@@ -537,6 +547,8 @@ RoseText:
 	text_end
 
 StatModifierDownEffect:
+	xor a
+	ld [wBattleStatModChangedPlayerCombat], a
 	ld hl, wEnemyMonStatMods
 	ld de, wPlayerMoveEffect
 	ld bc, wEnemyBattleStatus1
@@ -671,6 +683,12 @@ UpdateLoweredStat:
 	ld [hli], a
 	ldh a, [hProduct + 3]
 	ld [hl], a
+	ldh a, [hWhoseTurn]
+	and a
+	jr z, .skipPlayerCombatFlagLowerStat
+	ld a, 1
+	ld [wBattleStatModChangedPlayerCombat], a
+.skipPlayerCombatFlagLowerStat
 	pop de
 	pop hl
 UpdateLoweredStatDone:
@@ -686,8 +704,11 @@ UpdateLoweredStatDone:
 .ApplyBadgeBoostsAndStatusPenalties
 	ldh a, [hWhoseTurn]
 	and a
-	call nz, ApplyBadgeStatBoosts ; whenever the player uses a stat-down move, badge boosts get reapplied again to every stat,
-	                              ; even to those not affected by the stat-up move (will be boosted further)
+	jr z, .skipPlayerCombatRecalcAfterStatDown
+	ld a, [wBattleStatModChangedPlayerCombat]
+	and a
+	call nz, RecalculatePlayerCombatStatsApplyBurnAndBadges
+.skipPlayerCombatRecalcAfterStatDown
 	ld hl, MonsStatsFellText
 	call PrintText
 

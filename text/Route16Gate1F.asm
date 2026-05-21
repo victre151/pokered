@@ -10,6 +10,14 @@ _Route16Gate1FGuardCyclingRoadExplanationText::
 	cont "by the sea. It's"
 	cont "a great ride."
 	done
+	
+_Route16Gate1FGuardCyclingRoadClosedText::
+	text "The CYCLING ROAD"
+	line "is closed."
+	
+	para "Please come"
+	line "back later."
+	done
 
 _Route16Gate1FGuardWaitUpText::
 	text "Excuse me! Wait"

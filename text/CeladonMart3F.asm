@@ -54,9 +54,10 @@ _CeladonMart3FGameBoyKid3Text::
 
 	para "Huh?"
 
-	para "GRAVELER turned"
-	line "into a different"
-	cont "#MON!"
+	para "GRAVELER didn't"
+	line "turn into a"
+	cont "different"
+	cont "#MON?"
 	done
 
 _CeladonMart3FLittleBoyText::
@@ -95,6 +96,9 @@ _CeladonMart3FCurrentFloorSignText::
 	done
 
 _CeladonMart3FPokemonPosterText::
-	text "Red and Blue!"
-	line "Both are #MON!"
+	text "MONOCHROME and"
+	line "RAINBOW!"
+	
+	para "Both are #MON"
+	line "games!"
 	done

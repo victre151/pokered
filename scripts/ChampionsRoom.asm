@@ -57,7 +57,7 @@ ChampionsRoomRivalReadyToBattleScript:
     res BIT_BATTLE_ANIMATION, [hl]
 	
 	CheckEvent EVENT_VICTORY_ROAD_ROCKETS_DONE
-	jr nz, .Archer
+	jp nz, .Archer
     ld a, [wPlayerGender]
     and a
     jr z, .MaleIntro
@@ -89,47 +89,54 @@ ChampionsRoomRivalReadyToBattleScript:
 .done
     ld [wCurOpponent], a
     call SaveEndBattleTextPointers
-.PickTeam
-    ld a, [wPlayerStarter]
-    cp STARTER1
-    jr nz, .NotStarter1
 	ld a, [wPlayerGender]
 	and a
-	jr nz, .girlBSC
-    ld a, $2
-    jr .saveTrainerId
-.girlBSC
-	ld a, $3
-	jr .saveTrainerId
-.NotStarter1
-    cp STARTER2
-    jr nz, .NotStarter2
-	ld a, [wPlayerGender]
-	and a
-	jr nz, .girlCBS
-    ld a, $3
-    jr .saveTrainerId
-.girlCBS
-	ld a, $1
-	jr .saveTrainerId
-.NotStarter2
-	ld a, [wPlayerGender]
-	and a
-	jr nz, .girlSCB
-    ld a, $1
-	jr .saveTrainerId
-.girlSCB
-	ld a, $2
+	jr z, .useFemaleRivalTable
+	ld hl, .ChampionsRoomStarterTableMaleRival
+	jr .gotChampionsStarterTable
+.useFemaleRivalTable
+	ld hl, .ChampionsRoomStarterTableFemaleRival
+.gotChampionsStarterTable
+	call .ChampionsRoomPickTrainerNoByStarter
+	jr .saveTrainerContinue
+.ChampionsRoomStarterTableFemaleRival
+	db STARTER1, 19
+	db STARTER2, 20
+	db STARTER3, 21
+	db -1
+.ChampionsRoomStarterTableMaleRival
+	db STARTER1, 21
+	db STARTER2, 19
+	db STARTER3, 20
+	db -1
+.ChampionsRoomPickTrainerNoByStarter:
+	ld a, [wPlayerStarter]
+	ld b, a
+.pickNext
+	ld a, [hli]
+	cp -1
+	jr z, .pickFallback
+	cp b
+	jr z, .pickGot
+	inc hl
+	jr .pickNext
+.pickGot
+	ld a, [hl]
+	ld [wTrainerNo], a
+	ret
+.pickFallback
+	ld a, 19
+	ld [wTrainerNo], a
+	ret
+.saveTrainerContinue
+	xor a
+	ldh [hJoyHeld], a
+	ld a, SCRIPT_CHAMPIONSROOM_RIVAL_DEFEATED
+	ld [wChampionsRoomCurScript], a
+	ret
 .saveTrainerId
-    ld [wTrainerNo], a
-
-    xor a
-    ldh [hJoyHeld], a
-
-    ld a, SCRIPT_CHAMPIONSROOM_RIVAL_DEFEATED
-    ld [wChampionsRoomCurScript], a
-
-    ret
+	ld [wTrainerNo], a
+	jr .saveTrainerContinue
 .Archer
 	ld a, TEXT_CHAMPIONSROOM_ARCHER_INTRO
 	ldh [hTextID], a

@@ -94,14 +94,57 @@ PalletTownOakWalksToPlayerScript:
     jr z, .isBoyPlayer
     
     ld a, HS_CHAMPIONS_ROOM_RIVAL_MALE
-    jr .showRival
+    ld [wMissableObjectIndex], a
+    predef ShowObject
+    
+    ld a, HS_VIRIDIAN_FOREST_RIVAL_MALE
+    ld [wMissableObjectIndex], a
+    predef ShowObject
+	
+	ld a, HS_ROUTE_10_RIVAL_MALE
+	ld [wMissableObjectIndex], a
+    predef ShowObject
+	
+	ld a, HS_ROUTE_7_RIVAL_MALE
+	ld [wMissableObjectIndex], a
+    predef ShowObject
+	
+	ld a, HS_ROUTE_15_RIVAL_MALE
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	
+	ld a, HS_POKEMON_MANSION_1F_RIVAL_MALE
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	
+	jr .continue
     
 .isBoyPlayer:
     ld a, HS_CHAMPIONS_ROOM_RIVAL_FEMALE
-    
-.showRival:
     ld [wMissableObjectIndex], a
     predef ShowObject
+    
+    ld a, HS_VIRIDIAN_FOREST_RIVAL_FEMALE
+    ld [wMissableObjectIndex], a
+    predef ShowObject
+	
+	ld a, HS_ROUTE_10_RIVAL_FEMALE
+	ld [wMissableObjectIndex], a
+    predef ShowObject
+	
+	ld a, HS_ROUTE_7_RIVAL_FEMALE
+	ld [wMissableObjectIndex], a
+    predef ShowObject
+	
+	ld a, HS_ROUTE_15_RIVAL_FEMALE
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	
+	ld a, HS_POKEMON_MANSION_1F_RIVAL_FEMALE
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+    
+.continue:
     ld a, SCRIPT_CHAMPIONSROOM_PLAYER_ENTERS
     ld [wChampionsRoomCurScript], a
     ret

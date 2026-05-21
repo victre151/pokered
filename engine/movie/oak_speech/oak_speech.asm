@@ -61,15 +61,15 @@ OakSpeech:
 	call PrepareForSpecialWarp
 	xor a
 	ldh [hTileAnimations], a
-	ld a, [wStatusFlags6]
-	bit BIT_DEBUG_MODE, a
-	jp nz, .skipSpeech
 	ld hl, BoyGirlText  ; added to the same file as the other oak text
   	call PrintText     ; show this text
   	call BoyGirlChoice ; added routine at the end of this file
    	ld a, [wCurrentMenuItem]
    	ld [wPlayerGender], a ; store player's gender. 00 for boy, 01 for girl
    	call ClearScreen ; clear the screen before resuming normal intro
+	ld a, [wStatusFlags6]
+	bit BIT_DEBUG_MODE, a
+	jp nz, .skipSpeech
 	ld de, ProfOakPic
 	lb bc, BANK(ProfOakPic), $00
 	call IntroDisplayPicCenteredOrUpperRight
@@ -137,18 +137,6 @@ ELSE
 	call ChooseRivalName
 ENDC
 .skipSpeech
-	xor a
-	ld [wCurrentMenuItem], a
-	ld [wLastMenuItem], a
-	ldh [hJoyPressed], a
-	ldh [hJoyHeld], a
-	
-	ld hl, BoyGirlText
-	call PrintText
-	call BoyGirlChoice
-	ld a, [wCurrentMenuItem]
-	ld [wPlayerGender], a
-	call ClearScreen
 IF DEF(_RED)
 	call GBFadeOutToWhite
 	call ClearScreen

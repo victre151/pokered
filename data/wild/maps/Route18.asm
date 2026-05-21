@@ -1,28 +1,28 @@
 Route18WildMons:
 	def_grass_wildmons 25 ; encounter rate
 IF DEF(_RED)
-	db 35, PIDGEOTTO
-	db 35, FEAROW
-	db 35, RATICATE
-	db 36, PIDGEOTTO
-	db 36, FEAROW
-	db 36, RATICATE
-	db 36, DODRIO
+	db 37, PIDGEOTTO
+	db 37, FEAROW
 	db 37, RATICATE
-	db 37, DODRIO
-	db 37, CHANSEY
+	db 38, PIDGEOT
+	db 38, FEAROW
+	db 38, RATICATE
+	db 38, DODRIO
+	db 39, RATICATE
+	db 39, DODRIO
+	db 39, CHANSEY
 ENDC
 IF DEF(_BLUE)
-	db 35, FEAROW
-	db 35, PIDGEOTTO
-	db 35, RATICATE
-	db 36, FEAROW
-	db 36, PIDGEOTTO
-	db 36, RATICATE
-	db 36, DODRIO
+	db 37, FEAROW
+	db 37, PIDGEOTTO
 	db 37, RATICATE
-	db 37, DODRIO
-	db 37, CHANSEY
+	db 38, FEAROW
+	db 38, PIDGEOT
+	db 38, RATICATE
+	db 38, DODRIO
+	db 39, RATICATE
+	db 39, DODRIO
+	db 39, CHANSEY
 ENDC
 	end_grass_wildmons
 

@@ -10,14 +10,14 @@ _CableClubNPCMakingPreparationsText::
 
 _UsedStrengthText::
 	text_ram wNameBuffer
-	text " used"
-	line "STRENGTH.@"
+	text " pushed"
+	line "hard!"
 	text_end
 
 _CanMoveBouldersText::
 	text_ram wNameBuffer
 	text " can"
-	line "move boulders."
+	line "move boulders!"
 	prompt
 
 _CurrentTooFastText::
@@ -31,8 +31,9 @@ _CyclingIsFunText::
 	prompt
 
 _FlashLightsAreaText::
-	text "A blinding FLASH"
-	line "lights the area!"
+	text_ram wNameBuffer
+	text " lit up"
+	line "the area!"
 	prompt
 
 _WarpToLastPokemonCenterText::

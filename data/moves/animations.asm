@@ -1072,7 +1072,9 @@ SplashAnim:
 	db -1 ; end
 
 AcidArmorAnim:
-	battle_anim ACID_ARMOR, SE_SLIDE_MON_DOWN_AND_HIDE
+	battle_anim NO_MOVE, SE_SLIDE_MON_DOWN
+	battle_anim NO_MOVE, SE_RESET_SCREEN_PALETTE
+	battle_anim NO_MOVE, SE_SHOW_MON_PIC
 	db -1 ; end
 
 CrabHammerAnim:

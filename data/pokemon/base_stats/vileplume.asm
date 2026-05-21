@@ -10,13 +10,13 @@
 	INCBIN "gfx/pokemon/front/vileplume.pic", 0, 1 ; sprite dimensions
 	dw VileplumePicFront, VileplumePicBack
 
-	db RAZOR_LEAF, SLUDGE, BODY_SLAM, ACID_ARMOR ; level 1 learnset
+	db RAZOR_LEAF, ACID, BODY_SLAM, ACID_ARMOR ; level 1 learnset
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset
 	tmhm CUT,          THRASH,       DOUBLE_EDGE,  HYPER_BEAM,   MEGA_DRAIN,   \
 	     LEECH_SEED,   SOLARBEAM,    POISONPOWDER, STUN_SPORE,   SLEEP_POWDER, \
-	     PETAL_DANCE,  TOXIC,        REFLECT,      SKULL_BASH,   POISON_GAS,   \
+	     PETAL_DANCE,  TOXIC,        REFLECT,      SKULL_BASH,   LEECH_LIFE,   \
 		 ACID_ARMOR,   REST,         SUBSTITUTE
 	; end
 

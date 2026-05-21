@@ -161,9 +161,18 @@ ViridianGymReceiveTM27:
 	; deactivate gym trainers
 	SetEventRange EVENT_BEAT_VIRIDIAN_GYM_TRAINER_0, EVENT_BEAT_VIRIDIAN_GYM_TRAINER_7
 
-	ld a, HS_ROUTE_22_RIVAL_2
+	ld a, [wPlayerGender]
+	and a
+	jr z, .showRoute22RivalFemale
+	ld a, HS_ROUTE_22_RIVAL_MALE
 	ld [wMissableObjectIndex], a
 	predef ShowObject
+	jr .route22RivalShown
+.showRoute22RivalFemale
+	ld a, HS_ROUTE_22_RIVAL_FEMALE
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+.route22RivalShown
 	SetEvents EVENT_2ND_ROUTE22_RIVAL_BATTLE, EVENT_ROUTE22_RIVAL_WANTS_BATTLE
 	jp ViridianGymResetScripts
 	

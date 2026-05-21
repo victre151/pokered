@@ -7,7 +7,7 @@ Route7Gate_Script:
 
 Route7Gate_ScriptPointers:
 	def_script_pointers
-	dw_const Route7DefaultScript,      SCRIPT_ROUTE7GATE_DEFAULT
+	dw_const Route7GateDefaultScript,      SCRIPT_ROUTE7GATE_DEFAULT
 	dw_const Route7PlayerMovingScript, SCRIPT_ROUTE7GATE_PLAYER_MOVING
 
 Route7GateMovePlayerLeftScript:
@@ -22,7 +22,7 @@ Route7GateMovePlayerLeftScript:
 	ld [wOverrideSimulatedJoypadStatesMask], a
 	ret
 
-Route7DefaultScript:
+Route7GateDefaultScript:
 	ld a, [wStatusFlags1]
 	bit BIT_GAVE_SAFFRON_GUARDS_DRINK, a
 	ret nz

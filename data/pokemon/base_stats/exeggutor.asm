@@ -1,16 +1,16 @@
 	db DEX_EXEGGUTOR ; pokedex id
 
-	db 100,  85,  90,  60, 115 ;  450BST
+	db 100, 115,  90,  60,  85 ;  450BST
 	;   hp  atk  def  spd  spc
 
-	db GRASS, PSYCHIC_TYPE ; type
+	db GRASS, GRASS ; type
 	db 45 ; catch rate
 	db 212 ; base exp
 
 	INCBIN "gfx/pokemon/front/exeggutor.pic", 0, 1 ; sprite dimensions
 	dw ExeggutorPicFront, ExeggutorPicBack
 
-	db TAKE_DOWN, EGG_BOMB, LIGHT_SCREEN, RAZOR_LEAF ; level 1 learnset
+	db BARRAGE, TAKE_DOWN, LIGHT_SCREEN, RAZOR_LEAF ; level 1 learnset
 	db GROWTH_SLOW ; growth rate
 
 	; tm/hm learnset

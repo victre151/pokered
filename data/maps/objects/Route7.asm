@@ -1,3 +1,7 @@
+	object_const_def
+	const_export ROUTE7_RIVAL_MALE
+	const_export ROUTE7_RIVAL_FEMALE
+
 Route7_Object:
 	db $f ; border block
 
@@ -12,5 +16,11 @@ Route7_Object:
 	bg_event  3, 13, TEXT_ROUTE7_UNDERGROUND_PATH_SIGN
 
 	def_object_events
-
+IF DEF(_BLUE)
+	object_event  4, 3, SPRITE_YELLOW, STAY, DOWN, TEXT_ROUTE7_RIVAL_MALE
+	object_event  4, 3, SPRITE_PINK,   STAY, DOWN, TEXT_ROUTE7_RIVAL_FEMALE
+ELSE
+	object_event  4, 3, SPRITE_RED,    STAY, DOWN, TEXT_ROUTE7_RIVAL_MALE
+	object_event  4, 3, SPRITE_GREEN,  STAY, DOWN, TEXT_ROUTE7_RIVAL_FEMALE
+ENDC
 	def_warps_to ROUTE_7

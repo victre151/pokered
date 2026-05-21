@@ -15,9 +15,9 @@
 
 	; tm/hm learnset
 	tmhm STRENGTH, 	   MEGA_PUNCH,   MEGA_KICK,    HORN_DRILL,   THRASH,       \
-	     DOUBLE_EDGE,  ROAR,  	   HYPER_BEAM,   SEISMIC_TOSS, ROCK_THROW,     \
+	     DOUBLE_EDGE,  ROAR,  	     HYPER_BEAM,   SEISMIC_TOSS, ROCK_THROW,     \
 	     FISSURE,      DIG,          TOXIC,        REFLECT,      SLUDGE,       \
-	     SKULL_BASH,   GLARE,        POISON_GAS,   REST,         ROCK_SLIDE,   \
+	     SKULL_BASH,   GLARE,        LEECH_LIFE,   REST,         ROCK_SLIDE,   \
 		 SUBSTITUTE
 	; end
 

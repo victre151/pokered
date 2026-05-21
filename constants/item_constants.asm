@@ -201,7 +201,7 @@ DEF TM01 EQU const_value
 	add_tm AMNESIA    	 ; $F2
 	add_tm GLARE   	 	 ; $F3
 	add_tm DREAM_EATER   ; $F4
-	add_tm POISON_GAS    ; $F5
+	add_tm LEECH_LIFE    ; $F5
 	add_tm ACID_ARMOR    ; $F6
 	add_tm REST    		 ; $F7
 	add_tm ROCK_SLIDE    ; $F8

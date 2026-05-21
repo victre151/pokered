@@ -46,57 +46,228 @@ _Route22Rival1VictoryText::
 	cont "some more too!"
 	prompt
 
-_Route22RivalBeforeBattleText2::
-	text "<RIVAL>: What?"
-	line "<PLAYER>! What a"
-	cont "surprise to see"
-	cont "you here!"
-
-	para "So you're going to"
-	line "#MON LEAGUE?"
-
-	para "You collected all"
-	line "the BADGEs too?"
-	cont "That's cool!"
-
-	para "Then I'll whip you"
-	line "<PLAYER> as a"
-	cont "warm up for"
-	cont "#MON LEAGUE!"
-
-	para "Come on!"
+_Route22Rival2MaleBeforeBattleText::
+IF DEF(_BLUE)
+	text "YELLOW: <PLAYER>..."
+	line "The gate."
+	
+	para "Every BADGE on"
+	line "your jacket..."
+	
+	para "I have them too."
+	line "I still can't"
+	cont "believe it."
+	
+	para "Battling you got"
+	line "me this far."
+	
+	para "One more time"
+	line "before we walk"
+	cont "in there?"
+	cont "For real?"
 	done
-
-_Route22RivalAfterBattleText2::
-	text "That loosened me"
-	line "up! I'm ready for"
-	cont "#MON LEAGUE!"
-
-	para "<PLAYER>, you need"
-	line "more practice!"
-
-	para "But hey, you know"
-	line "that! I'm out of"
-	cont "here. Smell ya!"
+ELSE
+	text "RED: <PLAYER>!"
+	line "You made it!"
+	
+	para "Every BADGE."
+	line "I knew"
+	cont "you would!"
+	
+	para "The gate won't"
+	line "hold either"
+	cont "of us!"
+	
+	para "One fight,"
+	line "Show me you're"
+	cont "still sharp!"
 	done
+ENDC
 
-_Route22Rival2DefeatedText::
-	text "What!?"
+_Route22Rival2FemaleBeforeBattleText::
+IF DEF(_BLUE)
+	text "PINK: <PLAYER>!!"
+	line "LOOK!!"
+	
+	para "THE LEAGUE GATE!!"
+	line "We're REALLY"
+	cont "here!!"
+	
+	para "You have every"
+	line "BADGE too?!"
+	
+	para "THEN THIS IS IT!!"
+	line "Our last warm"
+	cont "up before the"
+	cont "REAL thing!!"
+	
+	para "COME ON!!"
+	done
+ELSE
+	text "GREEN: <PLAYER>."
+	line "The gate."
+	
+	para "All BADGEs."
+	line "No holes in the"
+	cont "route."
+	
+	para "What waits inside"
+	line "won't forgive"
+	cont "the same tells."
+	
+	para "Battle me."
+	line "Then go in with"
+	cont "a clear plan."
+	done
+ENDC
 
-	para "I was just"
-	line "careless!"
+_Route22Rival2MaleAfterBattleText::
+IF DEF(_BLUE)
+	text "YELLOW: Okay..."
+	line "I'm ready."
+	
+	para "I'll see you"
+	line "inside,"
+	cont "<PLAYER>!"
+	
+	para "Give them"
+	line "everything."
+	
+	para "I'll try to"
+	line "do the same..."
+	done
+ELSE
+	text "RED: Good fight!"
+	
+	para "I'm ready for"
+	line "the ELITE FOUR."
+	
+	para "You read the"
+	line "field well."
+	
+	para "Keep that up"
+	line "in there,"
+	cont "<PLAYER>!"
+	done
+ENDC
+
+_Route22Rival2FemaleAfterBattleText::
+IF DEF(_BLUE)
+	text "PINK: PHEW!!"
+	line "OKAY!!"
+	
+	para "NOW I'm ready"
+	line "for LEAGUE!!"
+	
+	para "You too,"
+	line "<PLAYER>!!"
+	
+	para "Let's BOTH"
+	line "win in there!!"
+	
+	para "BYEEE!!"
+	done
+ELSE
+	text "GREEN: Done."
+	
+	para "That was the"
+	line "last check."
+	
+	para "Heal if you must."
+	line "Sort your"
+	cont "openings."
+	
+	para "I'll be inside."
+	line "Don't stall."
+	done
+ENDC
+
+_Route22Rival2MaleDefeatedText::
+IF DEF(_BLUE) ;YELLOW
+	text "You really are"
+	line "ready for this!"
+	
+	para "Good luck"
+	line "in there!"
 	prompt
-
-_Route22Rival2VictoryText::
-	text "<RIVAL>: Hahaha!"
-	line "<PLAYER>! That's"
-	cont "your best? You're"
-	cont "nowhere near as"
-	cont "good as me, pal!"
-
-	para "Go train some"
-	line "more! You loser!"
+ELSE ;RED
+	text "Hmph."
+	
+	para "You read me"
+	line "like a book!"
+	
+	para "Go on."
+	line "You've earned"
+	cont "it."
 	prompt
+ENDC
+
+_Route22Rival2MaleVictoryText::
+IF DEF(_BLUE) ;YELLOW
+	text "I'm sorry..."
+	line "I didn't mean"
+	cont "to hold you up."
+	
+	para "Heal up."
+	line "You need to be"
+	cont "at your best..."
+	prompt
+ELSE ;RED
+	text "You did good!"
+	
+	para "But not good"
+	line "enough!"
+	
+	para "Train harder"
+	line "if you want to"
+	cont "hang in there!"
+	prompt
+ENDC
+
+_Route22Rival2FemaleDefeatedText::
+IF DEF(_BLUE) ;PINK
+	text "Aww, I lost!"
+	
+	para "But I'm still"
+	line "SO PUMPED!!"
+	
+	para "Go get 'em,"
+	line "<PLAYER>!!"
+	prompt
+ELSE ;GREEN
+	text "Tch."
+	
+	para "You were faster"
+	line "on reads."
+	
+	para "I'll adjust"
+	line "inside."
+	prompt
+ENDC
+
+_Route22Rival2FemaleVictoryText::
+IF DEF(_BLUE) ;PINK
+	text "YES!!"
+	line "OKAY!!"
+	
+	para "NOW go win"
+	line "in there!!"
+	
+	para "I'll catch up,"
+	line "<PLAYER>!!"
+	prompt
+ELSE ;GREEN
+	text "I called your"
+	line "plan too early."
+	
+	para "Change it up"
+	line "before they see"
+	cont "the same tells."
+	
+	para "Train."
+	line "Then try again."
+	prompt
+ENDC
 
 _Route22PokemonLeagueSignText::
 	text "#MON LEAGUE"

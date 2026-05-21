@@ -98,7 +98,232 @@ _Route10CooltrainerF2AfterBattleText::
 	cont "pink one with a"
 	cont "floral pattern!"
 	done
+	
+_Route10RivalMaleText::
+IF DEF(_BLUE)
+	text "YELLOW: Uh..."
+	line "<PLAYER>."
+	
+	para "I almost hid"
+	line "when I saw you."
+	
+	para "Battling still"
+	line "isn't my thing."
+	
+	para "Could we keep it"
+	line "short? I just"
+	cont "want to get it"
+	cont "over with..."
+	done
+ELSE
+	text "RED: There"
+	line "you are!"
+	
+	para "ROCK TUNNEL will"
+	line "eat you alive"
+	cont "if you're not"
+	cont "strong enough!"
+	
+	para "Show me that"
+	line "you got what"
+	cont "it takes!"
+	done
+ENDC
 
+_Route10RivalFemaleText::
+IF DEF(_BLUE)
+	text "PINK: <PLAYER>!"
+	line "Wait wait WAIT!"
+	
+	para "I was THIS close"
+	line "to running into"
+	cont "the # CENTER!"
+	
+	para "You owe me a"
+	line "quick battle"
+	cont "before you"
+	cont "disappear!"
+	done
+ELSE
+	text "GREEN: Not so"
+	line "fast!"
+	
+	para "Same face, new"
+	line "route!"
+	
+	para "Time to test" 
+	line "your strength!"
+	done
+ENDC
+
+_Route10RivalMaleDefeatedText::
+IF DEF(_BLUE) ;YELLOW
+	text "...Yeah."
+	line "That's enough"
+	cont "for me."
+	
+	para "I'm going to go"
+	line "the # CENTER"
+	cont "..."
+	prompt
+ELSE ;RED
+	text "Hmph."
+	
+	para "You read me"
+	line "like a book!"
+	
+	para "I'll train up"
+	line "before we cross"
+	cont "paths again!"
+	prompt
+ENDC
+
+_Route10RivalMaleVictoryText::
+IF DEF(_BLUE) ;YELLOW
+	text "I hate"
+	line "that I won"
+	cont "like that..."
+	
+	para "Go heal your"
+	line "#MON up." 
+	
+	para "Please!"
+	prompt
+ELSE ;RED
+	text "You did"
+	line "good!"
+	
+	para "But not"
+	line "good enough!"
+	
+	para "You got to train" 
+	line "harder if you"
+	cont "want to be"
+	cont "in my league!"
+	prompt
+ENDC
+
+_Route10RivalFemaleDefeatedText::
+IF DEF(_BLUE) ;PINK
+	text "Nooo, I"
+	line "lost!"
+	
+	para "But I still had"
+	line "a blast!"
+	
+	para "See ya!"
+	prompt
+ELSE ;GREEN
+	text "I'll"
+	line "remember how" 
+	line "you fought for"
+	cont "next time."
+	prompt
+ENDC
+
+_Route10RivalFemaleVictoryText::
+IF DEF(_BLUE) ;PINK
+	text "That was a rush!"
+	
+	para "Train up and come" 
+	line "back for"
+	cont "a rematch!"
+	prompt
+ELSE ;GREEN
+	text "Cute try."
+	line "Predictable"
+	cont "though."
+	
+	para "Come back sharper"
+	line "or don't bother."
+	prompt
+ENDC
+
+_Route10RivalMalePostBattleText::
+IF DEF(_BLUE)
+	text "YELLOW: I'm"
+	line "heading to" 
+	cont "LAVENDER TOWN!"
+	
+	para "I'm just going to"
+	line "hug the wall in"
+	cont "ROCK TUNNEL and"
+	cont "hope nothing"
+	cont "jumps out" 
+	cont "at me..."
+	done
+ELSE
+	text "RED: Time to head"
+	line "in, wish me luck!"
+	done
+ENDC
+
+_Route10RivalFemalePostBattleText::
+IF DEF(_BLUE)
+	text "PINK: # CENTER"
+	line "first, then I'm"
+	cont "taking on"
+	cont "that cave!"
+	
+	para "Root for me, I'll"
+	line "root for you!"
+	done
+ELSE
+	text "GREEN: Lavender's"
+	line "on my map next."
+	
+	para "I'll be curious"
+	line "how you handle"
+	cont "the path ahead."
+	done
+ENDC
+
+_Route10BlueText::
+	text "BLUE: Hey!" 
+	line "<PLAYER>!"
+	
+	para "I heard there was"
+	line "a legendary"
+	cont "#MON here,"
+	cont "but I couldn't"
+	cont "find it..."
+	
+	para "Guess I'll just"
+	line "challenge you"
+	cont "to a battle"
+	cont "instead!"
+	done
+	
+_Route10BlueDefeatedText::
+	text "BLUE: Tch!"
+	
+	para "Fine, you win."
+	
+	para "Your #MON hit"
+	line "harder than"
+	cont "I remembered!"
+	prompt
+
+_Route10BlueVictoryText::
+	text "BLUE: See that?"
+	line "That's the gap."
+	
+	para "You need to Train"
+	line "harder before"
+	cont "you challenge"
+	cont "the future"
+	cont "CHAMPION!"
+	prompt
+
+_Route10BluePostBattleText::
+	text "I heard that the GYM"
+	line "LEADER in VIRIDIAN"
+	cont "CITY is back, so I'm"
+	cont "headed there!"
+	
+	para "Smell ya!"
+	done
+	
 _Route10RockTunnelSignText::
 	text "ROCK TUNNEL"
 	done

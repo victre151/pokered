@@ -1826,43 +1826,52 @@ CoinCaseNumCoinsText:
 ItemUseOldRod:
 	call FishingInit
 	jp c, ItemUseNotTime
-	lb bc, 5, MAGIKARP
-	ld a, $1 ; set bite
-	jr RodResponse
+	ld hl, OldRodMons
+	jr ForceBite
 
 ItemUseGoodRod:
 	call FishingInit
 	jp c, ItemUseNotTime
-.RandomLoop
 	call Random
-	srl a
-	jr c, .SetBite
-	and %11
-	cp 2
-	jr nc, .RandomLoop
-	; choose which monster appears
+	cp 192
+	jr nc, NoBite
 	ld hl, GoodRodMons
-	add a
-	ld c, a
-	ld b, 0
-	add hl, bc
-	ld b, [hl]
-	inc hl
-	ld c, [hl]
-	and a
-.SetBite
-	ld a, 0
-	rla
-	xor 1
+	jr ForceBite
+	
+ForceBite:
+	call GenerateFishingEncounter
+	ld a, $1
 	jr RodResponse
 
-INCLUDE "data/wild/good_rod.asm"
-
+NoBite:
+	ld hl, FishingNoNibbleText
+	jp PrintText
+	
+GenerateFishingEncounter:
+	push hl
+.randomLoop
+	call Random
+	cp 10
+	jr nc, .randomLoop
+	ld b, a
+	pop hl
+	ld a, b
+	add a
+	ld e, a
+	ld d, 0
+	add hl, de
+	ld a, [hli]
+	ld b, a
+	ld a, [hl]
+	ld c, a
+	ret
+	
 ItemUseSuperRod:
 	call FishingInit
 	jp c, ItemUseNotTime
 	call ReadSuperRodData
-	ld a, e
+	ld a, e	
+	
 RodResponse:
 	ld [wRodResponse], a
 
@@ -1914,6 +1923,13 @@ FishingInit:
 .surfing
 	scf ; can't fish when surfing
 	ret
+
+FishingNoNibbleText:
+	text_far _NoNibbleText
+	text_end
+
+INCLUDE "data/wild/old_rod.asm"
+INCLUDE "data/wild/good_rod.asm"	
 
 ItemUseOaksParcel:
 	jp ItemUseNotYoursToUse

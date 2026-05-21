@@ -95,3 +95,15 @@ _SafariZoneGateSafariZoneWorker2YoureARegularHereText::
 	text "Sorry, you're a"
 	line "regular here!"
 	done
+
+_SafariZoneGateSafariZoneWorker1NeedMarshBadgeText::
+	text "Hey, sorry!"
+	line "We're closed"
+	cont "until further"
+	cont "notice."
+	
+	para "Word is,"
+	line "TEAM ROCKET"
+	cont "took over"
+	cont "SAFFRON CITY!"
+	done

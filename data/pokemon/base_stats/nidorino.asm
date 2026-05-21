@@ -10,13 +10,13 @@
 	INCBIN "gfx/pokemon/front/nidorino.pic", 0, 1 ; sprite dimensions
 	dw NidorinoPicFront, NidorinoPicBack
 
-	db DIG, FURY_ATTACK, ACID, HORN_ATTACK ; level 1 learnset
+	db DIG, FURY_ATTACK, SMOG, HORN_ATTACK ; level 1 learnset
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset
 	tmhm MEGA_KICK,    HORN_DRILL,   THRASH,       DOUBLE_EDGE,  ROAR,  	   \
 	     ROCK_THROW,   FISSURE,      DIG,          TOXIC,        REFLECT,      \
-	     SLUDGE,       SKULL_BASH,   GLARE,        POISON_GAS,   REST,         \
+	     SLUDGE,       SKULL_BASH,   GLARE,        LEECH_LIFE,   REST,         \
 	     ROCK_SLIDE,   SUBSTITUTE
 	; end
 

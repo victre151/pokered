@@ -126,6 +126,13 @@ _CeladonMartRoofCurrentFloorSignText::
 	line "VENDING MACHINES"
 	done
 
+_VendingMachineOutOfOrderText::
+	text "OUT OF ORDER!"
+	
+	para "Please check" 
+	line "back later."
+	done
+
 _VendingMachineText1::
 	text "A vending machine!"
 	line "Here's the menu!"

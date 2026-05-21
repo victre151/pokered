@@ -45,7 +45,7 @@ TechnicalMachinePrices:
 	nybble 5 ; TM42
 	nybble 5 ; TM43
 	nybble 5 ; TM44
-	nybble 2 ; TM45
+	nybble 3 ; TM45
 	nybble 5 ; TM46
 	nybble 4 ; TM47
 	nybble 4 ; TM48

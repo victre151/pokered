@@ -10,13 +10,13 @@
 	INCBIN "gfx/pokemon/front/venonat.pic", 0, 1 ; sprite dimensions
 	dw VenonatPicFront, VenonatPicBack
 
-	db SCRATCH, POISON_STING, STRING_SHOT, PSYWAVE ; level 1 learnset
+	db SCRATCH, POISON_GAS, STRING_SHOT, PSYWAVE ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
 	tmhm THRASH,       DOUBLE_EDGE,  DISABLE,      POISONPOWDER, STUN_SPORE,   \
 	     SLEEP_POWDER, TOXIC,        HYPNOSIS,     REFLECT,      SLUDGE,       \
-	     SKULL_BASH,   DREAM_EATER,  POISON_GAS,   REST,         SUBSTITUTE
+	     SKULL_BASH,   DREAM_EATER,  LEECH_LIFE,   REST,         SUBSTITUTE
 	; end
 
 	db BANK(VenonatPicFront)

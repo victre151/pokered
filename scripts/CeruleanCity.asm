@@ -241,7 +241,6 @@ CeruleanCity_TextPointers:
 	dw_const CeruleanCitySuperNerd2Text,    TEXT_CERULEANCITY_SUPER_NERD2
 	dw_const CeruleanCityGuardText,         TEXT_CERULEANCITY_GUARD1
 	dw_const CeruleanCityCooltrainerF1Text, TEXT_CERULEANCITY_COOLTRAINER_F1
-	dw_const CeruleanCitySlowbroText,       TEXT_CERULEANCITY_SLOWBRO
 	dw_const CeruleanCityCooltrainerF2Text, TEXT_CERULEANCITY_COOLTRAINER_F2
 	dw_const CeruleanCitySuperNerd3Text,    TEXT_CERULEANCITY_SUPER_NERD3
 	dw_const CeruleanCityGuardText,         TEXT_CERULEANCITY_GUARD2
@@ -360,79 +359,7 @@ CeruleanCityGuardText:
 	text_end
 
 CeruleanCityCooltrainerF1Text:
-	text_asm
-	ldh a, [hRandomAdd]
-	cp 180 ; 76/256 chance of 1st dialogue
-	jr c, .notFirstText
-	ld hl, .SlowbroUseSonicboomText
-	call PrintText
-	jr .end
-.notFirstText
-	cp 100 ; 80/256 chance of 2nd dialogue
-	jr c, .notSecondText
-	ld hl, .SlowbroPunchText
-	call PrintText
-	jr .end
-.notSecondText
-	; 100/256 chance of 3rd dialogue
-	ld hl, .SlowbroWithdrawText
-	call PrintText
-.end
-	jp TextScriptEnd
-
-.SlowbroUseSonicboomText:
-	text_far _CeruleanCityCooltrainerF1SlowbroUseSonicboomText
-	text_end
-
-.SlowbroPunchText:
-	text_far _CeruleanCityCooltrainerF1SlowbroPunchText
-	text_end
-
-.SlowbroWithdrawText:
-	text_far _CeruleanCityCooltrainerF1SlowbroWithdrawText
-	text_end
-
-CeruleanCitySlowbroText:
-	text_asm
-	ldh a, [hRandomAdd]
-	cp 180 ; 76/256 chance of 1st dialogue
-	jr c, .notFirstText
-	ld hl, .TookASnoozeText
-	call PrintText
-	jr .end
-.notFirstText
-	cp 120 ; 60/256 chance of 2nd dialogue
-	jr c, .notSecondText
-	ld hl, .IsLoafingAroundText
-	call PrintText
-	jr .end
-.notSecondText
-	cp 60 ; 60/256 chance of 3rd dialogue
-	jr c, .notThirdText
-	ld hl, .TurnedAwayText
-	call PrintText
-	jr .end
-.notThirdText
-	; 60/256 chance of 4th dialogue
-	ld hl, .IgnoredOrdersText
-	call PrintText
-.end
-	jp TextScriptEnd
-
-.TookASnoozeText:
-	text_far _CeruleanCitySlowbroTookASnoozeText
-	text_end
-
-.IsLoafingAroundText:
-	text_far _CeruleanCitySlowbroIsLoafingAroundText
-	text_end
-
-.TurnedAwayText:
-	text_far _CeruleanCitySlowbroTurnedAwayText
-	text_end
-
-.IgnoredOrdersText:
-	text_far _CeruleanCitySlowbroIgnoredOrdersText
+	text_far _CeruleanCityCooltrainerF1Text
 	text_end
 
 CeruleanCityCooltrainerF2Text:

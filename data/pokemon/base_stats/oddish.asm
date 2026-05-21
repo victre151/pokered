@@ -16,7 +16,7 @@
 	; tm/hm learnset
 	tmhm CUT,          THRASH,       DOUBLE_EDGE,  MEGA_DRAIN,   LEECH_SEED,   \
 	     SOLARBEAM,    POISONPOWDER, STUN_SPORE,   SLEEP_POWDER, PETAL_DANCE,  \
-	     TOXIC,        REFLECT,      SKULL_BASH,   POISON_GAS,   ACID_ARMOR,   \
+	     TOXIC,        REFLECT,      SKULL_BASH,   LEECH_LIFE,   ACID_ARMOR,   \
 		 REST,         SUBSTITUTE
 	; end
 

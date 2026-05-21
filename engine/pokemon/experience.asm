@@ -30,6 +30,20 @@ CalcLevelFromExperience::
 ; calculates the amount of experience needed for level d
 CalcExperience::
 	ld a, [wMonHGrowthRate]
+	cp GROWTH_MEDIUM_SLOW
+	jr nz, .apply_growth_formula
+	ld a, d
+	cp 2
+	jr nc, .apply_growth_formula
+; Medium Slow's polynomial is negative for levels below 2, which would wrap as
+; unsigned 24-bit total EXP and trigger the level 1→100 underflow glitch.	
+	xor a
+	ldh [hExperience], a
+	ldh [hExperience + 1], a
+	ldh [hExperience + 2], a
+	ret
+.apply_growth_formula
+	ld a, [wMonHGrowthRate]
 	add a
 	add a
 	ld c, a

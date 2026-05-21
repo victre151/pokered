@@ -10,7 +10,7 @@ _FuchsiaGoodRodHouseFishingGuruText::
 	line "fish?"
 	done
 
-_FuchsiaGoodRodHouseFishingGuruReceivedGoodRodText::
+_FuchsiaGoodRodHouseFishingGuruReceivedSuperRodText::
 	text "Grand! I like"
 	line "your style!"
 
@@ -23,6 +23,33 @@ _FuchsiaGoodRodHouseFishingGuruReceivedGoodRodText::
 	text "!@"
 	text_end
 
+_FuchsiaGoodRodHouseFishingGuruFishingWayOfLifeText::
+	text_start
+	
+	para "Fishing is a way"
+	line "of life!"
+	
+	para "From the seas to"
+	line "rivers, go out"
+	cont "and land the big"
+	cont "one!"
+	done
+	
+_FuchsiaGoodRodHouseFishingGuruNeedMarshBadgeText::
+	text "Oh, wait!"
+	
+	para "You don't have the"
+	line "MARSH BADGE!"
+	
+	para "Come back after"
+	line "you beat"
+	cont "SABRINA!"
+	
+	para "I'll give you the"
+	line "latest in fishing"
+	cont "rod technology!"
+	done
+	
 _FuchsiaGoodRodHouseFishingGuruThatsSoDisappointingText::
 	text "Oh... That's so"
 	line "disappointing..."
@@ -32,13 +59,20 @@ _FuchsiaGoodRodHouseFishingGuruHowAreTheFishText::
 	text "Hello there,"
 	line "<PLAYER>!"
 
-	para "How are the fish"
-	line "biting?"
+	para "Use the SUPER ROD"
+	line "in any water!"
+	cont "You can catch"
+	cont "different kinds"
+	cont "of #MON."
+	
+	para "Try fishing"
+	line "wherever you can!"
 	done
 
 _FuchsiaGoodRodHouseFishingGuruNoRoomText::
 	text "Oh no!"
 
-	para "You have no room"
-	line "for my gift!"
+	para "I had a gift for"
+	line "you, but you have"
+	cont "no room for it!"
 	done

@@ -189,12 +189,12 @@ _AfterTrade3Text::
 	done
 
 _NothingToCutText::
-	text "There isn't"
-	line "anything to CUT!"
+	text "You can't use"
+	line "that here!"
 	prompt
 
 _UsedCutText::
 	text_ram wNameBuffer
 	text " hacked"
-	line "away with CUT!"
+	line "it away!"
 	prompt

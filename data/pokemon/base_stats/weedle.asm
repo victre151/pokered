@@ -10,13 +10,13 @@
 	INCBIN "gfx/pokemon/front/weedle.pic", 0, 1 ; sprite dimensions
 	dw WeedlePicFront, WeedlePicBack
 
-	db TACKLE, SCRATCH, STRING_SHOT, POISON_STING ; level 1 learnset
+	db TACKLE, SCRATCH, STRING_SHOT, POISON_GAS ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
 	tmhm CUT, 		   SWORDS_DANCE, HORN_DRILL,   THRASH,  	 DOUBLE_EDGE,  \
 	     MEGA_DRAIN,   TOXIC,   	 REFLECT,  	   SLUDGE,  	 SKULL_BASH,   \
-	     POISON_GAS,   REST,   	     SUBSTITUTE
+	     LEECH_LIFE,   REST,   	     SUBSTITUTE
 	; end
 
 	db BANK(WeedlePicFront)

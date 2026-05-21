@@ -10,13 +10,13 @@
 	INCBIN "gfx/pokemon/front/nidoranm.pic", 0, 1 ; sprite dimensions
 	dw NidoranMPicFront, NidoranMPicBack
 
-	db PECK, DOUBLE_KICK, SAND_ATTACK, POISON_STING ; level 1 learnset
+	db PECK, DOUBLE_KICK, SAND_ATTACK, POISON_GAS ; level 1 learnset
 	db GROWTH_MEDIUM_SLOW ; growth rate
 
 	; tm/hm learnset
 	tmhm MEGA_KICK,    HORN_DRILL,   THRASH,       DOUBLE_EDGE,  ROAR,  	   \
 	     ROCK_THROW,   FISSURE,      DIG,          TOXIC,        REFLECT,      \
-	     SLUDGE,       SKULL_BASH,   GLARE,        POISON_GAS,   REST,         \
+	     SLUDGE,       SKULL_BASH,   GLARE,        LEECH_LIFE,   REST,         \
 	     ROCK_SLIDE,   SUBSTITUTE
 	; end
 
