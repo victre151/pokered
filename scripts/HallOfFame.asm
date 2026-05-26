@@ -89,11 +89,29 @@ HallOfFameOakCongratulationsScript:
 	call Delay3
 	xor a
 	ld [wJoyIgnore], a
-	inc a ; PLAYER_DIR_RIGHT
+	inc a
 	ld [wPlayerMovingDirection], a
 	CheckEvent EVENT_BEAT_LEAGUE_ROCKETS
 	jr nz, .postCoup
+	CheckEvent EVENT_OAKSLAB_POKEDEX_RIVAL_DONE
+	jr nz, .rematchHoF
 	ld a, TEXT_HALLOFFAME_OAK
+	ldh [hTextID], a
+	call DisplayTextID
+	ld a, PAD_BUTTONS | PAD_CTRL_PAD
+	ld [wJoyIgnore], a
+	
+	ld a, HS_CERULEAN_CAVE_GUY
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	
+	SetEvent EVENT_PLAYER_IS_CHAMPION
+	
+	ld a, SCRIPT_HALLOFFAME_RESET_EVENTS_AND_SAVE
+	ld [wHallOfFameCurScript], a
+	ret
+.rematchHoF
+	ld a, TEXT_HALLOFFAME_OAK_REMATCH
 	ldh [hTextID], a
 	call DisplayTextID
 	ld a, PAD_BUTTONS | PAD_CTRL_PAD
@@ -101,7 +119,6 @@ HallOfFameOakCongratulationsScript:
 	ld a, HS_CERULEAN_CAVE_GUY
 	ld [wMissableObjectIndex], a
 	predef HideObject
-	SetEvent EVENT_PLAYER_IS_CHAMPION
 	ld a, SCRIPT_HALLOFFAME_RESET_EVENTS_AND_SAVE
 	ld [wHallOfFameCurScript], a
 	ret
@@ -111,15 +128,40 @@ HallOfFameOakCongratulationsScript:
 	call DisplayTextID
 	ld a, PAD_BUTTONS | PAD_CTRL_PAD
 	ld [wJoyIgnore], a
+	
 	ld a, HS_ARTICUNO
 	ld [wMissableObjectIndex], a
 	predef ShowObject
+	
 	ld a, HS_ZAPDOS
 	ld [wMissableObjectIndex], a
 	predef ShowObject
+	
 	ld a, HS_MOLTRES
 	ld [wMissableObjectIndex], a
 	predef ShowObject
+	
+	ld a, HS_INDIGO_GUARD
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	
+	ld a, HS_OAKS_LAB_OAK_1
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	
+	ld a, [wPlayerGender]
+	and a
+	ld a, HS_OAKSLAB_POKEDEX_RIVAL_MALE
+	jr nz, .showLabPokedexRival
+	ld a, HS_OAKSLAB_POKEDEX_RIVAL_FEMALE
+.showLabPokedexRival
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	
+	ld a, HS_CERULEAN_CAVE_1F_RIVAL
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	
 	ld a, SCRIPT_HALLOFFAME_RESET_EVENTS_AND_SAVE
 	ld [wHallOfFameCurScript], a
 	ret
@@ -128,6 +170,7 @@ HallOfFame_TextPointers:
 	def_text_pointers
 	dw_const HallOfFameOakText, TEXT_HALLOFFAME_OAK
 	dw_const PostCoupOakText, TEXT_POSTCOUP_OAK
+	dw_const HallOfFameOakRematchText, TEXT_HALLOFFAME_OAK_REMATCH
 
 HallOfFameOakText:
 	text_far _HallOfFameOakText
@@ -135,4 +178,8 @@ HallOfFameOakText:
 
 PostCoupOakText:
 	text_far _PostCoupOakText
+	text_end
+
+HallOfFameOakRematchText:
+	text_far _HallOfFameOakRematchText
 	text_end

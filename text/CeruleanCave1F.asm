@@ -59,3 +59,47 @@ _CeruleanCaveRivalAfterBattleText::
 	line "down there,"
 	cont "<PLAYER>!"
 	done
+	
+_CeruleanCaveRivalRematchPreBattleText::
+	text "<RIVAL>: <PLAYER>!"
+	line "OAK is interim"
+	cont "LEADER at"
+	cont "VIRIDIAN now."
+	
+	para "They offered me"
+	line "the GYM full"
+	cont "time when I'm"
+	cont "ready!"
+	
+	para "So help me"
+	line "further my"
+	cont "training!"
+	done
+	
+_CeruleanCaveRivalRematchDefeatedText::
+	text "<RIVAL>: I"
+	line "still need more"
+	cont "training!"
+	prompt
+	
+_CeruleanCaveRivalRematchVictoryText::
+	text "<RIVAL>: Not bad!"
+	line "But I'm not"
+	cont "done yet!"
+	
+	para "Keep training,"
+	line "<PLAYER>!"
+	prompt
+	
+_CeruleanCaveRivalRematchAfterBattleText::
+	text "<RIVAL>: Thanks,"
+	line "That helped alot!"
+	
+	para "I still have"
+	line "a lot of work"
+	cont "ahead of me."
+	
+	para "Don't get"
+	line "complacent,"
+	cont "<PLAYER>!"
+	done

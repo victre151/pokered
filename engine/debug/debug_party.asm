@@ -111,7 +111,26 @@ IF DEF(_DEBUG)
 	call DebugSetPokedexEntries
 	ld hl, wPokedexSeen
 	call DebugSetPokedexEntries
+	SetEvent EVENT_OAK_APPEARED_IN_PALLET
 	SetEvent EVENT_GOT_POKEDEX
+	SetEvent EVENT_PLAYER_IS_CHAMPION
+	SetEvent EVENT_BEAT_LEAGUE_ROCKETS
+	
+	ld a, HS_OAKS_LAB_OAK_1
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	
+	ld a, HS_OAKS_LAB_RIVAL
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	
+	ld a, HS_OAKSLAB_POKEDEX_RIVAL_FEMALE
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	
+	ld a, HS_INDIGO_GUARD
+	ld [wMissableObjectIndex], a
+	predef ShowObject
 
 	; Rival chose Squirtle,
 	; Player chose Charmander.

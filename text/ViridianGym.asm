@@ -278,7 +278,7 @@ _ViridianGymRematchDefeatedText::
 	text "I'm"
 	line "still abit"
 	cont "rusty..."
-	done
+	prompt
 	
 _ViridianGymRematchPostBattleText::
 	text "You have come"
@@ -303,4 +303,49 @@ _ViridianGymRematchPostBattleText::
 	cont "must go see"
 	cont "what they are"
 	cont "up to!"
+	done
+	
+_ViridianGymOakSecondRematchPreBattleText::
+	text "OAK: Hey <PLAYER>!"
+	line "Already back to"
+	cont "training I see?"
+	
+	para "Ready for"
+	line "another match?"
+	done
+	
+_ViridianGymOakSecondRematchAcceptedText::
+	text "Good!"
+	
+	para "Show me what"
+	line "you've got!"
+	done
+
+_ViridianGymOakSecondRematchRefusedText::
+	text "Come back when"
+	line "you are ready."
+	done
+
+_ViridianGymOakSecondRematchDefeatedText::
+	text "Wow!"
+	
+	para "You are even"
+	line "stronger than"
+	cont "I thought!"
+	prompt
+
+_ViridianGymOakSecondRematchPostBattleText::
+	text "<RIVAL> still has"
+	line "not returned from"
+	cont "his training"
+	cont "in CERULEAN"
+	cont "CAVE!" 
+	
+	para "Say hi to him for"
+	line "me okay?"
+	
+	para "Come back and"
+	line "train with me"
+	cont "whenever"
+	cont "you want!"
 	done

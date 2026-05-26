@@ -76,3 +76,34 @@ _ProtonAfterBattleText::
 	cont "leave this"
 	cont "building!"
 	done
+	
+_AgathasRoomAgathaRematchBeforeBattleText::
+	text "<PLAYER>."
+	line "Back for more?"
+	
+	para "Age has not"
+	line "slowed me down,"
+	cont "child."
+	
+	para "My ghosts have"
+	line "not forgotten"
+	cont "your last win."
+	
+	para "Let us settle"
+	line "this again!"
+	done
+	
+_AgathasRoomAgathaRematchEndBattleText::
+	text "Enough,"
+	line "child!"
+	prompt
+	
+_AgathasRoomAgathaRematchAfterBattleText::
+	text "You beat my"
+	line "ghosts again!"
+	cont "Well done."
+	
+	para "LANCE is ahead."
+	line "Stop lingering"
+	cont "in my room!"
+	done

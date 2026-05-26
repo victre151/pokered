@@ -1,3 +1,6 @@
+object_const_def
+	const_export INDIGOPLATEAU_GUARD
+
 IndigoPlateau_Object:
 	db $e ; border block
 
@@ -8,5 +11,6 @@ IndigoPlateau_Object:
 	def_bg_events
 
 	def_object_events
-
+	object_event 10,  6, SPRITE_GUARD, STAY, LEFT, TEXT_INDIGOPLATEAU_GUARD
+	
 	def_warps_to INDIGO_PLATEAU

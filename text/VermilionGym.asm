@@ -50,7 +50,7 @@ _VermilionGymRematchDefeatedText::
 	line "Your power"
 	cont "level is off"
 	cont "the charts!"
-	done
+	prompt
 	
 _VermilionGymRematchPostBattleText::
 	text "You've got"
@@ -60,4 +60,43 @@ _VermilionGymRematchPostBattleText::
 	cont "Pewter City"
 	cont "training for"
 	cont "your rematch!"
+	done
+	
+_VermilionGymLTSurgeSecondRematchPreBattleText::
+	text "LT.SURGE: The"
+	line "LEAGUE is back"
+	cont "on the grid!"
+	
+	para "I rewired my"
+	line "whole squad for"
+	cont "our next round."
+	
+	para "You ready for"
+	line "another jolt,"
+	cont "soldier?"
+	done
+	
+_VermilionGymLTSurgeSecondRematchAcceptedText::
+	text "Ten-hut!"
+	line "Full voltage!"
+	done
+	
+_VermilionGymLTSurgeSecondRematchRefusedText::
+	text "Fall back and"
+	line "recharge, kid!"
+	done
+	
+_VermilionGymLTSurgeSecondRematchDefeatedText::
+	text "My"
+	line "whole grid just"
+	cont "blew a fuse..."
+	prompt
+	
+_VermilionGymLTSurgeSecondRematchPostBattleText::
+	text "Still got grit,"
+	line "kid!"
+	
+	para "Drop in when"
+	line "you want more"
+	cont "amps!"
 	done

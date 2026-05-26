@@ -180,8 +180,6 @@ INCLUDE "engine/battle/scroll_draw_trainer_pic.asm"
 INCLUDE "engine/battle/trainer_ai.asm"
 INCLUDE "engine/battle/draw_hud_pokeball_gfx.asm"
 INCLUDE "gfx/trade.asm"
-INCLUDE "data/pokemon/base_stats.asm"
-INCLUDE "data/pokemon/copy_base_stats.asm"
 INCLUDE "engine/pokemon/status_screen.asm"
 
 SECTION "Evo Moves", ROMX
@@ -360,3 +358,8 @@ INCLUDE "data/moves/animations.asm"
 INCLUDE "data/battle_anims/subanimations.asm"
 INCLUDE "data/battle_anims/frame_blocks.asm"
 INCLUDE "engine/overworld/elevator.asm"
+
+SECTION "Pokemon Base Stats", ROMX
+
+INCLUDE "data/pokemon/base_stats.asm"
+INCLUDE "data/pokemon/copy_base_stats.asm"

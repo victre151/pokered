@@ -12,10 +12,21 @@ CeruleanCave1F_ScriptPointers:
 	dw_const CeruleanCave1FRivalExitScript,         SCRIPT_CERULEANCAVE1F_RIVAL_EXIT
 
 CeruleanCave1FDefaultScript:
+	CheckEvent EVENT_BEAT_LEAGUE_ROCKETS
+	jr nz, .rematchTrigger
+
 	CheckEvent EVENT_BEAT_CERULEAN_CAVE_RIVAL
 	ret nz
 	CheckEvent EVENT_PLAYER_IS_CHAMPION
 	ret z
+	jr .startTrigger
+	
+.rematchTrigger
+	CheckEvent EVENT_BEAT_CERULEAN_CAVE_RIVAL_REMATCH
+	ret nz
+	jr .startTrigger	
+
+.startTrigger		
 	ld hl, .RivalBattleCoords
 	call ArePlayerCoordsInArray
 	ret nc
@@ -95,6 +106,9 @@ CeruleanCave1FRivalStartBattleScript:
 	xor a
 	ld [wJoyIgnore], a
 	
+	CheckEvent EVENT_BEAT_LEAGUE_ROCKETS
+	jr nz, .rematchBattle
+	
 	ld a, TEXT_CERULEANCAVE1F_RIVAL
 	ldh [hTextID], a
 	call DisplayTextID
@@ -112,7 +126,24 @@ CeruleanCave1FRivalStartBattleScript:
 	
 	ld hl, .CeruleanRivalStarterTable
 	call CeruleanCaveGetRivalTrainerNoByStarter
+	jr .finishBattle
 	
+.rematchBattle
+	ld a, TEXT_CERULEANCAVE1F_RIVAL_REMATCH
+	ldh [hTextID], a
+	call DisplayTextID
+	ld hl, wStatusFlags3
+	set BIT_TALKED_TO_TRAINER, [hl]
+	set BIT_PRINT_END_BATTLE_TEXT, [hl]
+	ld hl, CeruleanCaveRivalRematchDefeatedText
+	ld de, CeruleanCaveRivalRematchVictoryText
+	call SaveEndBattleTextPointers
+	ld a, OPP_RIVAL2
+	ld [wCurOpponent], a
+	ld hl, .CeruleanRivalRematchStarterTable
+	call CeruleanCaveGetRivalTrainerNoByStarter
+	
+.finishBattle	
 	ld a, SCRIPT_CERULEANCAVE1F_RIVAL_AFTER_BATTLE
 	ld [wCeruleanCave1FCurScript], a
 	ld [wCurMapScript], a
@@ -122,6 +153,12 @@ CeruleanCave1FRivalStartBattleScript:
 	db STARTER2, 16
 	db STARTER3, 17
 	db STARTER1, 18
+	db -1
+	
+.CeruleanRivalRematchStarterTable:
+	db STARTER2, 19
+	db STARTER3, 20
+	db STARTER1, 21
 	db -1
 
 CeruleanCaveGetRivalTrainerNoByStarter:
@@ -158,9 +195,19 @@ CeruleanCave1FRivalAfterBattleScript:
 	ldh [hSpriteFacingDirection], a
 	call SetSpriteFacingDirectionAndDelay
 	
-	SetEvent EVENT_BEAT_CERULEAN_CAVE_RIVAL
+CheckEvent EVENT_BEAT_LEAGUE_ROCKETS
+	jr nz, .rematchWin	
 	
+	SetEvent EVENT_BEAT_CERULEAN_CAVE_RIVAL
 	ld a, TEXT_CERULEANCAVE1F_RIVAL_AFTER
+	jr .showAfter	
+	
+.rematchWin
+	SetEvent EVENT_BEAT_CERULEAN_CAVE_RIVAL_REMATCH
+	ld a, TEXT_CERULEANCAVE1F_RIVAL_AFTER_REMATCH	
+	
+
+.showAfter	
 	ldh [hTextID], a
 	call DisplayTextID
 	
@@ -213,6 +260,8 @@ CeruleanCave1F_TextPointers:
 	dw_const PickUpItemText,        	   	   TEXT_CERULEANCAVE1F_MAX_ELIXER
 	dw_const PickUpItemText,        	   	   TEXT_CERULEANCAVE1F_NUGGET
 	dw_const CeruleanCaveRivalAfterBattleText, TEXT_CERULEANCAVE1F_RIVAL_AFTER
+	dw_const CeruleanCaveRivalRematchText,     TEXT_CERULEANCAVE1F_RIVAL_REMATCH
+	dw_const CeruleanCaveRivalRematchAfterBattleText, TEXT_CERULEANCAVE1F_RIVAL_AFTER_REMATCH
 
 CeruleanCaveRivalText:
 	text_far _CeruleanCaveRivalText
@@ -228,4 +277,20 @@ CeruleanCaveRivalDefeatedText:
 
 CeruleanCaveRivalVictoryText:
 	text_far _CeruleanCaveRivalVictoryText
+	text_end
+	
+CeruleanCaveRivalRematchText:
+	text_far _CeruleanCaveRivalRematchPreBattleText
+	text_end
+	
+CeruleanCaveRivalRematchAfterBattleText:
+	text_far _CeruleanCaveRivalRematchAfterBattleText
+	text_end
+	
+CeruleanCaveRivalRematchDefeatedText:
+	text_far _CeruleanCaveRivalRematchDefeatedText
+	text_end
+	
+CeruleanCaveRivalRematchVictoryText:
+	text_far _CeruleanCaveRivalRematchVictoryText
 	text_end

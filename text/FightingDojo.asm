@@ -149,10 +149,10 @@ _KarateMasterRematchRefusedText::
 	done
 
 _KarateMasterRematchDefeatedText::
-	text "The"
-	line "Student becomes"
+	text "The Student"
+	line "becomes"
 	cont "the Master!"
-	done
+	prompt
 
 _KarateMasterRematchPostBattleText::
 	text "Since you have"

@@ -1,8 +1,8 @@
 ======GUIDE======
 
-Route 1, 2, 22 (Wild Lv3, 2nd Rival Battle Lv7)
- 
-Viridian Forest (Wild Lv5, Trainers Lv9)
+Route 1, 22 (Wild Lv3, Rival2 Battle Lv7)
+
+2, Viridian Forest (Wild Lv5, Trainers/Alt Rival1 Lv9)
 
 Pewter Gym (Trainers Lv9, Brock Lv13)
 
@@ -10,19 +10,21 @@ Route 3, Mt. Moon, Route 4 (Wild Lv9, Trainers Lv13)
 
 Cerulean Gym (Trainers Lv13, Misty Lv17)
 
-Route 5, 6, 24, 25 (Wild Lv13, 3rd Rival Battle/Trainers 17)
+Route 5, 6, 24, 25 (Wild Lv13, Trainers/Rival3 Lv17)
 
-SS.Anne, Vermilion Gym (4th Rival Battle/Trainers Lv19, Surge Lv23)
+Talk to Fishing Guru (Vermillion City)
+
+SS.Anne, Vermillion Gym (Trainers/Rival4 Lv19, Surge Lv23)
 
 Route 11 (Wild Lv19, Trainers Lv23)
 
 Diglett's Cave (Wild Lv21)
 
-Route 9, 10, Rock Tunnel (Wild Lv21, Trainers Lv25)
+Route 9, 10, Rock Tunnel (Wild Lv21, Trainers/Alt Rival2 Lv25)
 
-Pokemon Tower (Wild Lv23, 5th Rival Battle/Trainers Lv27)
+Pokemon Tower (Wild Lv23, Trainers/Rival5 Lv27)
 
-Route 8, 7 (Wild Lv25, Trainers Lv29)
+Route 8, 7 (Wild Lv25, Trainers/Alt Rival3 Lv29)
 
 Celadon Gym (Trainers Lv29, Erika Lv33)
 
@@ -32,31 +34,36 @@ Pokemon Tower 7th Floor (Wild 31, Trainers Lv35)
 
 Talk to Mr.Psychic
 
-Fighting Dojo (Trainers Lv35 Karate Master Lv37)
+Talk to Fishing Guru (Route 12)
 
-Silph Co. (6th Rival Battle/Trainers Lv37, Giovanni Lv39)
+Route 12, 13, 14, 15 (Wild Lv33, Trainers/Alt Rival4 Lv37)
 
-Saffron Gym (Trainers Lv37, Sabrina Lv41)
+Talk to Fishing Guru (Fuchsia City)
 
-Talk to Copy Cat (Doesn't need Pokedoll anymore)
+Fuchsia Gym (Trainers Lv37, Koga Lv41)
 
-Route 16, 17, 18, Safari Zone (Wild 37, Trainers Lv41)
+Route 18, 17, 16 (Wild Lv37, Trainers Lv41)
 
-Fuchsia Gym (Trainers Lv41, Koga Lv45)
+Fighting Dojo (Trainers Lv41, Karate Master Lv43)
 
-Route 12, 13, 14, 15 (Wild Lv41, Trainers Lv45)
+Silph Co. (Trainers Lv41, Giovanni/Rival6 Lv43)
 
-Route 19, Seafoam Islands, 20, Pokemon Mansion, Cinnabar Gym (Wild Lv43, Trainers Lv47, Blaine Lv51)
+Saffron Gym (Trainers Lv43, Sabrina Lv47)
+
+Safari Zone (Wild Lv43)
+
+Route 19, Seafoam Islands, 20, Pokemon Mansion, Cinnabar Gym  
+(Wild Lv43, Trainers/Alt Rival5 Lv47, Blaine Lv51)
 
 Route 21 (Wild Lv17, Trainers Lv51)
 
-Power Plant (Wild Lv47)
+Power Plant (Rival7 Lv51 Wild Lv47)
 
 Viridian Gym (Trainers Lv51, Giovanni Lv55)
 
-Route 22 (Wild Lv3, 7th Rival Battle Lv55)
+Route 22 (Wild Lv3, Alt Rival6 Lv55)
 
-Route 23, Victory Road (Wild Lv51, Trainers Lv55)
+Route 23, Victory Road (Wild Lv51, Trainers/Rival8 Lv55)
 
 Lorelei (Lv57)
 
@@ -74,23 +81,23 @@ Cerulean Cave (Wild Lv57, 8th Rival Battle Lv59, Mewtwo/Mew Lv59)
 
 Talk to Mr.Fuji
 
-Fighting Dojo (Lv59)
+Fighting Dojo (Karate Master Lv59)
 
-Sabrina (Lv61)
+Saffron Gym (Sabrina Lv61)
 
-Erika (Lv63)
+Celadon Gym (Erika Lv63)
 
-Koga (Lv65)
+Fuchsia Gym (Koga Lv65)
 
-Blaine (Lv67)
+Cinnabar Gym (Blaine Lv67)
 	
-Misty (Lv69)
+Cerulean Gym (Misty Lv69)
 
-Surge (Lv71)
+Vermillion Gym (Surge Lv71)
 
-Brock (Lv73)
+Pewter Gym (Brock Lv73)
 
-??? (Lv75)
+Viridian Gym (??? Lv75)
 
 ??? (Lv77)
 
@@ -101,6 +108,38 @@ Brock (Lv73)
 ??? (Lv83)
 
 ??? (Lv85)
+
+======ENDGAME======
+
+Do a Pokedex check in with Oak
+
+Cerulean Cave (Wild Lv57, 9th Rival Battle Lv85)
+
+Viridian Gym (??? Lv85)
+
+Pewter Gym (Brock Lv85)
+
+Cerulean Gym (Misty Lv85)
+
+Vermillion Gym (Lt.Surge Lv85)
+
+Celadon Gym (Erika Lv85)
+
+Fuchsia Gym (Koga Lv85)
+
+Saffron Gym (Sabrina Lv85)
+
+Cinnabar Gym (Blaine Lv85)
+
+Lorelei (Lv90)
+
+Bruno (Lv90)
+
+Agatha (Lv90)
+
+Lance (Lv90)
+
+Champion (Lv95)
 
 ======TYPECHANGES======
 
@@ -212,7 +251,7 @@ TM43 GLARE (Route 24)
 
 TM44 DREAM_EATER (Sabrina)
 
-TM45 POISON_GAS (Power Plant)
+TM45 LEECH_LIFE (Power Plant)
 
 TM46 ACID_ARMOR (Department Store Gift)
 
@@ -225,6 +264,10 @@ TM49 TRI_ATTACK (Department Store Roof)
 TM50 SUBSTITUTE (Game Corner)
 
 ======MOVECHANGES======
+
+move KARATE_CHOP,  NO_ADDITIONAL_EFFECT,         30, FIGHTING,     100, 25
+
+move MEGA_PUNCH,   NO_ADDITIONAL_EFFECT,        120, FIGHTING,      85,  5
 
 move SWORDS_DANCE, ATTACK_UP2_EFFECT,             0, NORMAL,       100, 10
 	
@@ -312,7 +355,7 @@ move SOFTBOILED,   HEAL_EFFECT,                   0, NORMAL,       100,  5
 	
 move GLARE,        PARALYZE_EFFECT,               0, NORMAL,       100,  5
 	
-move POISON_GAS,   POISON_EFFECT,                 0, NORMAL,       100,  5
+move POISON_GAS,   POISON_SIDE_EFFECT1,          20, NORMAL,       100, 35
 	
 move LOVELY_KISS,  SLEEP_EFFECT,                  0, NORMAL,       100,  5
 	
@@ -355,6 +398,8 @@ move COMET_PUNCH,  ATTACK_TWICE_EFFECT,          20, FIGHTING,     100, 25
 move SCRATCH,      NO_ADDITIONAL_EFFECT,         20, NORMAL,       100, 35
 	
 move VINE_WHIP,    NO_ADDITIONAL_EFFECT,         20, GRASS,        100, 35
+
+move MEGA_KICK,    NO_ADDITIONAL_EFFECT,       120, FIGHTING,      85,  5
 	
 move SAND_ATTACK,  NO_ADDITIONAL_EFFECT,         20, GROUND,       100, 35
 	
@@ -386,7 +431,7 @@ move CLAMP,        TRAPPING_EFFECT,              35, WATER,         85, 10
 	
 move POUND,        NO_ADDITIONAL_EFFECT,         40, NORMAL,       100, 25
 	
-move KARATE_CHOP,  NO_ADDITIONAL_EFFECT,         40, FIGHTING,     100, 25
+move KARATE_CHOP,  NO_ADDITIONAL_EFFECT,         30, FIGHTING,     100, 25
 	
 move GUST,         NO_ADDITIONAL_EFFECT,         40, FLYING,       100, 25
 	
@@ -412,7 +457,7 @@ move QUICK_ATTACK, NO_ADDITIONAL_EFFECT,         40, NORMAL,       100, 25
 	
 move LICK,         PARALYZE_SIDE_EFFECT2,        40, GHOST,        100, 25
 	
-move SMOG,         POISON_SIDE_EFFECT1,          40, POISON,       100, 25
+move SMOG,         POISON_SIDE_EFFECT1,          60, POISON,       100, 15
 	
 move CONSTRICT,    SPEED_DOWN_SIDE_EFFECT,       40, NORMAL,       100, 35
 	
@@ -446,7 +491,7 @@ move HORN_ATTACK,  NO_ADDITIONAL_EFFECT,         60, NORMAL,       100, 25
 	
 move BITE,         FLINCH_SIDE_EFFECT1,          60, NORMAL,       100, 15
 	
-move ACID,         DEFENSE_DOWN_SIDE_EFFECT,     60, POISON,       100, 15
+move ACID,         DEFENSE_DOWN_SIDE_EFFECT,     80, POISON,       100, 10
 	
 move PSYBEAM,      CONFUSION_SIDE_EFFECT,        60, PSYCHIC_TYPE, 100, 15
 	
@@ -476,6 +521,8 @@ move FLAMETHROWER, BURN_SIDE_EFFECT1,            80, FIRE,         100, 10
 	
 move ICE_BEAM,     FREEZE_SIDE_EFFECT1,          80, ICE,          100, 10
 	
+move PECK,         NO_ADDITIONAL_EFFECT,         20, FLYING,       100, 35
+
 move DRILL_PECK,   NO_ADDITIONAL_EFFECT,         80, FLYING,       100, 10
 	
 move SUBMISSION,   NO_ADDITIONAL_EFFECT,         80, FIGHTING,     100, 10
@@ -494,7 +541,7 @@ move PSYCHIC_M,    SPECIAL_DOWN_SIDE_EFFECT,     80, PSYCHIC_TYPE, 100, 10
 	
 move NIGHT_SHADE,  NO_ADDITIONAL_EFFECT,         80, GHOST,        100, 10
 	
-move SLUDGE,       POISON_SIDE_EFFECT2,          80, POISON,       100, 10
+move SLUDGE,       POISON_SIDE_EFFECT2,        	120, POISON,        85,  5
 	
 move WATERFALL,    NO_ADDITIONAL_EFFECT,         80, WATER,        100, 10
 	
@@ -504,19 +551,15 @@ move HYPER_FANG,   FLINCH_SIDE_EFFECT1,          80, NORMAL,       100, 10
 	
 move TRI_ATTACK,   NO_ADDITIONAL_EFFECT,         80, NORMAL,       100, 10
 	
-move SLASH,        NO_ADDITIONAL_EFFECT,         80, NORMAL,       100, 10
+move SLASH,        NO_ADDITIONAL_EFFECT,         45, NORMAL,       100, 10
 	
 move FLY,          FLY_EFFECT,                   90, FLYING,       100, 15
 	
 move SURF,         NO_ADDITIONAL_EFFECT,         95, WATER,        100, 15
 	
 move TAKE_DOWN,    RECOIL_EFFECT,               100, NORMAL,       100, 10
-	
-move MEGA_PUNCH,   NO_ADDITIONAL_EFFECT,        120, FIGHTING,      85,  5
-	
+		
 move RAZOR_WIND,   NO_ADDITIONAL_EFFECT,        120, FLYING,        85,  5
-	
-move MEGA_KICK,    NO_ADDITIONAL_EFFECT,        120, FIGHTING,      85,  5
 	
 move THRASH,       THRASH_PETAL_DANCE_EFFECT,   120, NORMAL,        85,  5
 	
@@ -617,6 +660,8 @@ HYPNO PSYCHIC/GHOST
 KRABBY/KINGLER WATER/BUG
 
 VOLTORB/ELECTRODE ELECTRIC/GRASS
+
+EXEGGCUTE/EXEGGUTOR GRASS/GRASS
 
 MAROWAK GROUND/GHOST
 

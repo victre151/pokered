@@ -40,8 +40,6 @@ Music_Cities1AlternateTempo::
 	ld [wAudioFadeOutCounter], a
 	ld a, $ff ; stop playing music after the fade-out is finished
 	ld [wAudioFadeOutControl], a
-	ld c, 100
-	call DelayFrames ; wait for the fade-out to finish
 	ld c, BANK(Music_Cities1)
 	ld a, MUSIC_CITIES1
 	call PlayMusic

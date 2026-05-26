@@ -16,8 +16,11 @@ LoreleiShowOrHideExitBlock:
 	ret z
 	ld hl, wElite4Flags
 	set BIT_STARTED_ELITE_4, [hl]
+	CheckEvent EVENT_OAKSLAB_POKEDEX_RIVAL_DONE
+	jp nz, .Lorelei
 	CheckEvent EVENT_VICTORY_ROAD_ROCKETS_DONE
-	jr nz, .Silver
+	jp nz, .Silver
+.Lorelei
 	CheckEvent EVENT_BEAT_LORELEIS_ROOM_TRAINER_0
 	jr z, .blockExitToNextRoom
 	ld a, $5
@@ -33,19 +36,22 @@ LoreleiShowOrHideExitBlock:
 	jr z, .blockExitToNextRoom
 	ld a, $5
 	jr .setExitBlock
-	
+
 ResetLoreleiScript:
 	xor a ; SCRIPT_LORELEISROOM_DEFAULT
+	ld [wJoyIgnore], a
 	ld [wLoreleisRoomCurScript], a
+	ld [wCurMapScript], a
 	ret
 
 LoreleisRoom_ScriptPointers:
 	def_script_pointers
-	dw_const LoreleisRoomDefaultScript,             SCRIPT_LORELEISROOM_DEFAULT
-	dw_const DisplayEnemyTrainerTextAndStartBattle, SCRIPT_LORELEISROOM_LORELEI_START_BATTLE
-	dw_const LoreleisRoomLoreleiEndBattleScript,    SCRIPT_LORELEISROOM_LORELEI_END_BATTLE
-	dw_const LoreleisRoomPlayerIsMovingScript,      SCRIPT_LORELEISROOM_PLAYER_IS_MOVING
-	dw_const LoreleisRoomNoopScript,                SCRIPT_LORELEISROOM_NOOP
+	dw_const LoreleisRoomDefaultScript,                  SCRIPT_LORELEISROOM_DEFAULT
+	dw_const DisplayEnemyTrainerTextAndStartBattle,      SCRIPT_LORELEISROOM_LORELEI_START_BATTLE
+	dw_const LoreleisRoomLoreleiEndBattleScript,         SCRIPT_LORELEISROOM_LORELEI_END_BATTLE
+	dw_const LoreleisRoomLoreleiRematchEndBattleScript,  SCRIPT_LORELEISROOM_LORELEI_REMATCH_END_BATTLE
+	dw_const LoreleisRoomPlayerIsMovingScript,           SCRIPT_LORELEISROOM_PLAYER_IS_MOVING
+	dw_const LoreleisRoomNoopScript,                     SCRIPT_LORELEISROOM_NOOP
 
 LoreleisRoomNoopScript:
 	ret
@@ -119,21 +125,42 @@ LoreleisRoomLoreleiEndBattleScript:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, ResetLoreleiScript
+	CheckEvent EVENT_OAKSLAB_POKEDEX_RIVAL_DONE
+	jp nz, .Lorelei
 	CheckEvent EVENT_VICTORY_ROAD_ROCKETS_DONE
-	jr nz, .Rematch
+	jp nz, .Silver
+.Lorelei
 	ld a, TEXT_LORELEISROOM_LORELEI
+	jr .continue
+.Silver
+	ld a, TEXT_LORELEISROOM_SILVER
 .continue
 	ldh [hTextID], a
 	jp DisplayTextID
-.Rematch
-	ld a, TEXT_LORELEISROOM_SILVER
-	jr .continue
+
+LoreleisRoomLoreleiRematchEndBattleScript:
+	call EndTrainerBattle
+	ld hl, wStatusFlags3
+	res BIT_PRINT_END_BATTLE_TEXT, [hl]
+	ld hl, wMiscFlags
+	res BIT_SEEN_BY_TRAINER, [hl]
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, ResetLoreleiScript
+	ld a, PAD_CTRL_PAD
+	ld [wJoyIgnore], a
+	ld a, TEXT_LORELEISROOM_LORELEI_REMATCH_AFTER_BATTLE
+	ldh [hTextID], a
+	call DisplayTextID
+	SetEvent EVENT_BEAT_LORELEIS_ROOM_TRAINER_0
+	jp ResetLoreleiScript
 
 LoreleisRoom_TextPointers:
 	def_text_pointers
-	dw_const LoreleisRoomLoreleiText,            TEXT_LORELEISROOM_LORELEI
-	dw_const LoreleisRoomSilverText,			 TEXT_LORELEISROOM_SILVER
-	dw_const LoreleisRoomLoreleiDontRunAwayText, TEXT_LORELEISROOM_DONT_RUN_AWAY
+	dw_const LoreleisRoomLoreleiText,             TEXT_LORELEISROOM_LORELEI
+	dw_const LoreleisRoomSilverText,              TEXT_LORELEISROOM_SILVER
+	dw_const LoreleisRoomLoreleiDontRunAwayText,  TEXT_LORELEISROOM_DONT_RUN_AWAY
+	dw_const LoreleisRoomLoreleiRematchAfterBattleText, TEXT_LORELEISROOM_LORELEI_REMATCH_AFTER_BATTLE
 	
 LoreleisRoomTrainerHeaders:
 	def_trainers
@@ -145,9 +172,62 @@ LoreleisRoomTrainerHeader1:
 
 LoreleisRoomLoreleiText:
 	text_asm
+	CheckEvent EVENT_OAKSLAB_POKEDEX_RIVAL_DONE
+	jr z, .vanilla
+	CheckEvent EVENT_BEAT_LORELEIS_ROOM_TRAINER_0
+	jr z, .rematch
+	ld hl, LoreleisRoomLoreleiRematchAfterBattleText
+	call PrintText
+	jp TextScriptEnd
+.rematch
+	ld hl, LoreleisRoomLoreleiRematchBeforeBattleText
+	call PrintText
+	ld hl, wStatusFlags3
+	set BIT_TALKED_TO_TRAINER, [hl]
+	set BIT_PRINT_END_BATTLE_TEXT, [hl]
+	ld hl, LoreleisRoomLoreleiRematchEndBattleText
+	ld de, LoreleisRoomLoreleiRematchEndBattleText
+	call SaveEndBattleTextPointers
+	ld hl, LoreleisRoomTrainerHeader0
+	call StoreTrainerHeaderPointer
+	xor a
+	call ReadTrainerHeaderInfo
+	ldh a, [hSpriteIndex]
+	ld [wSpriteIndex], a
+	call EngageMapTrainer
+	ld a, 2
+	ld [wEngagedTrainerSet], a
+	call InitBattleEnemyParameters
+	ld a, 1
+	ld [wGymLeaderNo], a
+	ld hl, wStatusFlags4
+	set BIT_UNKNOWN_4_1, [hl]
+	xor a
+	ldh [hJoyHeld], a
+	ldh [hJoyPressed], a
+	ldh [hJoyReleased], a
+	ld a, SCRIPT_LORELEISROOM_LORELEI_REMATCH_END_BATTLE
+	ld [wLoreleisRoomCurScript], a
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+.vanilla
+	ld a, 1
+	ld [wGymLeaderNo], a
 	ld hl, LoreleisRoomTrainerHeader0
 	call TalkToTrainer
 	jp TextScriptEnd
+	
+LoreleisRoomLoreleiRematchBeforeBattleText:
+	text_far _LoreleisRoomLoreleiRematchBeforeBattleText
+	text_end
+	
+LoreleisRoomLoreleiRematchEndBattleText:
+	text_far _LoreleisRoomLoreleiRematchEndBattleText
+	text_end
+	
+LoreleisRoomLoreleiRematchAfterBattleText:
+	text_far _LoreleisRoomLoreleiRematchAfterBattleText
+	text_end
 
 LoreleisRoomLoreleiBeforeBattleText:
 	text_far _LoreleisRoomLoreleiBeforeBattleText
@@ -164,7 +244,7 @@ LoreleisRoomLoreleiAfterBattleText:
 LoreleisRoomLoreleiDontRunAwayText:
 	text_far _LoreleisRoomLoreleiDontRunAwayText
 	text_end
-	
+
 LoreleisRoomSilverText:
 	text_asm
 	ld hl, LoreleisRoomTrainerHeader1

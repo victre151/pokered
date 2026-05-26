@@ -11,7 +11,7 @@ _CableClubNPCMakingPreparationsText::
 _UsedStrengthText::
 	text_ram wNameBuffer
 	text " pushed"
-	line "hard!"
+	line "hard!@"
 	text_end
 
 _CanMoveBouldersText::

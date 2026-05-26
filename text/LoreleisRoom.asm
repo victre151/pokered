@@ -72,3 +72,48 @@ _LoreleisRoomSilverAfterBattleText::
 	para "Go on. Face"
 	line "your end!"
 	done
+	
+_LoreleisRoomLoreleiRematchBeforeBattleText::
+	text "So, the"
+	line "CHAMPION"
+	cont "returns!"
+	
+	para "You saved the"
+	line "region from"
+	cont "TEAM ROCKET!"
+	
+	para "While we were"
+	line "closed, I used"
+	cont "that time to"
+	cont "train harder!"
+	
+	para "I will not let"
+	line "the LEAGUE fall"
+	cont "so easily"
+	cont "again!"
+	
+	para "Do you think"
+	line "you can defeat"
+	cont "my strongest"
+	cont "ice #MON?"
+	done
+	
+_LoreleisRoomLoreleiRematchEndBattleText::
+	text "You"
+	line "melted my"
+	cont "best team!"
+	prompt
+	
+_LoreleisRoomLoreleiRematchAfterBattleText::
+	text "I accept"
+	line "defeat."
+	
+	para "The path to"
+	line "BRUNO is open."
+	cont "He hits harder"
+	cont "than ice!"
+	
+	para "Do not"
+	line "underestimate"
+	cont "the ELITE FOUR!"
+	done

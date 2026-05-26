@@ -89,9 +89,9 @@ SuperRodData:
 .Group9:
 	db 4
 	db 57, SLOWBRO
-	db 57, SEAKING
 	db 57, KINGLER
 	db 57, SEADRA
+	db 57, LAPRAS
 
 .Group10:
 	db 4

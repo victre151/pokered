@@ -14,12 +14,15 @@ BrunoShowOrHideExitBlock:
 	bit BIT_CUR_MAP_LOADED_1, [hl]
 	res BIT_CUR_MAP_LOADED_1, [hl]
 	ret z
+	CheckEvent EVENT_OAKSLAB_POKEDEX_RIVAL_DONE
+	jp nz, .Bruno
 	CheckEvent EVENT_VICTORY_ROAD_ROCKETS_DONE
 	jr nz, .Petrel
+.Bruno
 	CheckEvent EVENT_BEAT_BRUNOS_ROOM_TRAINER_0
 	jr z, .blockExitToNextRoom
 	ld a, $5
-	jp .setExitBlock
+	jr .setExitBlock
 .blockExitToNextRoom
 	ld a, $24
 .setExitBlock
@@ -34,7 +37,9 @@ BrunoShowOrHideExitBlock:
 
 ResetBrunoScript:
 	xor a ; SCRIPT_BRUNOSROOM_DEFAULT
+	ld [wJoyIgnore], a
 	ld [wBrunosRoomCurScript], a
+	ld [wCurMapScript], a
 	ret
 
 BrunosRoom_ScriptPointers:
@@ -42,6 +47,7 @@ BrunosRoom_ScriptPointers:
 	dw_const BrunosRoomDefaultScript,               SCRIPT_BRUNOSROOM_DEFAULT
 	dw_const DisplayEnemyTrainerTextAndStartBattle, SCRIPT_BRUNOSROOM_BRUNO_START_BATTLE
 	dw_const BrunosRoomBrunoEndBattleScript,        SCRIPT_BRUNOSROOM_BRUNO_END_BATTLE
+	dw_const BrunosRoomBrunoRematchEndBattleScript, SCRIPT_BRUNOSROOM_BRUNO_REMATCH_END_BATTLE
 	dw_const BrunosRoomPlayerIsMovingScript,        SCRIPT_BRUNOSROOM_PLAYER_IS_MOVING
 	dw_const BrunosRoomNoopScript,                  SCRIPT_BRUNOSROOM_NOOP
 
@@ -106,7 +112,7 @@ BrunosRoomPlayerIsMovingScript:
 	and a
 	ret nz
 	call Delay3
-	xor a ; SCRIPT_BRUNOSROOM_DEFAULT
+	xor a
 	ld [wJoyIgnore], a
 	ld [wBrunosRoomCurScript], a
 	ld [wCurMapScript], a
@@ -117,35 +123,109 @@ BrunosRoomBrunoEndBattleScript:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, ResetBrunoScript
+	CheckEvent EVENT_OAKSLAB_POKEDEX_RIVAL_DONE
+	jp nz, .Bruno
 	CheckEvent EVENT_VICTORY_ROAD_ROCKETS_DONE
 	jr nz, .Petrel
+.Bruno
 	ld a, TEXT_BRUNOSROOM_BRUNO
+	jr .continue
+.Petrel
+	ld a, TEXT_BRUNOSROOM_PETREL
 .continue
 	ldh [hTextID], a
 	jp DisplayTextID
-.Petrel
-	ld a, TEXT_BRUNOSROOM_PETREL
-	jr .continue
+
+BrunosRoomBrunoRematchEndBattleScript:
+	call EndTrainerBattle
+	ld hl, wStatusFlags3
+	res BIT_PRINT_END_BATTLE_TEXT, [hl]
+	ld hl, wMiscFlags
+	res BIT_SEEN_BY_TRAINER, [hl]
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, ResetBrunoScript
+	ld a, PAD_CTRL_PAD
+	ld [wJoyIgnore], a
+	ld a, TEXT_BRUNOSROOM_BRUNO_REMATCH_AFTER_BATTLE
+	ldh [hTextID], a
+	call DisplayTextID
+	SetEvent EVENT_BEAT_BRUNOS_ROOM_TRAINER_0
+	jp ResetBrunoScript
 
 BrunosRoom_TextPointers:
 	def_text_pointers
-	dw_const BrunosRoomBrunoText,            TEXT_BRUNOSROOM_BRUNO
-	dw_const BrunosRoomPetrelText,			 TEXT_BRUNOSROOM_PETREL
-	dw_const BrunosRoomBrunoDontRunAwayText, TEXT_BRUNOSROOM_BRUNO_DONT_RUN_AWAY
+	dw_const BrunosRoomBrunoText,                   TEXT_BRUNOSROOM_BRUNO
+	dw_const BrunosRoomPetrelText,                  TEXT_BRUNOSROOM_PETREL
+	dw_const BrunosRoomBrunoDontRunAwayText,        TEXT_BRUNOSROOM_BRUNO_DONT_RUN_AWAY
+	dw_const BrunosRoomBrunoRematchAfterBattleText,  TEXT_BRUNOSROOM_BRUNO_REMATCH_AFTER_BATTLE
 
 BrunosRoomTrainerHeaders:
 	def_trainers
 BrunosRoomTrainerHeader0:
 	trainer EVENT_BEAT_BRUNOS_ROOM_TRAINER_0, 0, BrunoBeforeBattleText, BrunoEndBattleText, BrunoAfterBattleText
-BrunosRoomTrainerHeader1:	
+BrunosRoomTrainerHeader1:
 	trainer EVENT_BEAT_BRUNOS_ROOM_TRAINER_1, 0, PetrelBeforeBattleText, PetrelEndBattleText, PetrelAfterBattleText
 	db -1 ; end
 
 BrunosRoomBrunoText:
 	text_asm
+	CheckEvent EVENT_OAKSLAB_POKEDEX_RIVAL_DONE
+	jr z, .vanilla
+	CheckEvent EVENT_BEAT_BRUNOS_ROOM_TRAINER_0
+	jr z, .rematch
+	ld hl, BrunosRoomBrunoRematchAfterBattleText
+	call PrintText
+	jp TextScriptEnd
+.rematch
+	ld hl, BrunosRoomBrunoRematchBeforeBattleText
+	call PrintText
+	ld hl, wStatusFlags3
+	set BIT_TALKED_TO_TRAINER, [hl]
+	set BIT_PRINT_END_BATTLE_TEXT, [hl]
+	ld hl, BrunosRoomBrunoRematchEndBattleText
+	ld de, BrunosRoomBrunoRematchEndBattleText
+	call SaveEndBattleTextPointers
+	ld hl, BrunosRoomTrainerHeader0
+	call StoreTrainerHeaderPointer
+	xor a
+	call ReadTrainerHeaderInfo
+	ldh a, [hSpriteIndex]
+	ld [wSpriteIndex], a
+	call EngageMapTrainer
+	ld a, 2
+	ld [wEngagedTrainerSet], a
+	call InitBattleEnemyParameters
+	ld a, 1
+	ld [wGymLeaderNo], a
+	ld hl, wStatusFlags4
+	set BIT_UNKNOWN_4_1, [hl]
+	xor a
+	ldh [hJoyHeld], a
+	ldh [hJoyPressed], a
+	ldh [hJoyReleased], a
+	ld a, SCRIPT_BRUNOSROOM_BRUNO_REMATCH_END_BATTLE
+	ld [wBrunosRoomCurScript], a
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+.vanilla
+	ld a, 1
+	ld [wGymLeaderNo], a
 	ld hl, BrunosRoomTrainerHeader0
 	call TalkToTrainer
 	jp TextScriptEnd
+
+BrunosRoomBrunoRematchBeforeBattleText:
+	text_far _BrunosRoomBrunoRematchBeforeBattleText
+	text_end
+
+BrunosRoomBrunoRematchEndBattleText:
+	text_far _BrunosRoomBrunoRematchEndBattleText
+	text_end
+
+BrunosRoomBrunoRematchAfterBattleText:
+	text_far _BrunosRoomBrunoRematchAfterBattleText
+	text_end
 
 BrunoBeforeBattleText:
 	text_far _BrunoBeforeBattleText

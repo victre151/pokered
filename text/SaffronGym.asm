@@ -265,7 +265,7 @@ _SaffronGymRematchDefeatedText::
 	line "outcome... I"
 	cont "did not"
 	cont "expect this!"
-	done
+	prompt
 
 _SaffronGymRematchPostBattleText::
 	text "I have foreseen"
@@ -276,4 +276,49 @@ _SaffronGymRematchPostBattleText::
 	para "She is waiting"
 	line "for you in"
 	cont "CELADON CITY!"
+	done
+	
+_SaffronGymSabrinaSecondRematchPreBattleText::
+	text "SABRINA: The"
+	line "future shifted"
+	cont "when INDIGO fell."
+	
+	para "My visions grew"
+	line "clearer after"
+	cont "the LEAGUE"
+	cont "returned."
+	
+	para "I trained a new"
+	line "lineup for you."
+	
+	para "Do you wish to"
+	line "test my powers"
+	cont "again?"
+	done
+	
+_SaffronGymSabrinaSecondRematchAcceptedText::
+	text "Then I shall"
+	line "show you!"
+	done
+	
+_SaffronGymSabrinaSecondRematchRefusedText::
+	text "I already knew"
+	line "you would wait."
+	done
+	
+_SaffronGymSabrinaSecondRematchDefeatedText::
+	text "Your"
+	line "power is beyond"
+	cont "what I can"
+	cont "predict!"
+	prompt
+	
+_SaffronGymSabrinaSecondRematchPostBattleText::
+	text "Your strength"
+	line "outpaces my"
+	cont "sight now."
+	
+	para "Return when you"
+	line "seek another"
+	cont "vision."
 	done

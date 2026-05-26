@@ -14,12 +14,15 @@ AgathaShowOrHideExitBlock:
 	bit BIT_CUR_MAP_LOADED_1, [hl]
 	res BIT_CUR_MAP_LOADED_1, [hl]
 	ret z
+	CheckEvent EVENT_OAKSLAB_POKEDEX_RIVAL_DONE
+	jp nz, .Agatha
 	CheckEvent EVENT_VICTORY_ROAD_ROCKETS_DONE
 	jr nz, .Proton
+.Agatha
 	CheckEvent EVENT_BEAT_AGATHAS_ROOM_TRAINER_0
 	jr z, .blockExitToNextRoom
 	ld a, $e
-	jp .setExitBlock
+	jr .setExitBlock
 .blockExitToNextRoom
 	ld a, $3b
 .setExitBlock
@@ -34,16 +37,19 @@ AgathaShowOrHideExitBlock:
 
 ResetAgathaScript:
 	xor a ; SCRIPT_AGATHASROOM_DEFAULT
+	ld [wJoyIgnore], a
 	ld [wAgathasRoomCurScript], a
+	ld [wCurMapScript], a
 	ret
 
 AgathasRoom_ScriptPointers:
 	def_script_pointers
-	dw_const AgathasRoomDefaultScript,              SCRIPT_AGATHASROOM_DEFAULT
+	dw_const AgathasRoomDefaultScript,               SCRIPT_AGATHASROOM_DEFAULT
 	dw_const DisplayEnemyTrainerTextAndStartBattle, SCRIPT_AGATHASROOM_AGATHA_START_BATTLE
-	dw_const AgathasRoomAgathaEndBattleScript,      SCRIPT_AGATHASROOM_AGATHA_END_BATTLE
-	dw_const AgathasRoomPlayerIsMovingScript,       SCRIPT_AGATHASROOM_PLAYER_IS_MOVING
-	dw_const AgathasRoomNoopScript,                 SCRIPT_AGATHASROOM_NOOP
+	dw_const AgathasRoomAgathaEndBattleScript,       SCRIPT_AGATHASROOM_AGATHA_END_BATTLE
+	dw_const AgathasRoomAgathaRematchEndBattleScript, SCRIPT_AGATHASROOM_AGATHA_REMATCH_END_BATTLE
+	dw_const AgathasRoomPlayerIsMovingScript,        SCRIPT_AGATHASROOM_PLAYER_IS_MOVING
+	dw_const AgathasRoomNoopScript,                  SCRIPT_AGATHASROOM_NOOP
 
 AgathasRoomNoopScript:
 	ret
@@ -117,38 +123,122 @@ AgathasRoomAgathaEndBattleScript:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, ResetAgathaScript
+	CheckEvent EVENT_OAKSLAB_POKEDEX_RIVAL_DONE
+	jp nz, .RematchDisplay
 	CheckEvent EVENT_VICTORY_ROAD_ROCKETS_DONE
 	jr nz, .Proton
+.Agatha
 	ld a, TEXT_AGATHASROOM_AGATHA
+	jr .continue
+.Proton
+	ld a, TEXT_AGATHASROOM_PROTON
 .continue
 	ldh [hTextID], a
 	call DisplayTextID
 	ld a, SCRIPT_CHAMPIONSROOM_PLAYER_ENTERS
 	ld [wChampionsRoomCurScript], a
 	ret
-.Proton
-	ld a, TEXT_AGATHASROOM_PROTON
-	jr .continue
+
+.RematchDisplay
+	ld a, TEXT_AGATHASROOM_AGATHA
+	ldh [hTextID], a
+	call DisplayTextID
+	ld a, SCRIPT_CHAMPIONSROOM_PLAYER_ENTERS
+	ld [wChampionsRoomCurScript], a
+	jp ResetAgathaScript
+
+AgathasRoomAgathaRematchEndBattleScript:
+	call EndTrainerBattle
+	ld hl, wStatusFlags3
+	res BIT_PRINT_END_BATTLE_TEXT, [hl]
+	ld hl, wMiscFlags
+	res BIT_SEEN_BY_TRAINER, [hl]
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, ResetAgathaScript
+	ld a, PAD_CTRL_PAD
+	ld [wJoyIgnore], a
+	ld a, TEXT_AGATHASROOM_AGATHA_REMATCH_AFTER_BATTLE
+	ldh [hTextID], a
+	call DisplayTextID
+	ld a, SCRIPT_CHAMPIONSROOM_PLAYER_ENTERS
+	ld [wChampionsRoomCurScript], a
+	SetEvent EVENT_BEAT_AGATHAS_ROOM_TRAINER_0
+	jp ResetAgathaScript
 
 AgathasRoom_TextPointers:
 	def_text_pointers
-	dw_const AgathasRoomAgathaText,            TEXT_AGATHASROOM_AGATHA
-	dw_const AgathasRoomProtonText,			   TEXT_AGATHASROOM_PROTON
-	dw_const AgathasRoomAgathaDontRunAwayText, TEXT_AGATHASROOM_AGATHA_DONT_RUN_AWAY
+	dw_const AgathasRoomAgathaText,                   TEXT_AGATHASROOM_AGATHA
+	dw_const AgathasRoomProtonText,                   TEXT_AGATHASROOM_PROTON
+	dw_const AgathasRoomAgathaDontRunAwayText,        TEXT_AGATHASROOM_AGATHA_DONT_RUN_AWAY
+	dw_const AgathasRoomAgathaRematchAfterBattleText, TEXT_AGATHASROOM_AGATHA_REMATCH_AFTER_BATTLE
 
 AgathasRoomTrainerHeaders:
 	def_trainers
 AgathasRoomTrainerHeader0:
 	trainer EVENT_BEAT_AGATHAS_ROOM_TRAINER_0, 0, AgathaBeforeBattleText, AgathaEndBattleText, AgathaAfterBattleText
 AgathasRoomTrainerHeader1:
-	trainer EVENT_BEAT_AGATHAS_ROOM_TRAINER_1, 0, ProtonBeforeBattleText, ProtonEndBattleText, ProtonAfterBattleText	
+	trainer EVENT_BEAT_AGATHAS_ROOM_TRAINER_1, 0, ProtonBeforeBattleText, ProtonEndBattleText, ProtonAfterBattleText
 	db -1 ; end
 
 AgathasRoomAgathaText:
 	text_asm
+	CheckEvent EVENT_OAKSLAB_POKEDEX_RIVAL_DONE
+	jr z, .vanilla
+	CheckEvent EVENT_BEAT_AGATHAS_ROOM_TRAINER_0
+	jr z, .rematch
+	ld hl, AgathasRoomAgathaRematchAfterBattleText
+	call PrintText
+	jp TextScriptEnd
+.rematch
+	ld hl, AgathasRoomAgathaRematchBeforeBattleText
+	call PrintText
+	ld hl, wStatusFlags3
+	set BIT_TALKED_TO_TRAINER, [hl]
+	set BIT_PRINT_END_BATTLE_TEXT, [hl]
+	ld hl, AgathasRoomAgathaRematchEndBattleText
+	ld de, AgathasRoomAgathaRematchEndBattleText
+	call SaveEndBattleTextPointers
+	ld hl, AgathasRoomTrainerHeader0
+	call StoreTrainerHeaderPointer
+	xor a
+	call ReadTrainerHeaderInfo
+	ldh a, [hSpriteIndex]
+	ld [wSpriteIndex], a
+	call EngageMapTrainer
+	ld a, 2
+	ld [wEngagedTrainerSet], a
+	call InitBattleEnemyParameters
+	ld a, 1
+	ld [wGymLeaderNo], a
+	ld hl, wStatusFlags4
+	set BIT_UNKNOWN_4_1, [hl]
+	xor a
+	ldh [hJoyHeld], a
+	ldh [hJoyPressed], a
+	ldh [hJoyReleased], a
+	ld a, SCRIPT_AGATHASROOM_AGATHA_REMATCH_END_BATTLE
+	ld [wAgathasRoomCurScript], a
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+.vanilla
+	ld a, 1
+	ld [wGymLeaderNo], a
 	ld hl, AgathasRoomTrainerHeader0
 	call TalkToTrainer
 	jp TextScriptEnd
+
+AgathasRoomAgathaRematchBeforeBattleText:
+	text_far _AgathasRoomAgathaRematchBeforeBattleText
+	text_end
+
+AgathasRoomAgathaRematchEndBattleText:
+	text_far _AgathasRoomAgathaRematchEndBattleText
+	text_end
+
+AgathasRoomAgathaRematchAfterBattleText:
+	text_far _AgathasRoomAgathaRematchAfterBattleText
+	text_end
 
 AgathaBeforeBattleText:
 	text_far _AgathaBeforeBattleText

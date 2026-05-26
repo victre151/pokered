@@ -71,3 +71,46 @@ _PetrelAfterBattleText::
 	line "make it to the"
 	cont "top alive!"
 	done
+
+_BrunosRoomBrunoRematchBeforeBattleText::
+	text "So, the"
+	line "CHAMPION"
+	cont "stands here."
+	
+	para "LORELEI could"
+	line "not freeze your"
+	cont "spirit."
+	
+	para "I am BRUNO!"
+	line "Fighting types"
+	cont "and iron fists!"
+	
+	para "When the LEAGUE"
+	line "shut down, I"
+	cont "doubled my"
+	cont "training!"
+
+	para "Hoo hah!"
+	line "Show me your"
+	cont "true power!"
+	done
+_BrunosRoomBrunoRematchEndBattleText::
+	text "Hoo hah!"
+	line "You didn't"
+	cont "hold back!"
+	prompt
+	
+_BrunosRoomBrunoRematchAfterBattleText::
+	text "You have"
+	line "earned this."
+	
+	para "AGATHA waits"
+	line "in the next"
+	cont "room. Her"
+	cont "ghosts are"
+	cont "merciless!"
+	
+	para "Steel your"
+	line "heart before"
+	cont "you enter!"
+	done

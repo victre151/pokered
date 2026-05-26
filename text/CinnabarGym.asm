@@ -242,7 +242,7 @@ _CinnabarGymRematchDefeatedText::
 	line "was"
 	cont "extinguished!"
 	cont "Bravo!"
-	done
+	prompt
 	
 _CinnabarGymRematchPostBattleText::
 	text "That was a"
@@ -253,4 +253,40 @@ _CinnabarGymRematchPostBattleText::
 	cont "a challenge in"
 	cont "Cerulean City!"
 	done
+
+_CinnabarGymBlaineSecondRematchPreBattleText::
+	text "BLAINE: Hah!"
+	line "INDIGO is back"
+	cont "on its feet!"
 	
+	para "I stoked the"
+	line "furnace while"
+	cont "the LEAGUE healed."
+	
+	para "Ready for"
+	line "another inferno?"
+	done
+
+_CinnabarGymBlaineSecondRematchAcceptedText::
+	text "Then feel the"
+	line "heat!"
+	done
+
+_CinnabarGymBlaineSecondRematchRefusedText::
+	text "I'll keep the"
+	line "quizzes warm!"
+	done
+
+_CinnabarGymBlaineSecondRematchDefeatedText::
+	text "Burnt out"
+	line "again...!"
+	prompt
+
+_CinnabarGymBlaineSecondRematchPostBattleText::
+	text "Still a total"
+	line "blast, kid!"
+	
+	para "Come back when"
+	line "you want more"
+	cont "heat!"
+	done

@@ -17,6 +17,7 @@ DEF SHOW EQU $15
 	const HS_CERULEAN_GUARD_1              ; 07
 	const HS_CERULEAN_CAVE_GUY             ; 08
 	const HS_CERULEAN_GUARD_2              ; 09
+	const HS_INDIGO_GUARD
 	const HS_SAFFRON_CITY_1                ; 0A
 	const HS_SAFFRON_CITY_2                ; 0B
 	const HS_SAFFRON_CITY_3                ; 0C
@@ -65,6 +66,8 @@ DEF SHOW EQU $15
 	const HS_POKEDEX_1                     ; 2F
 	const HS_POKEDEX_2                     ; 30
 	const HS_OAKS_LAB_OAK_2                ; 31
+	const HS_OAKSLAB_POKEDEX_RIVAL_MALE
+	const HS_OAKSLAB_POKEDEX_RIVAL_FEMALE
 	const HS_VIRIDIAN_GYM_GIOVANNI         ; 32
 	const HS_VIRIDIAN_GYM_OAK
 	const HS_VIRIDIAN_GYM_ITEM             ; 33 X
@@ -160,7 +163,6 @@ DEF SHOW EQU $15
 	const HS_ROCKET_HIDEOUT_B4F_ITEM_3     ; 86 X
 	const HS_ROCKET_HIDEOUT_B4F_ITEM_4     ; 87
 	const HS_ROCKET_HIDEOUT_B4F_ITEM_5     ; 88
-	const HS_SILPH_CO_2F_1                 ; 89 XXX never (de)activated?
 	const HS_SILPH_CO_2F_2                 ; 8A
 	const HS_SILPH_CO_2F_3                 ; 8B
 	const HS_SILPH_CO_2F_4                 ; 8C

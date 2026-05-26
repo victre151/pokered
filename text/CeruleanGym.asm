@@ -182,3 +182,54 @@ _CeruleanGymRematchPostBattleText::
 	cont "for a rematch"
 	cont "with you!"
 	done
+	
+_CeruleanGymMistySecondRematchPreBattleText::
+	text "MISTY: So you"
+	line "really did take"
+	cont "back INDIGO!"
+	
+	para "I heard every"
+	line "GYM LEADER was"
+	cont "stepping it up."
+	
+	para "I did not sit"
+	line "still either!"
+	
+	para "My new lineup"
+	line "hits harder"
+	cont "than last time."
+	
+	para "Want to see if"
+	line "you still have"
+	cont "the edge?"
+	done
+	
+_CeruleanGymMistySecondRematchAcceptedText::
+	text "Ha! I was hoping"
+	line "you'd say yes!"
+	
+	para "No holding"
+	line "back this time!"
+	done
+	
+_CeruleanGymMistySecondRematchRefusedText::
+	text "Fine. I'll keep"
+	line "polishing my"
+	cont "team."
+	done
+	
+_CeruleanGymMistySecondRematchDefeatedText::
+	text "No! You've"
+	line "overpowered my"
+	cont "best team again!"
+	prompt
+	
+_CeruleanGymMistySecondRematchPostBattleText::
+	text "You really are"
+	line "on another"
+	cont "level now!"
+	
+	para "Tell me when"
+	line "you want to"
+	cont "go again!"
+	done

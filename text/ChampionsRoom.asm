@@ -356,3 +356,209 @@ _ChampionsRoomFollowOakRocketsText::
 	line "must be"
 	cont "recorded!"
 	done
+	
+_ChampionsRoomMaleRematchIntroText::
+IF DEF(_BLUE)
+	text "YELLOW: Oh!"
+	line "<PLAYER>!"
+	
+	para "You made it!"
+	
+	para "When the LEAGUE"
+	line "opened, I came"
+	cont "up from the LAB."
+	
+	para "No one else was"
+	line "here, so OAK's"
+	cont "aide said I had"
+	cont "to stand in as"
+	cont "CHAMPION."
+	
+	para "I'm not trying"
+	line "to take your"
+	cont "title!"
+	
+	para "But I still have"
+	line "to battle you!"
+	done
+ELSE
+	text "RED: <PLAYER>."
+	line "You're here."
+	
+	para "The LEAGUE"
+	line "reopened. I left"
+	cont "the LAB."
+	
+	para "I was posted"
+	line "here as interim"
+	cont "CHAMPION."
+	
+	para "You're the real"
+	line "one."
+	
+	para "Let's get this"
+	line "over with."
+	done
+ENDC
+
+_ChampionsRoomFemaleRematchIntroText::
+IF DEF(_BLUE)
+	text "PINK: <PLAYER>!!"
+	line "You're FINALLY"
+	cont "here!!"
+	
+	para "I ran from the"
+	line "LAB when the"
+	cont "LEAGUE opened!"
+	
+	para "They needed"
+	line "SOMEBODY at the"
+	cont "top, so I'm the"
+	cont "interim CHAMPION!"
+	
+	para "NOT for real!"
+	line "That's YOU!"
+	
+	para "But I still gotta"
+	line "fight you!"
+	done
+ELSE
+	text "GREEN: <PLAYER>."
+	line "You have arrived."
+	
+	para "I departed the"
+	line "LAB when the"
+	cont "LEAGUE reopened."
+	
+	para "With no holder"
+	line "present, I was"
+	cont "named interim"
+	cont "CHAMPION."
+	
+	para "The title is"
+	line "yours."
+	
+	para "I await our"
+	line "match."
+	done
+ENDC
+
+_ChampionsRoomBoyRematchDefeatedText::
+IF DEF(_BLUE) ;YELLOW
+	text "There you"
+	line "go!"
+	
+	para "The real"
+	line "CHAMPION!"
+	
+	para "That was a"
+	line "great battle!"
+	prompt
+ELSE ;RED
+	text "Good."
+	line "You're back."
+	para "Well fought."
+	prompt
+ENDC
+
+_ChampionsRoomGirlRematchDefeatedText::
+IF DEF(_BLUE) ;PINK
+	text "YES!"
+	line "You're the"
+	cont "CHAMPION!"
+	para "That was SO"
+	line "much fun!"
+	prompt
+ELSE ;GREEN
+	text "As it"
+	line "should be."
+	para "Well done."
+	prompt
+ENDC
+
+_ChampionsRoomMaleRematchVictoryText::
+IF DEF(_BLUE) ;YELLOW
+	text "W-wait..."
+	
+	para "does that mean"
+	line "I'm the actual"
+	cont "CHAMPION now?!"
+	prompt
+ELSE ;RED
+	text "That can't"
+	line "be right..."
+	prompt
+ENDC
+
+_ChampionsRoomFemaleRematchVictoryText::
+IF DEF(_BLUE) ;PINK
+	text "I WON?! I'm"
+	line "CHAMPION?!"
+	prompt
+ELSE ;GREEN
+	text "A momentary"
+	line "result."
+	prompt
+ENDC
+
+_ChampionsRoomMaleRematchAfterBattleText::
+IF DEF(_BLUE)
+	text "YELLOW: You don't"
+	line "stay here long,"
+	cont "do you?"
+
+	para "That's fine."
+	line "I'll be here if"
+	cont "anyone comes."
+	done
+ELSE
+	text "RED: Wandering"
+	line "CHAMPION!"
+
+	para "I'll keep the"
+	line "seat warm"
+	cont "for you!"
+	done
+ENDC
+
+_ChampionsRoomFemaleRematchAfterBattleText::
+IF DEF(_BLUE)
+	text "PINK: Go be the"
+	line "champ out there!"
+
+	para "I'll handle"
+	line "anyone who"
+	cont "shows up here!"
+	done
+ELSE
+	text "GREEN: Take your"
+	line "leave, <PLAYER>."
+
+	para "I shall remain"
+	line "for challengers."
+	done
+ENDC
+
+_ChampionsRoomOakRematchArrivesText::
+	text "OAK: <PLAYER>!"
+	line "I saw that"
+	cont "whole battle!"
+
+	para "Welcome back,"
+	line "CHAMPION!"
+	done
+_ChampionsRoomOakRematchCongratulatesPlayerText::
+	text "OAK: Incredible!"
+	line "Both of you"
+	cont "were marvelous!"
+
+	para "The LEAGUE is"
+	line "in good hands!"
+	done
+_ChampionsRoomOakRematchComeWithMeText::
+	text "OAK: <PLAYER>,"
+	line "come with me!"
+
+	para "The HALL OF FAME"
+	line "awaits!"
+	done

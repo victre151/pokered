@@ -15,7 +15,6 @@ LanceShowOrHideEntranceBlocks:
 	ret z
 	CheckEvent EVENT_LANCES_ROOM_LOCK_DOOR
 	jr nz, .closeEntrance
-	; open entrance
 	ld a, $31
 	ld b, $32
 	jp .setEntranceBlocks
@@ -23,7 +22,6 @@ LanceShowOrHideEntranceBlocks:
 	ld a, $72
 	ld b, $73
 .setEntranceBlocks
-; Replaces the tile blocks so the player can't leave.
 	push bc
 	ld [wNewTileBlockID], a
 	lb bc, 6, 2
@@ -37,7 +35,9 @@ LanceShowOrHideEntranceBlocks:
 
 ResetLanceScript:
 	xor a ; SCRIPT_LANCESROOM_DEFAULT
+	ld [wJoyIgnore], a
 	ld [wLancesRoomCurScript], a
+	ld [wCurMapScript], a
 	ret
 
 LancesRoom_ScriptPointers:
@@ -45,6 +45,7 @@ LancesRoom_ScriptPointers:
 	dw_const LancesRoomDefaultScript,               SCRIPT_LANCESROOM_DEFAULT
 	dw_const DisplayEnemyTrainerTextAndStartBattle, SCRIPT_LANCESROOM_LANCE_START_BATTLE
 	dw_const LancesRoomLanceEndBattleScript,        SCRIPT_LANCESROOM_LANCE_END_BATTLE
+	dw_const LancesRoomLanceRematchEndBattleScript, SCRIPT_LANCESROOM_LANCE_REMATCH_END_BATTLE
 	dw_const LancesRoomPlayerIsMovingScript,        SCRIPT_LANCESROOM_PLAYER_IS_MOVING
 	dw_const LancesRoomNoopScript,                  SCRIPT_LANCESROOM_NOOP
 
@@ -52,8 +53,12 @@ LancesRoomNoopScript:
 	ret
 
 LancesRoomDefaultScript:
+; Post-game rematch: EVENT_BEAT_LANCE may still be set from the first run.
+	CheckEvent EVENT_OAKSLAB_POKEDEX_RIVAL_DONE
+	jr nz, .continueLanceRoom
 	CheckEvent EVENT_BEAT_LANCE
 	ret nz
+.continueLanceRoom
 	ld hl, LanceTriggerMovementCoords
 	call ArePlayerCoordsInArray
 	jp nc, CheckFightingMapTrainers
@@ -62,10 +67,20 @@ LancesRoomDefaultScript:
 	ld a, [wCoordIndex]
 	cp $3  ; Is player standing next to Lance's sprite?
 	jr nc, .notStandingNextToLance
+	CheckEvent EVENT_OAKSLAB_POKEDEX_RIVAL_DONE
+	jr z, .rocketsOrLance
+	CheckEvent EVENT_BEAT_LANCES_ROOM_TRAINER_0
+	ret nz
+	ld a, TEXT_LANCESROOM_LANCE
+	jr .displayTalk
+.rocketsOrLance
 	CheckEvent EVENT_VICTORY_ROAD_ROCKETS_DONE
 	jr nz, .Ariana
 	ld a, TEXT_LANCESROOM_LANCE
-.continue
+	jr .displayTalk
+.Ariana
+	ld a, TEXT_LANCESROOM_ARIANA
+.displayTalk
 	ldh [hTextID], a
 	jp DisplayTextID
 .notStandingNextToLance
@@ -78,9 +93,6 @@ LancesRoomDefaultScript:
 	ld a, SFX_GO_INSIDE
 	call PlaySound
 	jp LanceShowOrHideEntranceBlocks
-.Ariana 
-	ld a, TEXT_LANCESROOM_ARIANA
-	jr .continue
 
 LanceTriggerMovementCoords:
 	dbmapcoord  5,  1
@@ -95,18 +107,43 @@ LancesRoomLanceEndBattleScript:
 	ld a, [wIsInBattle]
 	cp $ff
 	jp z, ResetLanceScript
+	CheckEvent EVENT_OAKSLAB_POKEDEX_RIVAL_DONE
+	jp nz, .RematchDisplay
 	CheckEvent EVENT_VICTORY_ROAD_ROCKETS_DONE
 	jr nz, .Ariana
+.Lance
 	ld a, TEXT_LANCESROOM_LANCE
+	jr .continue
+.Ariana
+	ld a, TEXT_LANCESROOM_ARIANA
 .continue
 	ldh [hTextID], a
 	jp DisplayTextID
-.Ariana
-	ld a, TEXT_LANCESROOM_ARIANA
-	jr .continue
+.RematchDisplay
+	ld a, TEXT_LANCESROOM_LANCE
+	ldh [hTextID], a
+	call DisplayTextID
+	jp ResetLanceScript
+
+LancesRoomLanceRematchEndBattleScript:
+	call EndTrainerBattle
+	ld hl, wStatusFlags3
+	res BIT_PRINT_END_BATTLE_TEXT, [hl]
+	ld hl, wMiscFlags
+	res BIT_SEEN_BY_TRAINER, [hl]
+	ld a, [wIsInBattle]
+	cp $ff
+	jp z, ResetLanceScript
+	ld a, PAD_CTRL_PAD
+	ld [wJoyIgnore], a
+	ld a, TEXT_LANCESROOM_LANCE_REMATCH_AFTER_BATTLE
+	ldh [hTextID], a
+	call DisplayTextID
+	SetEvent EVENT_BEAT_LANCES_ROOM_TRAINER_0
+	SetEvent EVENT_BEAT_LANCE
+	jp ResetLanceScript
 
 WalkToLance:
-; Moves the player down the hallway to Lance's room.
 	ld a, PAD_BUTTONS | PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 	ld hl, wSimulatedJoypadStatesEnd
@@ -132,7 +169,7 @@ LancesRoomPlayerIsMovingScript:
 	and a
 	ret nz
 	call Delay3
-	xor a ; SCRIPT_LANCESROOM_DEFAULT
+	xor a
 	ld [wJoyIgnore], a
 	ld [wLancesRoomCurScript], a
 	ld [wCurMapScript], a
@@ -140,8 +177,9 @@ LancesRoomPlayerIsMovingScript:
 
 LancesRoom_TextPointers:
 	def_text_pointers
-	dw_const LancesRoomLanceText, TEXT_LANCESROOM_LANCE
-	dw_const LancesRoomArianaText, TEXT_LANCESROOM_ARIANA
+	dw_const LancesRoomLanceText,                   TEXT_LANCESROOM_LANCE
+	dw_const LancesRoomArianaText,                  TEXT_LANCESROOM_ARIANA
+	dw_const LancesRoomLanceRematchAfterBattleText, TEXT_LANCESROOM_LANCE_REMATCH_AFTER_BATTLE
 
 LancesRoomTrainerHeaders:
 	def_trainers
@@ -153,8 +191,61 @@ LancesRoomTrainerHeader1:
 
 LancesRoomLanceText:
 	text_asm
+	CheckEvent EVENT_OAKSLAB_POKEDEX_RIVAL_DONE
+	jr z, .vanilla
+	CheckEvent EVENT_BEAT_LANCES_ROOM_TRAINER_0
+	jr z, .rematch
+	ld hl, LancesRoomLanceRematchAfterBattleText
+	call PrintText
+	jp TextScriptEnd
+.rematch
+	ld hl, LancesRoomLanceRematchBeforeBattleText
+	call PrintText
+	ld hl, wStatusFlags3
+	set BIT_TALKED_TO_TRAINER, [hl]
+	set BIT_PRINT_END_BATTLE_TEXT, [hl]
+	ld hl, LancesRoomLanceRematchEndBattleText
+	ld de, LancesRoomLanceRematchEndBattleText
+	call SaveEndBattleTextPointers
+	ld hl, LancesRoomTrainerHeader0
+	call StoreTrainerHeaderPointer
+	xor a
+	call ReadTrainerHeaderInfo
+	ldh a, [hSpriteIndex]
+	ld [wSpriteIndex], a
+	call EngageMapTrainer
+	ld a, 2
+	ld [wEngagedTrainerSet], a
+	call InitBattleEnemyParameters
+	ld a, 1
+	ld [wGymLeaderNo], a
+	ld hl, wStatusFlags4
+	set BIT_UNKNOWN_4_1, [hl]
+	xor a
+	ldh [hJoyHeld], a
+	ldh [hJoyPressed], a
+	ldh [hJoyReleased], a
+	ld a, SCRIPT_LANCESROOM_LANCE_REMATCH_END_BATTLE
+	ld [wLancesRoomCurScript], a
+	ld [wCurMapScript], a
+	jp TextScriptEnd
+.vanilla
 	ld hl, LancesRoomTrainerHeader0
 	call TalkToTrainer
+	jp TextScriptEnd
+
+LancesRoomLanceRematchBeforeBattleText:
+	text_far _LancesRoomLanceRematchBeforeBattleText
+	text_end
+
+LancesRoomLanceRematchEndBattleText:
+	text_far _LancesRoomLanceRematchEndBattleText
+	text_end
+
+LancesRoomLanceRematchAfterBattleText:
+	text_far _LancesRoomLanceRematchAfterBattleText
+	text_asm
+	SetEvent EVENT_BEAT_LANCE
 	jp TextScriptEnd
 
 LancesRoomLanceBeforeBattleText:
@@ -170,7 +261,7 @@ LancesRoomLanceAfterBattleText:
 	text_asm
 	SetEvent EVENT_BEAT_LANCE
 	jp TextScriptEnd
-	
+
 LancesRoomArianaText:
 	text_asm
 	ld hl, LancesRoomTrainerHeader1
@@ -190,4 +281,3 @@ LancesRoomArianaAfterBattleText:
 	text_asm
 	SetEvent EVENT_BEAT_LANCE
 	jp TextScriptEnd
-

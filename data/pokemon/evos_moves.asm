@@ -4045,7 +4045,8 @@ AerodactylEvosMoves:
 	db 35, ROCK_SLIDE
 	db 37, SLAM
 	db 39, DRILL_PECK
-	db 41, BODY_SLAM
+	db 41, FLAMETHROWER
+	db 43, BODY_SLAM
 	db 50, RAZOR_WIND
 	db 0
 

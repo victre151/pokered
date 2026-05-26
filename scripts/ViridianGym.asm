@@ -186,7 +186,16 @@ ViridianGymOakPostBattle:
 	
 	SetEvent EVENT_BEAT_VIRIDIAN_GYM_OAK
 	
+	CheckEvent EVENT_BEAT_LEAGUE_ROCKETS
+	jr z, .firstRematchPost
+	
+	ld a, TEXT_VIRIDIANGYM_OAK_SECOND_REMATCH_POST_BATTLE
+	jr .showPost
+	
+.firstRematchPost
 	ld a, TEXT_VIRIDIANGYM_REMATCH_POST_BATTLE
+	
+.showPost
 	ldh [hTextID], a
 	call DisplayTextID
 	
@@ -210,6 +219,8 @@ ViridianGym_TextPointers:
 	dw_const ViridianGymGiovanniReceivedTM27Text,   TEXT_VIRIDIANGYM_GIOVANNI_RECEIVED_TM27
 	dw_const ViridianGymGiovanniTM27NoRoomText,     TEXT_VIRIDIANGYM_GIOVANNI_TM27_NO_ROOM
 	dw_const ViridianGymRematchPostBattleText,		TEXT_VIRIDIANGYM_REMATCH_POST_BATTLE
+	dw_const ViridianGymOakSecondRematchPostBattleText, TEXT_VIRIDIANGYM_OAK_SECOND_REMATCH_POST_BATTLE
+
 
 ViridianGymTrainerHeaders:
 	def_trainers 2
@@ -306,6 +317,47 @@ ViridianGymGiovanniTM27NoRoomText:
 ViridianGymOakText:
 	text_asm
 	CheckEvent EVENT_BEAT_VIRIDIAN_GYM_OAK
+	jr z, .firstRematch
+	
+	CheckEvent EVENT_BEAT_LEAGUE_ROCKETS
+	jp z, TextScriptEnd
+	
+	
+	ld hl, .OakSecondRematchText
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jr nz, .secondRefused
+	ld hl, .OakSecondRematchAcceptedText
+	call PrintText
+	call Delay3
+	ld hl, wStatusFlags3
+	set BIT_TALKED_TO_TRAINER, [hl]
+	set BIT_PRINT_END_BATTLE_TEXT, [hl]
+	ld hl, ViridianGymOakSecondRematchDefeatedText
+	ld de, ViridianGymOakSecondRematchDefeatedText
+	call SaveEndBattleTextPointers
+	
+	ldh a, [hSpriteIndex]
+	ld [wSpriteIndex], a
+	call EngageMapTrainer
+	call InitBattleEnemyParameters
+	ld a, OPP_PROF_OAK
+	ld [wCurOpponent], a
+	ld a, 2
+	ld [wTrainerNo], a
+	ld a, SCRIPT_VIRIDIANGYM_OAK_POST_BATTLE
+	ld [wViridianGymCurScript], a
+	ld [wCurMapScript], a
+	jr .done
+	
+.secondRefused
+	ld hl, .OakSecondRematchRefusedText
+	call PrintText
+	jr .done
+	
+.firstRematch
 	ld hl, .ViridianGymRematchText
 	call PrintText
 	call YesNoChoice
@@ -321,7 +373,6 @@ ViridianGymOakText:
 	ld hl, ViridianGymRematchDefeatedText
 	ld de, ViridianGymRematchDefeatedText
 	call SaveEndBattleTextPointers
-	
 	ldh a, [hSpriteIndex]
 	ld [wSpriteIndex], a
 	call EngageMapTrainer
@@ -334,17 +385,19 @@ ViridianGymOakText:
 	ld [wViridianGymCurScript], a
 	ld [wCurMapScript], a
 	jr .done
+
 .refused
 	ld hl, .ViridianGymRematchRefusedText
 	call PrintText
 	jr .done
+	
 .done
 	jp TextScriptEnd
 
 .ViridianGymRematchText:
 	text_far _ViridianGymRematchPreBattleText
 	text_end
-
+	
 .ViridianGymRematchAcceptedText:
 	text_far _ViridianGymRematchAcceptedText
 	text_end
@@ -352,11 +405,27 @@ ViridianGymOakText:
 .ViridianGymRematchRefusedText:
 	text_far _ViridianGymRematchRefusedText
 	text_end
-
+	
+.OakSecondRematchText:
+	text_far _ViridianGymOakSecondRematchPreBattleText
+	text_end
+	
+.OakSecondRematchAcceptedText:
+	text_far _ViridianGymOakSecondRematchAcceptedText
+	text_end
+	
+.OakSecondRematchRefusedText:
+	text_far _ViridianGymOakSecondRematchRefusedText
+	text_end
+	
 ViridianGymRematchDefeatedText:
 	text_far _ViridianGymRematchDefeatedText
 	text_end
-
+	
+ViridianGymOakSecondRematchDefeatedText:
+	text_far _ViridianGymOakSecondRematchDefeatedText
+	text_end
+	
 ViridianGymRematchPostBattleText:
 	text_far _ViridianGymRematchPostBattleText
 	text_end
@@ -524,4 +593,8 @@ ViridianGymGuidePreBattleText:
 	
 ViridianGymGuidePostBattleText:
 	text_far _ViridianGymGuidePostBattleText
+	text_end
+	
+ViridianGymOakSecondRematchPostBattleText:
+	text_far _ViridianGymOakSecondRematchPostBattleText
 	text_end

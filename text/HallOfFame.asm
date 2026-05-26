@@ -33,22 +33,45 @@ _PostCoupOakText::
 	cont "be a temple"
 	cont "to our bond"
 	cont "with #MON."
+	
 	para "TEAM ROCKET"
 	line "tried to erase"
 	cont "everything we"
 	cont "stand for."
+	
 	para "But today, we"
 	line "reclaim it."
+	
 	para "You've done more"
 	line "than just become"
 	cont "a CHAMPION!"
+	
 	para "You have restored"
 	line "the LEAGUE and"
 	cont "freed KANTO!"
+	
 	para "Now, <PLAYER>,"
 	line "let us record"
 	cont "your team!"
+	
 	para "Let history show"
 	line "who truly leads"
 	cont "this region!"
+	done
+	
+_HallOfFameOakRematchText::
+	text "OAK: <PLAYER>,"
+	line "here we are"
+	cont "again!"
+	
+	para "You are"
+	line "officially the"
+	cont "strongest trainer"
+	cont "in KANTO!"
+	
+	para "Let us record"
+	line "the team that"
+	cont "helped you"
+	cont "complete your"
+	cont "journey here!"
 	done

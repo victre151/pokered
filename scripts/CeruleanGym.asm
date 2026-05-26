@@ -44,8 +44,18 @@ CeruleanGymMistyPostBattleScript:
 	ld [wJoyIgnore], a
 	CheckEvent EVENT_BEAT_MISTY
 	jr z, CeruleanGymReceiveTM11	
+	
+	CheckEvent EVENT_BEAT_LEAGUE_ROCKETS
+	jr z, .firstRematchPost
+	
+	ld a, TEXT_CERULEANGYM_MISTY_SECOND_REMATCH_POST_BATTLE
+	jr .showPost
+	
+.firstRematchPost	
 	SetEvent EVENT_BEAT_MISTY_REMATCH
 	ld a, TEXT_CERULEANGYM_REMATCH_POST_BATTLE
+	
+.showPost
 	ldh [hTextID], a
 	call DisplayTextID
 	jp CeruleanGymResetScripts
@@ -88,6 +98,7 @@ CeruleanGym_TextPointers:
 	dw_const CeruleanGymMistyReceivedTM11Text,     TEXT_CERULEANGYM_MISTY_RECEIVED_TM11
 	dw_const CeruleanGymMistyTM11NoRoomText,       TEXT_CERULEANGYM_MISTY_TM11_NO_ROOM
 	dw_const CeruleanGymRematchPostBattleText,     TEXT_CERULEANGYM_REMATCH_POST_BATTLE
+	dw_const CeruleanGymMistySecondRematchPostBattleText, TEXT_CERULEANGYM_MISTY_SECOND_REMATCH_POST_BATTLE
 
 CeruleanGymTrainerHeaders:
 	def_trainers 2
@@ -106,18 +117,55 @@ CeruleanGymMistyText:
 	call z, CeruleanGymReceiveTM11
 	call DisableWaitingAfterTextDisplay
 	jp .done
+	
 .afterBeat
+	CheckEvent EVENT_BEAT_LEAGUE_ROCKETS
+	jr nz, .MistySecondRematch
+
 	CheckEvent EVENT_BEAT_MISTY_REMATCH
 	jr nz, .alreadyRematched
 	CheckEvent EVENT_PLAYER_IS_CHAMPION
-	jr nz, .MistyRematch
+	jp nz, .MistyRematch
 	ld hl, .TM11ExplanationText
 	call PrintText
-	jr .done
+	jp .done
+	
 .alreadyRematched
 	ld hl, CeruleanGymRematchPostBattleText
 	call PrintText
-	jr .done
+	jp .done
+	
+.MistySecondRematch
+	ld hl, MistySecondRematchText
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jr nz, .secondRefused
+	ld hl, MistySecondRematchAcceptedText
+	call PrintText
+	call Delay3
+	ld hl, wStatusFlags3
+	set BIT_TALKED_TO_TRAINER, [hl]
+	set BIT_PRINT_END_BATTLE_TEXT, [hl]
+	ld hl, CeruleanGymMistySecondRematchDefeatedText
+	ld de, CeruleanGymMistySecondRematchDefeatedText
+	call SaveEndBattleTextPointers
+	ldh a, [hSpriteIndex]
+	ld [wSpriteIndex], a
+	call EngageMapTrainer
+	call InitBattleEnemyParameters
+	ld a, OPP_MISTY
+	ld [wCurOpponent], a
+	ld a, 3
+	ld [wTrainerNo], a
+	jr .endBattle
+	
+.secondRefused
+	ld hl, MistySecondRematchRefusedText
+	call PrintText
+	jr .done	
+	
 .beforeBeat
 	ld hl, .PreBattleText
 	call PrintText
@@ -136,6 +184,7 @@ CeruleanGymMistyText:
 	xor a
 	ldh [hJoyHeld], a
 	jr .endBattle
+	
 .MistyRematch
 	ld hl, PreBattleRematchText
 	call PrintText
@@ -157,10 +206,12 @@ CeruleanGymMistyText:
 	ld a, 2
 	ld [wTrainerNo], a
 	jr .endBattle
+	
 .refused
 	ld hl, PreBattleRematchRefusedText
 	call PrintText
 	jr .done
+	
 .endBattle
 	ld a, SCRIPT_CERULEANGYM_MISTY_POST_BATTLE
 	ld [wCeruleanGymCurScript], a
@@ -269,4 +320,24 @@ CeruleanGymRematchDefeatedText:
 
 CeruleanGymRematchPostBattleText:
 	text_far _CeruleanGymRematchPostBattleText
+	text_end
+
+MistySecondRematchText:
+	text_far _CeruleanGymMistySecondRematchPreBattleText
+	text_end
+	
+MistySecondRematchAcceptedText:
+	text_far _CeruleanGymMistySecondRematchAcceptedText
+	text_end
+	
+MistySecondRematchRefusedText:
+	text_far _CeruleanGymMistySecondRematchRefusedText
+	text_end
+	
+CeruleanGymMistySecondRematchDefeatedText:
+	text_far _CeruleanGymMistySecondRematchDefeatedText
+	text_end
+	
+CeruleanGymMistySecondRematchPostBattleText:
+	text_far _CeruleanGymMistySecondRematchPostBattleText
 	text_end

@@ -56,14 +56,14 @@ INCLUDE "text/ChampionsRoom.asm"
 INCLUDE "text/LoreleisRoom.asm"
 INCLUDE "text/BrunosRoom.asm"
 INCLUDE "text/AgathasRoom.asm"
-INCLUDE "text/RockTunnelB1F.asm"
-INCLUDE "text/CeruleanCave1F.asm"
 
 
 SECTION "Text 3", ROMX
 
 INCLUDE "text/RockTunnelB1F_2.asm"
 INCLUDE "text/SeafoamIslandsB4F.asm"
+INCLUDE "text/CeruleanCave1F.asm"
+INCLUDE "text/RockTunnelB1F.asm"
 
 INCLUDE "data/text/text_2.asm"
 
@@ -233,6 +233,7 @@ INCLUDE "text/CinnabarLabFossilRoom.asm"
 INCLUDE "text/CinnabarPokecenter.asm"
 INCLUDE "text/CinnabarMart.asm"
 INCLUDE "text/IndigoPlateauLobby.asm"
+INCLUDE "text/IndigoPlateau.asm"
 INCLUDE "text/CopycatsHouse1F.asm"
 INCLUDE "text/CopycatsHouse2F.asm"
 INCLUDE "text/FightingDojo.asm"

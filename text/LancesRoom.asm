@@ -82,3 +82,40 @@ _LancesRoomArianaAfterBattleText::
 	cont "to witness"
 	cont "our victory!"
 	done
+	
+_LancesRoomLanceRematchBeforeBattleText::
+	text "Ah! <PLAYER>!"
+	line "You made it."
+	
+	para "I trained my"
+	line "dragons harder"
+	cont "than ever!"
+	
+	para "Their power is"
+	line "beyond what you"
+	cont "faced before!"
+	
+	para "Are you ready"
+	line "to lose again?"
+	done
+	
+_LancesRoomLanceRematchEndBattleText::
+	text "My dragons,"
+	line "outdone again!"
+	prompt
+	
+_LancesRoomLanceRematchAfterBattleText::
+	text "I still cannot"
+	line "believe it!"
+	
+	para "My dragons were"
+	line "stronger than"
+	cont "ever, <PLAYER>!"
+	
+	para "You are a true"
+	line "#MON master!"
+	
+	para "The interim"
+	line "CHAMPION"
+	cont "awaits you!"
+	done

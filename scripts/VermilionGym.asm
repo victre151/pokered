@@ -57,14 +57,24 @@ VermilionGym_ScriptPointers:
 
 VermilionGymLTSurgeAfterBattleScript:
 	ld a, [wIsInBattle]
-	cp $ff ; did we lose?
+	cp $ff
 	jp z, VermilionGymResetScripts
 	ld a, PAD_CTRL_PAD
 	ld [wJoyIgnore], a
 	CheckEvent EVENT_BEAT_LT_SURGE
-	jr z, VermilionGymLTSurgeReceiveTM24Script	
+	jr z, VermilionGymLTSurgeReceiveTM24Script
+	
+	CheckEvent EVENT_BEAT_LEAGUE_ROCKETS
+	jr z, .firstRematchPost
+	
+	ld a, TEXT_VERMILIONGYM_LT_SURGE_SECOND_REMATCH_POST_BATTLE
+	jr .showPost
+
+.firstRematchPost
 	SetEvent EVENT_BEAT_LT_SURGE_REMATCH
 	ld a, TEXT_VERMILIONGYM_REMATCH_POST_BATTLE
+
+.showPost
 	ldh [hTextID], a
 	call DisplayTextID
 	jp VermilionGymResetScripts
@@ -108,6 +118,7 @@ VermilionGym_TextPointers:
 	dw_const VermilionGymLTSurgeReceivedTM24Text,     TEXT_VERMILIONGYM_LT_SURGE_RECEIVED_TM24
 	dw_const VermilionGymLTSurgeTM24NoRoomText,       TEXT_VERMILIONGYM_LT_SURGE_TM24_NO_ROOM
 	dw_const VermilionGymRematchPostBattleText, 	  TEXT_VERMILIONGYM_REMATCH_POST_BATTLE
+	dw_const VermilionGymLTSurgeSecondRematchPostBattleText, TEXT_VERMILIONGYM_LT_SURGE_SECOND_REMATCH_POST_BATTLE
 
 VermilionGymTrainerHeaders:
 	def_trainers 2
@@ -122,42 +133,61 @@ VermilionGymTrainerHeader2:
 VermilionGymLTSurgeText:
 	text_asm
 	CheckEvent EVENT_BEAT_LT_SURGE
-	jr z, .before_beat
+	jp z, .before_beat
 	CheckEventReuseA EVENT_GOT_TM24
 	jr nz, .got_tm24_already
 	call z, VermilionGymLTSurgeReceiveTM24Script
 	call DisableWaitingAfterTextDisplay
 	jp .text_script_end
+	
 .got_tm24_already
+	CheckEvent EVENT_BEAT_LEAGUE_ROCKETS
+	jr nz, .LtSurgeSecondRematch
+
 	CheckEvent EVENT_BEAT_LT_SURGE_REMATCH
 	jr nz, .alreadyRematched
 	CheckEvent EVENT_PLAYER_IS_CHAMPION
 	jr nz, .LtSurgeRematch
 	ld hl, .PostBattleAdviceText
 	call PrintText
-	jr .text_script_end
+	jp .text_script_end
+	
 .alreadyRematched
 	ld hl, VermilionGymRematchPostBattleText
 	call PrintText
-	jr .text_script_end
-.before_beat
-	ld hl, .PreBattleText
+	jp .text_script_end
+	
+.LtSurgeSecondRematch
+	ld hl, LTSurgeSecondRematchText
 	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jr nz, .secondRefused
+	ld hl, LTSurgeSecondRematchAcceptedText
+	call PrintText
+	call Delay3
 	ld hl, wStatusFlags3
 	set BIT_TALKED_TO_TRAINER, [hl]
 	set BIT_PRINT_END_BATTLE_TEXT, [hl]
-	ld hl, VermilionGymLTSurgeReceivedThunderBadgeText
-	ld de, VermilionGymLTSurgeReceivedThunderBadgeText
+	ld hl, VermilionGymLTSurgeSecondRematchDefeatedText
+	ld de, VermilionGymLTSurgeSecondRematchDefeatedText
 	call SaveEndBattleTextPointers
 	ldh a, [hSpriteIndex]
 	ld [wSpriteIndex], a
 	call EngageMapTrainer
 	call InitBattleEnemyParameters
-	ld a, $3
-	ld [wGymLeaderNo], a
-	xor a
-	ldh [hJoyHeld], a
+	ld a, OPP_LT_SURGE
+	ld [wCurOpponent], a
+	ld a, 3
+	ld [wTrainerNo], a
 	jr .endBattle
+
+.secondRefused
+	ld hl, LTSurgeSecondRematchRefusedText
+	call PrintText
+	jr .text_script_end
+
 .LtSurgeRematch
 	ld hl, VermilionGymRematchText
 	call PrintText
@@ -179,10 +209,31 @@ VermilionGymLTSurgeText:
 	ld a, 2
 	ld [wTrainerNo], a
 	jr .endBattle
+
+.before_beat
+	ld hl, .PreBattleText
+	call PrintText
+	ld hl, wStatusFlags3
+	set BIT_TALKED_TO_TRAINER, [hl]
+	set BIT_PRINT_END_BATTLE_TEXT, [hl]
+	ld hl, VermilionGymLTSurgeReceivedThunderBadgeText
+	ld de, VermilionGymLTSurgeReceivedThunderBadgeText
+	call SaveEndBattleTextPointers
+	ldh a, [hSpriteIndex]
+	ld [wSpriteIndex], a
+	call EngageMapTrainer
+	call InitBattleEnemyParameters
+	ld a, $3
+	ld [wGymLeaderNo], a
+	xor a
+	ldh [hJoyHeld], a
+	jr .endBattle
+
 .refused
 	ld hl, VermilionGymRematchRefusedText
 	call PrintText
 	jr .text_script_end
+
 .endBattle
 	ld a, SCRIPT_VERMILIONGYM_LT_SURGE_AFTER_BATTLE
 	ld [wVermilionGymCurScript], a
@@ -311,3 +362,24 @@ VermilionGymRematchDefeatedText:
 VermilionGymRematchPostBattleText:
 	text_far _VermilionGymRematchPostBattleText
 	text_end
+
+LTSurgeSecondRematchText:
+	text_far _VermilionGymLTSurgeSecondRematchPreBattleText
+	text_end
+	
+LTSurgeSecondRematchAcceptedText:
+	text_far _VermilionGymLTSurgeSecondRematchAcceptedText
+	text_end
+	
+LTSurgeSecondRematchRefusedText:
+	text_far _VermilionGymLTSurgeSecondRematchRefusedText
+	text_end
+	
+VermilionGymLTSurgeSecondRematchDefeatedText:
+	text_far _VermilionGymLTSurgeSecondRematchDefeatedText
+	text_end
+	
+VermilionGymLTSurgeSecondRematchPostBattleText:
+	text_far _VermilionGymLTSurgeSecondRematchPostBattleText
+	text_end
+

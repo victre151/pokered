@@ -383,3 +383,198 @@ _OaksLabScientistText::
 	text "I study #MON as"
 	line "PROF.OAK's AIDE."
 	done
+
+_OaksLabPokedexRivalHowIsDexMaleText::
+IF DEF(_BLUE)
+	text "YELLOW: Um."
+	line "OAK wanted help"
+	cont "with checking"
+	cont "the #DEX's"
+	cont "while he's at"
+	cont "VIRIDIAN GYM."
+	
+	para "Everyone else"
+	line "turned theirs"
+	cont "in already."
+	
+	para "I guess that"
+	line "leaves you,"
+	cont "<PLAYER>."
+	
+	para "How is it"
+	line "coming along?"
+	
+	para "Could I see"
+	line "it for a"
+	cont "moment?"
+	prompt
+ELSE
+	text "RED: Hey,"
+	line "<PLAYER>!"
+	
+	para "OAK's tied up at"
+	line "VIRIDIAN GYM."
+	
+	para "He asked me to"
+	line "help with the"
+	cont "#DEX checks"
+	cont "here!"
+	
+	para "You're the only"
+	line "holder still"
+	cont "working on it."
+	
+	para "Mind if I take"
+	line "a look?"
+	prompt
+ENDC
+
+_OaksLabPokedexRivalHowIsDexFemaleText::
+IF DEF(_BLUE)
+	text "PINK: Oh good,"
+	line "you're here!"
+	
+	para "OAK stuck me"
+	line "on #DEX duty"
+	cont "while he's"
+	cont "at the GYM!"
+	
+	para "Everyone else"
+	line "finished ages"
+	cont "ago!"
+	
+	para "So YOU'RE the"
+	line "last one left,"
+	cont "<PLAYER>!"
+	
+	para "How's it"
+	line "looking?"
+	
+	para "Can I check?"
+	prompt
+ELSE
+	text "GREEN: OAK is"
+	line "at VIRIDIAN"
+	cont "GYM."
+	
+	para "I was asked "
+	line "to handle the"
+	cont "#DEX checks."
+	
+	para "Every other"
+	line "holder has"
+	cont "finished."
+	
+	para "That leaves you,"
+	line "<PLAYER>."
+	
+	para "May I see your"
+	line "#DEX?"
+	prompt
+ENDC
+
+_OaksLabPokedexRivalLeagueReopenedMaleText::
+IF DEF(_BLUE)
+	text "YELLOW: You"
+	line "really filled"
+	cont "the whole"
+	cont "thing!"
+	
+	para "I was here so"
+	line "long, I only"
+	cont "just heard that"
+	cont "the #MON"
+	cont "LEAGUE opened"
+	cont "back up!"
+	
+	para "I should head"
+	line "out soon."
+	
+	para "Take care,"
+	line "<PLAYER>!"
+	done
+ELSE
+	text "RED: ...Huh."
+	line "You actually"
+	cont "did it."
+	
+	para "Full #DEX."
+	line "Nice work."
+	
+	para "I'm good to go."
+	
+	para "I heard on the"
+	line "news the LEAGUE"
+	cont "opened again!"
+	
+	para "I'll catch you"
+	line "later, <PLAYER>!"
+	done
+ENDC
+
+_OaksLabPokedexRivalLeagueReopenedFemaleText::
+IF DEF(_BLUE)
+	text "PINK: NO WAY!!"
+	line "YOU DID IT!!"
+	
+	para "The whole"
+	line "#DEX!!"
+	
+	para "I'm FINALLY done"
+	line "with this lab!!"
+	
+	para "OH!! And guess"
+	line "what I heard?!"
+	
+	para "The LEAGUE's"
+	line "OPEN again!!"
+	
+	para "I'm outta here,"
+	line "<PLAYER>!!"
+	done
+ELSE
+	text "GREEN: It is" 
+	line "complete."
+	
+	para "I may leave the"
+	line "lab now."
+	
+	para "Word reached me"
+	line "that the LEAGUE"
+	cont "has reopened."
+	done
+ENDC
+
+_OaksLabPokedexRivalIncompleteMaleText::
+IF DEF(_BLUE)
+	text "YELLOW: Hmm..."
+	line "Still some"
+	cont "empty pages."
+	para "Keep at it!"
+	line "Come back when"
+	cont "it's filled!"
+	done
+ELSE
+	text "RED: Not done"
+	line "yet."
+	para "Finish the"
+	line "#DEX and show"
+	cont "me again."
+	done
+ENDC
+
+_OaksLabPokedexRivalIncompleteFemaleText::
+IF DEF(_BLUE)
+	text "PINK: Aww,"
+	line "not finished!"
+	para "Fill it out"
+	line "and come back!"
+	done
+ELSE
+	text "GREEN: You still"
+	line "have gaps."
+	para "See me again"
+	line "when it's"
+	cont "complete!"
+	done
+ENDC

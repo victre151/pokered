@@ -56,7 +56,7 @@ _FuchsiaGymRematchDefeatedText::
 	text "A masterful"
 	line "display of"
 	cont "technique!"
-	done
+	prompt
 
 _FuchsiaGymRematchPostBattleText::
 	text "Listen well..."
@@ -71,4 +71,42 @@ _FuchsiaGymRematchPostBattleText::
 	line "be expecting"
 	cont "your rematch"
 	cont "soon!"
+	done
+	
+_FuchsiaGymKogaSecondRematchPreBattleText::
+	text "KOGA: Fwahahaha!"
+	line "INDIGO is ours"
+	cont "again!"
+	
+	para "I sharpened my"
+	line "poison arts while"
+	cont "the LEAGUE healed."
+	
+	para "Face me once"
+	line "more, child!"
+	done
+	
+_FuchsiaGymKogaSecondRematchAcceptedText::
+	text "Then taste my"
+	line "new toxic arts!"
+	done
+	
+_FuchsiaGymKogaSecondRematchRefusedText::
+	text "Humph. A ninja"
+	line "can wait."
+	done
+	
+_FuchsiaGymKogaSecondRematchDefeatedText::
+	text "My poisons,"
+	line "they could not"
+	cont "touch you!"
+	prompt
+	
+_FuchsiaGymKogaSecondRematchPostBattleText::
+	text "You have grown"
+	line "strong indeed."
+	
+	para "Return when you"
+	line "wish for"
+	cont "another test."
 	done

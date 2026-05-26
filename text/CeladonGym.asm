@@ -250,7 +250,7 @@ _CeladonGymRematchDefeatedText::
 	text "Oh dear! My"
 	line "composure is"
 	cont "all gone..."
-	done
+	prompt
 
 _CeladonGymRematchPostBattleText::
 	text "That was quite"
@@ -264,4 +264,49 @@ _CeladonGymRematchPostBattleText::
 	line "KOGA is also"
 	cont "awaiting your"
 	cont "rematch!"
+	done
+	
+_CeladonGymErikaSecondRematchPreBattleText::
+	text "ERIKA: Oh, you"
+	line "are back again."
+	
+	para "The LEAGUE is"
+	line "safe once more."
+	
+	para "I have been"
+	line "tending my team"
+	cont "like a garden."
+	
+	para "Shall we have"
+	line "another match?"
+	done
+	
+_CeladonGymErikaSecondRematchAcceptedText::
+	text "Please wait a"
+	line "moment..."
+	
+	para "I must compose "
+	line "myself."
+	done
+	
+_CeladonGymErikaSecondRematchRefusedText::
+	text "Very well."
+	
+	para "I'll go back"
+	line "to tending"
+	cont "to my team."
+	done
+	
+_CeladonGymErikaSecondRematchDefeatedText::
+	text "Simply"
+	line "magnificent!"
+	prompt
+	
+_CeladonGymErikaSecondRematchPostBattleText::
+	text "You are still"
+	line "remarkably"
+	cont "strong."
+	
+	para "Please come"
+	line "visit again!"
 	done

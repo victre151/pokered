@@ -44,8 +44,18 @@ PewterGymBrockPostBattle:
 	ld [wJoyIgnore], a
 	CheckEvent EVENT_BEAT_BROCK
 	jr z, PewterGymScriptReceiveTM34
+	
+	CheckEvent EVENT_BEAT_LEAGUE_ROCKETS
+	jr z, .firstRematchPost
+	
+	ld a, TEXT_PEWTERGYM_SECOND_REMATCH_POST_BATTLE
+	jr .showPost
+
+.firstRematchPost	
 	SetEvent EVENT_BEAT_BROCK_REMATCH
 	ld a, TEXT_PEWTERGYM_REMATCH_POST_BATTLE
+
+.showPost	
 	ldh [hTextID], a
 	call DisplayTextID
 	jp PewterGymResetScripts
@@ -96,6 +106,7 @@ PewterGym_TextPointers:
 	dw_const PewterGymReceivedTM34Text,      TEXT_PEWTERGYM_RECEIVED_TM34
 	dw_const PewterGymTM34NoRoomText,        TEXT_PEWTERGYM_TM34_NO_ROOM
 	dw_const PewterGymRematchPostBattleText, TEXT_PEWTERGYM_REMATCH_POST_BATTLE
+	dw_const PewterGymBrockSecondRematchPostBattleText, TEXT_PEWTERGYM_SECOND_REMATCH_POST_BATTLE
 
 PewterGymTrainerHeaders:
 	def_trainers 2
@@ -113,19 +124,52 @@ PewterGymBrockText:
 	call DisableWaitingAfterTextDisplay
 	jp .done
 .afterBeat
+	CheckEvent EVENT_BEAT_LEAGUE_ROCKETS
+	jr nz, .BrockSecondRematch
+
 	CheckEvent EVENT_BEAT_BROCK_REMATCH
 	jr nz, .alreadyRematched
 	CheckEvent EVENT_PLAYER_IS_CHAMPION
-	jr nz, .BrockRematch
-	ld hl, .PostBattleAdviceText
+	jp nz, .BrockRematch
+	ld hl, PostBattleAdviceText
 	call PrintText
-	jr .done
+	jp .done
+.BrockSecondRematch	
+	ld hl, BrockSecondRematchText
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jr nz, .secondRefused
+	ld hl, BrockSecondRematchAcceptedText
+	call PrintText
+	call Delay3
+	ld hl, wStatusFlags3
+	set BIT_TALKED_TO_TRAINER, [hl]
+	set BIT_PRINT_END_BATTLE_TEXT, [hl]
+	ld hl, PewterGymBrockSecondRematchDefeatedText
+	ld de, PewterGymBrockSecondRematchDefeatedText
+	call SaveEndBattleTextPointers
+	ldh a, [hSpriteIndex]
+	ld [wSpriteIndex], a
+	call EngageMapTrainer
+	call InitBattleEnemyParameters
+	ld a, OPP_BROCK
+	ld [wCurOpponent], a
+	ld a, 3
+	ld [wTrainerNo], a
+	jr .endBattle
+.secondRefused
+	ld hl, BrockSecondRematchRefusedText
+	call PrintText
+	jr .done	
+
 .alreadyRematched
 	ld hl, PewterGymRematchPostBattleText
 	call PrintText
 	jr .done
 .beforeBeat
-	ld hl, .PreBattleText
+	ld hl, PreBattleText
 	call PrintText
 	ld hl, wStatusFlags3
 	set BIT_TALKED_TO_TRAINER, [hl]
@@ -174,11 +218,11 @@ PewterGymBrockText:
 .done
 	jp TextScriptEnd
 
-.PreBattleText:
+PreBattleText:
 	text_far _PewterGymBrockPreBattleText
 	text_end
 
-.PostBattleAdviceText:
+PostBattleAdviceText:
 	text_far _PewterGymBrockPostBattleAdviceText
 	text_end
 
@@ -285,4 +329,24 @@ PewterGymRematchDefeatedText:
 
 PewterGymRematchPostBattleText:
 	text_far _PewterGymRematchPostBattleText
+	text_end
+
+BrockSecondRematchText:
+	text_far _PewterGymBrockSecondRematchPreBattleText
+	text_end
+	
+BrockSecondRematchAcceptedText:
+	text_far _PewterGymBrockSecondRematchAcceptedText
+	text_end
+	
+BrockSecondRematchRefusedText:
+	text_far _PewterGymBrockSecondRematchRefusedText
+	text_end
+	
+PewterGymBrockSecondRematchDefeatedText:
+	text_far _PewterGymBrockSecondRematchDefeatedText
+	text_end
+	
+PewterGymBrockSecondRematchPostBattleText:
+	text_far _PewterGymBrockSecondRematchPostBattleText
 	text_end

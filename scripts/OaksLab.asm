@@ -30,10 +30,14 @@ OaksLab_ScriptPointers:
 	dw_const OaksLabOakGivesPokedexScript,           SCRIPT_OAKSLAB_OAK_GIVES_POKEDEX
 	dw_const OaksLabRivalLeavesWithPokedexScript,    SCRIPT_OAKSLAB_RIVAL_LEAVES_WITH_POKEDEX
 	dw_const OaksLabNoopScript,                      SCRIPT_OAKSLAB_NOOP
-
+	dw_const OaksLabPokedexRivalAfterDexScript,      SCRIPT_OAKSLAB_POKEDEX_RIVAL_AFTER_DEX
+	dw_const OaksLabPokedexRivalExitScript,          SCRIPT_OAKSLAB_POKEDEX_RIVAL_EXIT
+	
 OaksLabDefaultScript:
 	CheckEvent EVENT_OAK_APPEARED_IN_PALLET
 	ret z
+	CheckEvent EVENT_BEAT_LEAGUE_ROCKETS
+	ret nz
 	ld a, [wNPCMovementScriptFunctionNum]
 	and a
 	ret nz
@@ -774,6 +778,8 @@ OaksLab_TextPointers:
 	dw_const OaksLabGirlText,                     TEXT_OAKSLAB_GIRL
 	dw_const OaksLabScientistText,                TEXT_OAKSLAB_SCIENTIST1
 	dw_const OaksLabScientistText,                TEXT_OAKSLAB_SCIENTIST2
+	dw_const OaksLabPokedexRivalText, 			  TEXT_OAKSLAB_POKEDEX_RIVAL_MALE
+	dw_const OaksLabPokedexRivalText, 			  TEXT_OAKSLAB_POKEDEX_RIVAL_FEMALE
 	dw_const OaksLabOakDontGoAwayYetText,         TEXT_OAKSLAB_OAK_DONT_GO_AWAY_YET
 	dw_const OaksLabRivalIllTakeThisOneText,      TEXT_OAKSLAB_RIVAL_ILL_TAKE_THIS_ONE
 	dw_const OaksLabRivalReceivedMonText,         TEXT_OAKSLAB_RIVAL_RECEIVED_MON
@@ -802,7 +808,10 @@ OaksLab_TextPointers2:
 	dw OaksLabOak2Text
 	dw OaksLabGirlText
 	dw OaksLabScientistText
-	dw OaksLabScientistText
+	dw OaksLabScientistText	
+	dw OaksLabPokedexRivalText
+	dw OaksLabPokedexRivalText
+
 
 OaksLabRivalText:
 	text_asm
@@ -1138,6 +1147,182 @@ OaksLabOak1Text:
 	text_far _OaksLabOak1HowIsYourPokedexComingText
 	text_end
 
+OaksLabPokedexRivalText:
+	text_asm
+	CheckEvent EVENT_OAKSLAB_POKEDEX_RIVAL_DONE
+	jp nz, TextScriptEnd
+	
+	CheckEvent EVENT_GOT_POKEDEX
+	jp z, TextScriptEnd
+	
+	CheckEvent EVENT_PLAYER_IS_CHAMPION
+	jp z, TextScriptEnd
+	
+	ld a, [wPlayerGender]
+	and a
+	jr nz, .dexIntroMale
+	ld hl, OaksLabPokedexRivalHowIsDexFemaleText
+	jr .showDex
+.dexIntroMale
+	ld hl, OaksLabPokedexRivalHowIsDexMaleText
+
+.showDex
+	call PrintText
+	
+	ld hl, wPokedexOwned
+	ld b, wPokedexOwnedEnd - wPokedexOwned
+	call CountSetBits
+	ld a, [wNumSetBits]
+	cp NUM_POKEMON
+	jp nc, .complete
+	ld hl, OaksLabPokedexRivalIncompleteFemaleText
+	jr .incompletePrint
+.incompleteMale
+	ld hl, OaksLabPokedexRivalIncompleteMaleText
+.incompletePrint
+	call PrintText_NoCreatingTextBox
+	jp .done
+	
+.complete	
+	ld a, [wPlayerGender]
+	and a
+	jr nz, .leagueMale
+	ld hl, OaksLabPokedexRivalLeagueReopenedFemaleText
+	jr .leaguePrint
+.leagueMale
+	ld hl, OaksLabPokedexRivalLeagueReopenedMaleText
+.leaguePrint
+	call PrintText
+	
+	ld a, SCRIPT_OAKSLAB_POKEDEX_RIVAL_AFTER_DEX
+	ld [wOaksLabCurScript], a
+	xor a
+	ld [wDoNotWaitForButtonPressAfterDisplayingText], a
+	jp .done
+	
+.done
+	jp TextScriptEnd
+
+	
+OaksLabPokedexRivalHowIsDexMaleText:
+	text_far _OaksLabPokedexRivalHowIsDexMaleText
+	text_end
+	
+OaksLabPokedexRivalHowIsDexFemaleText:
+	text_far _OaksLabPokedexRivalHowIsDexFemaleText
+	text_end
+	
+OaksLabPokedexRivalIncompleteMaleText:
+	text_far _OaksLabPokedexRivalIncompleteMaleText
+	text_end
+	
+OaksLabPokedexRivalIncompleteFemaleText:
+	text_far _OaksLabPokedexRivalIncompleteFemaleText
+	text_end	
+	
+OaksLabPokedexRivalLeagueReopenedMaleText:
+	text_far _OaksLabPokedexRivalLeagueReopenedMaleText
+	text_end
+	
+OaksLabPokedexRivalLeagueReopenedFemaleText:
+	text_far _OaksLabPokedexRivalLeagueReopenedFemaleText
+	text_end
+
+OaksLabPokedexRivalAfterDexScript:
+	ld a, [wStatusFlags5]
+	bit BIT_SCRIPTED_NPC_MOVEMENT, a
+	ret nz
+	
+	call EnableAutoTextBoxDrawing
+	xor a
+	ld [wJoyIgnore], a
+	
+	ld a, [wPlayerGender]
+	and a
+	ld a, OAKSLAB_POKEDEX_RIVAL_MALE
+	jr nz, .gotWalkSprite
+	ld a, OAKSLAB_POKEDEX_RIVAL_FEMALE
+.gotWalkSprite
+	ldh [hSpriteIndex], a
+	
+	ld a, [wXCoord]
+	cp 4
+	jr z, .fromLeft
+	ld de, OaksLabPokedexRivalExitFrontMovement
+	jr .startWalk
+.fromLeft
+	ld de, OaksLabPokedexRivalExitLeftMovement
+.startWalk
+	call MoveSprite
+	ld a, SCRIPT_OAKSLAB_POKEDEX_RIVAL_EXIT
+	ld [wOaksLabCurScript], a
+	ret
+	
+OaksLabPokedexRivalExitScript:
+	ld a, [wStatusFlags5]
+	bit BIT_SCRIPTED_NPC_MOVEMENT, a
+	ret nz
+	ResetEventRange INDIGO_PLATEAU_EVENTS_START, INDIGO_PLATEAU_EVENTS_END
+	ResetEvent EVENT_BEAT_CHAMPION_RIVAL
+	
+	SetEvent EVENT_OAKSLAB_POKEDEX_RIVAL_DONE
+	
+	ld a, HS_OAKSLAB_POKEDEX_RIVAL_MALE
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	
+	ld a, HS_OAKSLAB_POKEDEX_RIVAL_FEMALE
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	
+	ld a, [wPlayerGender]
+	and a
+	ld a, HS_CHAMPIONS_ROOM_RIVAL_FEMALE 
+	jr z, .showChampion
+	ld a, HS_CHAMPIONS_ROOM_RIVAL_MALE
+.showChampion
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	
+	ld a, HS_INDIGO_GUARD
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	
+	ld a, HS_LORELEISROOM_LORELEI
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	
+	ld a, HS_BRUNOSROOM_BRUNO
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	
+	ld a, HS_AGATHASROOM_AGATHA
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	
+	ld a, HS_LANCESROOM_LANCE
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	
+	xor a
+	ld [wJoyIgnore], a
+	ld a, SCRIPT_OAKSLAB_NOOP
+	ld [wOaksLabCurScript], a
+	ret
+	
+OaksLabPokedexRivalExitLeftMovement:
+	REPT 5
+	db NPC_MOVEMENT_DOWN
+	ENDR
+	db -1
+	
+OaksLabPokedexRivalExitFrontMovement:
+	db NPC_MOVEMENT_LEFT
+	REPT 5
+	db NPC_MOVEMENT_DOWN
+	ENDR
+	db -1
+	
 OaksLabPokedexText:
 	text_asm
 	ld hl, .Text
