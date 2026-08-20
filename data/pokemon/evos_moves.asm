@@ -4231,8 +4231,9 @@ CharizardEvosMoves:
 	db 33, SCREECH
 	db 35, FLAMETHROWER
 	db 37, SLAM
-	db 39, BODY_SLAM
-	db 41, SWORDS_DANCE
+	db 39, DRILL_PECK
+	db 41, BODY_SLAM
+	db 43, SWORDS_DANCE
 	db 50, THRASH
 	db 0
 

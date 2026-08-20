@@ -216,7 +216,7 @@ IF DEF(_BLUE) ;PINK
 ELSE ;GREEN
 	text "I'll"
 	line "remember how" 
-	line "you fought for"
+	cont "you fought for"
 	cont "next time."
 	prompt
 ENDC
@@ -295,7 +295,7 @@ _Route10BlueText::
 	done
 	
 _Route10BlueDefeatedText::
-	text "BLUE: Tch!"
+	text "Tch!"
 	
 	para "Fine, you win."
 	
@@ -305,7 +305,7 @@ _Route10BlueDefeatedText::
 	prompt
 
 _Route10BlueVictoryText::
-	text "BLUE: See that?"
+	text "See that?"
 	line "That's the gap."
 	
 	para "You need to Train"
@@ -316,9 +316,11 @@ _Route10BlueVictoryText::
 	prompt
 
 _Route10BluePostBattleText::
-	text "I heard that the GYM"
-	line "LEADER in VIRIDIAN"
-	cont "CITY is back, so I'm"
+	text "BLUE: I heard"
+	line "that the GYM"
+	cont "LEADER in"
+	cont "VIRIDIAN CITY"
+	cont "is back, so I'm"
 	cont "headed there!"
 	
 	para "Smell ya!"

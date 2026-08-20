@@ -15,9 +15,9 @@
 
 	; tm/hm learnset
 	tmhm SURF,         STRENGTH,     MEGA_PUNCH,   ICE_PUNCH,    MEGA_KICK,    \
-	     THRASH,       DOUBLE_EDGE,  DISABLE,      HYDRO_PUMP,   BUBBLEBEAM,   \
-	     SEISMIC_TOSS, HYPNOSIS,     SKULL_BASH,   AMNESIA,      REST,         \
-		 SUBSTITUTE
+	     THRASH,       DOUBLE_EDGE,  DISABLE,      HYDRO_PUMP,   ICE_BEAM,     \
+	     BUBBLEBEAM,   SEISMIC_TOSS, HYPNOSIS,     SKULL_BASH,   AMNESIA,      \
+		 REST,         SUBSTITUTE
 	; end
 
 	db BANK(PoliwhirlPicFront)

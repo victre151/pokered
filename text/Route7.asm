@@ -123,7 +123,7 @@ ELSE ;GREEN
 	cont "on reads."
 	
 	para "I'll tighten up"
-	line "before the GYM"
+	line "before the GYM."
 	prompt
 ENDC
 _Route7RivalFemaleVictoryText::
@@ -171,13 +171,16 @@ IF DEF(_BLUE)
 	para "Byeee!"
 	done
 ELSE
-	text "GREEN: Badge first."
-	line "Then FUCHSIA."
-	cont "No side trips."
+	text "GREEN: Badge"
+	line "first."
+	
+	para "Then FUCHSIA."
+	line "No side trips."
 	
 	para "If you stall in"
-	line "CELADON too long,"
-	cont "I'll be gone."
+	line "CELADON too"
+	cont "long, I'll"
+	cont "be gone."
 	done
 ENDC
 	

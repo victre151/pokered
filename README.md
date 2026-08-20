@@ -38,8 +38,6 @@ Talk to Fishing Guru (Route 12)
 
 Route 12, 13, 14, 15 (Wild Lv33, Trainers/Alt Rival4 Lv37)
 
-Talk to Fishing Guru (Fuchsia City)
-
 Fuchsia Gym (Trainers Lv37, Koga Lv41)
 
 Route 18, 17, 16 (Wild Lv37, Trainers Lv41)
@@ -49,6 +47,8 @@ Fighting Dojo (Trainers Lv41, Karate Master Lv43)
 Silph Co. (Trainers Lv41, Giovanni/Rival6 Lv43)
 
 Saffron Gym (Trainers Lv43, Sabrina Lv47)
+
+Talk to Fishing Guru (Fuchsia City)
 
 Safari Zone (Wild Lv43)
 
@@ -111,7 +111,7 @@ Viridian Gym (??? Lv75)
 
 ======ENDGAME======
 
-Do a Pokedex check in with Oak
+Check in with Oak
 
 Cerulean Cave (Wild Lv57, 9th Rival Battle Lv85)
 

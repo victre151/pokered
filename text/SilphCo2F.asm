@@ -17,7 +17,7 @@ _SilphCo2FSilphWorkerFReceivedTM36Text::
 	text_end
 
 _SilphCo2FSilphWorkerFTM36ExplanationText::
-	text "TM12 is"
+	text "TM15 is"
 	line "HYDRO PUMP!"
 
 	para "It's powerful,"

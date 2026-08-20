@@ -133,6 +133,9 @@ PlayerPCDeposit:
 	ld a, SFX_WITHDRAW_DEPOSIT
 	call PlaySound
 	call WaitForSoundToFinish
+	ld a, [wCurItem]
+	ld [wNamedObjectIndex], a
+	call GetItemName
 	ld hl, ItemWasStoredText
 	call PrintText
 	jp .loop

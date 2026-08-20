@@ -17,17 +17,17 @@ DebugNewGameParty: ; unreferenced except in _DEBUG
 	; "Tsunekazu Ishihara: Exeggutor is my favorite. That's because I was
 	; always using this character while I was debugging the program."
 	; From https://web.archive.org/web/20000607152840/http://pocket.ign.com/news/14973.html
-	db EXEGGUTOR, 100
+	db EXEGGUTOR, 80
 IF DEF(_DEBUG)
-	db MEW, 100
+	db MEW, 80
 ELSE
 	db MEW, 20
 ENDC
-	db JOLTEON, 100
-	db DUGTRIO, 100
-	db ARTICUNO, 100
+	db JOLTEON, 80
+	db DUGTRIO, 80
+	db ARTICUNO, 80
 IF DEF(_DEBUG)
-	db CHARIZARD, 100
+	db CHARIZARD, 80
 ENDC
 	db -1 ; end
 
@@ -111,26 +111,7 @@ IF DEF(_DEBUG)
 	call DebugSetPokedexEntries
 	ld hl, wPokedexSeen
 	call DebugSetPokedexEntries
-	SetEvent EVENT_OAK_APPEARED_IN_PALLET
 	SetEvent EVENT_GOT_POKEDEX
-	SetEvent EVENT_PLAYER_IS_CHAMPION
-	SetEvent EVENT_BEAT_LEAGUE_ROCKETS
-	
-	ld a, HS_OAKS_LAB_OAK_1
-	ld [wMissableObjectIndex], a
-	predef HideObject
-	
-	ld a, HS_OAKS_LAB_RIVAL
-	ld [wMissableObjectIndex], a
-	predef HideObject
-	
-	ld a, HS_OAKSLAB_POKEDEX_RIVAL_FEMALE
-	ld [wMissableObjectIndex], a
-	predef ShowObject
-	
-	ld a, HS_INDIGO_GUARD
-	ld [wMissableObjectIndex], a
-	predef ShowObject
 
 	; Rival chose Squirtle,
 	; Player chose Charmander.
@@ -165,7 +146,7 @@ DebugNewGameItemsList:
 	db SECRET_KEY, 1
 	db CARD_KEY, 1
 	db S_S_TICKET, 1
-	db POKE_FLUTE, 1
+	db LIFT_KEY, 1
 	db -1 ; end
 
 DebugUnusedList: ; unreferenced

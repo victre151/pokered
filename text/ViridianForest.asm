@@ -132,26 +132,29 @@ IF DEF(_BLUE)
 	
 	para "Ok, just"
 	line "one match."
-	cont "Please be" 
-	cont "careful..."
+
+	para "Please be" 
+	line "careful..."
 	done
 ELSE
-	text "RED: Hey there."
-	line "I heard fighting"
-	cont "deeper inside."
+	text "RED: Hey there!"
+	line "I heard"
+	cont "fighting deeper"
+	cont "inside the"
+	cont "forest."
 	
 	para "If you're a real"
-	line "trainer, show me"
-	cont "what you've got"
-	cont "right here."
+	line "trainer, show"
+	cont "me what"
+	cont "you've got!"
 	done
 ENDC
 	
 _ViridianForestRivalFemaleText::
 IF DEF(_BLUE)
 	text "PINK: Hey! Hey!"
-	line "Trainer at the"
-	cont "exit!"
+	line "Trainer at"
+	cont "the exit!"
 	
 	para "I've been waiting"
 	line "for somebody"
@@ -163,45 +166,49 @@ IF DEF(_BLUE)
 	done
 ELSE
 	text "GREEN: Hold on."
-	line "You look sure of"
-	cont "yourself."
+	line "You look sure"
+	cont "of yourself."
 	
-	para "Confidence is cheap"
-	line "in this forest."
+	para "Confidence is"
+	line "cheap in"
+	cont "this forest."
 	
 	para "Prove it in a"
-	line "battle now."
+	line "battle now!"
 	done
 ENDC
 _ViridianForestRivalMaleDefeatedText::
 IF DEF(_BLUE) ;YELLOW
-	text "...OK. You win."
-	line "Thanks for stopping"
-	cont "when it was over."
+	text "...OK."
+	line "You win..."
 	
 	para "I'll heal my"
 	line "#MON now."
 	prompt
 ELSE ;RED
-	text "...Fine. You win."
-	line "I'll train harder"
-	cont "and win next time."
+	text "...Fine."
+	line "You win."
+	
+	para "I'll train harder"
+	line "and win"
+	cont "next time!"
 	prompt
 ENDC
 
 _ViridianForestRivalMaleVictoryText::
 IF DEF(_BLUE) ;YELLOW
-	text "I'm sorry..."
-	line "Please heal your"
-	cont "#MON."
+	text "I'm"
+	line "sorry..."
 	
-	para "Winning like that"
-	line "doesn't feel good."
+	para "Please heal"
+	line "your #MON."
 	prompt
 ELSE ;RED
-	text "Not enough yet."
-	line "You need more"
-	cont "practice."
+	text "Not good"
+	line "enough yet."
+
+	para "You need more"
+	line "practice."
 	
 	para "Train, then come"
 	line "find me again."
@@ -210,36 +217,40 @@ ENDC
 
 _ViridianForestRivalFemaleDefeatedText::
 	IF DEF(_BLUE) ;PINK
-	text "Aww, I lost!"
-	line "But that was"
+	text "Aww,"
+	line "I lost!"
+	
+	para "But that was"
 	cont "super fun!"
 	
 	para "Rematch later,"
 	line "OK?"
 	prompt
 ELSE ;GREEN
-	text "You win, You're"
+	text "You're"
 	line "better than"
 	cont "I expected."
 	
-	para "Don't expect me to"
-	line "say that twice."
+	para "Don't expect me"
+	line "to say"
+	cont "that again."
 	prompt
 ENDC
 
 _ViridianForestRivalFemaleVictoryText::
 IF DEF(_BLUE) ;PINK
-	text "I win! Good game!"
-	line "Don't give up"
-	cont "train and try"
-	cont "again!"
+	text "I win!"
+	line "Good game!"
+	
+	para "Don't give up"
+	cont "train and"
+	cont "try again!"
 	prompt
 ELSE ;GREEN
-	text "Too easy. You"
-	line "weren't ready."
+	text "Too easy!"
 	
-	para "Train more, then"
-	line "try again."
+	para "You weren't"
+	line "ready."
 	prompt
 ENDC
 	
@@ -249,55 +260,67 @@ IF DEF(_BLUE)
 	line "<PLAYER>, right?"
 	
 	para "I overslept and"
-	cont "missed the lab."
+	line "missed the lab."
 	
 	para "Later I met"
-	line "<RIVAL>. We"
-	cont "battled. I'd rather"
-	cont "not talk about it."
+	line "<RIVAL>."
+
+	para "We battled."
+	
+	para "I'd rather not"
+	cont "talk about it."
 	done
 ELSE
-	text "RED: <PLAYER>."
+	text "RED: <PLAYER>!"
 	line "I've heard that"
-	cont "name."
+	cont "name before!"
 	
 	para "I got to the lab"
-	line "late nobody was"
-	cont "there."
+	line "late nobody"
+	cont "was there."
 	
-	para "After that I met"
-	line "<RIVAL>. We"
-	cont "battled. That's all"
-	cont "I'm saying."
+	para "After that I"
+	line "met <RIVAL>."
+	
+	para "We battled, but"
+	line "That's all"
+	cont "I'm saying!"
 	done
 ENDC
 	
 _ViridianForestRivalFemalePostBattleText::
 	IF DEF(_BLUE)
 	text "PINK: You're"
-	line "<PLAYER>, right?!"
+	line "<PLAYER>, right?"
 	
 	para "I missed the lab"
-	line "because I woke up"
-	cont "late."
+	line "because I woke"
+	cont "up late."
 	
-	para "Then I saw"
-	line "<RIVAL>! We"
-	cont "battled! It was"
-	cont "really intense!"
+	para "Then I"
+	line "saw <RIVAL>!" 
+	
+	para "We battled!"
+	
+	para "It was really"
+	line "intense!"
 	
 	para "I'll tell you the"
 	line "details later!"
 	done
 ELSE
 	text "GREEN: <PLAYER>."
-	line "That makes sense."
+	line "Hmm, That"
+	cont "makes sense."
 	
 	para "I missed the lab"
-	line "because I was late."
+	line "because I"
+	cont "was late."
 	
-	para "Later I met"
-	line "<RIVAL>. We"
-	cont "battled. That's it."
+	para "I met <RIVAL>."
+	
+	para "We battled."
+	
+	para "they lost."
 	done
 ENDC
